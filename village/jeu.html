@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Le village des amis · MathJeux</title>
+<link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<link rel="stylesheet" href="../ile/jeu.css">
+<link rel="stylesheet" href="../ile-maths/maths.css">
+<link rel="stylesheet" href="../ile/interface.css">
+<link rel="stylesheet" href="../ile-maths/calme.css">
+<link rel="stylesheet" href="../ville/ville.css">
+<link rel="stylesheet" href="village.css">
+<link rel="stylesheet" href="../personnages/personnages.css">
+<script src="../compte.js" defer></script>
+</head>
+<body>
+<canvas id="scene" tabindex="0" aria-label="Le monde en blocs. Flèches pour bouger, Espace ou un toucher sur l'écran pour sauter, glisse avec la souris pour tourner la caméra."></canvas>
+
+<div class="hud">
+  <div class="carte nom">Le village des amis<small><span id="nomNiveau"></span> · <span id="section"></span></small></div>
+  <div class="compteurs">
+    <div class="carte compteur" title="Étoiles ramassées (elles vont dans ta tirelire)"><span class="ico" aria-hidden="true">⭐</span><span id="etoiles">0 / 0</span></div>
+    <div class="carte compteur" title="Portes ouvertes"><span class="ico" aria-hidden="true">🚪</span><span id="drapeaux">0</span></div>
+  </div>
+  <div class="boutons-haut">
+    <a class="btn retour" href="../jeux/village-des-amis.html" aria-label="Retour à la page du village des amis">⬅ Niveaux</a>
+        <button class="btn" id="btnAide" type="button">Aide</button>
+    <button class="btn" id="btnPause" type="button" aria-pressed="false">⏸ Pause</button>
+  </div>
+</div>
+<div class="defi reflexion" id="reflexion" hidden role="dialog" aria-labelledby="reflTitre" aria-describedby="reflTexte">
+  <div class="defi-tete"><span class="defi-ampoule" id="reflPerso" aria-hidden="true">🧑</span><div><small>Que fais-tu ? La porte s’ouvre avec la meilleure réaction</small><b id="reflTitre"></b></div><button type="button" class="defi-lire" id="reflLire" aria-label="Écouter la question">🔊</button></div>
+  <p class="defi-texte" id="reflTexte"></p>
+  <div class="refl-choix" id="reflChoix" role="group" aria-label="Choisis ta réaction"></div>
+  <p class="defi-retour" id="reflRetour" aria-live="polite"></p>
+  <p class="defi-sais" id="reflIndice" hidden></p>
+  <button type="button" class="defi-plus-tard" id="reflIndiceBtn">💡 Un indice, s’il te plaît</button>
+</div>
+<div class="carte message" id="message" hidden></div>
+
+<div class="pad" aria-label="Flèches à l'écran">
+  <button type="button" class="h" data-k="haut" aria-label="Avancer">▲</button>
+  <button type="button" class="g" data-k="gauche" aria-label="Aller à gauche">◀</button>
+  <button type="button" class="b" data-k="bas" aria-label="Reculer">▼</button>
+  <button type="button" class="d" data-k="droite" aria-label="Aller à droite">▶</button>
+</div>
+
+<div class="voile voile-menu" id="accueil">
+  <div class="menu cadre" role="dialog" aria-modal="true" aria-labelledby="titreAccueil">
+    <div class="plaque">Le village des amis</div>
+    <div class="menu-banniere"><svg viewBox="0 0 640 190" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <defs><linearGradient id="cielV" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fd0f5"/><stop offset="1" stop-color="#e3f4ff"/></linearGradient></defs>
+  <rect width="640" height="190" fill="url(#cielV)"/><circle cx="560" cy="44" r="22" fill="#ffd36b"/>
+  <g class="nuage" fill="#ffffffcc"><rect x="0" y="30" width="60" height="14" rx="3"/><rect x="18" y="20" width="40" height="14" rx="3"/></g>
+  <rect x="0" y="140" width="640" height="50" fill="#7cc06e"/>
+  <g><rect x="40" y="95" width="70" height="50" fill="#f3e2c3"/><polygon points="32,98 75,62 118,98" fill="#c8553d"/><rect x="66" y="117" width="18" height="28" fill="#8a5a2a"/>
+  <rect x="140" y="105" width="56" height="40" fill="#d6e6f5"/><polygon points="133,108 168,78 203,108" fill="#3e6a90"/><rect x="160" y="122" width="14" height="23" fill="#8a5a2a"/>
+  <rect x="460" y="95" width="72" height="50" fill="#f6dfe6"/><polygon points="452,98 496,62 540,98" fill="#8e5bd6"/><rect x="487" y="117" width="18" height="28" fill="#8a5a2a"/>
+  <rect x="560" y="105" width="56" height="40" fill="#e8f2d8"/><polygon points="553,108 588,78 623,108" fill="#2e7d4f"/></g>
+  <polygon points="250,190 390,190 350,140 290,140" fill="#e7cf9e"/>
+  <g transform="translate(300 112)"><g class="saute"><rect x="0" y="22" width="8" height="14" fill="#2f4f8f"/><rect x="10" y="22" width="8" height="14" fill="#2f4f8f"/><rect x="-1" y="6" width="20" height="17" fill="#14a3ad"/><rect x="2" y="-8" width="14" height="14" fill="#f2c79e"/><rect x="1" y="-11" width="16" height="5" fill="#6b3f1f"/></g></g>
+  <g transform="translate(332 92)" font-family="Arial" font-weight="700"><rect x="0" y="0" width="30" height="24" rx="8" fill="#fff" stroke="#16324f" stroke-width="2"/><text x="15" y="17" text-anchor="middle" font-size="14" fill="#16324f">…</text></g>
+</svg>
+      <div class="titre-banniere"><span class="badge-niveau">🏘️ Le village des amis</span><h1 id="titreAccueil">Le village des amis</h1></div>
+    </div>
+    <div class="menu-corps" id="corpsAccueil">
+      <p id="texteAccueil"></p>
+      <p class="ville-niveau" id="villeNiveau"></p>
+      <ul class="tuiles-touches">
+        <li class="t1"><span class="picto" aria-hidden="true">🚶</span><span class="txt"><b>marcher</b><span><kbd>▲ ▼ ◀ ▶</kbd> ou <kbd>W A S D</kbd></span></span></li>
+        <li class="t2"><span class="picto" aria-hidden="true">🦘</span><span class="txt"><b>sauter</b><span><kbd>Espace</kbd> ou <kbd>Toucher</kbd> l'écran</span></span></li>
+        <li class="t3"><span class="picto" aria-hidden="true">🎥</span><span class="txt"><b>tourner la caméra (molette : zoom)</b><span><kbd>Glisser</kbd> la souris</span></span></li>
+        <li class="t4"><span class="picto" aria-hidden="true">💬</span><span class="txt"><b>choisir une réaction</b><span><kbd>1 2 3</kbd> ou <kbd>Toucher</kbd></span></span></li>
+        <li class="t4"><span class="picto" aria-hidden="true">⏸</span><span class="txt"><b>pause</b><span><kbd>P</kbd> ou <kbd>Échap</kbd></span></span></li>
+      </ul>
+      <div class="options">
+        <label class="puce" for="optVitesse">Vitesse
+          <select id="optVitesse"><option value="0.75">🐢 Lente</option><option value="1" selected>🙂 Normale</option></select></label>
+      </div>
+      <div class="actions"><button class="btn-jouer" id="btnJouer" type="button">Jouer</button></div>
+    </div>
+    <a class="fermer" href="../jeux/village-des-amis.html" aria-label="Fermer et revenir à la page du jeu">✕</a>
+  </div>
+</div>
+
+<div class="voile voile-menu" id="pausePanneau" hidden>
+  <div class="menu cadre petit" role="dialog" aria-modal="true" aria-labelledby="titrePause">
+    <div class="plaque" id="titrePause">Pause</div>
+    <div class="menu-corps boutons-colonne">
+      <button class="bouton-jeu vert" id="pReprendre" type="button">▶ Reprendre</button>
+      <button class="bouton-jeu" id="pRecommencer" type="button">↺ Recommencer</button>
+      <button class="bouton-jeu bleu" id="pAide" type="button">❔ Commandes</button>
+      <a class="bouton-jeu sombre" href="../jeux/village-des-amis.html">⬅ Quitter</a>
+    </div>
+    <button class="fermer" id="pFermer" type="button" aria-label="Reprendre">✕</button>
+  </div>
+</div>
+
+<div class="voile voile-menu" id="fin" hidden>
+  <div class="menu menu-fin cadre" role="dialog" aria-modal="true" aria-labelledby="titreFin">
+    <div class="plaque">Bravo !</div>
+    <div class="menu-banniere petite"><svg viewBox="0 0 640 130" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <defs><linearGradient id="cielF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b4d66"/><stop offset="1" stop-color="#253545"/></linearGradient>
+  <radialGradient id="halo"><stop offset="0" stop-color="#fff8d6"/><stop offset="1" stop-color="#fff8d600"/></radialGradient></defs>
+  <rect width="640" height="130" fill="url(#cielF)"/>
+  <g transform="translate(320 70)"><g class="tourne" opacity=".35" fill="#fff"><path d="M0 0 L-12 -120 L12 -120z"/><path d="M0 0 L-12 120 L12 120z"/><path d="M0 0 L120 -12 L120 12z"/><path d="M0 0 L-120 -12 L-120 12z"/><path d="M0 0 L75 -95 L95 -75z"/><path d="M0 0 L-75 95 L-95 75z"/><path d="M0 0 L-95 -75 L-75 -95z"/><path d="M0 0 L95 75 L75 95z"/></g>
+  <circle r="60" fill="url(#halo)"/></g>
+  <g transform="translate(320 66)"><g class="flotte">
+    <rect x="-8" y="22" width="16" height="16" fill="#a86f00"/><rect x="-24" y="38" width="48" height="10" fill="#7a5130"/>
+    <path d="M-28 -34 h56 v14 c0 26 -14 40 -28 40 c-14 0 -28 -14 -28 -40z" fill="#ffd36b" stroke="#a86f00" stroke-width="3"/>
+    <path d="M-28 -26 h-14 c0 18 10 24 16 24" fill="none" stroke="#a86f00" stroke-width="5"/><path d="M28 -26 h14 c0 18 -10 24 -16 24" fill="none" stroke="#a86f00" stroke-width="5"/>
+    <polygon points="0,-24 4,-14 14,-14 6,-8 9,2 0,-4 -9,2 -6,-8 -14,-14 -4,-14" fill="#fff"/></g></g>
+  <g class="confettis"><rect class="c c1" x="80" y="0" width="8" height="12" fill="#5b8fd9"/><rect class="c c2" x="160" y="0" width="8" height="12" fill="#e9799b"/><rect class="c c3" x="230" y="0" width="8" height="12" fill="#2f8a4b"/><rect class="c c4" x="420" y="0" width="8" height="12" fill="#8e5bd6"/><rect class="c c5" x="500" y="0" width="8" height="12" fill="#ffffff"/><rect class="c c6" x="570" y="0" width="8" height="12" fill="#5b8fd9"/><rect class="c c2" x="380" y="0" width="8" height="12" fill="#2f8a4b"/><rect class="c c5" x="120" y="0" width="8" height="12" fill="#e9799b"/></g>
+</svg></div>
+    <div class="menu-corps">
+    <h2 id="titreFin" tabindex="-1">Bravo, tu as traversé le village !</h2>
+    <div class="score" id="finScore" aria-label="Score"></div>
+    <p id="texteFin"></p>
+    <div class="resultat"><span>⭐ <span id="finEtoiles"></span></span><span>Bonnes réactions du premier coup : <span id="finReflexion"></span></span><span>Autres essais : <span id="finErreurs"></span></span><span>⏱ <span id="finTemps"></span></span></div>
+    <p class="bilan-sauvegarde" id="finSauvegarde" aria-live="polite"></p>
+    <div class="actions"><button class="bouton-jeu vert" id="btnSuivant" type="button">Niveau suivant →</button><button class="bouton-jeu" id="btnRejouer" type="button">Rejouer</button><button class="bouton-jeu sombre" id="btnRetour" type="button">Changer de niveau</button></div>
+    </div>
+    <a class="fermer" href="../jeux/village-des-amis.html" aria-label="Fermer et revenir à la page du jeu">✕</a>
+  </div>
+</div>
+
+<script src="../ile/three.min.js"></script>
+<script src="../personnages/personnages.js"></script>
+<script src="jeu.js"></script>
+</body>
+</html>

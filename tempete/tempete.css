@@ -1,0 +1,19 @@
+/* Building bar and wind warning of the Block Storm game */
+body:not(.en-jeu) .tp-barre,body.en-pause .tp-barre{display:none}
+.tp-barre{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;justify-content:center;max-width:calc(100% - 230px);z-index:5}
+.tp-pieces,.tp-actions{display:flex;gap:8px;background:linear-gradient(#134456,#0c3241);border:3px solid #2b6f84;border-radius:18px;padding:8px}
+.tp-piece,.tp-act{font:800 16px "Baloo 2",system-ui,sans-serif;color:#eaf7fb;background:#1d566b;border:2px solid #3f8aa1;border-radius:12px;padding:6px 12px;cursor:pointer;display:flex;flex-direction:column;align-items:center;line-height:1.1;min-width:76px}
+.tp-piece small,.tp-act small{font:700 12px "Atkinson Hyperlegible",system-ui,sans-serif;opacity:.85;margin-top:2px}
+.tp-ico{font-size:22px}
+.tp-piece[aria-pressed="true"]{background:#f2c94c;border-color:#fff3c4;color:#3b2a00}
+.tp-act.vert{background:#2f8a4b;border-color:#6fd08d}.tp-act.sombre{background:#3a4652;border-color:#77889a}.tp-act.bleu{background:#2c62ab;border-color:#7fa9e6}
+.tp-act:disabled{opacity:.45;cursor:default}
+.tp-piece:focus-visible,.tp-act:focus-visible{outline:3px solid #ffd34d;outline-offset:2px}
+.message{top:calc(84px + env(safe-area-inset-top,0px))!important;bottom:auto!important}
+.tp-vent{position:fixed;left:50%;top:calc(150px + env(safe-area-inset-top,0px));transform:translateX(-50%);background:#5b3fa0;color:#fff;border:3px solid #c9b6f2;border-radius:16px;padding:8px 18px;font:800 18px "Baloo 2",system-ui,sans-serif;text-align:center;max-width:calc(100% - 32px);z-index:6}
+.coeur-perdu{animation:tp-clignote .6s 2}
+@keyframes tp-clignote{50%{filter:brightness(2)}}
+@media (max-width:900px){.tp-barre{max-width:calc(100% - 200px);gap:6px}.tp-piece,.tp-act{min-width:62px;font-size:14px;padding:5px 8px}.tp-ico{font-size:18px}}
+@media (max-width:620px){.tp-barre{left:auto;right:6px;transform:none;width:min(204px,calc(100% - 186px));max-width:none;flex-direction:column;align-items:stretch;gap:6px}.tp-pieces,.tp-actions{flex-wrap:wrap;justify-content:center;padding:5px;gap:5px;border-radius:14px}.tp-piece,.tp-act{min-width:0;flex:1 1 40%;padding:4px 6px;font-size:13px}.tp-ico{font-size:16px}.tp-act small,.tp-piece small{display:none}}
+@media (prefers-reduced-motion:reduce){.coeur-perdu{animation:none}}
+@media (max-width:620px){.message{top:calc(150px + env(safe-area-inset-top,0px))!important}.tp-vent{top:auto;bottom:calc(250px + env(safe-area-inset-bottom,0px));font-size:15px}}

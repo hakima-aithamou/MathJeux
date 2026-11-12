@@ -1,0 +1,142 @@
+/* Main menu and shop dialogs of the block games (characters, accessories, tools, music) */
+.mp,.pm-voile{--encre:#16324f;--doux:#4a6378;--or:#f4b63f;--or-fonce:#a86f00;--vert:#2f8a4b;--ciel1:#5ec8ff;--ciel2:#a98bff;--police:"Atkinson Hyperlegible",Arial,sans-serif;--titre:"Baloo 2","Trebuchet MS",sans-serif}
+
+/* ---------- Main menu ---------- */
+.mp{position:fixed;inset:0;z-index:990;overflow:auto;background:linear-gradient(160deg,var(--ciel1),#7fb0ff 45%,var(--ciel2));font-family:var(--police);color:var(--encre);animation:mp-ouvre .45s ease-out}
+.mp-sortie{animation:mp-ferme .38s ease-in forwards}
+.mp-deco{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.mp-nuage{position:absolute;font-size:90px;opacity:.85;animation:mp-glisse 38s linear infinite}
+.mp-n0{top:6%;animation-duration:42s}.mp-n1{top:30%;font-size:64px;animation-duration:31s;animation-delay:-14s}.mp-n2{top:62%;font-size:110px;animation-duration:50s;animation-delay:-30s;opacity:.6}
+.mp-etoile-tombe{position:absolute;top:-40px;font-size:24px;animation:mp-tombe 6s linear infinite}
+.mp-bloc{position:absolute;bottom:18px;left:-60px;width:42px;height:42px;border-radius:8px;background:linear-gradient(135deg,#ffd75e,#f4a23f);box-shadow:inset -6px -6px 0 #0002;animation:mp-roule 14s linear infinite}
+.mp-balle{position:absolute;bottom:18px;right:12%;width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#ff6b8a 40%,#d93a63);animation:mp-rebondit 1.1s cubic-bezier(.3,0,.7,1) infinite}
+.mp-boite{position:relative;max-width:1000px;margin:0 auto;padding:22px 16px 40px;display:flex;flex-direction:column;align-items:center;gap:16px;box-sizing:border-box}
+.mp-titre{margin:4px 0 0;font-family:var(--titre);font-weight:800;font-size:clamp(34px,6vw,60px);line-height:1.05;text-align:center;color:#fff;text-shadow:0 4px 0 #1d4f8f,0 8px 18px #0004}
+.mp-lettre{display:inline-block;animation:mp-sautille 2.4s ease-in-out infinite}
+.mp-espace{display:inline-block;width:.3em}
+.mp-scene{position:relative;display:grid;grid-template-columns:minmax(220px,300px) minmax(200px,1fr);align-items:center;gap:18px;width:100%;max-width:760px;background:#ffffffd9;border-radius:28px;padding:16px 22px;box-sizing:border-box;box-shadow:0 10px 30px #0003;animation:mp-surgit .6s .05s both cubic-bezier(.2,1.4,.4,1)}
+.mp-vue{position:relative;height:280px;border-radius:22px;background:radial-gradient(circle at 50% 35%,#fff7d6,#cfe9ff 70%);overflow:hidden}
+.mp-socle{position:absolute;left:calc(22px + 150px - 70px);bottom:30px;width:140px;height:20px;border-radius:50%;background:#16324f22;animation:mp-ombre .98s ease-in-out infinite;display:none}
+.pm-apercu-3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.mp-infos p{margin:6px 0}
+.mp-solde{font-size:30px;font-weight:800;color:var(--or-fonce)}
+.mp-etoile{display:inline-block;animation:mp-tourbillon 3s ease-in-out infinite}
+.mp-nb{display:inline-block;animation:mp-pulse 1.6s ease-in-out infinite}
+.mp-nom-perso{font-family:var(--titre);font-size:28px;font-weight:800}
+.mp-badges{display:flex;flex-wrap:wrap;gap:8px;font-size:17px}
+.mp-badges span:empty{display:none}
+.mp-badges span{background:#eef4f7;border-radius:999px;padding:5px 12px}
+.mp-tuiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;width:100%;max-width:900px}
+.mp-tuile{display:flex;flex-direction:column;align-items:center;gap:4px;border:none;border-radius:24px;padding:14px 10px 16px;background:#fff;color:var(--encre);font-family:var(--police);cursor:pointer;box-shadow:0 8px 0 #0002,0 12px 24px #0002;animation:mp-surgit .55s both cubic-bezier(.2,1.5,.4,1);transition:transform .15s}
+.mp-tuile:hover{animation:mp-tremble .4s;transform:translateY(-4px)}
+.mp-tuile:active{transform:translateY(3px) scale(.97)}
+.mp-tuile:focus-visible,.mp-jouer:focus-visible{outline:4px solid #fff;outline-offset:4px}
+.mp-t-perso{background:linear-gradient(180deg,#fff,#ffe3ef)}.mp-t-acc{background:linear-gradient(180deg,#fff,#fff1cc)}.mp-t-outil{background:linear-gradient(180deg,#fff,#dff3ff)}.mp-t-musique{background:linear-gradient(180deg,#fff,#e8e1ff)}
+.mp-fig{width:120px;height:96px;display:flex;align-items:center;justify-content:center;border-radius:18px;overflow:hidden;background:#ffffffb0}
+.mp-fig img{width:100%;height:100%;object-fit:cover}
+.mp-rebond{animation:mp-rebondit 1.2s cubic-bezier(.3,0,.7,1) infinite}
+.mp-vacille{animation:mp-vacille 2s ease-in-out infinite}
+.mp-balance{transform-origin:50% -20%;animation:mp-balance 2.4s ease-in-out infinite}
+.mp-pulse{animation:mp-pulse 1.4s ease-in-out infinite}
+.mp-tuile-nom{font-family:var(--titre);font-weight:800;font-size:24px}
+.mp-tuile-sous{font-size:16px;color:var(--doux)}
+.mp-jouer{position:relative;overflow:hidden;font-family:var(--titre);font-weight:800;font-size:32px;padding:12px 48px;border:none;border-radius:999px;background:linear-gradient(180deg,#5fd27c,#2f8a4b);color:#fff;cursor:pointer;box-shadow:0 8px 0 #1f6b38,0 14px 26px #0003;animation:mp-pulse 1.6s ease-in-out infinite}
+.mp-jouer::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,#fff8,transparent);animation:mp-brille 2.6s ease-in-out infinite}
+.mp-jouer:active{transform:translateY(4px);box-shadow:0 4px 0 #1f6b38}
+/* sound bars (music tile and music cards) */
+.pm-barres{display:flex;align-items:flex-end;gap:5px;height:60px}
+.pm-barres i{display:block;width:12px;border-radius:6px;background:linear-gradient(180deg,#b46aff,#5f8cff);animation:mp-onde 1s ease-in-out infinite}
+.pm-barres i:nth-child(1){height:30%}.pm-barres i:nth-child(2){height:80%;animation-delay:-.2s}.pm-barres i:nth-child(3){height:55%;animation-delay:-.4s}.pm-barres i:nth-child(4){height:95%;animation-delay:-.6s}.pm-barres i:nth-child(5){height:45%;animation-delay:-.8s}
+
+/* ---------- Button in the start screen of each game ---------- */
+.pm-ouvrir{width:100%;font-family:var(--police,Arial),Arial,sans-serif;font-weight:700;font-size:17px;min-height:46px;padding:8px 16px;border-radius:14px;border:2px solid #f4b63f;background:linear-gradient(180deg,#fff7e3,#ffe7a8);color:#16324f;cursor:pointer;animation:mp-pulse 2.4s ease-in-out infinite}
+.pm-ouvrir:focus-visible,.pm-bouton:focus-visible,.pm-fermer:focus-visible{outline:3px solid #f4b63f;outline-offset:2px}
+
+/* ---------- Shop dialogs ---------- */
+.pm-voile{position:fixed;inset:0;z-index:1000;background:#0d1b2ecc;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;animation:mp-ouvre .25s ease-out}
+.pm-boite{position:relative;background:#fff;color:var(--encre);border-radius:26px;max-width:1040px;width:100%;max-height:92vh;overflow:auto;padding:22px 22px 18px;box-sizing:border-box;box-shadow:0 12px 40px #0008;font-family:var(--police);animation:mp-surgit .45s cubic-bezier(.2,1.4,.4,1)}
+.pm-perso{border-top:10px solid #ff7fb0}.pm-acc{border-top:10px solid #f4b63f}.pm-outil{border-top:10px solid #4fb3e8}.pm-musique{border-top:10px solid #9a6ae0}
+.pm-tete{display:flex;gap:16px;align-items:center;margin-right:44px}
+.pm-textes{flex:1}
+.pm-vue{position:relative;flex:0 0 170px;height:190px;border-radius:20px;background:radial-gradient(circle at 50% 35%,#fff7d6,#cfe9ff 70%);overflow:hidden}
+.pm-titre{font-family:var(--titre);font-weight:800;font-size:32px;margin:0 0 4px;line-height:1.1}
+.pm-solde{font-size:22px;font-weight:700;margin:4px 0;color:var(--or-fonce)}
+.pm-solde:empty{display:none}
+.pm-aide{font-size:17px;line-height:1.45;margin:0 0 14px;color:var(--doux)}
+.pm-msg{font-size:19px;font-weight:700;min-height:1.4em;margin:12px 0 0;color:var(--vert)}
+.pm-fermer{position:absolute;top:12px;right:12px;width:46px;height:46px;border-radius:50%;border:2px solid #c9dbe6;background:#fff;font-size:22px;cursor:pointer;color:var(--encre);transition:transform .2s}
+.pm-fermer:hover{transform:rotate(90deg)}
+.pm-grille{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;margin-top:6px}
+.pm-carte{position:relative;display:flex;flex-direction:column;align-items:stretch;gap:8px;border:3px solid #e1ebf2;border-radius:18px;padding:10px;background:#f7fbfd;transition:transform .18s,box-shadow .18s}
+.pm-carte:hover{transform:translateY(-5px) rotate(-1deg);box-shadow:0 10px 20px #16324f22}
+.pm-carte:hover .pm-image img{animation:mp-flotte 1.6s ease-in-out infinite}
+.pm-entree{animation:mp-surgit .45s both cubic-bezier(.2,1.5,.4,1)}
+.pm-hop{animation:mp-hop .5s cubic-bezier(.3,0,.5,1.6)}
+.pm-gagne{animation:mp-tourne .7s ease-out}
+.pm-bloque .pm-image{filter:grayscale(.55) brightness(.95)}
+.pm-carte-active{border-color:var(--vert);background:#eef9f1}
+.pm-carte-active .pm-image img{animation:mp-flotte 2.2s ease-in-out infinite}
+.pm-image{aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#eef4f7;display:flex;align-items:center;justify-content:center}
+.pm-image img{width:100%;height:100%;object-fit:contain;display:block}
+.pm-defaut{font-size:64px}
+.pm-nom{font-size:18px;line-height:1.2;text-align:center}
+.pm-effet{display:block;font-weight:400;font-size:15px;color:var(--doux);margin-top:4px}
+.pm-boutons{display:flex;gap:6px}.pm-boutons .pm-bouton{flex:1;white-space:nowrap;font-size:16px;padding:0 6px}
+.pm-bouton{font:inherit;font-weight:700;font-size:17px;min-height:46px;border-radius:12px;border:2px solid var(--or-fonce);background:var(--or);color:#3d2800;cursor:pointer;transition:transform .1s}
+.pm-bouton:hover:not(:disabled){transform:scale(1.04)}
+.pm-bouton.pm-actif{background:var(--vert);border-color:#1f6b38;color:#fff}
+.pm-ecouter{background:#e8e1ff;border-color:#7a5ad8;color:#3a2380}
+.pm-bouton:disabled{background:#e6ecf0;border-color:#c9dbe6;color:#6b7f90;cursor:not-allowed}
+.pm-manque{text-align:center;font-size:15px;color:#6b7f90}
+.pm-note{font-size:52px;background:linear-gradient(180deg,#f3efff,#e1d7ff)}
+.pm-carte-son .pm-barres i{animation-play-state:paused}
+.pm-carte-son.pm-joue .pm-barres i,.pm-carte-son.pm-carte-active .pm-barres i{animation-play-state:running}
+.pm-eclat{position:absolute;left:50%;top:40%;font-size:22px;pointer-events:none;animation:mp-eclat .9s ease-out forwards}
+
+/* ---------- Animations ---------- */
+@keyframes mp-ouvre{from{opacity:0}to{opacity:1}}
+@keyframes mp-ferme{to{opacity:0;transform:scale(1.06)}}
+@keyframes mp-glisse{from{transform:translateX(-160px)}to{transform:translateX(110vw)}}
+@keyframes mp-tombe{0%{transform:translateY(0) rotate(0);opacity:0}10%{opacity:1}100%{transform:translateY(110vh) rotate(360deg);opacity:.2}}
+@keyframes mp-roule{from{transform:translateX(0) rotate(0)}to{transform:translateX(calc(100vw + 120px)) rotate(1080deg)}}
+@keyframes mp-rebondit{0%,100%{transform:translateY(0) scale(1.08,.92)}15%{transform:translateY(-6px) scale(.96,1.04)}50%{transform:translateY(-38px) scale(1)}85%{transform:translateY(-6px)}}
+@keyframes mp-sautille{0%,60%,100%{transform:translateY(0)}20%{transform:translateY(-12px) rotate(-4deg)}40%{transform:translateY(0) rotate(3deg)}}
+@keyframes mp-surgit{0%{opacity:0;transform:scale(.4) translateY(30px)}100%{opacity:1;transform:none}}
+@keyframes mp-tremble{0%,100%{transform:translateY(-4px)}20%{transform:translateY(-4px) rotate(-3deg)}40%{transform:translateY(-4px) rotate(3deg)}60%{transform:translateY(-4px) rotate(-2deg)}80%{transform:translateY(-4px) rotate(2deg)}}
+@keyframes mp-vacille{0%,100%{transform:rotate(0)}25%{transform:rotate(-7deg) scale(1.03)}75%{transform:rotate(7deg) scale(1.03)}}
+@keyframes mp-balance{0%,100%{transform:rotate(-10deg)}50%{transform:rotate(10deg)}}
+@keyframes mp-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+@keyframes mp-tourbillon{0%,70%{transform:rotate(0) scale(1)}85%{transform:rotate(200deg) scale(1.3)}100%{transform:rotate(360deg) scale(1)}}
+@keyframes mp-onde{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
+@keyframes mp-brille{0%,60%{left:-60%}100%{left:130%}}
+@keyframes mp-flotte{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes mp-hop{0%{transform:translateY(0)}40%{transform:translateY(-14px) scale(1.03)}100%{transform:translateY(0)}}
+@keyframes mp-tourne{0%{transform:scale(.8) rotate(0)}60%{transform:scale(1.08) rotate(360deg)}100%{transform:scale(1) rotate(360deg)}}
+@keyframes mp-eclat{0%{transform:translate(-50%,-50%) rotate(var(--a)) translateY(0) scale(.5);opacity:1}100%{transform:translate(-50%,-50%) rotate(var(--a)) translateY(-90px) scale(1.2);opacity:0}}
+@keyframes mp-ombre{0%,100%{transform:scale(1)}50%{transform:scale(.7)}}
+
+@media (max-width:760px){
+  .mp-scene{grid-template-columns:1fr}.mp-vue{height:230px}.mp-infos{text-align:center}.mp-infos .mp-solde,.mp-infos .mp-nom-perso{margin-left:auto;margin-right:auto}.mp-badges{justify-content:center}
+  .mp-tuiles{grid-template-columns:repeat(2,1fr)}
+  .pm-tete{flex-direction:column-reverse;align-items:stretch;margin-right:0}.pm-vue{flex-basis:auto;height:170px}.pm-titre{font-size:26px;margin-right:48px}
+  .pm-grille{grid-template-columns:repeat(2,1fr)}
+}
+/* More life in the main menu: the panel floats, the tiles hop one after the other */
+.mp-scene{animation:mp-surgit .6s .05s both cubic-bezier(.2,1.4,.4,1),mp-flotte-doux 4s 1s ease-in-out infinite}
+.mp-tuile{animation:mp-surgit .55s both cubic-bezier(.2,1.5,.4,1),mp-vague 3.2s ease-in-out infinite}
+.mp-tuile:nth-child(1){animation-delay:.15s,1s}.mp-tuile:nth-child(2){animation-delay:.27s,1.25s}.mp-tuile:nth-child(3){animation-delay:.39s,1.5s}.mp-tuile:nth-child(4){animation-delay:.51s,1.75s}
+.mp-tuile-nom{display:inline-block}
+.mp-tuile:hover .mp-tuile-nom{animation:mp-hop .5s ease-out}
+.mp-nom-perso{display:block;width:fit-content;animation:mp-vacille 3s ease-in-out infinite}
+.mp-badges span{animation:mp-hop 2.6s ease-in-out infinite}
+.mp-badges span:nth-child(3){animation-delay:.3s}.mp-badges span:nth-child(5){animation-delay:.6s}
+.mp-solde{display:block;width:fit-content;animation:mp-rebondit-doux 1.4s cubic-bezier(.3,0,.7,1) infinite}
+.mp-reglages{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.mp-calme-bouton{font-family:var(--police);font-size:16px;font-weight:700;padding:8px 16px;min-height:44px;border-radius:999px;border:2px solid #ffffffaa;background:#ffffff33;color:#fff;cursor:pointer}
+.mp-calme-bouton:focus-visible{outline:3px solid #fff;outline-offset:2px}
+@keyframes mp-flotte-doux{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes mp-vague{0%,70%,100%{transform:translateY(0) scale(1)}78%{transform:translateY(-16px) scale(1.04,.97)}86%{transform:translateY(0) scale(1.05,.95)}92%{transform:translateY(-5px)}}
+@keyframes mp-rebondit-doux{0%,100%{transform:translateY(0) scale(1.04,.96)}50%{transform:translateY(-10px) scale(1)}}
+
+/* Calm mode (button in the main menu): everything stays still */
+html.pm-calme .mp *,html.pm-calme .mp,html.pm-calme .pm-voile *,html.pm-calme .pm-voile,html.pm-calme .pm-ouvrir{animation:none!important;transition:none!important}
