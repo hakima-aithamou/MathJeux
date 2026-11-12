@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nos bons moments en classe - MathJeux</title>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="style.css"><link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<script src="compte.js" defer></script><link rel="stylesheet" href="apparence.css">
+<script src="menu-lateral.js" defer></script>
+<style>.illu-emo{font-size:58px;line-height:1;display:flex;align-items:center;justify-content:center;height:100%}</style>
+</head>
+<body class="cat-vie">
+<header class="barre-haut">
+<a class="brand" href="index.html">Math<span>Jeux</span><small>De La Salle · Ottawa</small></a>
+<button class="menu-bouton" type="button" aria-expanded="false" aria-controls="menu-general">☰ Menu</button>
+<nav class="menu-general" id="menu-general" aria-label="Menu général">
+<a href="index.html">Accueil</a><a href="a-propos.html">À propos</a><a href="contact.html">Nous contacter</a><a href="aide.html">Aide</a><a data-compte="eleve" href="connexion.html?role=eleve">🎒 Connexion élève</a><a data-compte="prof" href="connexion.html?role=teacher">🍎 Connexion enseignante</a></nav>
+</header>
+<script>document.currentScript.previousElementSibling.querySelector(".menu-bouton").onclick=function(){var o=this.getAttribute("aria-expanded")!=="true";this.setAttribute("aria-expanded",o);this.parentNode.classList.toggle("ouvert",o)}</script>
+<div class="mise-en-page">
+<aside class="barre-laterale">
+<p class="menu-titre">Activités</p>
+<nav class="menu-activites" aria-label="Catégories d’activités">
+<a href="mathematiques/index.html" style="--c:var(--mathematiques)"><span class="menu-icone" aria-hidden="true">📐</span>Mathématiques</a>
+<a href="defis/index.html" style="--c:var(--defis)"><span class="menu-icone" aria-hidden="true">🧩</span>Défis</a>
+<a href="jeux/index.html" style="--c:var(--jeux)"><span class="menu-icone" aria-hidden="true">🎮</span>Jeux</a>
+<a href="bons-moments-classe.html" style="--c:var(--vie)" aria-current="page"><span class="menu-icone" aria-hidden="true">❤️</span>Vie de classe</a>
+<a href="galerie.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">📸</span>Galerie</a>
+</nav>
+</aside>
+<div class="page">
+
+
+<section class="entete-page bons-moments-entete"><span>VIE DE CLASSE</span><h1>❤️ Nos bons moments en classe</h1><p>Des souvenirs partagés ensemble, dans la bonne humeur.</p></section>
+<main class="conteneur">
+<section class="jeux-niveau" aria-labelledby="vie-ateliers">
+<h2 id="vie-ateliers">🧰 Ateliers de la vie de classe</h2>
+<div class="tuiles">
+<a class="tuile" href="ateliers/jeu.html?j=emotions" style="--c1:#c27a0e;--c2:#f4d394;--fonce:#c27a0e">
+  <span class="tuile-illu" aria-hidden="true"><span class="illu-emo">💛</span></span>
+  <span class="tuile-texte"><strong>Émotions et bons choix</strong><small>Reconnaître les émotions, le thermomètre des émotions, se calmer, être un bon ami.</small></span>
+  <span class="tuile-pied"><b>6 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="ateliers/jeu.html?j=journee" style="--c1:#5a6fd6;--c2:#b6c1f3;--fonce:#5a6fd6">
+  <span class="tuile-illu" aria-hidden="true"><span class="illu-emo">🖼️</span></span>
+  <span class="tuile-texte"><strong>Ma journée en images</strong><small>Les routines en images : se laver les mains, le matin, le soir, l’école.</small></span>
+  <span class="tuile-pied"><b>6 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+<section class="galerie galerie-bons-moments">
+<div class="image-galerie">
+<img src="images/bons-moments-1.jpg" onclick="agrandir(this)" alt="Un bon moment partagé en classe">
+</div>
+<div class="image-galerie">
+<img src="images/bons-moments-2.jpg" onclick="agrandir(this)" alt="Un bon moment partagé en classe">
+</div>
+</section>
+</main>
+
+<div class="retour"><a href="galerie.html">← Retour à Nos beaux moments</a></div>
+
+<div id="modal" class="modal" onclick="fermerModal(event)">
+<button onclick="fermer()">×</button>
+<img id="grandeImage" alt="Photo agrandie">
+</div>
+
+<footer class="site-footer"><span>MathJeux <b>│</b> De La Salle · Ottawa</span><span>Apprendre aujourd’hui pour demain</span></footer>
+<script src="script.js"></script>
+
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,262 @@
+/* =====================================================================
+   SHARED LOOK OF THE SITE (loaded last on every page)
+   - One colour per category, used the same way everywhere
+     (a stable visual cue for the students).
+   - Same light header on every page, larger text,
+     calm backgrounds, "horizon" banner instead of the lab photos.
+   ===================================================================== */
+:root{
+  --sports:#b34724;--sports-pale:#fcebe4;
+  --informatique:#2c62ab;--informatique-pale:#e4edf9;
+  --mathematiques:#0b7480;--mathematiques-pale:#e1f3f4;
+  --francais:#3b3f9e;--francais-pale:#e8e9f8;
+  --sciences:#2b7a43;--sciences-pale:#e3f2e7;
+  --defis:#6a4cad;--defis-pale:#ede8f8;
+  --jeux:#a35a0b;--jeux-pale:#fbefdf;
+  --vie:#ad3d6c;--vie-pale:#f9e6ee;
+  --cat:var(--accent-fonce);--cat-pale:var(--accent-pale);
+  --rayon:18px;
+}
+body.cat-sports{--cat:var(--sports);--cat-pale:var(--sports-pale)}
+body.cat-informatique{--cat:var(--informatique);--cat-pale:var(--informatique-pale)}
+body.cat-mathematiques{--cat:var(--mathematiques);--cat-pale:var(--mathematiques-pale)}
+body.cat-francais{--cat:var(--francais);--cat-pale:var(--francais-pale)}
+body.cat-sciences{--cat:var(--sciences);--cat-pale:var(--sciences-pale)}
+body.cat-defis{--cat:var(--defis);--cat-pale:var(--defis-pale)}
+body.cat-jeux{--cat:var(--jeux);--cat-pale:var(--jeux-pale)}
+body.cat-vie{--cat:var(--vie);--cat-pale:var(--vie-pale)}
+
+/* ---------- Base ---------- */
+body{background:var(--fond)!important;color:var(--encre);font-family:var(--police);font-size:17px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+/* ---------- Home / About / Contact / Help / Sign-in pages: no more "box" ---------- */
+body:has(.site-shell){padding:0!important}
+.site-shell{max-width:none!important;border-radius:0!important;box-shadow:none!important;background:var(--fond)!important;min-height:100vh;display:flex;flex-direction:column}
+.site-shell>main{flex:1}
+.site-shell>header,.site-header{background:#fff!important;padding:16px max(24px,calc((100% - 1200px)/2))!important;box-shadow:0 2px 0 var(--surface-3)!important;border-bottom:4px solid var(--accent)}
+.site-shell>header .brand,.site-header .brand{font-size:32px!important;color:var(--encre)!important}
+.site-shell>header .brand span,.site-header .brand span{color:var(--accent-fonce)!important}
+.site-shell>header nav,.nav-principale{gap:6px!important;align-items:center}
+.site-shell>header nav a,.nav-principale a{font-size:16px!important;color:var(--encre)!important;padding:9px 12px!important;border-radius:10px;border-bottom:0!important}
+.site-shell>header nav a:hover,.nav-principale a:hover{background:var(--surface-3)}
+.site-shell>header nav a[aria-current],.nav-principale a.actif{background:var(--accent-pale);color:var(--accent-fonce)!important;font-weight:700}
+.site-shell>header nav a.lien-compte,.nav-principale .lien-compte{background:var(--primaire)!important;color:#fff!important;border-radius:12px!important}
+.site-shell>header nav a.lien-compte-prof,.nav-principale .lien-compte-prof{background:var(--surface-3)!important;color:var(--encre)!important}
+
+/* ---------- "Horizon" banner (replaces the microscope photo) ---------- */
+.science-hero{background:url('images/horizon.svg') center bottom/cover no-repeat!important;color:var(--encre)!important;min-height:300px!important;padding:56px max(24px,calc((100% - 1200px)/2)) 90px!important}
+.science-hero h1{color:var(--encre);font-size:clamp(34px,4vw,52px)!important}
+.science-hero p{color:var(--primaire);font-size:22px!important;font-weight:600}
+.info-hero{min-height:200px!important;padding-bottom:80px!important}
+
+/* ---------- Home: 6 large category cards, each with its colour ---------- */
+.activities{max-width:1200px;margin:0 auto;padding:36px 24px 48px!important;gap:22px!important}
+.activity-card{background:#fff!important;color:var(--encre)!important;border:0!important;border-top:8px solid var(--c)!important;border-radius:var(--rayon)!important;box-shadow:var(--ombre)!important;align-items:center!important;min-height:150px!important}
+.activity-card svg{width:64px!important;height:64px!important;padding:12px;border-radius:50%;background:var(--cp);color:var(--c);flex-shrink:0}
+.activity-card h2{font-size:24px!important;margin:0 0 6px!important;color:var(--c)}
+.activity-card p{font-size:16px!important;color:var(--texte-doux)}
+.activity-card .card-arrow{color:var(--c)!important;font-size:38px!important}
+.activity-card:hover{transform:translateY(-4px)}
+.tone-0{--c:var(--sports);--cp:var(--sports-pale)}
+.tone-1{--c:var(--informatique);--cp:var(--informatique-pale)}
+.tone-2{--c:var(--mathematiques);--cp:var(--mathematiques-pale)}
+.tone-3{--c:var(--sciences);--cp:var(--sciences-pale)}
+.tone-4{--c:var(--defis);--cp:var(--defis-pale)}
+.tone-5{--c:var(--vie);--cp:var(--vie-pale)}
+.tone-6{--c:var(--jeux);--cp:var(--jeux-pale)}
+.tone-7{--c:var(--francais);--cp:var(--francais-pale)}
+
+/* ---------- About / Contact / Help pages ---------- */
+.info-page{background:transparent!important}
+.info-page h2{color:var(--primaire)!important;border-bottom-color:var(--accent-clair)!important}
+.info-page p,.info-page li{font-size:17px!important;line-height:1.65}
+
+/* ---------- Category bar: each pill keeps the colour of its category ---------- */
+.nav-categories{background:#fff!important;border-bottom:1px solid var(--surface-3);padding:10px 20px!important;gap:8px!important}
+.nav-categories a{color:var(--encre)!important;border:2px solid var(--surface-3);background:#fff;font-size:16px!important}
+.nav-categories a[href$="sport/index.html"]{--c:var(--sports);--cp:var(--sports-pale)}
+.nav-categories a[href="informatique.html"]{--c:var(--informatique);--cp:var(--informatique-pale)}
+.nav-categories a[href$="mathematiques/index.html"]{--c:var(--mathematiques);--cp:var(--mathematiques-pale)}
+.nav-categories a[href$="francais/index.html"]{--c:var(--francais);--cp:var(--francais-pale)}
+.nav-categories a[href$="sciences/index.html"]{--c:var(--sciences);--cp:var(--sciences-pale)}
+.nav-categories a[href$="defis/index.html"]{--c:var(--defis);--cp:var(--defis-pale)}
+.nav-categories a[href$="jeux/index.html"]{--c:var(--jeux);--cp:var(--jeux-pale)}
+.nav-categories a[href="bons-moments-classe.html"],.nav-categories a[href="galerie.html"]{--c:var(--vie);--cp:var(--vie-pale)}
+.nav-categories a:hover{background:var(--cp)!important;border-color:var(--c)}
+.nav-categories a[aria-current]{background:var(--c)!important;border-color:var(--c);color:#fff!important;box-shadow:none!important}
+
+/* ---------- Header of each category page: pale band in its colour ---------- */
+.entete-page,.theme-mathematiques .entete-page{background:var(--cat-pale)!important;color:var(--encre)!important;border:0!important;border-radius:0!important;padding:36px 20px 40px!important}
+.entete-page>span,.theme-mathematiques .entete-page>span{color:var(--cat)!important;letter-spacing:3px}
+.entete-page h1{color:var(--encre)!important;font-size:clamp(32px,4vw,44px)!important}
+.entete-page p,.theme-mathematiques .entete-page p{color:var(--texte-doux)!important;font-size:19px!important}
+
+/* ---------- Activity cards ---------- */
+.conteneur{max-width:1200px}
+.carte,.theme-mathematiques .maths{border-radius:var(--rayon)!important;border:0!important;border-top:8px solid var(--cat)!important;border-bottom:0!important;box-shadow:var(--ombre)!important}
+.contenu small,.theme-mathematiques .contenu small{color:var(--cat)!important;font-size:13px;letter-spacing:2px}
+.contenu h2{font-size:25px!important;color:var(--encre)}
+.contenu p{font-size:16.5px!important;color:var(--texte-doux)!important}
+.badges b{background:var(--cat-pale)!important;color:var(--cat)!important;border:0!important}
+.bouton,.theme-mathematiques .bouton,.lien-jouer{background:var(--cat)!important;color:#fff!important;border-radius:12px!important;box-shadow:none!important;font-size:17px}
+.bouton:hover,.lien-jouer:hover{filter:brightness(.9)}
+.niveaux-badge{background:var(--cat-pale)!important;color:var(--cat)!important}
+.math-visuel,.theme-mathematiques .math-visuel{color:var(--cat)!important}
+.retour a,.theme-mathematiques .retour a{display:inline-block;background:#fff;color:var(--cat)!important;border:2px solid var(--cat);padding:10px 20px;border-radius:12px;font-size:17px}
+[class*="titre-categorie"]{background:#fff!important;border:2px solid var(--cat-pale)!important;box-shadow:var(--ombre)!important}
+[class*="titre-categorie"] span{color:var(--cat)!important}
+[class*="titre-categorie"] h2{color:var(--encre)!important}
+.filtres button,.filtres a{border-radius:20px}
+
+/* ---------- Shared footer ---------- */
+.site-footer,.site-shell>footer{background:var(--entete)!important;color:#dfeaf1!important;margin:0!important;padding:22px max(24px,calc((100% - 1200px)/2))!important;border:0!important;font-size:14px!important}
+
+/* ---------- Exercise pages: same light header as the rest of the site ---------- */
+.ex-header{background:#fff!important;border-bottom:4px solid var(--accent)!important;box-shadow:0 2px 0 var(--surface-3)}
+.ex-header .brand{color:var(--encre)!important}
+.ex-header .brand span{color:var(--accent-fonce)!important}
+.ex-header .brand small{color:var(--texte-doux)!important}
+.ex-header nav a{color:var(--encre)!important;border:2px solid var(--surface-3)!important;border-radius:12px!important;font-weight:600}
+.ex-header nav a:hover{background:var(--surface-3)!important}
+.ex-header nav a[data-compte="eleve"]{background:var(--primaire)!important;border-color:var(--primaire)!important;color:#fff!important}
+.ex-footer{color:var(--texte-doux)!important}
+.progres{background:#fff!important;border:2px solid var(--surface-3)}
+.pastille{background:var(--surface-3)!important;color:var(--encre)!important}
+.pastille.actuelle{background:var(--cat)!important;color:#fff!important;border-color:var(--cat)!important}
+.pastille.ok{background:#f6c445!important;color:#5a3d00!important}
+.pastille.essai{background:var(--vert)!important;color:#fff!important}
+.pastille.montre{background:#8ea6b8!important;color:#fff!important}
+.bouton-retour{background:var(--cat)!important;border-color:var(--cat)!important}
+.bouton-principal{background:var(--cat)!important}
+.exercice-tete h1{color:var(--cat)}
+.carte-exercice{border-top:8px solid var(--cat)!important}
+
+/* ---------- Mathematics: compact coloured tiles (one colour per activity) ---------- */
+.tuiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.tuile{display:flex;flex-direction:column;background:#fff;border-radius:20px;overflow:hidden;text-decoration:none;color:var(--encre);box-shadow:var(--ombre);transition:transform .15s,box-shadow .15s;border:3px solid transparent}
+.tuile:hover{transform:translateY(-5px);box-shadow:0 14px 28px rgba(22,50,79,.16)}
+.tuile:focus-visible{outline:none;border-color:var(--fonce)}
+.tuile-illu{position:relative;display:flex;align-items:center;justify-content:center;height:120px;background:radial-gradient(circle at 85% 15%,#ffffff40 0 22px,transparent 23px),radial-gradient(circle at 10% 90%,#ffffff2e 0 30px,transparent 31px),linear-gradient(135deg,var(--c1),var(--c2))}
+.tuile-illu svg{width:150px;height:100px;filter:drop-shadow(0 3px 4px rgba(0,0,0,.15))}
+.tuile-texte{display:flex;flex-direction:column;gap:4px;padding:16px 18px 6px;flex:1}
+.tuile-texte strong{font-size:20px;line-height:1.25;color:var(--fonce)}
+.tuile-texte small{font-size:16px;color:var(--texte-doux)}
+.tuile-pied{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 18px 16px}
+.tuile-pied b{font-size:14px;background:color-mix(in srgb,var(--fonce) 12%,#fff);color:var(--fonce);padding:4px 10px;border-radius:12px}
+.tuile-pied>span{font-weight:700;color:#fff;background:var(--fonce);padding:8px 14px;border-radius:12px;font-size:15px}
+@media(max-width:1000px){.tuiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.tuiles{grid-template-columns:1fr}.tuile-illu{height:100px}}
+
+/* Exercise page: the activity colour drives the whole page */
+body[data-activite]{--cat-pale:color-mix(in srgb,var(--cat) 12%,#fff)}
+
+/* =====================================================================
+   GENERAL MENU AT THE TOP (horizontal) + ACTIVITIES MENU ON THE SIDE
+   ===================================================================== */
+.barre-haut{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:20px;flex-wrap:wrap;background:#fff;padding:12px 28px;border-bottom:4px solid var(--accent);box-shadow:0 2px 8px rgba(22,50,79,.06)}
+.barre-haut .brand{text-decoration:none;font-size:30px;font-weight:750;letter-spacing:-1px;color:var(--encre);line-height:1.05}
+.barre-haut .brand span{color:var(--accent-fonce)}
+.barre-haut .brand small{display:block;font-size:13px;font-weight:400;letter-spacing:0;color:var(--texte-doux)}
+.menu-bouton{display:none}
+.menu-general{margin-left:auto;display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.menu-general a{text-decoration:none;color:var(--encre);font-size:16px;padding:9px 13px;border-radius:10px}
+.menu-general a:hover{background:var(--surface-3)}
+.menu-general a[aria-current]{background:var(--accent-pale);color:var(--accent-fonce);font-weight:700}
+.menu-general a[data-compte="eleve"]{background:var(--primaire);color:#fff;font-weight:700;margin-left:8px}
+.menu-general a[data-compte="prof"]{color:var(--texte-doux);font-size:15px}
+.mise-en-page{display:grid;grid-template-columns:230px minmax(0,1fr);min-height:calc(100vh - 70px)}
+.barre-laterale{position:sticky;top:74px;align-self:start;height:calc(100vh - 74px);overflow-y:auto;background:#fff;border-right:1px solid var(--surface-3);padding:20px 12px}
+.menu-titre{margin:0 0 8px 12px;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--texte-doux)}
+.menu-activites{display:flex;flex-direction:column;gap:4px}
+.menu-activites a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;text-decoration:none;color:var(--encre);font-size:17px;font-weight:600;border-left:5px solid transparent}
+.menu-activites a:hover{background:color-mix(in srgb,var(--c) 10%,#fff)}
+.menu-activites a[aria-current]{background:color-mix(in srgb,var(--c) 14%,#fff);border-left-color:var(--c);color:var(--c)}
+.menu-icone{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:color-mix(in srgb,var(--c) 14%,#fff);font-size:18px;flex-shrink:0}
+.page{display:flex;flex-direction:column;min-width:0}
+.page>main,.page>.conteneur,.page .site-shell>main{flex:1}
+.page .site-shell{min-height:100%}
+/* the menu must not inherit the old "nav" styles */
+.barre-haut nav,.barre-laterale nav{width:auto!important}
+.barre-haut nav{margin-left:auto!important;gap:4px!important}
+.barre-laterale nav{margin:0!important;gap:4px!important;flex-direction:column!important}
+.barre-haut nav a,.barre-laterale nav a{border-bottom:0!important}
+.barre-laterale nav a{border-left:5px solid transparent!important;padding:10px 12px!important}
+.barre-laterale nav a[aria-current]{border-left-color:var(--c)!important}
+
+/* ---------- Less clutter ---------- */
+.entete-page>span{display:none!important}
+.entete-page{padding:28px 28px 30px!important;text-align:left!important}
+.entete-page h1{margin:0 0 6px!important;font-size:clamp(28px,3.4vw,38px)!important}
+.entete-page p{margin:0!important;max-width:700px!important;font-size:18px!important}
+.conteneur{margin:28px auto!important;padding:0 28px!important}
+.page>main,.page>.conteneur{width:100%;box-sizing:border-box}
+.page>.conteneur{max-width:1200px}
+[class*="titre-categorie"]{display:none!important}
+.retour:has(a[href="index.html"]){display:none}
+.back-link[href="index.html"]{display:none!important}
+.science-hero{min-height:220px!important;padding:40px 40px 80px!important}
+.science-hero h1{font-size:clamp(30px,3.4vw,44px)!important}
+.science-hero p{font-size:19px!important}
+.info-hero{min-height:170px!important}
+.activities{padding:28px!important}
+.site-footer,.site-shell>footer{padding:16px 28px!important;font-size:13px!important}
+.tuiles{grid-template-columns:repeat(auto-fill,minmax(250px,1fr))!important}
+
+/* ---------- Phone and tablet ---------- */
+@media(max-width:900px){
+  .barre-haut{padding:10px 16px;gap:10px;justify-content:space-between}
+  .barre-haut .brand{font-size:24px}
+  .menu-bouton{display:block;font:inherit;font-weight:700;font-size:17px;padding:10px 16px;border-radius:12px;border:2px solid var(--surface-3);background:#fff;color:var(--encre);cursor:pointer}
+  .menu-general{display:none!important;width:100%;flex-direction:column;align-items:stretch!important;margin:0!important}
+  .barre-haut.ouvert .menu-general{display:flex!important}
+  .menu-general a[data-compte="eleve"]{margin-left:0}
+  .mise-en-page{display:block}
+  .barre-laterale{position:static;height:auto;border-right:0;border-bottom:1px solid var(--surface-3);padding:10px 12px}
+  .menu-titre{display:none}
+  .barre-laterale nav{flex-direction:row!important;overflow-x:auto;gap:6px!important;padding-bottom:4px}
+  .barre-laterale nav a{flex-shrink:0;border-left:0!important;border-bottom:4px solid transparent!important;padding:8px 10px!important;font-size:15px}
+  .barre-laterale nav a[aria-current]{border-bottom-color:var(--c)!important}
+}
+.menu-general a.lien-compte-prof,.menu-general a[data-compte="prof"]{background:transparent!important;color:var(--texte-doux)!important;font-weight:600}
+.menu-general a.lien-compte:not(.lien-compte-prof){background:var(--primaire)!important;color:#fff!important}
+@media(max-width:900px){.menu-general{justify-content:flex-start!important}.menu-general a{text-align:left!important;padding:11px 14px!important}}
+@media(max-width:900px){
+  .barre-haut nav.menu-general{width:100%!important;align-items:stretch!important}
+  .barre-laterale nav{flex-wrap:wrap!important;overflow:visible!important}
+  .barre-laterale nav a{font-size:15px!important;padding:6px 10px!important;border-radius:20px;border:2px solid var(--surface-3)!important;border-bottom-width:2px!important}
+  .barre-laterale nav a[aria-current]{border-color:var(--c)!important}
+  .barre-laterale .menu-icone{width:26px;height:26px;font-size:14px}
+}
+
+/* ---------- Tiles of the other categories ---------- */
+.tuile-photo{display:block;height:150px;overflow:hidden;border-bottom:6px solid var(--fonce)}
+.tuile-photo img{width:100%;height:100%;object-fit:cover;object-position:center 60%;transition:transform .3s}
+a.tuile:hover .tuile-photo img{transform:scale(1.05)}
+.tuile-attente{cursor:default}
+.tuile-attente:hover{transform:none!important;box-shadow:var(--ombre)!important}
+.tuile-attente .tuile-pied b{background:var(--surface-3);color:var(--texte-doux)}
+.tuile-pied:has(>span:only-child){justify-content:flex-end}
+.tuiles{max-width:1000px}
+
+/* ---------- Games page: three levels ---------- */
+.jeux-niveau{margin:0 0 34px}
+.jeux-niveau h2{display:flex;align-items:center;gap:12px;font-size:26px;margin:6px 0 4px;color:var(--encre)}
+.jeux-niveau h2 .pastille-niveau{font-size:15px;font-weight:800;color:#fff;background:var(--cat);border-radius:999px;padding:4px 12px}
+.jeux-niveau>p{color:var(--texte-doux);margin:0 0 14px}
+.jeux-bientot{border:3px dashed var(--bordure);border-radius:18px;padding:22px;text-align:center;color:var(--texte-doux);background:#fff;font-size:18px}
+/* Block island: list of controls */
+.ile-commandes{margin:8px 0 0;padding-left:20px;display:grid;gap:6px;font-size:17px;line-height:1.5;max-width:70ch}
+/* Sub-tabs under "Games" */
+.menu-activites a.sous-onglet{margin-left:22px;padding:7px 10px;font-size:15px}
+.menu-activites a.sous-onglet .menu-icone{width:28px;height:28px;font-size:15px}
+/* Math 9: module tiles */
+.m9-icone{font-size:54px;filter:drop-shadow(0 4px 6px #0003)}
+.tuile-illu{position:relative}
+.m9-numero{position:absolute;left:12px;top:10px;background:#ffffffe0;color:var(--fonce);font-weight:800;font-size:13px;border-radius:999px;padding:2px 10px}
+.tuile-bientot{opacity:.6;filter:grayscale(.4);cursor:default}
+/* Domain summary links at the top of a subject page (coloured by the page category) */
+.sommaire-jeux{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.sommaire-jeux a{padding:8px 14px;border-radius:999px;background:#fff;border:2px solid var(--cat,var(--jeux));font-weight:800;text-decoration:none;color:inherit}
+.sommaire-jeux a:hover,.sommaire-jeux a:focus{background:var(--cat,var(--jeux));color:#fff}
+.niv-badge{display:inline-block;align-self:flex-start;font-size:13px;font-weight:800;border-radius:999px;padding:2px 10px;margin-bottom:6px;background:#eef3f7;color:#16324f}

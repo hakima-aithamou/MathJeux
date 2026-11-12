@@ -1,0 +1,450 @@
+EDUCENTRE · DE LA SALLE, OTTAWA
+=====================================================
+Ouvrir index.html dans un navigateur (ou en ligne sur GitHub Pages).
+
+PAGES PRINCIPALES
+- index.html ............ Accueil : les catégories
+- a-propos.html, contact.html, aide.html
+- sports.html, sciences.html, defis.html
+- bons-moments-classe.html (Vie de classe), galerie.html, soccer-moments.html
+
+L'INFORMATIQUE est maintenant un site à part : InfoRoute (dossier InfoRoute).
+À SUPPRIMER sur GitHub (Horizons) : informatique.html et le dossier scratch/.
+
+Toutes les pages ont le même en-tête (EduCentre + menu) et une barre des
+catégories pour passer d'une activité à l'autre.
+
+FEUILLES DE STYLE
+- accueil.css : accueil, À propos, Contact, Aide
+- style.css   : pages des catégories et de la galerie
+  (la section « EN-TÊTE ET PIED DE PAGE COMMUNS » est à la fin du fichier)
+- script.js   : filtres et agrandissement des photos de la galerie
+                (souris, touche Entrée, flèches ← → pour changer de photo, Échap pour fermer)
+
+NOUVELLE APPARENCE (MENUS ET COULEURS)
+- Menu général EN HAUT (horizontal) : Accueil, À propos, Nous contacter, Aide, Connexion.
+- Menu des ACTIVITÉS SUR LE CÔTÉ : Sports, Informatique, Mathématiques, Sciences, Défis,
+  Vie de classe, Galerie. Sur téléphone : bouton « ☰ Menu » + pastilles de catégories.
+- Une couleur par catégorie, la même partout : Sports = corail, Informatique = bleu,
+  Mathématiques = sarcelle, Sciences = vert, Défis = violet, Vie de classe / Galerie = framboise.
+- apparence.css ...... toute la nouvelle apparence (chargée en dernier sur chaque page).
+- images/horizon.svg . bannière « horizon » (ciel, soleil, collines) de l'accueil et des pages d'info.
+- Les activités sont présentées en tuiles compactes (dessin ou photo, titre, phrase courte).
+  Une tuile marquée « Bientôt » n'a pas encore de page : pour l'activer, la transformer en lien
+  <a class="tuile" href="..."> et remplacer « Bientôt » par un bouton (voir les autres tuiles).
+- Mathématiques : chaque activité a sa couleur (formes turquoise, calculs bleu, heure orange,
+  plan vert, finances doré, mesures rose, partage violet, suites corail) ; la page d'exercices
+  prend la couleur de l'activité (bouton Retour, titre, bouton Vérifier).
+
+COULEURS ET APPARENCE
+- theme.css ........ TOUTES les couleurs principales du site (une seule place à modifier).
+  Palette actuelle : « Océan calme ». Trois autres palettes sont écrites en bas du fichier
+  (Forêt douce, Lavande et pêche, Sable et corail) : copier sa ligne à la place du bloc :root.
+- Police : Atkinson Hyperlegible (conçue pour être très lisible), Arial si elle ne charge pas.
+- Pages d'exercices : fond uni et calme (plus de photo derrière), gros bouton « Retour ».
+
+BOUTON 🔊 (ÉCOUTER)
+- La phrase lue contient les vrais éléments de la question : « Combien fait 1 plus 5 ? »,
+  « Clique sur l'article qui coûte le plus cher parmi la casquette à 14 dollars, le muffin
+  à 4 dollars ou le crayon à 1 dollar », la suite de nombres, les mesures, la légende, etc.
+  (fonction ORAL dans exercices/moteur.js).
+
+GESTION DES FINANCES
+- Quand la réponse est un article (le plus cher, le moins cher, la vraie bonne affaire…),
+  l'élève clique directement sur l'image de l'article. Pour le panier, il clique sur les articles.
+- Les boutons restent pour les réponses Oui/Non, les phrases et les montants.
+
+EXERCICES DE MATHÉMATIQUES (PAR NIVEAUX)
+- exercices/activite.html?a=NOM ... page unique pour les 8 activités
+     (formes, calculs, heure, trajets, finances, mesures, partage, suites)
+- exercices/niveaux.js ............ CONTENU des niveaux : titres, descriptions, questions.
+     Chaque niveau = 10 exercices, du plus facile au plus difficile.
+     Les questions sont toujours dans le même ordre pour tous les élèves.
+- exercices/moteur.js ............. fonctionnement (vérifier, indices, bilan, score, temps)
+- exercices/exercices.css ......... apparence des exercices
+Déroulement : une erreur → un indice ; 3 erreurs → la réponse est montrée et l'élève continue.
+Score = exercices réussis du premier coup (sur 10). Le temps est mesuré sans être affiché
+pendant le niveau ; il apparaît dans le bilan de fin de niveau avec le score et les étoiles.
+Formes géométriques (7 niveaux) :
+- Niveau 4 « Compter les formes » : 10 dessins en couleur ; l'élève écrit combien il voit de
+  triangles, carrés, rectangles et cercles.
+- Niveau 5 « Colorier selon la légende : 3 formes » (cercles = rouge, carrés = vert, triangles = jaune).
+- Niveau 6 « Colorier selon la légende : 6 formes » (+ rectangles = bleu, ovales = mauve, hexagones = brun).
+  L'élève clique sur une couleur de la légende, puis sur une forme. Si la forme va avec cette couleur,
+  elle se colorie. Sinon, une petite sonnerie d'erreur joue, la forme tremble et reste blanche.
+  SCORE de ces deux niveaux : nombre de formes coloriées du premier coup, sans erreur
+  (ex. 165 / 170). Les formes qui ne sont pas dans la légende sont dessinées en simple trait.
+- Niveau 7 « Trouver une forme parmi beaucoup d'autres ».
+- Les dessins sont dans exercices/niveaux.js (FIGURES pour compter, COLORIAGES pour colorier).
+- Le serveur (fonction edu-centre) accepte des totaux jusqu'à 1000 pour ces scores par formes.
+Toutes les activités se trouvent dans le dossier exercices/ (une seule page : activite.html).
+
+CONNEXION ÉLÈVE / ENSEIGNANTE
+- Deux onglets dans le menu : « Connexion élève » et « Connexion enseignante ».
+- Élève : prénom + nom + mot de passe (PAS de code de classe). Le prénom + nom est
+  unique dans toute l'école ; si deux élèves ont le même nom, ajouter une initiale (« Léo T. »).
+- Première visite : l'élève crée son compte lui-même, puis Mme Hakima l'ajoute à une classe.
+- Même compte que le site des puzzles « Mille et une pièces » (base Supabase « Edu-Centre »).
+- compte.js ........ connexion partagée ; connexion.html ... page de connexion
+- mon-espace.html .. élève : « Mes progrès » et ses classes
+                     enseignante : onglet « Élèves et classes » (classes, cases à cocher pour
+                     ajouter/retirer d'une classe, modifier, nouveau mot de passe, supprimer,
+                     ajouter un élève) et onglet « Suivi des résultats » (tableau, détail, CSV).
+- Les mots de passe sont chiffrés : on ne peut pas les afficher, seulement en donner un nouveau.
+- La session reste ouverte tant que l'onglet du navigateur est ouvert.
+- Base de données : ec_students (élèves), ec_class_members (élève ↔ classe, plusieurs classes
+  possibles), ec_math_results (un enregistrement par niveau terminé) ; fonction serveur edu-centre.
+
+IMAGES
+Les photos utilisées ont été redimensionnées et converties en .jpg pour que le site
+charge plus vite (soccer.jpg, basket.jpg, course.jpg, clavier.jpg, site.jpg, scratch.jpg).
+Pour ajouter une photo : largeur conseillée 1200 à 1600 pixels, format .jpg.
+
+Images présentes dans le dossier mais utilisées par AUCUNE page (peuvent être supprimées
+pour alléger le site) : TSA.png, background-educentre.png, banniere-educentre.png,
+bons-moments-classe-banner.png, categories-activites.png, slogan-tsa.png
+
+LIRE DES POSITIONS SUR UN PLAN (exercices/activite.html?a=trajets)
+- 14 niveaux de 10 exercices : la grille A1, se déplacer, lire et placer un point,
+  points sur les axes, dessin mystère, plan de 0 à 10, chasse au trésor,
+  puis les nombres négatifs (plan de −5 à 5) : quatre parties du plan, déplacements,
+  lire et placer des points négatifs, dessin mystère et trésor sur le plan complet.
+- Axe des x et premier nombre en rouge, axe des y et deuxième nombre en bleu.
+- Les niveaux sont dans exercices/niveaux.js (section « LIRE DES POSITIONS SUR UN PLAN »),
+  l’affichage du plan dans exercices/moteur.js (section « PLAN CARTÉSIEN »).
+
+LA DROITE · NIVEAU AVANCÉ (exercices/activite.html?a=droites)
+- 10 niveaux de 10 exercices, chacun avec une courte explication (📘) ouverte au 1er exercice :
+  lire une table de valeurs ; compléter avec y = x + b, y = ax, y = ax + b ;
+  de la colonne au point ; placer tous les points (la droite apparaît) ;
+  compléter et tracer ; lire une droite ; trouver la règle ; nombres négatifs (plan de −6 à 6).
+- Niveaux dans exercices/niveaux.js (section « TRACER UNE DROITE »),
+  affichage dans exercices/moteur.js (section « TRACER UNE DROITE »).
+
+DESSINER SUR UN PLAN (exercices/activite.html?a=dessins)
+- Les axes sont gradués en positif et en négatif (−6 à 6, et −10 à 10 au niveau 8) :
+  l’élève compte ses pas dans les 4 sens (à droite +, à gauche −, en haut +, en bas −).
+- Explication interactive au niveau 1 : x et y, les 4 sens, « le signe, c’est le sens », P(3, 2) et Q(−4, −3), puis la table.
+- Vidéo explicative (exercices/Plan-cartesien-le-signe.mp4, 68 s, sans son) : dans le menu des niveaux et dans l’explication.
+- Repères « + → », « ← − », « ↑ + », « ↓ − » au bout des axes et sous x et y dans la table.
+- Si seul le signe est faux, l’indice le dit : « le nombre de pas est bon, mais regarde le sens ».
+- Une forme est dessinée sur le plan ; à côté, une table « Point | x | y » à compléter.
+- Démonstration animée du point A aux exercices 1 et 2 de chaque niveau, puis bouton « Voir la démonstration ».
+- 10 niveaux selon la forme : un point, segment, triangle, carrés et rectangles (chaque fois dans une des
+  4 parties du plan, à tour de rôle), points sur les axes, 5 points, formes avancées, grand plan,
+  puis des formes autour de 0 qui traversent les 4 parties du plan.
+
+DÉFIS (defis.html)
+- Devinettes (exercices/activite.html?a=devinettes) : 5 niveaux, réponses à choisir avec des indices
+  (nombres, objets, nature, monde). Résultats enregistrés comme les mathématiques.
+- Défis de logique (exercices/activite.html?a=logique) : 8 niveaux : intrus, suites, symboles,
+  énigmes, jeu de mémoire (cartes) et suite de couleurs. Résultats enregistrés.
+- Les deux activités sont dans exercices/niveaux.js (fin du fichier) ; le retour mène à la page Défis.
+
+PAGE JEUX (jeux.html, onglet 🎮 Jeux dans le menu et carte sur l’accueil)
+- Trois niveaux : Débutant (3 jeux), Intermédiaire (5 jeux) et Avancé (5 jeux), tous dans jeux/arcade.html.
+- Fichiers : jeux/arcade.js (moteur + jeux débutants), jeux/intermediaire.js, jeux/avance.js.
+- Couleur de la catégorie : --jeux dans apparence.css.
+
+JEUX DÉBUTANT (jeux/arcade.html)
+- 3 jeux calmes, 8 niveaux chacun, sans son. Pause : bouton, touche Espace ou P (pause automatique
+  si l’élève change d’onglet). Vitesse lente / moyenne / rapide (gardée sur l’appareil).
+- Labyrinthe aux étoiles : flèches (ou Z Q S D) pour avancer d’une case, ou clic sur une case
+  (le personnage y va seul). Ramasser les étoiles, puis sortir par la porte verte. De 5×5 à 15×15.
+- Serpent des multiples : flèches ou clic pour tourner ; manger seulement les bons nombres
+  (pairs, tables de 5, 3, 4, 6, 7, 9, nombres premiers). Les bords font passer de l’autre côté.
+  Un mauvais nombre enlève un cœur et l’explication s’affiche (ex. « 21 n’est pas dans la table de 4 »).
+- Attrape les bons : panier déplacé à la souris (ou au doigt) ou avec ◀ ▶ ; attraper seulement les
+  bonnes réponses (pairs, table de 5, calculs = 12, fractions > ½, résultats négatifs, égal à ½,
+  calculs = 24, nombres premiers). Laisser tomber une bonne réponse ne coûte rien.
+- 3 cœurs par partie ; étoiles de fin selon les cœurs restants (ou le nombre de pas au labyrinthe).
+  Les étoiles sont gardées sur l’appareil de l’élève (pas dans le suivi en ligne).
+- Lien direct vers un niveau : jeux/arcade.html?j=labyrinthe&n=3 (j = labyrinthe, serpent ou attrape).
+
+JEUX INTERMÉDIAIRES (jeux/intermediaire.js)
+- Labyrinthe des calculs (?j=labycalc, 8 niveaux) : prendre la clé qui porte la réponse ; 3 bonnes clés ouvrent
+  la porte. Additions, soustractions, tables, divisions, priorité des opérations, parenthèses, fraction d’un nombre.
+- Serpent des fractions (?j=serpfrac, 8 niveaux) : manger dans l’ordre croissant (niveau 8 : décroissant) ;
+  fractions, décimaux, pourcentages.
+- Pont des nombres (?j=pont, 8 niveaux) : glisser (ou cliquer) la planche qui complète l’égalité
+  (? + 7 = 15, 4 × ? = 36, 2 × ? + 3 = 11, ?/12 = 3/4, nombres négatifs).
+- Course aux coordonnées (?j=fusee, 8 niveaux) : plan de −5 à 5 ; cible visible puis seulement (x, y),
+  forme à dessiner, astéroïdes, règle (y = x − 5), translations. L’erreur est expliquée (« bon nombre de pas, pas le bon sens »).
+- Pousse les caisses (?j=caisses, 6 niveaux) : Annuler (U) et Recommencer (R) ; message si une caisse est coincée.
+
+JEUX AVANCÉS (jeux/avance.js)
+- Robot programmeur (?j=robot, 8 niveaux) : blocs ↑ ↶ ↷, puis « Lancer ». Dès le niveau 5 : 🔁 Répéter et nombre de blocs limité.
+- Pousse les caisses · expert (?j=caissesx, 6 niveaux) : 3 ou 4 caisses.
+- Rayon laser (?j=laser, 8 niveaux) : tourner les miroirs ; cristaux à traverser dès le niveau 5.
+- Glissière des nombres (?j=glisse, 8 niveaux) : 2048 sans minuterie, avec Annuler ; doubles, table de 3, fractions (1/16 → 1).
+- Droite cible (?j=droite, 8 niveaux) : régler a et b dans y = ax + b (boutons, flèches ou poignées à glisser).
+- Tous les niveaux de caisses ont été vérifiés par un programme de résolution (minimum de poussées connu).
+
+MENU DE LA LANGUE (langue.js, chargé par compte.js sur toutes les pages)
+- Bouton « 🌐 English » / « 🌐 Français » en haut de chaque page ; le choix est gardé sur l’appareil.
+- Les traductions sont dans langue.js (dictionnaire français → anglais). Un texte absent reste en français.
+
+MES PROGRÈS ET SCORES DES JEUX
+- L’élève voit seulement les jeux et activités qu’il a réussis, avec son score (étoiles ou x / 10).
+- Un niveau de jeu réussi par un élève connecté est enregistré en ligne (« ✓ Score gardé dans ton espace »)
+  et apparaît dans le suivi de l’enseignante (colonne 🎮 Jeux et détail de l’élève).
+
+ATELIER SCRATCH (scratch/atelier.html, carte Scratch de la page Informatique)
+- Atelier de blocs maison : l’élève assemble des blocs sous « quand 🏁 est cliqué » puis lance la fusée.
+- LEÇON « Les angles et les directions » (premier onglet « 📘 Leçon », avant le Niveau 1) : fichier scratch/lecon.js.
+  7 petites étapes, puis un petit quiz de 5 questions. Seulement les angles utiles au début : 90°, 180° et 360°
+  (pas d'autres angles pour le moment, pour le groupe TSA) :
+  1 la fusée suit son nez (jusqu'à l'étoile) · 2 un angle : 90° = un coin carré · 3 ¼ de tour 90°, ½ tour 180°, 1 tour 360°
+  (sens positif ↺, 0° à droite, comme en maths) · 4 tourner vers la droite / vers la gauche
+  · 5 avancer et reculer (1 carreau = 50 pas) · 6 x et y · 7 dessiner un carré (4 × 90° = 360°).
+  Le bloc « s'orienter » n'est plus dans la leçon (trop proche de « tourner » pour le groupe TSA).
+  Chaque étape se joue toute seule au début (la leçon montre chaque bouton, avec une phrase sous la scène),
+  puis « À toi ! » : l'élève touche les boutons pour essayer. « ▶ Revoir » rejoue l'animation.
+  Animations : textes qui arrivent un par un, flamme de la fusée, traînée derrière elle, étincelles, petits sons.
+  La leçon s'ouvre toute seule pour un élève qui commence (aucune étoile). Le bouton « Son » marche aussi dans la leçon.
+  Lien direct vers la leçon : scratch/atelier.html#lecon (ou #lecon-3 pour l'étape 3).
+- Niveau 1 « Premiers pas » (nouveau, pensé pour le groupe TSA) : 9 missions + 1 mission libre, très courtes.
+  Les blocs ont une valeur fixe (pas de menu à choisir) : dire Bonjour, avancer de 100 pas, deux puis trois
+  blocs « avancer de 50 pas », avancer puis parler, reculer, tourner vers le haut, tourner puis avancer.
+  La valeur fixe se règle avec « fixe » dans scratch/missions.js (ex. fixe: { avancer: 100 }).
+- Niveau 2 « Petits trajets » (nouveau) : 10 missions + 1 mission libre, entre le niveau 1 et l’orientation :
+  choisir soi-même le nombre de pas (150, puis « deux carreaux » = 100), avancer + tourner (le coin),
+  deux étoiles, regarder derrière soi (tourner deux fois), demi-tour puis avancer, aller-retour avec « reculer »,
+  attendre puis parler (première petite liste d’objectifs ✓/✗), petit escalier de 3 étoiles, détour autour d’un astéroïde.
+- Niveau 3 « L’orientation » : 10 missions + 1 mission libre (s’orienter, tourner de 90/180/270/360°,
+  avancer, reculer). Les missions sont dans scratch/missions.js, le fonctionnement dans scratch/atelier.js.
+- Niveau 4 « Trajets et dessins » : 11 missions + 1 mission libre : plusieurs étoiles, astéroïde à éviter,
+  bloc « aller à x : y : » (coordonnées, aussi négatives), stylo (ligne, carré, rectangle, escalier, triangle).
+  Les dessins sont vérifiés : un seul trait, bon nombre de côtés, bonnes longueurs et bons virages.
+- Niveau 5 « Objectifs précis » : 9 missions avec une liste d’objectifs à cocher (ex. « La fusée dit Bonjour ! »,
+  « dessine un carré rouge », « revient au centre », « 3 blocs au maximum »). Après chaque lancement, chaque objectif
+  devient ✓ (réussi) ou ✗ (pas encore). La mission est réussie quand tous les objectifs sont ✓.
+  Pour inventer d’autres missions : voir les types d’objectifs en haut de scratch/missions.js.
+- « TOURNER » SEULEMENT aux niveaux 1, 2 et 3 : le bloc « s'orienter à » n'apparaît qu'aux niveaux 4 et 5.
+  Aides aux niveaux 1 à 3 (l'élève n'a pas à additionner les virages dans sa tête) :
+  · au bout de chaque bloc « tourner » du programme, une flèche montre où regardera le nez après ce bloc (ex. ➜ en bas) ;
+    elle change tout de suite si on change le nombre ;
+  · sous la scène, les virages s'additionnent pendant le lancement (ex. « à droite 90° + à droite 180° = 270° à droite
+    → elle regarde en haut ») ;
+  · après chaque virage, la fusée s'arrête un instant et dit « Je regarde à gauche ! » ;
+  · pas de nombres de direction (0, 90, −90…) sous la scène : seulement « elle regarde en haut / à droite… ».
+- Les blocs « tourner » disent le sens avec des mots : « tourner vers la droite de 90 degrés » et
+  « tourner vers la gauche de 90 degrés » aux niveaux 1, 2 et 3. Aux niveaux avancés (4 et 5), ils gardent la flèche
+  comme dans le vrai Scratch : « tourner ↻ de 90 degrés » (vers la droite) et « tourner ↺ de 90 degrés » (vers la gauche),
+  avec un petit rappel « ↻ = vers la droite · ↺ = vers la gauche » au-dessus des blocs.
+  Pour mettre les flèches à un autre niveau : ajouter « symboles: true » à ce niveau dans scratch/missions.js.
+- Onglets « 📘 Leçon » puis « Niveau 1 » à « Niveau 5 » en haut de l’atelier (avec le nombre de ⭐).
+- SON (pour les élèves qui ne lisent pas encore) : le son est COUPÉ au départ. Il s’active seulement quand
+  on touche le bouton « 🔇 Son » (il devient « 🔊 Son »). Une fois activé, la consigne est lue à voix haute à chaque mission
+  (bouton « 🔊 Écouter » pour la réentendre). Le bloc ajouté est lu, et toucher un bloc du programme le lit.
+  Le résultat est lu aussi, avec un petit son (joyeux = réussi, deux notes = essaie encore, « ding » = étoile).
+  Le même bouton coupe le son à nouveau. À chaque ouverture de la page, le son repart coupé. La voix est celle du navigateur
+  (voix française du Canada si l’ordinateur en a une).
+- Les ⭐ des missions réussies sont gardées sur l’appareil de l’élève. Les ⭐ déjà gagnées avant l’ajout
+  des nouveaux niveaux 1 et 2 sont automatiquement déplacées au bon niveau (rien n’est perdu).
+
+==================================================
+ÎLE AUX BLOCS (nouvel onglet)
+==================================================
+- Page : ile-aux-blocs.html (onglet « 🏝️ Île aux blocs » dans le menu Activités de toutes les pages, et une carte sur l'accueil).
+- Le jeu est dans le dossier « ile » : jeu.html, jeu.js, jeu.css et three.min.js (le moteur 3D, inclus : aucun site extérieur n'est nécessaire).
+- 3 niveaux : jeu.html?n=1 (Débutant, 8 étoiles), ?n=2 (Intermédiaire, 16 étoiles), ?n=3 (Avancé, 20 étoiles).
+- Score sur 3 : ★★★ toutes les étoiles, ★★ au moins 60 % des étoiles, ★ parcours terminé.
+- Le score de l'élève connecté est enregistré (activité « jeu-ile ») et paraît dans « Mes progrès » et dans le suivi enseignante (colonne Jeux).
+- Commandes : flèches ou W A S D pour marcher, Espace (ou un toucher sur l'écran) pour sauter, glisser pour tourner la caméra, P pour la pause.
+- IMPORTANT pour GitHub : envoyer aussi le dossier « ile » au complet (glisser le dossier sur la page d'envoi).
+
+==================================================
+TEMPÊTE DES BLOCS + SOUS-ONGLETS DES JEUX
+==================================================
+- Dans le menu Activités, « Île aux blocs » et « Tempête des blocs » sont maintenant deux sous-onglets sous « Jeux ».
+- Page : tempete-des-blocs.html. Le jeu est dans le dossier « tempete » (jeu.html, jeu.js, jeu.css).
+  Il utilise le moteur 3D du dossier « ile » (ile/three.min.js) : envoyer les deux dossiers.
+- But : récolter du bois et de la pierre (E), construire des murs (1), des rampes (2) et des planchers (3),
+  et ouvrir les 5 coffres avant la fin de la tempête. Aucun combat.
+- Score : ★★★ 5 coffres, ★★ 3 ou 4, ★ 1 ou 2. Enregistré (activité « jeu-tempete ») dans « Mes progrès » et le suivi enseignante.
+
+==================================================
+MATH 9
+Les leçons de Math 9 (vidéos, exercices interactifs, séries) ont déménagé sur le site séparé MathSkills.
+Le sous-onglet « Math 9 » et la colonne Math 9 du tableau enseignante ont été retirés d’Horizon.
+
+AJOUTS DU 26 OCTOBRE 2026
+- francais.html ............ nouvelle catégorie Français (couleur indigo, menu de gauche et accueil)
+- francais/lire-ecrire.html  Lire et écrire : 6 thèmes, 18 textes ; lire et écouter, comprendre,
+                             corriger un texte (capsules de grammaire), écrire son texte (erreurs en bulles)
+- ile-aux-calculs.html ..... Île aux calculs (dossier ile-maths/) : 11 niveaux Junior, Expert, Défis
+- village-des-amis.html .... Le village des amis (dossier village/) : 4 niveaux d'habiletés sociales
+- evaluation/calcul.html ... Évaluation adaptée + et − (1 à 10, 10 à 20), rapport imprimable ;
+                             lien dans mathematiques.html, section « Évaluations adaptées »
+- Les deux jeux utilisent ile/three.min.js et ile/jeu.css ; leurs scores sont enregistrés
+  sur le serveur (activités « jeu-ile-maths » et « jeu-village »).
+- sport/bouge-en-rythme.html  Bouge en rythme : séances de mouvements de groupe en musique (personne en 3D,
+                             styles Dance, Rock, Hip-hop, EDM, Électro, ou « Ma musique » depuis l'ordinateur) ;
+                             tuile dans sports.html
+- evaluation/calcul.html (mise à jour) : 8 parties au choix, comme l'Île aux calculs :
+                             + − jusqu'à 10, de 10 à 20, jusqu'à 50, jusqu'à 100 ; × ÷ jusqu'à 10, 20, 50, 100
+
+AJOUTS DU 28 OCTOBRE 2026
+- francais/cours.html ...... Cours de français : une seule page avec 3 menus empilés
+    🎓 Leçons (24 leçons avec exercices corrigés, du niveau débutant à la 9e année)
+    📖 Compréhension de textes (6 catégories, 18 textes : lire, écouter, comprendre, corriger)
+    ✍️ Rédaction de textes (niveau 1 phrases, niveau 2 paragraphe, niveau 3 texte ; plan,
+       mots utiles, copier-coller bloqué, vérification automatique)
+- francais.html ............ la tuile ouvre maintenant francais/cours.html
+- francais/lire-ecrire.html  redirige vers cours.html (anciens liens)
+
+
+MATHÉMATIQUES SÉPARÉES (2 novembre 2026)
+Les mathématiques ont quitté Horizons pour le nouveau site Mathéroute (dépôt « Matheroute »).
+Retirés d'Horizons : mathematiques.html, evaluation/, blocs-de-couleur.html, blocs/, ile-aux-calculs.html,
+ile-maths/jeu.html et jeu.js, les vidéos de maths de exercices/, les 7 ateliers de maths,
+les jeux de calcul de la page Jeux, la catégorie Mathématiques du menu et de l'accueil.
+Gardés : exercices/ (moteur des Défis : devinettes et logique), ile-maths/maths.css et calme.css
+(utilisés par le Village des amis et la Ville en blocs), les jeux de logique et les autres ateliers.
+Sur GitHub, supprimer aussi ces fichiers et dossiers du dépôt Horizons.
+Les commentaires du code sont maintenant en anglais.
+
+JEUX ET ATELIERS DE MATHS (revenus de Mathéroute)
+- jeux.html : 4 thèmes de maths (additions et soustractions, nombres, multiplication-division-fractions,
+  plan et droites : 20 jeux) en plus des jeux de logique. Tous dans jeux/arcade.html.
+- ateliers.html : section Mathématiques avec les 7 ateliers (magasin, chantier, pizzeria, trésor, autobus,
+  enquête, formes) ; fichiers dans ateliers/jeux/. Il y a maintenant 13 ateliers.
+- Le chemin des nombres, les frises, les solides et les figures planes restent sur Mathéroute (Algèbre et Sens spatial).
+
+LA TEMPÊTE DES BLOCS (tempete-des-blocs.html → tempete/jeu.html)
+- Fichiers : tempete/jeu.html, tempete/jeu.js, tempete/tempete.css (+ ile/three.min.js et les styles de ile/ et ile-maths/).
+- But : ouvrir les 5 coffres de l'île avant la fin de la tempête. Récolter (E) les arbres et les rochers,
+  construire (1 mur, 2 plancher, 3 rampe, puis B), enlever (X). Les rampes montent de 2 m, les planchers
+  traversent l'eau, les murs protègent des coups de vent.
+- La tempête se referme en 4 étapes (lente : environ 8 min, normale : environ 5 min). Dehors, on perd des cœurs ;
+  à 0 cœur, on repart au centre. On ne tombe pas en marchant au bord d'un rocher ou d'une rampe : il faut sauter.
+- Score (activité jeu-tempete, niveau 1) : ★★★ 5 coffres, ★★ 3 ou 4, ★ 1 ou 2.
+
+ÎLE AUX CALCULS ET BLOCS DE COULEUR (revenus de Mathéroute)
+- ile-aux-calculs.html (jeu : ile-maths/jeu.html et jeu.js, 11 niveaux) et blocs-de-couleur.html (jeu : blocs/).
+- Dans le menu de gauche, sous « La ville en blocs ». Leurs résultats s'affichent dans Mon espace.
+- Le menu de gauche n'a plus de lien « Ateliers » en double : les ateliers sont dans le groupe « 🧰 Ateliers » sous Jeux.
+
+DEUX NOUVEAUX PARCOURS DE CALCULS EN 3D (novembre 2026)
+- splash-des-calculs.html (jeu : splash/jeu.html et splash/jeu.js) : 🌊 Splash des calculs, sur l'eau.
+  Radeaux, nénuphars, bouées qui montent et descendent, troncs qui glissent, geysers qui font sauter très haut.
+  Tomber dans l'eau : « Plouf ! », on repart du dernier drapeau.
+- desert-des-calculs.html (jeu : desert/jeu.html et desert/jeu.js) : 🏜️ Désert des calculs, dans le sable.
+  Marches de pyramide, allées de cactus (toucher un cactus = retour au drapeau), sable mouvant
+  (la plateforme s'enfonce si on reste dessus), tapis volants.
+- Les mêmes 11 niveaux de questions que l'Île aux calculs (Junior + −, Expert × ÷, Défis) et 3 parcours
+  (facile 4 portes, moyen 5 portes, difficile 6 portes). Une porte sur trois des niveaux Junior pose le calcul
+  avec des objets (🐠 poissons, 🐚 coquillages, 🦆 canards / 🐪 chameaux, 🌵 cactus, 🏺 vases).
+- La tirelire d'étoiles et la boutique sont partagées avec l'Île aux calculs.
+- Utilisent ile/three.min.js, ile/jeu.css, ile/interface.css, ile-maths/maths.css et ile-maths/calme.css.
+- Liens : menu de gauche (sous « Île aux calculs ») dans toutes les pages, et section « Parcours de calculs en 3D »
+  en haut de jeux.html. Résultats dans Mon espace (activités « jeu-splash » et « jeu-desert »).
+
+MATH OBBY (math-obby.html → obby/jeu.html et obby/jeu.js)
+- Parcours en blocs pastel au-dessus d'une mer de nuages roses, tours arc-en-ciel, îles au trésor.
+- 16 niveaux : Départ 1 à 5 (soustractions sans nombres négatifs : jusqu'à 10, jusqu'à 20, avec objets,
+  jusqu'à 50 sans regrouper, petits problèmes « Combien en reste-t-il ? »), puis Junior, Expert et Défis.
+- À chaque portail magique : bonne réponse = le portail s'ouvre et le coffre donne 5 pièces 🪙.
+  Pièces à ramasser sur le parcours, grand coffre au trésor à l'arrivée (+10 pièces).
+- Obstacles : nuages fragiles (ils s'enfoncent), blocs qui glissent, bouées, nuages rebondissants.
+- Boutique (pièces) : planche, échelle, pont, bottes, et accessoires : lunettes, casquette, casque à oreilles
+  de chat, cape, couronne, épée de cristal, ailes. Tirelire propre à Math Obby (sur l'appareil).
+- 🎨 Mon avatar : choix gratuit des couleurs (chandail arc-en-ciel ou uni, pantalon, cheveux, peau,
+  chaussures) et des accessoires portés. Gardé sur l'appareil.
+- Option « Mode calme : rien ne bouge » (aussi dans Splash et Désert) : les plateformes ne bougent plus.
+- Activité « jeu-math-obby » dans Mon espace.
+
+NOUVELLE ORGANISATION : UNE PAGE ET UN DOSSIER PAR MATIÈRE, LES JEUX À PART (novembre 2026)
+- sport/index.html, mathematiques/index.html, sciences/index.html, defis/index.html,
+  jeux/index.html : chaque matière a sa page dans son dossier.
+- Mathématiques (nouvelle page) : activités rangées par domaine du programme :
+  Nombres (additions et soustractions · valeur de position · multiplication, division et fractions),
+  Algèbre (codage), Données, Sens de l'espace (géométrie, mesure, repérage), Littératie financière.
+  Les ateliers de maths (magasin, chantier, pizzeria, trésor, autobus, enquête, formes, robot) y sont.
+- Sciences : « Matière et énergie », « Systèmes vivants »,
+  « Systèmes de la Terre et de l'espace » (bientôt).
+- Jeux : seulement les jeux. Parcours de calculs en 3D (Math Obby, Île aux calculs, Splash, Désert),
+  Aventures en blocs 3D (Île aux blocs, Tempête, Village des amis, Ville en blocs, Blocs de couleur),
+  Logique et stratégie. Les pages des jeux 3D sont maintenant dans le dossier jeux/.
+- Menu de gauche : Sports, Mathématiques (domaines au survol), Sciences, Défis,
+  Jeux (3 groupes au survol), Vie de classe, Galerie. L'accueil a une carte Mathématiques ;
+  les cartes des jeux 3D sont dans la page Jeux.
+- Les anciennes adresses (sports.html, jeux.html, ateliers.html, ile-aux-blocs.html…) restent sur le site :
+  ce sont de petites pages qui renvoient vers la nouvelle adresse (les favoris des élèves marchent encore).
+- À noter : le lien « sport/bouge-en-rythme.html » de la page Sports pointe vers un fichier absent du site.
+- Français retiré d'Horizons : il est sur le site FrançaisRoute. Sur GitHub, SUPPRIMER le dossier francais/,
+  la page francais.html et le fichier ateliers/jeux/imprimerie.js.
+- Le dossier des sports s'appelle sport/ (et non sports/) : sur GitHub, supprimer le dossier sports/ s'il y est.
+  La page sports.html renvoie vers sport/index.html.
+
+MATHJEUX (novembre 2026) — nouveau nom d'Horizons
+- Le site s'appelle maintenant MathJeux : Mathématiques (par domaine), Défis, Jeux, Vie de classe, Galerie,
+  et les comptes (connexion, Mon espace) partagés par tous les sites.
+- Sport et Sciences sont des sites séparés (Sport.zip, Sciences.zip) ; leurs pages de connexion renvoient
+  vers https://hakima-aithamou.github.io/MathJeux/.
+- Sur GitHub : dépôt « MathJeux ». Les sites InfoRoute, Mathéroute et FrançaisRoute renvoient encore vers
+  l'ancienne adresse Horizons pour la connexion : à mettre à jour si le dépôt Horizons est renommé ou supprimé.
+
+PIRATES DE LA LOGIQUE (jeux/pirates-de-la-logique.html → pirates/jeu.html et pirates/jeu.js)
+- Parcours 3D sur l'île des pirates (bateaux, grotte, cascade, perroquet, coffres) ; 3 parcours (4, 5, 6 portes).
+- 12 niveaux d'énigmes de logique (pas de calculs) :
+  Petits : suites de couleurs, l'intrus, ça va ensemble, avant-après, suites de formes, le plus grand / le plus petit.
+  Grands : suites de nombres, analogies (comme… comme…), qui est-ce ? (petites enquêtes), codes secrets,
+  jours et mois, grand mélange. Le bouton 🔊 lit chaque énigme.
+- Coffre de 5 pièces à chaque porte ; la tirelire et l'avatar sont les mêmes que dans Math Obby.
+- Boutique : chapeau de capitaine, sabre, cape, couronne, et des animaux qui suivent l'avatar
+  (perroquet, chiot, chaton, lapin, panda). Atelier « Mon avatar » : couleurs, accessoires et animaux.
+- Option « Mode calme : rien ne bouge ». Lien dans Jeux → Logique et stratégie. Activité « jeu-pirates ».
+
+PERSONNAGES, ACCESSOIRES, OUTILS ET MUSIQUE (dossier personnages/ : personnages.js, personnages.css,
+images, musiques)
+- Dans les 9 jeux de blocs (Île aux blocs, Tempête, Village, Ville, Île aux calculs, Splash, Désert,
+  Math Obby, Pirates), un MENU PRINCIPAL animé s'ouvre en premier : le personnage en 3D qui saute et
+  salue, les étoiles, et 4 grandes tuiles (Personnages, Accessoires, Outils, Musique), puis
+  « ▶ C'est parti ! » pour arriver au départ du jeu. Le bouton « 🏠 Menu » du départ le rouvre.
+  Tout bouge (rebonds, sauts, vagues, balancements). Le bouton « 😌 Mode calme » sous « C'est parti »
+  arrête toutes les animations pour l'élève qui en a besoin (gardé pour la prochaine fois).
+- Une seule tirelire d'étoiles ⭐ pour tout (celle d'Île aux calculs). On gagne des étoiles :
+  1 par porte (Île aux calculs, Splash, Désert, Ville, Obby, Pirates), 1 par étoile ramassée (Village),
+  les étoiles de fin de niveau (Île aux blocs, Tempête).
+- Personnages : « Mon personnage » (l'avatar du jeu) est gratuit et choisi par défaut ;
+  12 personnages de 10 à 40 ⭐.
+- Accessoires : les 24, dans tous les jeux, de 10 à 125 ⭐ (10, 15, 20, 25…). On peut en porter
+  plusieurs (un sur la tête, un dans le dos, un dans chaque main…).
+- Outils : 12 outils de 12 à 40 ⭐ (les prix des images divisés par 10), un seul à la fois :
+  Tremplin et Jetpack (sauter plus haut), Cape volante et Parachute (tomber doucement),
+  Hoverboard (plus vite), Ailes magiques, Deltaplane et Avion (un peu des deux),
+  Ponts en bois, de glace et magique (un pont rattrape l'élève qui tombe),
+  Téléportation (retour sur le sol après une chute).
+  Les sauts restent plus bas que les murs des portes : on ne peut pas passer une question sans répondre.
+  Dans Ville et Tempête, les outils sont seulement décoratifs (il faut réfléchir pour traverser).
+- Musique : 13 musiques (musiques/n01 à n13), même volume pour toutes, jouées en boucle.
+  Par défaut : menus → Sauts au soleil ; Île aux blocs → Course dans la prairie ;
+  Tempête → Défi des champions ; Village → Le jardin des cristaux ; Ville → Course de nuit ;
+  Île aux calculs → Le réveil des merveilles ; Splash → Encore un saut ;
+  Désert → Safari des dinosaures ; Obby → Obby course arcade ; Pirates → Défi des aventuriers.
+  Autres au choix : Course parfaite, Aventure préhistorique, Exploration magique.
+  L'élève peut écouter (▶) et choisir une autre musique, ou « Pas de musique ».
+  La musique part au premier clic (exigence des navigateurs). Rien en pause ni à la fin.
+  Bouton « 🎵 Musique : oui / non » dans le menu principal et 🎵 Musique en haut du jeu.
+- Au début de chaque partie, la caméra fait le tour du personnage (environ 3 secondes) pour le
+  montrer de face, puis se place derrière lui. Pas de tour de caméra en « Mode calme ».
+- Avec le Hoverboard, le personnage flotte un peu au-dessus du sol : on voit la planche.
+- Achats et choix gardés dans le navigateur (clé « mathjeux-personnages ») ; tout ce qui est
+  acheté sert dans les 9 jeux.
+
+LA MER DES REQUINS (dossier mer/, page jeux/mer-des-requins.html)
+- Nouveau jeu de blocs en 3D : un pirate sur la mer, 11 niveaux de calculs (comme Splash) et 3 parcours.
+- Ennemis : les requins 🦈 sautent hors de l'eau entre les îles (on voit l'aileron avant le saut) ;
+  les crocodiles 🐊 marchent d'un côté à l'autre sur les quais (on passe à côté ou on saute par-dessus).
+  Si un ennemi touche l'élève, il repart du dernier drapeau.
+- Bateaux qui passent d'un côté à l'autre, bouées, geyser ; décor : phare, dauphins, bateaux pirates,
+  sous-marin, bateau volant, coraux. Une étoile ⭐ par porte (même tirelire que les autres jeux).
+- Mode calme : les requins restent dans l'eau et les crocodiles ne bougent plus.
+- Personnage, accessoires, outils et musique : comme les autres jeux de blocs (musique : Course parfaite).
+- Images (dossier mer/img/) : bannière (îles flottantes) ; parcours1 à 3 (Course de bateaux,
+  Trésors sous-marins, Parcours océanique) sur la page et en haut de l'écran de départ du jeu ;
+  bateau1 à 4 et les 8 ennemis (requin1 à 4, croco1 à 4) sur la page. Dans le jeu, quand un requin
+  ou un crocodile touche l'élève, son image apparaît en haut de l'écran.
+- Résultats envoyés avec l'activité « jeu-mer ».

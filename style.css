@@ -1,0 +1,599 @@
+
+:root{--bourgogne:#94143b;--bourgogne-fonce:#67102c;--texte:var(--encre);--bleu:#3e68c8;--orange:#e98735;--vert:#278b68;--violet:#7556ad}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--police);background:var(--fond);color:var(--texte)}
+.hero{min-height:520px;display:flex;align-items:center;padding:50px 8% 50px 37%;background-image:linear-gradient(90deg,rgba(255,255,255,.02),rgba(255,255,255,.12));background-size:cover;background-position:center}
+.hero-texte{max-width:650px}.hero-texte>span,.titre>span,.entete-page>span{color:var(--bourgogne);font-size:13px;font-weight:800;letter-spacing:4px}.hero h1{margin:15px 0;font-size:clamp(45px,5vw,70px);line-height:1.05;letter-spacing:-2px}.hero h1 b{color:var(--bourgogne)}.hero p{max-width:600px;font-size:19px;line-height:1.6;color:#555}
+.bouton{display:inline-block;margin-top:15px;padding:15px 25px;color:#fff;background:var(--bourgogne);text-decoration:none;border-radius:25px;font-weight:bold;box-shadow:0 8px 20px #94143b33}.bouton:hover{background:var(--bourgogne-fonce);transform:translateY(-2px)}
+.accueil-activites{max-width:1200px;margin:55px auto;padding:20px}.titre{text-align:center;margin-bottom:30px}.titre h2{margin:10px;font-size:37px}.deux-cartes{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.grande-carte{min-height:210px;padding:35px;display:flex;align-items:center;gap:25px;color:#fff;text-decoration:none;border-radius:28px;transition:.3s;box-shadow:0 15px 30px #00000021}.grande-carte:hover{transform:translateY(-7px)}.carte-sport{background:linear-gradient(135deg,var(--bourgogne-fonce),var(--bourgogne))}.carte-info{background:linear-gradient(135deg,#254f9e,var(--bleu))}.grande-carte h2{font-size:29px;margin:5px 0}.grand-icone{width:80px;height:80px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:38px;background:#ffffff2b;border-radius:22px}
+.mini-galerie{max-width:1160px;margin:50px auto;padding:30px 45px;display:flex;align-items:center;justify-content:space-between;color:#fff;background:linear-gradient(120deg,var(--bourgogne),#b42a52);border-radius:28px}.mini-galerie span{font-size:11px;letter-spacing:3px}.mini-galerie h2{margin:7px 0}.bouton-clair{padding:13px 22px;color:var(--bourgogne);background:#fff;text-decoration:none;border-radius:22px;font-weight:bold}
+.entete-page{padding:42px 20px;text-align:center;background:#fff;border-bottom:1px solid #eee}.entete-page h1{margin:10px;font-size:43px}.entete-page p{max-width:650px;margin:auto;color:#666;font-size:18px}
+.conteneur{max-width:1250px;margin:42px auto;padding:0 20px}.grille-3{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}.carte{overflow:hidden;background:#fff;border-radius:25px;box-shadow:0 10px 30px #0000001c;transition:.3s}.carte:hover{transform:translateY(-7px)}
+.photo{position:relative;height:230px;overflow:hidden}.photo img{width:100%;height:100%;object-fit:cover;transition:.5s}.carte:hover .photo img{transform:scale(1.05)}.photo span{position:absolute;left:20px;bottom:18px;width:55px;height:55px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:16px;font-size:27px;box-shadow:0 5px 15px #0003}
+.contenu{min-height:210px;padding:25px}.contenu small{color:var(--bourgogne);font-weight:bold;letter-spacing:2px}.contenu h2{margin:8px 0;font-size:27px}.contenu p{color:#666;line-height:1.55}.badges{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}.badges b{padding:6px 11px;background:#f0f0f2;border-radius:14px;font-size:11px}
+.soccer{border-bottom:6px solid var(--vert)}.basketball{border-bottom:6px solid var(--orange)}.course{border-bottom:6px solid var(--bourgogne)}.clavier{border-bottom:6px solid var(--violet)}.google{border-bottom:6px solid var(--bleu)}.scratch{border-bottom:6px solid var(--orange)}
+.filtres{margin:30px 0;display:flex;justify-content:center;gap:10px}.filtres button{padding:11px 18px;border:0;border-radius:20px;cursor:pointer;font-weight:bold}.filtres button.selectionne{color:#fff;background:var(--bourgogne)}
+.galerie{max-width:1300px;margin:0 auto 55px;padding:0 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.image-galerie{position:relative;height:245px;overflow:hidden;border-radius:20px;box-shadow:0 8px 20px #0000001f}.image-galerie img{width:100%;height:100%;object-fit:cover;cursor:pointer;transition:.4s}.image-galerie:hover img{transform:scale(1.05)}.image-galerie span{position:absolute;bottom:12px;left:12px;padding:8px 13px;color:#fff;background:#000a;border-radius:15px}
+.modal{display:none;position:fixed;inset:0;z-index:3000;align-items:center;justify-content:center;background:#000e}.modal img{max-width:90%;max-height:88%;border:5px solid #fff;border-radius:20px}.modal button{position:absolute;top:20px;right:30px;border:0;background:transparent;color:#fff;font-size:50px;cursor:pointer}
+.retour{text-align:center;margin:30px}.retour a{color:var(--bourgogne);font-weight:bold;text-decoration:none}
+@media(max-width:900px){.hero{padding:50px 8%;background-position:center}.hero-texte{padding:25px;background:#ffffffe8;border-radius:25px}.grille-3,.galerie{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.deux-cartes,.grille-3,.galerie{grid-template-columns:1fr}.mini-galerie{margin:40px 15px;flex-direction:column;gap:20px;text-align:center}}
+
+/* ===============================
+   MATHEMATICS
+================================ */
+.carte-maths{background:linear-gradient(135deg,#287a70,#3aa395)}
+.deux-cartes:has(.carte-maths){grid-template-columns:repeat(3,1fr)}
+.grille-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.maths{border-bottom:6px solid #2d8f83}
+.math-visuel{height:180px;display:flex;align-items:center;justify-content:center;gap:14px;background:linear-gradient(135deg,#f2fbf9,#e2f4f0);font-size:48px;font-weight:800;color:#287a70}
+.math-visuel span{display:inline-flex;align-items:center;justify-content:center;min-width:55px;min-height:55px}
+.horloge span{font-size:82px}.plan-visuel{background:linear-gradient(135deg,#fff8e8,#f5ead0);color:#9b6a19}
+.formes{border-bottom-color:#2d8f83}.calculs{border-bottom-color:#3e68c8}.heure{border-bottom-color:#e98735}.plan{border-bottom-color:#94143b}
+.maths-grid .contenu{min-height:270px}
+@media(max-width:1100px){.deux-cartes:has(.carte-maths){grid-template-columns:1fr 1fr}.grille-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.deux-cartes:has(.carte-maths),.grille-4{grid-template-columns:1fr}}
+
+/* CLASS LOCATION */
+.localisation-ecole{
+    max-width:1160px;
+    margin:45px auto 30px;
+    padding:28px 38px;
+    display:flex;
+    align-items:center;
+    gap:22px;
+    background:white;
+    border-left:6px solid var(--bourgogne);
+    border-radius:22px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+.localisation-icone{
+    width:68px;
+    height:68px;
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:34px;
+    background:#f6e9ed;
+    border-radius:18px;
+}
+.localisation-ecole span{
+    color:var(--bourgogne);
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:3px;
+}
+.localisation-ecole h2{
+    margin:7px 0 0;
+    font-size:22px;
+    line-height:1.4;
+}
+@media(max-width:650px){
+    .localisation-ecole{
+        margin:35px 15px 25px;
+        padding:24px;
+        align-items:flex-start;
+    }
+}
+
+.localisation-ecole p{
+    margin:8px 0 0;
+    line-height:1.7;
+    color:#555;
+}
+
+/* HOME: the class is highlighted more */
+.hero{
+ padding-left:43%;
+ background-image:linear-gradient(90deg,rgba(255,255,255,.08),rgba(255,255,255,.58));
+ background-position:30% center;
+}
+.equipe-tsa{max-width:1160px;margin:55px auto 35px;padding:0 20px}
+.equipe-tsa .titre p{max-width:720px;margin:8px auto 0;color:#666;line-height:1.6}
+.photos-equipe{margin-top:28px;display:grid;grid-template-columns:1.35fr 1fr;gap:24px}
+.photo-equipe{margin:0;overflow:hidden;background:#fff;border-radius:25px;box-shadow:0 10px 30px rgba(0,0,0,.10)}
+.emplacement-photo{min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;background:linear-gradient(135deg,rgba(148,20,59,.08),rgba(62,104,200,.08)),#f8f8f9;border:3px dashed #c9c9cf;margin:14px;border-radius:19px;color:#555}
+.emplacement-photo span{font-size:48px}.emplacement-photo strong{font-size:20px;color:var(--bourgogne)}.emplacement-photo small{font-size:14px}
+.photo-equipe figcaption{padding:0 22px 22px;text-align:center;font-weight:700;color:#444}
+@media(max-width:750px){.photos-equipe{grid-template-columns:1fr}.emplacement-photo{min-height:240px}}
+
+/* MORE COMPACT HOME */
+.hero{
+    min-height:350px !important;
+    padding-top:30px !important;
+    padding-bottom:30px !important;
+}
+.hero h1{
+    font-size:clamp(32px,3.5vw,42px) !important;
+    line-height:1.08 !important;
+    margin:10px 0 !important;
+    letter-spacing:-1px !important;
+}
+.hero p{
+    font-size:16px !important;
+    line-height:1.45 !important;
+    margin:10px 0 !important;
+}
+.hero .bouton{
+    margin-top:8px !important;
+    padding:12px 20px !important;
+}
+@media(max-width:650px){
+    .hero{min-height:310px !important}
+    .hero h1{font-size:32px !important}
+}
+
+.slogan-suite{
+    display:inline-block;
+    margin-top:8px;
+    font-size:.68em;
+    font-weight:600;
+    color:var(--bourgogne);
+    letter-spacing:0;
+}
+
+/* Approved slogan banner */
+.hero-image-slogan{min-height:0!important;height:auto!important;padding:0!important;display:block!important;background:none!important;overflow:hidden}
+.hero-image-slogan img{display:block;width:100%;height:auto;max-height:390px;object-fit:cover;object-position:center}
+@media(max-width:700px){.hero-image-slogan img{max-height:none;min-height:220px;object-fit:cover}}
+
+/* FIVE ACTIVITY CATEGORIES */
+.titre-activites>span{
+    display:block;
+    font-size:24px !important;
+    letter-spacing:3px !important;
+    margin-bottom:18px;
+}
+.deux-cartes:has(.carte-sciences){
+    grid-template-columns:repeat(5,1fr) !important;
+    gap:16px;
+}
+.deux-cartes:has(.carte-sciences) .grande-carte{
+    min-height:235px;
+    padding:24px 18px;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:center;
+}
+.deux-cartes:has(.carte-sciences) .grande-carte h2{
+    font-size:22px;
+}
+.deux-cartes:has(.carte-sciences) .grand-icone{
+    width:62px;height:62px;font-size:30px;
+}
+.carte-sciences{background:linear-gradient(135deg,#167d70,#39a88f)}
+.carte-defis{background:linear-gradient(135deg,#6b4aa1,#9271c8)}
+.activite-visuelle{
+    height:210px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:82px;
+    background:linear-gradient(135deg,#f7fbff,#edf4f5);
+}
+.carte.sciences{border-bottom:6px solid #2d9b85}
+.carte.defis{border-bottom:6px solid #8060b5}
+@media(max-width:1200px){
+    .deux-cartes:has(.carte-sciences){grid-template-columns:repeat(3,1fr) !important}
+}
+@media(max-width:800px){
+    .deux-cartes:has(.carte-sciences){grid-template-columns:repeat(2,1fr) !important}
+}
+@media(max-width:550px){
+    .deux-cartes:has(.carte-sciences){grid-template-columns:1fr !important}
+    .titre-activites>span{font-size:20px !important}
+}
+
+/* NEW STYLE OF THE 5 CATEGORIES: distinct colours and icons */
+.deux-cartes:has(.carte-sciences) .grande-carte{
+    color:#fff !important;
+    border:0;
+    position:relative;
+}
+.deux-cartes:has(.carte-sciences) .grande-carte h2,
+.deux-cartes:has(.carte-sciences) .grande-carte p,
+.deux-cartes:has(.carte-sciences) .grande-carte strong{
+    color:#fff !important;
+}
+.deux-cartes:has(.carte-sciences) .grand-icone{
+    width:70px !important;
+    height:70px !important;
+    border-radius:20px !important;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:var(--police);
+    font-size:20px !important;
+    font-weight:900;
+    letter-spacing:1px;
+    background:rgba(255,255,255,.20) !important;
+    color:#fff !important;
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.10);
+}
+
+/* A really different colour for each area */
+.deux-cartes .carte-sport{
+    background:linear-gradient(145deg,#8b1538,#b32655) !important;
+}
+.deux-cartes .carte-info{
+    background:linear-gradient(145deg,#2457a6,#3e73cf) !important;
+}
+.deux-cartes .carte-maths{
+    background:linear-gradient(145deg,#d36a18,#ee9140) !important;
+}
+.deux-cartes .carte-sciences{
+    background:linear-gradient(145deg,#167b69,#2fa88d) !important;
+}
+.deux-cartes .carte-defis{
+    background:linear-gradient(145deg,#6b469d,#9168c5) !important;
+}
+
+/* Small accent specific to each category */
+.deux-cartes .carte-sport{border-top:7px solid #f0a7bc !important}
+.deux-cartes .carte-info{border-top:7px solid #9ec5ff !important}
+.deux-cartes .carte-maths{border-top:7px solid #ffd49a !important}
+.deux-cartes .carte-sciences{border-top:7px solid #9ee3d2 !important}
+.deux-cartes .carte-defis{border-top:7px solid #d8bdf4 !important}
+
+.deux-cartes:has(.carte-sciences) .grande-carte:hover{
+    transform:translateY(-7px);
+    box-shadow:0 16px 30px rgba(0,0,0,.16);
+}
+
+/* ACTIVITY CATEGORIES - APPROVED VISUAL */
+.activites-visuelles{
+    max-width:1450px !important;
+    padding:28px 18px !important;
+    margin:0 auto !important;
+}
+.categories-image-wrap{
+    position:relative;
+    width:100%;
+}
+.categories-image-wrap>img{
+    display:block;
+    width:100%;
+    height:auto;
+    border-radius:24px;
+    box-shadow:0 10px 28px rgba(0,0,0,.08);
+}
+.liens-categories{
+    position:absolute;
+    left:1.2%;
+    right:1.2%;
+    top:27%;
+    bottom:5%;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:1.2%;
+}
+.liens-categories a{
+    display:block;
+    border-radius:28px;
+}
+.liens-categories a:hover{
+    background:rgba(255,255,255,.12);
+    box-shadow:inset 0 0 0 4px rgba(255,255,255,.55);
+}
+
+/* SUB-PAGE OUR GREAT MOMENTS - SOCCER */
+.lien-galerie{display:block;text-decoration:none;color:inherit}
+.galerie-soccer{
+    grid-template-columns:repeat(3,1fr) !important;
+    max-width:1250px;
+    margin:0 auto;
+}
+.galerie-soccer .image-galerie{height:440px}
+.galerie-soccer .image-galerie img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    cursor:pointer;
+}
+.soccer-moments-entete{
+    background:linear-gradient(135deg,#fff4f6,#f7fbff);
+}
+@media(max-width:900px){
+    .galerie-soccer{grid-template-columns:1fr 1fr !important}
+}
+@media(max-width:600px){
+    .galerie-soccer{grid-template-columns:1fr !important}
+    .galerie-soccer .image-galerie{height:auto}
+    .galerie-soccer .image-galerie img{height:auto}
+}
+
+/* OUR GOOD TIMES IN CLASS */
+.carte-bons-moments{text-decoration:none;color:inherit}
+.visuel-bons-moments{
+    height:100%;min-height:250px;display:flex;flex-direction:column;
+    justify-content:center;align-items:center;text-align:center;padding:25px;
+    background:linear-gradient(135deg,#fff1f5,#f3ecff);color:#7b2850;
+}
+.coeur-moments{font-size:54px;color:#d94d75;margin-bottom:12px}
+.visuel-bons-moments strong{font-size:27px;line-height:1.2}
+.bons-moments-entete{background:linear-gradient(135deg,#fff2f5,#f7f1ff)}
+.galerie-bons-moments{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    max-width:1000px;margin:0 auto;
+}
+.galerie-bons-moments .image-galerie{height:560px}
+.galerie-bons-moments .image-galerie img{
+    width:100%;height:100%;object-fit:cover;cursor:pointer;
+}
+@media(max-width:700px){
+    .galerie-bons-moments{grid-template-columns:1fr !important}
+    .galerie-bons-moments .image-galerie{height:auto}
+    .galerie-bons-moments .image-galerie img{height:auto}
+}
+
+/* APPROVED BANNER - OUR GOOD TIMES IN CLASS */
+.banniere-bons-moments{
+    max-width:1400px;
+    margin:24px auto 34px;
+    padding:0 18px;
+}
+.banniere-bons-moments img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:24px;
+    box-shadow:0 10px 28px rgba(0,0,0,.10);
+}
+.carte-bons-moments img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* SPORTS: MAIN CATEGORY + 3 SUB-CATEGORIES */
+.bloc-categorie-sports{
+    max-width:1400px;
+    margin:0 auto;
+}
+.titre-categorie-sports{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    width:max-content;
+    margin:0 auto 28px;
+    padding:14px 28px;
+    border-radius:24px;
+    background:#fff1f5;
+    border:2px solid #f6cbd8;
+    box-shadow:0 8px 22px rgba(0,0,0,.06);
+}
+.icone-sports{
+    font-size:38px;
+    letter-spacing:3px;
+}
+.titre-categorie-sports span{
+    display:block;
+    font-size:12px;
+    letter-spacing:2px;
+    color:#9b4964;
+    font-weight:700;
+}
+.titre-categorie-sports h2{
+    margin:2px 0 0;
+    font-size:32px;
+    color:#a71949;
+}
+.sous-categories-sports{
+    grid-template-columns:repeat(3,1fr) !important;
+}
+@media(max-width:850px){
+    .sous-categories-sports{grid-template-columns:1fr !important}
+    .titre-categorie-sports{width:auto;justify-content:center}
+}
+
+/* COMPUTER SCIENCE: MAIN CATEGORY + 3 SUB-CATEGORIES */
+.bloc-categorie-informatique{
+    max-width:1400px;
+    margin:0 auto;
+}
+.titre-categorie-informatique{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    width:max-content;
+    margin:0 auto 28px;
+    padding:14px 28px;
+    border-radius:24px;
+    background:#eef8ff;
+    border:2px solid #c8e8fb;
+    box-shadow:0 8px 22px rgba(0,0,0,.06);
+}
+.icone-informatique{
+    font-size:42px;
+}
+.titre-categorie-informatique span{
+    display:block;
+    font-size:12px;
+    letter-spacing:2px;
+    color:#47799a;
+    font-weight:700;
+}
+.titre-categorie-informatique h2{
+    margin:2px 0 0;
+    font-size:32px;
+    color:#2466b3;
+}
+.sous-categories-informatique{
+    grid-template-columns:repeat(3,1fr) !important;
+}
+@media(max-width:850px){
+    .sous-categories-informatique{grid-template-columns:1fr !important}
+    .titre-categorie-informatique{width:auto;justify-content:center}
+}
+
+/* Clickable Soccer card leading to the 3 photos */
+.lien-carte-activite{
+    display:block;
+    text-decoration:none;
+    color:inherit;
+}
+.lien-carte-activite .carte{
+    height:100%;
+}
+.lien-carte-activite:hover .carte{
+    transform:translateY(-4px);
+    box-shadow:0 14px 30px rgba(0,0,0,.12);
+}
+
+/* HOME: OUR GOOD TIMES IN CLASS */
+.accueil-bons-moments{
+    max-width:1200px;
+    margin:35px auto 45px;
+    padding:0 18px;
+}
+.categorie-bons-moments-accueil{
+    display:block;
+    width:min(500px,100%);
+    margin:0 auto 24px;
+    text-decoration:none;
+}
+.categorie-bons-moments-accueil img{
+    display:block;
+    width:100%;
+    height:auto;
+    border-radius:24px;
+    box-shadow:0 8px 24px rgba(0,0,0,.08);
+}
+.photos-bons-moments-accueil{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:22px;
+    max-width:900px;
+    margin:0 auto;
+}
+.photos-bons-moments-accueil img{
+    width:100%;
+    height:430px;
+    object-fit:cover;
+    display:block;
+    border-radius:22px;
+    box-shadow:0 8px 22px rgba(0,0,0,.08);
+}
+@media(max-width:700px){
+    .photos-bons-moments-accueil{grid-template-columns:1fr}
+    .photos-bons-moments-accueil img{height:auto}
+}
+
+/* 6th CATEGORY: OUR GOOD TIMES IN CLASS */
+.categorie-bons-moments-six{
+    display:block;
+    width:min(330px,calc(100% - 36px));
+    margin:20px auto 38px;
+    text-decoration:none;
+}
+.categorie-bons-moments-six img{
+    display:block;
+    width:100%;
+    height:auto;
+    border-radius:24px;
+    box-shadow:0 8px 22px rgba(0,0,0,.08);
+    transition:transform .2s ease, box-shadow .2s ease;
+}
+.categorie-bons-moments-six:hover img{
+    transform:translateY(-4px);
+    box-shadow:0 12px 28px rgba(0,0,0,.12);
+}
+
+/* HOME PAGE: TWO CLEARLY SEPARATE SECTIONS */
+.accueil-activites{
+    background:#BFE3F5 !important;
+    padding-top:35px !important;
+    padding-bottom:45px !important;
+}
+
+/* Our good times in class: separate grey section */
+.categorie-bons-moments-six{
+    box-sizing:border-box;
+    display:flex !important;
+    justify-content:center;
+    align-items:center;
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+    padding:45px 20px !important;
+    background:#F1F1F3 !important;
+}
+
+.categorie-bons-moments-six img{
+    width:min(430px, 100%) !important;
+    height:auto;
+    border-radius:24px;
+}
+
+.hero{background-image:url("images/background-educentre.png")!important;background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important}.hero .hero-texte{display:none!important}
+
+/* Access to the mathematics and finance exercises */
+.acces-exercices{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:28px;padding:26px;background:#fff;border-left:6px solid #287a70;border-radius:22px;box-shadow:0 8px 24px #00000012}
+.acces-exercices h2{margin:0 0 10px;font-size:27px;color:#287a70}.acces-exercices p{margin:0;line-height:1.6;color:#555}.acces-exercices .bouton{margin-top:0;flex-shrink:0}.nouvel-onglet{display:block;font-size:12px;margin-top:5px;font-weight:400}.acces-exercices .bouton:focus-visible{outline:3px solid #287a70;outline-offset:4px}
+@media(max-width:800px){.acces-exercices{flex-direction:column;align-items:flex-start}.acces-exercices .bouton{max-width:100%}}
+
+/* Earth theme kept for the Mathematics page */
+body.theme-mathematiques{background:var(--fond)}
+.theme-mathematiques .entete-page{background:var(--entete);border:0;color:white;border-radius:0 0 28px 28px}
+.theme-mathematiques .entete-page>span{color:var(--accent-clair)}.theme-mathematiques .entete-page p{color:#edf7ff}
+.theme-mathematiques .conteneur{max-width:1250px}.theme-mathematiques .maths-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.theme-mathematiques .maths{background:#fff;border-top:6px solid var(--accent);border-bottom:0;border-radius:16px;box-shadow:var(--ombre)}
+.theme-mathematiques .math-visuel{height:100px;background:transparent;color:var(--primaire);font-size:38px;justify-content:flex-start;padding:25px;gap:8px}
+.theme-mathematiques .math-visuel span{min-width:32px;min-height:32px}.theme-mathematiques .horloge span{font-size:48px}
+.theme-mathematiques .contenu{padding-top:0}.theme-mathematiques .contenu small{color:var(--primaire)}
+.theme-mathematiques .bouton{background:var(--primaire);border-radius:8px;box-shadow:none}.theme-mathematiques .bouton:hover{background:var(--primaire-fonce)}
+.theme-mathematiques .retour a{color:var(--encre)}
+@media(max-width:900px){.theme-mathematiques .maths-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.theme-mathematiques .maths-grid{grid-template-columns:1fr}}
+
+/* Buttons aligned at the bottom of the cards in each row */
+.theme-mathematiques .maths{display:flex;flex-direction:column}
+.theme-mathematiques .math-visuel{flex-shrink:0}
+.theme-mathematiques .maths-grid .contenu{display:flex;flex-direction:column;flex:1;min-height:300px}
+.theme-mathematiques .maths-grid .contenu .bouton{align-self:flex-start;margin-top:auto}
+.theme-mathematiques .maths-grid .contenu .badges{margin-bottom:20px}
+
+/* The button link also covers the whole mathematics card. */
+.theme-mathematiques .maths-grid .maths{position:relative;cursor:pointer}
+.theme-mathematiques .maths-grid .maths .bouton{position:static;transform:none}
+.theme-mathematiques .maths-grid .maths .bouton::after{content:"";position:absolute;inset:0;border-radius:16px;z-index:1}
+.theme-mathematiques .maths-grid .maths:focus-within{outline:3px solid var(--accent);outline-offset:4px}
+
+/* ===============================
+   SHARED HEADER AND FOOTER
+   (same identity as the home page)
+================================ */
+.site-header{display:flex;align-items:center;gap:20px;flex-wrap:wrap;background:#fff;padding:22px max(24px,calc((100% - 1250px)/2));box-shadow:0 2px 12px #19394c12;position:relative;z-index:10}
+.site-header .brand{color:var(--encre);text-decoration:none;font-size:34px;font-weight:750;letter-spacing:-1.5px;font-family:var(--police)}
+.site-header .brand span{color:var(--accent-fonce)}
+.site-header .identity{display:flex;flex-direction:column;gap:5px;border-left:1px solid var(--bordure);padding-left:20px}
+.site-header .identity strong{font-size:17px;color:var(--encre)}.site-header .identity span{font-size:13px;color:var(--texte-doux)}
+.nav-principale{margin-left:auto;display:flex;gap:22px;flex-wrap:wrap;font-size:15px}
+.nav-principale a{text-decoration:none;color:var(--texte-doux);padding:8px 0;border-bottom:3px solid transparent}
+.nav-principale a:hover{color:var(--accent-fonce)}
+.nav-principale a.actif{border-bottom-color:var(--accent);color:var(--accent-fonce)}
+.nav-categories{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:12px 20px;background:var(--encre)}
+.nav-categories a{color:#e3f1f7;text-decoration:none;font-weight:600;font-size:15px;padding:8px 15px;border-radius:20px}
+.nav-categories a:hover{background:#ffffff1f}
+.nav-categories a[aria-current]{background:var(--accent-fonce);color:#fff;box-shadow:inset 0 0 0 2px var(--accent-clair)}
+.site-header a:focus-visible,.nav-categories a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.site-footer{padding:24px max(24px,calc((100% - 1250px)/2));display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px;color:#cfe0ea;background:var(--encre)}
+.site-footer b{padding:0 10px;font-weight:400}
+.retour a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+@media(max-width:900px){.nav-principale{width:100%;margin-left:0;justify-content:flex-start}}
+@media(max-width:650px){.site-header{padding:16px}.site-header .brand{font-size:28px}.site-header .identity strong{font-size:14px}.site-header .identity span{font-size:12px}.nav-principale{justify-content:center;gap:14px;font-size:14px}.nav-categories{padding:10px 8px;gap:4px}.nav-categories a{font-size:14px;padding:7px 11px}.site-footer{flex-direction:column;text-align:center;line-height:1.7}}
+@media(max-width:650px){.theme-mathematiques .maths-grid .contenu{min-height:0}.theme-mathematiques .math-visuel{height:80px}}
+
+/* "Play puzzles" link (Challenges) and keyboard focus in the gallery */
+.lien-jouer{display:inline-block;margin-top:16px;padding:10px 18px;background:#6b469d;color:#fff;border-radius:20px;font-weight:700}
+.lien-carte-activite:focus-visible{outline:3px solid var(--accent);outline-offset:4px;border-radius:25px}
+.image-galerie img:focus-visible{outline:4px solid var(--accent);outline-offset:-4px}
+.filtres{flex-wrap:wrap}
+
+/* Sign-in button in the menu + number of levels on the maths cards */
+.nav-principale .lien-compte{color:#fff;background:var(--encre);padding:8px 14px;border-radius:20px;border:0}
+.nav-principale .lien-compte:hover{background:var(--primaire-2);color:#fff}
+.niveaux-badge{display:inline-block;align-self:flex-start;margin:0 0 14px;padding:5px 12px;border-radius:14px;background:var(--accent-pale);color:var(--primaire);font-size:13px;font-weight:700}
+.nav-principale .lien-compte-prof{background:var(--surface-3);color:var(--encre)}
+.nav-principale .lien-compte-prof:hover{background:var(--surface-3);color:var(--encre)}

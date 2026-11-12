@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Galerie - MathJeux</title><link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="style.css"><link rel="icon" href="images/favicon.svg" type="image/svg+xml"><script src="compte.js" defer></script><link rel="stylesheet" href="apparence.css">
+<script src="menu-lateral.js" defer></script>
+</head><body class="cat-vie">
+<header class="barre-haut">
+<a class="brand" href="index.html">Math<span>Jeux</span><small>De La Salle · Ottawa</small></a>
+<button class="menu-bouton" type="button" aria-expanded="false" aria-controls="menu-general">☰ Menu</button>
+<nav class="menu-general" id="menu-general" aria-label="Menu général">
+<a href="index.html">Accueil</a><a href="a-propos.html">À propos</a><a href="contact.html">Nous contacter</a><a href="aide.html">Aide</a><a data-compte="eleve" href="connexion.html?role=eleve">🎒 Connexion élève</a><a data-compte="prof" href="connexion.html?role=teacher">🍎 Connexion enseignante</a></nav>
+</header>
+<script>document.currentScript.previousElementSibling.querySelector(".menu-bouton").onclick=function(){var o=this.getAttribute("aria-expanded")!=="true";this.setAttribute("aria-expanded",o);this.parentNode.classList.toggle("ouvert",o)}</script>
+<div class="mise-en-page">
+<aside class="barre-laterale">
+<p class="menu-titre">Activités</p>
+<nav class="menu-activites" aria-label="Catégories d’activités">
+<a href="mathematiques/index.html" style="--c:var(--mathematiques)"><span class="menu-icone" aria-hidden="true">📐</span>Mathématiques</a>
+<a href="defis/index.html" style="--c:var(--defis)"><span class="menu-icone" aria-hidden="true">🧩</span>Défis</a>
+<a href="jeux/index.html" style="--c:var(--jeux)"><span class="menu-icone" aria-hidden="true">🎮</span>Jeux</a>
+<a href="bons-moments-classe.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">❤️</span>Vie de classe</a>
+<a href="galerie.html" style="--c:var(--vie)" aria-current="page"><span class="menu-icone" aria-hidden="true">📸</span>Galerie</a>
+</nav>
+</aside>
+<div class="page">
+
+
+
+<section class="entete-page"><span>NOS ACTIVITÉS EN IMAGES</span><h1>📸 Nos beaux moments</h1><p>Quelques souvenirs de nos activités et projets.</p></section>
+<div class="filtres"><button class="selectionne" onclick="filtrer('toutes',this)">Toutes</button><button onclick="filtrer('sport',this)">🏆 Sports</button><button onclick="filtrer('info',this)">💻 Informatique</button>    <button onclick="filtrer('classe', this)">❤️ Vie en classe</button>
+</div>
+<section class="galerie"><a href="https://hakima-aithamou.github.io/Sport/soccer-moments.html" class="image-galerie sport lien-galerie"><img src="images/soccer.jpg" alt="Soccer"><span>⚽ Soccer</span></a><div class="image-galerie sport"><img src="images/basket.jpg" onclick="agrandir(this)" alt="🏀 Basketball"><span>🏀 Basketball</span></div><div class="image-galerie sport"><img src="images/course.jpg" onclick="agrandir(this)" alt="🏃 Course"><span>🏃 Course</span></div><div class="image-galerie info"><img src="images/clavier.jpg" onclick="agrandir(this)" alt="⌨️ Défi clavier"><span>⌨️ Défi clavier</span></div><div class="image-galerie info"><img src="images/site.jpg" onclick="agrandir(this)" alt="🌐 Google Sites"><span>🌐 Google Sites</span></div><div class="image-galerie info"><img src="images/scratch.jpg" onclick="agrandir(this)" alt="🐱 Scratch"><span>🐱 Scratch</span></div>
+    <a href="bons-moments-classe.html" class="image-galerie classe lien-galerie carte-bons-moments">
+        <img src="images/nos-bons-moments-categorie.jpg" alt="Nos bons moments en classe">
+        <span>❤️ Nos bons moments en classe</span>
+    </a>
+</section>
+<div id="modal" class="modal" onclick="fermerModal(event)"><button onclick="fermer()">×</button><img id="grandeImage" alt="Photo agrandie"></div>
+<footer class="site-footer"><span>MathJeux <b>│</b> De La Salle · Ottawa</span><span>Apprendre aujourd’hui pour demain</span></footer><script src="script.js"></script>
+</div>
+</div>
+</body></html>

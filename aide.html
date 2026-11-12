@@ -1,0 +1,27 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Aide et mode d’emploi · MathJeux</title><link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="accueil.css"><link rel="icon" href="images/favicon.svg" type="image/svg+xml"><script src="compte.js" defer></script><link rel="stylesheet" href="apparence.css">
+<script src="menu-lateral.js" defer></script>
+</head><body>
+<header class="barre-haut">
+<a class="brand" href="index.html">Math<span>Jeux</span><small>De La Salle · Ottawa</small></a>
+<button class="menu-bouton" type="button" aria-expanded="false" aria-controls="menu-general">☰ Menu</button>
+<nav class="menu-general" id="menu-general" aria-label="Menu général">
+<a href="index.html">Accueil</a><a href="a-propos.html">À propos</a><a href="contact.html">Nous contacter</a><a href="aide.html" aria-current="page">Aide</a><a data-compte="eleve" href="connexion.html?role=eleve">🎒 Connexion élève</a><a data-compte="prof" href="connexion.html?role=teacher">🍎 Connexion enseignante</a></nav>
+</header>
+<script>document.currentScript.previousElementSibling.querySelector(".menu-bouton").onclick=function(){var o=this.getAttribute("aria-expanded")!=="true";this.setAttribute("aria-expanded",o);this.parentNode.classList.toggle("ouvert",o)}</script>
+<div class="mise-en-page">
+<aside class="barre-laterale">
+<p class="menu-titre">Activités</p>
+<nav class="menu-activites" aria-label="Catégories d’activités">
+<a href="mathematiques/index.html" style="--c:var(--mathematiques)"><span class="menu-icone" aria-hidden="true">📐</span>Mathématiques</a>
+<a href="defis/index.html" style="--c:var(--defis)"><span class="menu-icone" aria-hidden="true">🧩</span>Défis</a>
+<a href="jeux/index.html" style="--c:var(--jeux)"><span class="menu-icone" aria-hidden="true">🎮</span>Jeux</a>
+<a href="bons-moments-classe.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">❤️</span>Vie de classe</a>
+<a href="galerie.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">📸</span>Galerie</a>
+</nav>
+</aside>
+<div class="page">
+<div class="site-shell"><section class="science-hero info-hero"><h1>Aide et mode d’emploi</h1><p>École secondaire De La Salle, Ottawa</p></section><main class="info-page"><a class="back-link" href="index.html">← Accueil</a><p class="lead">Quelques repères pour utiliser MathJeux de façon autonome.</p><h2>1. Me connecter</h2><p>Clique sur « 🎒 Connexion élève » en haut de la page. Écris ton prénom, ton nom et ton mot de passe. C’est le même compte que pour les puzzles. Première visite ? Ouvre « C’est ma première visite » et crée ton compte : Mme Hakima t’ajoutera ensuite à ta classe. Tu peux aussi jouer sans te connecter, mais ton score ne sera pas gardé.</p><h2>2. Choisir une activité et un niveau</h2><p>Depuis l’accueil, clique sur une catégorie. Dans une catégorie, choisis une activité. Chaque activité a plusieurs niveaux, du plus facile au plus difficile. Le niveau conseillé est entouré en bleu. Chaque niveau contient 10 exercices.</p><h2>3. Répondre et vérifier</h2><p>Lis la consigne ou clique sur 🔊 pour l’écouter. Écris ta réponse ou clique sur ton choix, puis clique sur « Vérifier ». Si ce n’est pas la bonne réponse, un indice t’aide à réessayer. Après 3 essais, la bonne réponse est montrée et tu continues. Les pastilles en haut montrent où tu en es : ⭐ veut dire « réussi du premier coup ».</p><h2>4. À la fin du niveau</h2><p>Un message te montre ton score (exercices réussis du premier coup), tes étoiles et le temps que tu as pris. Si tu es connecté, ton résultat est enregistré. Tu peux passer au niveau suivant, refaire le niveau ou en choisir un autre.</p><h2>5. Voir mes progrès</h2><p>Clique sur ton prénom en haut de la page pour voir les niveaux que tu as terminés, ton meilleur score et ton meilleur temps.</p><h2>Pour Mme Hakima</h2><p>Connecte-toi avec ton compte enseignante : la page « Suivi des élèves » montre, pour chaque classe, les niveaux terminés par chaque élève, les scores, les temps et les dates. Un bouton permet de télécharger les résultats pour Excel. Dans l’onglet « Élèves et classes », tu vois les élèves inscrits, tu les coches pour les ajouter à une classe ou les retirer, et tu peux modifier un élève, lui donner un nouveau mot de passe ou le supprimer.</p><h2>Besoin d’un coup de main ?</h2><p>Demande de l’aide à Mme Hakima. Tu peux faire une pause et reprendre à ton rythme.</p><a class="info-button" href="index.html#activites">Choisir une activité</a></main><footer><span>MathJeux <b>│</b> De La Salle · Ottawa</span><span>Apprendre aujourd’hui pour demain</span></footer></div>
+</div>
+</div>
+</body></html>

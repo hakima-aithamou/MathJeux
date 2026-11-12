@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Connexion · MathJeux</title>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="accueil.css"><link rel="stylesheet" href="espace.css">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<script src="compte.js" defer></script><script src="connexion.js" defer></script>
+<link rel="stylesheet" href="apparence.css">
+<script src="menu-lateral.js" defer></script>
+</head>
+<body>
+<header class="barre-haut">
+<a class="brand" href="index.html">Math<span>Jeux</span><small>De La Salle · Ottawa</small></a>
+<button class="menu-bouton" type="button" aria-expanded="false" aria-controls="menu-general">☰ Menu</button>
+<nav class="menu-general" id="menu-general" aria-label="Menu général">
+<a href="index.html">Accueil</a><a href="a-propos.html">À propos</a><a href="contact.html">Nous contacter</a><a href="aide.html">Aide</a><a data-compte="eleve" href="connexion.html?role=eleve">🎒 Connexion élève</a><a data-compte="prof" href="connexion.html?role=teacher">🍎 Connexion enseignante</a></nav>
+</header>
+<script>document.currentScript.previousElementSibling.querySelector(".menu-bouton").onclick=function(){var o=this.getAttribute("aria-expanded")!=="true";this.setAttribute("aria-expanded",o);this.parentNode.classList.toggle("ouvert",o)}</script>
+<div class="mise-en-page">
+<aside class="barre-laterale">
+<p class="menu-titre">Activités</p>
+<nav class="menu-activites" aria-label="Catégories d’activités">
+<a href="mathematiques/index.html" style="--c:var(--mathematiques)"><span class="menu-icone" aria-hidden="true">📐</span>Mathématiques</a>
+<a href="defis/index.html" style="--c:var(--defis)"><span class="menu-icone" aria-hidden="true">🧩</span>Défis</a>
+<a href="jeux/index.html" style="--c:var(--jeux)"><span class="menu-icone" aria-hidden="true">🎮</span>Jeux</a>
+<a href="bons-moments-classe.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">❤️</span>Vie de classe</a>
+<a href="galerie.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">📸</span>Galerie</a>
+</nav>
+</aside>
+<div class="page">
+<div class="site-shell">
+<main class="espace">
+  <h1 id="titrePage">Connexion élève</h1>
+  <p id="introEleve" class="intro">Connecte-toi pour garder tes scores et voir tes progrès. C’est le <strong>même compte</strong> que pour les puzzles « Mille et une pièces ».</p>
+  <p id="notice" class="notice" role="status" aria-live="polite" hidden></p>
+
+  <form id="formEleve" class="carte-form seule" autocomplete="off">
+    <label>Prénom<input name="first" required maxlength="100" autocomplete="given-name"></label>
+    <label>Nom<input name="last" required maxlength="100" autocomplete="family-name"></label>
+    <label>Mot de passe<input name="password" type="password" required maxlength="128" autocomplete="current-password"></label>
+    <div class="boutons">
+      <button class="principal" name="mode" value="login">Me connecter</button>
+    </div>
+    <details class="premiere-fois">
+      <summary>C’est ma première visite : créer mon compte</summary>
+      <p class="petit">Écris ton prénom et ton nom ci-dessus, choisis un mot de passe (8 caractères ou plus), puis clique sur le bouton. Mme Hakima t’ajoutera ensuite à ta classe.</p>
+      <button class="secondaire" name="mode" value="signup">Créer mon compte élève</button>
+    </details>
+    <p class="petit">Mot de passe oublié ? Demande à Mme Hakima : elle peut t’en donner un nouveau.</p>
+  </form>
+
+  <form id="formProf" class="carte-form seule" hidden>
+    <label>Courriel professionnel<input name="email" type="email" required autocomplete="username" value="hakima.ait-hamou@cepeo.on.ca"></label>
+    <label>Mot de passe<input name="password" type="password" required minlength="8" autocomplete="current-password"></label>
+    <div class="boutons"><button class="principal">Me connecter</button></div>
+    <p class="petit">C’est le compte enseignante du site des puzzles. Pour changer de mot de passe, utilise <a href="https://hakima-aithamou.github.io/Puzzles/classe.html?role=teacher">l’espace enseignante des puzzles</a>.</p>
+  </form>
+
+  <section id="dejaConnecte" class="carte-form seule" hidden>
+    <h2 id="bonjour"></h2>
+    <p id="mesClasses" class="petit"></p>
+    <div class="boutons"><a class="principal" href="mon-espace.html" id="voirEspace">Voir mes progrès</a><a class="secondaire" id="continuer" href="index.html#activites">Continuer les activités</a><button type="button" class="secondaire" id="deconnexion">Me déconnecter</button></div>
+  </section>
+</main>
+<footer><span>MathJeux <b>│</b> De La Salle · Ottawa</span><span>Apprendre aujourd’hui pour demain</span></footer>
+</div>
+</div>
+</div>
+</body></html>

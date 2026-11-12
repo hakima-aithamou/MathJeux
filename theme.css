@@ -1,0 +1,35 @@
+/* =====================================================================
+   SITE THEME — all the main colours are here.
+   Current palette: "Calm ocean".
+   To change the look of the whole site, just change the colours
+   of this block (see the other palettes at the bottom of the file).
+   ===================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap');
+:root{
+  --encre:#16324f;
+  --primaire:#1f5f7a;
+  --primaire-fonce:#164659;
+  --primaire-2:#3b5f7c;
+  --accent:#14a3ad;
+  --accent-fonce:#0b7480;
+  --accent-clair:#7fd6dc;
+  --accent-pale:#e1f3f4;
+  --fond:#eef4f7;
+  --surface-douce:#f6f9fb;
+  --surface-3:#e2eaf0;
+  --bordure:#c3d3dd;
+  --texte-doux:#4a6378;
+  --soleil:#f4c152;
+  --entete:#16324f;
+  --police:"Atkinson Hyperlegible",Arial,"Segoe UI",sans-serif;
+  --ombre:0 6px 18px rgba(22,50,79,.10);
+}
+
+/* OTHER SUGGESTED PALETTES — copy a line in place of the :root block above.
+   Soft forest:
+   :root{--encre:#1f3a2e;--primaire:#2f6b4f;--primaire-fonce:#24533d;--primaire-2:#46705c;--accent:#4a9a74;--accent-fonce:#2c6e51;--accent-clair:#a5d9bd;--accent-pale:#e3f2e9;--fond:#eff4ee;--surface-douce:#f7faf6;--surface-3:#e2ebe0;--bordure:#c5d6c3;--texte-doux:#4f6758;--soleil:#f2c25a;--entete:#1f3a2e}
+   Lavender and peach:
+   :root{--encre:#2f2a4f;--primaire:#574a8f;--primaire-fonce:#443a73;--primaire-2:#6a5f98;--accent:#8577d1;--accent-fonce:#5b4fa6;--accent-clair:#c9c2f2;--accent-pale:#ece9fa;--fond:#f4f2fa;--surface-douce:#faf9fd;--surface-3:#e8e4f4;--bordure:#d0c9e6;--texte-doux:#5d5878;--soleil:#f6a37f;--entete:#2f2a4f}
+   Sand and coral:
+   :root{--encre:#3d2c22;--primaire:#8a4b36;--primaire-fonce:#6e3a29;--primaire-2:#8c6552;--accent:#d36f52;--accent-fonce:#a94d34;--accent-clair:#f2bba8;--accent-pale:#fbe9e2;--fond:#faf5ef;--surface-douce:#fdfaf6;--surface-3:#f1e8de;--bordure:#e0d2c3;--texte-doux:#6b5a4d;--soleil:#f2c25a;--entete:#3d2c22}
+*/

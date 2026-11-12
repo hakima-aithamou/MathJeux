@@ -1,0 +1,27 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nous contacter · MathJeux</title><link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="accueil.css"><link rel="icon" href="images/favicon.svg" type="image/svg+xml"><script src="compte.js" defer></script><link rel="stylesheet" href="apparence.css">
+<script src="menu-lateral.js" defer></script>
+</head><body>
+<header class="barre-haut">
+<a class="brand" href="index.html">Math<span>Jeux</span><small>De La Salle · Ottawa</small></a>
+<button class="menu-bouton" type="button" aria-expanded="false" aria-controls="menu-general">☰ Menu</button>
+<nav class="menu-general" id="menu-general" aria-label="Menu général">
+<a href="index.html">Accueil</a><a href="a-propos.html">À propos</a><a href="contact.html" aria-current="page">Nous contacter</a><a href="aide.html">Aide</a><a data-compte="eleve" href="connexion.html?role=eleve">🎒 Connexion élève</a><a data-compte="prof" href="connexion.html?role=teacher">🍎 Connexion enseignante</a></nav>
+</header>
+<script>document.currentScript.previousElementSibling.querySelector(".menu-bouton").onclick=function(){var o=this.getAttribute("aria-expanded")!=="true";this.setAttribute("aria-expanded",o);this.parentNode.classList.toggle("ouvert",o)}</script>
+<div class="mise-en-page">
+<aside class="barre-laterale">
+<p class="menu-titre">Activités</p>
+<nav class="menu-activites" aria-label="Catégories d’activités">
+<a href="mathematiques/index.html" style="--c:var(--mathematiques)"><span class="menu-icone" aria-hidden="true">📐</span>Mathématiques</a>
+<a href="defis/index.html" style="--c:var(--defis)"><span class="menu-icone" aria-hidden="true">🧩</span>Défis</a>
+<a href="jeux/index.html" style="--c:var(--jeux)"><span class="menu-icone" aria-hidden="true">🎮</span>Jeux</a>
+<a href="bons-moments-classe.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">❤️</span>Vie de classe</a>
+<a href="galerie.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">📸</span>Galerie</a>
+</nav>
+</aside>
+<div class="page">
+<div class="site-shell"><section class="science-hero info-hero"><h1>Nous contacter</h1><p>École secondaire De La Salle, Ottawa</p></section><main class="info-page"><a class="back-link" href="index.html">← Accueil</a><p class="lead">Une question sur une activité ou besoin d’aide pour utiliser le site ? Mme Hakima est votre personne-ressource.</p><h2>Pour les élèves</h2><p>Parle à Mme Hakima pendant le cours ou utilise le moyen de communication habituel de la classe.</p><h2>Pour les familles</h2><p>Pour une question concernant les activités, les besoins de votre enfant ou l’accès au site, communiquez avec Mme Hakima par le canal scolaire habituel. Vous pouvez aussi contacter le secrétariat de l’école pour être dirigé vers la bonne personne.</p><h2>Signaler un problème</h2><p>Indique le nom de la catégorie, l’activité concernée et ce qui se passe à l’écran. Ces précisions aideront à comprendre le problème.</p><div class="info-note">Cette page ne contient pas de formulaire d’envoi. Utilisez votre moyen de communication scolaire habituel.</div></main><footer><span>MathJeux <b>│</b> De La Salle · Ottawa</span><span>Apprendre aujourd’hui pour demain</span></footer></div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,27 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MathJeux · De La Salle</title><link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="accueil.css"><link rel="icon" href="images/favicon.svg" type="image/svg+xml"><script src="compte.js" defer></script><link rel="stylesheet" href="apparence.css">
+<script src="menu-lateral.js" defer></script>
+</head><body>
+<header class="barre-haut">
+<a class="brand" href="index.html">Math<span>Jeux</span><small>De La Salle · Ottawa</small></a>
+<button class="menu-bouton" type="button" aria-expanded="false" aria-controls="menu-general">☰ Menu</button>
+<nav class="menu-general" id="menu-general" aria-label="Menu général">
+<a href="index.html" aria-current="page">Accueil</a><a href="a-propos.html">À propos</a><a href="contact.html">Nous contacter</a><a href="aide.html">Aide</a><a data-compte="eleve" href="connexion.html?role=eleve">🎒 Connexion élève</a><a data-compte="prof" href="connexion.html?role=teacher">🍎 Connexion enseignante</a></nav>
+</header>
+<script>document.currentScript.previousElementSibling.querySelector(".menu-bouton").onclick=function(){var o=this.getAttribute("aria-expanded")!=="true";this.setAttribute("aria-expanded",o);this.parentNode.classList.toggle("ouvert",o)}</script>
+<div class="mise-en-page">
+<aside class="barre-laterale">
+<p class="menu-titre">Activités</p>
+<nav class="menu-activites" aria-label="Catégories d’activités">
+<a href="mathematiques/index.html" style="--c:var(--mathematiques)"><span class="menu-icone" aria-hidden="true">📐</span>Mathématiques</a>
+<a href="defis/index.html" style="--c:var(--defis)"><span class="menu-icone" aria-hidden="true">🧩</span>Défis</a>
+<a href="jeux/index.html" style="--c:var(--jeux)"><span class="menu-icone" aria-hidden="true">🎮</span>Jeux</a>
+<a href="bons-moments-classe.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">❤️</span>Vie de classe</a>
+<a href="galerie.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">📸</span>Galerie</a>
+</nav>
+</aside>
+<div class="page">
+<div class="site-shell"><main><section class="science-hero"><h1>Apprendre à son rythme</h1><p>Des activités pour développer ses habiletés<br> et gagner en autonomie.</p></section><section class="activities" id="activites" aria-label="Choisir une catégorie"><a class="activity-card tone-2" href="mathematiques/index.html"><svg viewBox="0 0 44 44" aria-hidden="true"><path d="M8 8h28v28H8zM14 16h6M17 13v6M24 16h6M14 28h6M24 25l6 6M30 25l-6 6"/></svg><div><h2>Mathématiques</h2><p>Nombres, algèbre, données, sens de l’espace et littératie financière.</p></div><span class="card-arrow" aria-hidden="true">›</span></a><a class="activity-card tone-4" href="defis/index.html"><svg viewBox="0 0 44 44" aria-hidden="true"><path d="M12 4h20v12c0 15-20 15-20 0zM12 7H5v7c0 8 7 8 7 8M32 7h7v7c0 8-7 8-7 8M22 28v10M13 40h18"/></svg><div><h2>Défis</h2><p>Se fixer des objectifs et relever de nouveaux défis.</p></div><span class="card-arrow" aria-hidden="true">›</span></a><a class="activity-card tone-6" href="jeux/index.html"><svg viewBox="0 0 44 44" aria-hidden="true"><rect x="3" y="12" width="38" height="22" rx="11"/><path d="M12 19v8M8 23h8"/><circle cx="29" cy="21" r="1.5"/><circle cx="34" cy="25" r="1.5"/></svg><div><h2>Jeux</h2><p>Des jeux en 3D et des jeux de logique, à part des matières.</p></div><span class="card-arrow" aria-hidden="true">›</span></a><a class="activity-card tone-5" href="bons-moments-classe.html"><svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="10" r="6"/><circle cx="8" cy="17" r="5"/><circle cx="36" cy="17" r="5"/><path d="M11 39v-5c0-16 22-16 22 0v5M1 38v-7c0-7 8-10 12-7M43 38v-7c0-7-8-10-12-7"/></svg><div><h2>Vie de classe</h2><p>Nos bons moments et nos souvenirs en classe.</p></div><span class="card-arrow" aria-hidden="true">›</span></a></section></main><footer><span>MathJeux <b>│</b> De La Salle · Ottawa</span><span>Apprendre aujourd’hui pour demain</span></footer></div>
+</div>
+</div>
+</body></html>

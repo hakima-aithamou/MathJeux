@@ -1,0 +1,27 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>À propos de nous · MathJeux</title><link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="accueil.css"><link rel="icon" href="images/favicon.svg" type="image/svg+xml"><script src="compte.js" defer></script><link rel="stylesheet" href="apparence.css">
+<script src="menu-lateral.js" defer></script>
+</head><body>
+<header class="barre-haut">
+<a class="brand" href="index.html">Math<span>Jeux</span><small>De La Salle · Ottawa</small></a>
+<button class="menu-bouton" type="button" aria-expanded="false" aria-controls="menu-general">☰ Menu</button>
+<nav class="menu-general" id="menu-general" aria-label="Menu général">
+<a href="index.html">Accueil</a><a href="a-propos.html" aria-current="page">À propos</a><a href="contact.html">Nous contacter</a><a href="aide.html">Aide</a><a data-compte="eleve" href="connexion.html?role=eleve">🎒 Connexion élève</a><a data-compte="prof" href="connexion.html?role=teacher">🍎 Connexion enseignante</a></nav>
+</header>
+<script>document.currentScript.previousElementSibling.querySelector(".menu-bouton").onclick=function(){var o=this.getAttribute("aria-expanded")!=="true";this.setAttribute("aria-expanded",o);this.parentNode.classList.toggle("ouvert",o)}</script>
+<div class="mise-en-page">
+<aside class="barre-laterale">
+<p class="menu-titre">Activités</p>
+<nav class="menu-activites" aria-label="Catégories d’activités">
+<a href="mathematiques/index.html" style="--c:var(--mathematiques)"><span class="menu-icone" aria-hidden="true">📐</span>Mathématiques</a>
+<a href="defis/index.html" style="--c:var(--defis)"><span class="menu-icone" aria-hidden="true">🧩</span>Défis</a>
+<a href="jeux/index.html" style="--c:var(--jeux)"><span class="menu-icone" aria-hidden="true">🎮</span>Jeux</a>
+<a href="bons-moments-classe.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">❤️</span>Vie de classe</a>
+<a href="galerie.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">📸</span>Galerie</a>
+</nav>
+</aside>
+<div class="page">
+<div class="site-shell"><section class="science-hero info-hero"><h1>À propos de nous</h1><p>École secondaire De La Salle, Ottawa</p></section><main class="info-page"><a class="back-link" href="index.html">← Accueil</a><p class="lead">MathJeux est un espace d’apprentissage pour les élèves de l’École secondaire publique De La Salle, à Ottawa.</p><h2>Apprendre à son rythme</h2><p>Le site rassemble des activités accessibles et variées pour développer ses habiletés, gagner en autonomie et prendre confiance. Chaque élève peut avancer à son rythme et recommencer pour progresser.</p><h2>Explorer, pratiquer et partager</h2><p>Sports, informatique, français, sciences et défis : les catégories proposent des occasions de découvrir et de s’exercer. La rubrique Vie de classe rassemble nos bons moments et nos souvenirs.</p><h2>Notre approche</h2><p>Des consignes claires, des supports visuels et des exercices interactifs encouragent la participation. Respect, bienveillance et entraide guident notre travail en classe.</p><blockquote>Chaque progrès est une réussite.</blockquote></main><footer><span>MathJeux <b>│</b> De La Salle · Ottawa</span><span>Apprendre aujourd’hui pour demain</span></footer></div>
+</div>
+</div>
+</body></html>
