@@ -1,0 +1,132 @@
+/* Layout: two games in tabs; play area as grids of square blocks, wide buttons for touch screens. */
+:root{
+  --fond:#eef4f7; --carte:#ffffff; --encre:#16324f; --doux:#4a6378; --trait:#c3d3dd; --pale:#e1f3f4; --vide:#f3f7f9;
+  --accent:#1f5f7a; --ok:#2f8a4b; --oups:#c2410c;
+  --titre:"Fredoka","Atkinson Hyperlegible",Arial,sans-serif; --texte:"Atkinson Hyperlegible",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--fond:#121a22;--carte:#1b2631;--encre:#e6eef4;--doux:#9fb3c3;--trait:#2f3e4c;--pale:#1d3440;--vide:#16212b;--accent:#6fc3d8;--ok:#5fc27d;--oups:#ff9a6b;color-scheme:dark}}
+:root[data-theme="dark"]{--fond:#121a22;--carte:#1b2631;--encre:#e6eef4;--doux:#9fb3c3;--trait:#2f3e4c;--pale:#1d3440;--vide:#16212b;--accent:#6fc3d8;--ok:#5fc27d;--oups:#ff9a6b;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fond);color:var(--encre);font-family:var(--texte);font-size:17px}
+.wrap{max-width:1000px;margin:0 auto;padding-block:20px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:16px}
+h1{font-family:var(--titre);font-weight:600;font-size:30px;margin:0}
+.intro{margin:4px 0 0;color:var(--doux)}
+.onglets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.onglet{border:2px solid var(--trait);background:var(--carte);color:var(--encre);border-radius:14px;padding:10px 14px;font:inherit;font-weight:700;display:flex;gap:12px;align-items:center;text-align:left;cursor:pointer;min-height:62px}
+.onglet small{display:block;font-weight:400;color:var(--doux);font-size:14px}
+.onglet svg{width:38px;height:38px;flex:none}
+.onglet.on{border-color:var(--accent);background:var(--pale)}
+.barre{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.niveaux{display:inline-flex;background:var(--carte);border:2px solid var(--trait);border-radius:12px;padding:3px;gap:3px}
+.niveaux button{border:0;background:transparent;color:var(--doux);font:inherit;font-weight:700;padding:8px 14px;border-radius:9px;cursor:pointer}
+.niveaux button.on{background:var(--accent);color:#fff}
+.etoiles{font-family:var(--titre);font-size:22px;font-weight:600}
+.jeu{background:var(--carte);border:2px solid var(--trait);border-radius:20px;padding:20px;display:flex;flex-direction:column;align-items:center;gap:16px;min-height:460px}
+.consigne{font-family:var(--titre);font-size:26px;font-weight:600;text-align:center;margin:0;text-wrap:balance}
+.aide{color:var(--doux);margin:0;text-align:center;max-width:60ch}
+.btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.btn{font:inherit;font-weight:700;font-size:19px;border-radius:14px;border:0;padding:12px 20px;min-height:56px;cursor:pointer;color:#fff;background:var(--accent)}
+.btn.clair{background:var(--pale);color:var(--encre)}
+.btn.vert{background:var(--ok)}
+.temps-fini{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 18px;margin:0 0 14px;padding:14px 18px;border-radius:16px;border:2px solid var(--oups);background:var(--carte);font-family:var(--titre);font-size:21px;font-weight:600;color:var(--oups);text-align:center}
+.btn.rejouer{background:var(--oups)}.btn.clair{background:transparent;color:var(--encre);border:2px solid var(--trait)}
+.msg{min-height:34px;font-family:var(--titre);font-size:23px;font-weight:600;text-align:center}
+.msg.ok{color:var(--ok)}.msg.oups{color:var(--oups)}
+/* Block grids */
+.duo{display:flex;flex-wrap:wrap;gap:28px;justify-content:center;align-items:flex-start}
+.cadre{display:flex;flex-direction:column;align-items:center;gap:8px}
+.cadre h3{margin:0;font-size:15px;color:var(--doux);text-transform:uppercase;letter-spacing:1px}
+.grille{display:grid;gap:3px;padding:6px;border-radius:12px;background:var(--pale)}
+.case{width:var(--t,46px);height:var(--t,46px);border-radius:7px;border:2px dashed var(--trait);background:var(--vide);padding:0;cursor:pointer;font-family:var(--titre);font-weight:600;color:#fff}
+.case.bloc{border:3px solid rgba(0,0,0,.2);box-shadow:inset 0 -5px 0 rgba(0,0,0,.14);border-style:solid}
+.case.faux{outline:4px solid var(--oups);outline-offset:1px}
+.grille.modele .case{cursor:default}
+.grille.modele .case:not(.bloc){border-color:transparent;background:transparent}
+.palette{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.coul{width:58px;height:58px;border-radius:14px;border:3px solid rgba(0,0,0,.18);cursor:pointer;box-shadow:inset 0 -6px 0 rgba(0,0,0,.14)}
+.coul.on{outline:5px solid var(--encre);outline-offset:3px}
+.coul.gomme{background:var(--vide);border:3px dashed var(--trait);font-size:24px}
+/* Questions */
+.question{display:flex;flex-direction:column;align-items:center;gap:12px}
+.choix{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.choix button{font-family:var(--titre);font-size:30px;font-weight:600;width:84px;height:72px;border-radius:16px;border:3px solid var(--trait);background:var(--carte);color:var(--encre);cursor:pointer}
+.choix button.bon{background:var(--ok);border-color:var(--ok);color:#fff}
+.choix button.faux{border-color:var(--oups);color:var(--oups)}
+.compte{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.pastille{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--trait);border-radius:999px;padding:4px 12px 4px 4px;font-weight:700}
+.pastille i{width:26px;height:26px;border-radius:7px;display:inline-block;border:2px solid rgba(0,0,0,.18)}
+/* Timer */
+.temps-choix{display:flex;flex-direction:column;align-items:center;gap:14px}
+.ideal{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px 12px;background:var(--pale);border-radius:16px;padding:12px 18px;font-size:18px}
+.ideal b{white-space:nowrap;font-family:var(--titre);font-size:26px;color:var(--accent)}
+.minutes{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.minutes button{width:92px;height:84px;border-radius:16px;border:3px solid var(--trait);background:var(--carte);color:var(--encre);cursor:pointer;font-family:var(--titre);font-size:30px;font-weight:600;line-height:1}
+.minutes button small{display:block;font-family:var(--texte);font-size:14px;font-weight:700;color:var(--doux);margin-top:4px}
+.minutes button.on{border-color:var(--accent);background:var(--accent);color:#fff}
+.minutes button.on small{color:#fff}
+.minutes button .reco{display:block;font-size:11px;color:var(--ok);font-family:var(--texte);margin-top:2px}
+.minutes button.on .reco{color:#fff}
+[hidden]{display:none!important}
+.chrono{display:flex;align-items:center;gap:10px;font-family:var(--titre);font-size:22px;font-weight:600;font-variant-numeric:tabular-nums}
+.chrono .piste{width:150px;height:14px;border-radius:7px;background:var(--pale);overflow:hidden;border:2px solid var(--trait)}
+.chrono .piste i{display:block;height:100%;background:var(--ok);width:100%;transition:width .9s linear,background .3s}
+.chrono.bas .piste i{background:#f4a12a}
+.chrono.fini{color:var(--oups)}
+.chrono.fini .piste i{background:var(--oups)}
+.bilan{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.bilan span{border:2px solid var(--trait);border-radius:999px;padding:6px 14px;font-weight:700}
+/* Mystery picture */
+.legende{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.leg{display:flex;align-items:center;gap:10px;border:3px solid var(--trait);border-radius:14px;padding:6px 14px 6px 6px;background:var(--carte);color:var(--encre);font-family:var(--titre);font-size:24px;font-weight:600;cursor:pointer;min-height:56px}
+.leg i{width:40px;height:40px;border-radius:9px;border:3px solid rgba(0,0,0,.18);box-shadow:inset 0 -5px 0 rgba(0,0,0,.14)}
+.leg.on{border-color:var(--encre);background:var(--pale)}
+.leg.fini{opacity:.45}
+.myst .case{font-size:var(--fs,14px);color:var(--encre);border-style:solid;border-color:var(--trait);background:var(--carte);line-height:1.05}
+.myst .case.bloc{color:transparent}
+.myst .case.vide{visibility:hidden}
+@keyframes non{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.secoue{animation:non .25s 2}
+@keyframes pop{from{transform:scale(.6)}to{transform:scale(1)}}
+.pop{animation:pop .18s ease}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+/* ---- Additions: 5 games, sound, stars out of 3 ---- */
+.onglets{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
+@media (max-width:520px){.onglet small{display:none}.onglet{min-height:54px;padding:8px 10px}.onglet svg{width:30px;height:30px}}
+.outils{display:flex;align-items:center;gap:10px}
+.son{font:inherit;font-weight:700;border:2px solid var(--trait);background:var(--carte);color:var(--encre);border-radius:12px;padding:8px 12px;cursor:pointer;min-height:44px}
+.son[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.tete{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.lire{width:44px;height:44px;border-radius:50%;border:2px solid var(--trait);background:var(--pale);font-size:20px;cursor:pointer;flex:none;padding:0}
+.trois{font-size:52px;letter-spacing:6px;line-height:1;color:#f4b400}
+.trois .vide{color:var(--trait)}
+.raisons{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;font-weight:700;font-size:19px;text-align:left}
+.raisons .ok{color:var(--ok)}.raisons .non{color:var(--oups)}
+.sauve{margin:0;color:var(--doux);text-align:center;min-height:1.2em}
+.sauve a{color:var(--accent);font-weight:700}
+/* Staircase */
+.tours{display:flex;gap:14px;align-items:flex-end;justify-content:center;flex-wrap:nowrap}
+.tour{display:flex;flex-direction:column;align-items:center;gap:6px}
+.pile{display:flex;flex-direction:column-reverse;gap:3px;padding:5px;border-radius:10px}
+.tour.vous .pile{background:var(--pale);outline:3px dashed var(--accent);outline-offset:2px}
+.tour b{font-family:var(--titre);font-size:24px}
+.pile .case{width:var(--t);height:var(--t)}
+.pile span.case:not(.bloc){visibility:hidden}
+.saut{font-family:var(--titre);font-weight:600;color:var(--doux);align-self:center;font-size:18px}
+/* Mirror */
+.axe{width:6px;background:var(--accent);border-radius:3px;margin:-3px 0}
+.grille .fixe{cursor:default}
+/* Recipe */
+.recette-carte{border:3px solid var(--trait);border-radius:16px;padding:12px 18px;background:var(--carte);display:flex;flex-direction:column;gap:8px;min-width:220px}
+.recette-carte h3{margin:0;font-family:var(--titre);font-size:20px;text-align:center}
+.ingr{display:flex;align-items:center;gap:12px;font-size:21px;font-weight:700}
+.ingr i{width:34px;height:34px;border-radius:8px;border:3px solid rgba(0,0,0,.18);box-shadow:inset 0 -4px 0 rgba(0,0,0,.14)}
+.plateau{display:grid;grid-template-columns:repeat(10,var(--t));gap:3px;padding:6px;border-radius:12px;background:var(--pale)}
+.plateau .case{cursor:default}
+.plateau .case:nth-child(10n+6){margin-left:6px}
+.ajout{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.ajout button{display:flex;align-items:center;gap:10px;font:inherit;font-weight:700;font-size:19px;border-radius:14px;border:3px solid var(--trait);background:var(--carte);color:var(--encre);padding:6px 14px 6px 6px;min-height:58px;cursor:pointer}
+.ajout button i{width:44px;height:44px;border-radius:10px;border:3px solid rgba(0,0,0,.18);box-shadow:inset 0 -5px 0 rgba(0,0,0,.14)}
+.ajout .enlever{padding:6px 14px}
+@media (max-width:520px){.onglets{grid-template-columns:1fr 1fr}}
+.haut{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.haut .btn{min-height:46px;padding:8px 16px;font-size:17px;text-decoration:none;display:inline-flex;align-items:center}

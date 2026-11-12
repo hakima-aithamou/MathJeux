@@ -1,0 +1,42 @@
+/* Calm arcade games (Challenges) */
+.arc-jeux{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:8px}
+.arc-jeu{display:flex;flex-direction:column;gap:10px;text-align:left;font:inherit;color:var(--encre);background:#fff;border:3px solid transparent;border-top:10px solid var(--c);border-radius:16px;padding:18px;cursor:pointer;box-shadow:var(--ombre)}
+.arc-jeu:hover,.arc-jeu:focus-visible{border-color:var(--c);border-top-width:10px}
+.arc-jeu .arc-icone{font-size:44px;line-height:1}
+.arc-jeu strong{font-size:22px}
+.arc-jeu small{color:var(--texte-doux);font-size:16px;line-height:1.4}
+.arc-jeu .arc-touches{font-size:15px;font-weight:700;color:var(--c)}
+
+.arc-haut{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.arc-reglages{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.arc-reglages label{display:flex;gap:8px;align-items:center;font-weight:700;font-size:16px}
+.arc-reglages select{font:inherit;font-size:16px;padding:8px 10px;border-radius:10px;border:2px solid var(--bordure);background:#fff;min-height:46px}
+#pause[aria-pressed="true"]{background:var(--soleil);border-color:#d9a23a}
+
+.arc-carte{background:#fff;border-radius:18px;box-shadow:var(--ombre);padding:20px 22px}
+.arc-tete{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.arc-tete h1{margin:0;font-size:26px}
+.arc-stats{display:flex;gap:16px;font-weight:800;font-size:20px}
+#coeurs{letter-spacing:2px}
+.arc-consigne{font-size:21px;font-weight:700;margin:10px 0 12px;padding:10px 14px;background:var(--cat-pale,#ece9fa);border-radius:12px;border-left:6px solid var(--cat,#5a3fb0)}
+.arc-zone{display:flex;justify-content:center}
+#ecran{width:100%;max-width:560px;aspect-ratio:1;border-radius:14px;border:3px solid var(--bordure);background:#f7f9fc;touch-action:none;cursor:pointer}
+#ecran:focus-visible{outline:4px solid var(--cat,#5a3fb0);outline-offset:3px}
+.arc-message{min-height:1.6em;text-align:center;font-weight:700;font-size:19px;margin:12px 0 6px}
+.arc-message.bon{color:#1c6140}
+.arc-message.oups{color:#8a4b00}
+.arc-pad{display:grid;grid-template-columns:repeat(3,64px);grid-template-rows:repeat(2,58px);gap:6px;justify-content:center;margin:6px auto}
+.arc-pad button{font-size:24px;border-radius:12px;border:2px solid var(--bordure);background:var(--surface-3);color:var(--encre);cursor:pointer}
+.arc-pad button:hover{background:#fff}
+.arc-pad [data-dir=haut]{grid-column:2;grid-row:1}
+.arc-pad [data-dir=gauche]{grid-column:1;grid-row:2}
+.arc-pad [data-dir=bas]{grid-column:2;grid-row:2}
+.arc-pad [data-dir=droite]{grid-column:3;grid-row:2}
+.arc-aide{text-align:center;color:var(--texte-doux);font-size:15px;margin:6px 0 0}
+.niveau-etat.etoiles{color:#b07a00;font-size:20px;letter-spacing:1px}
+@media(max-width:620px){.arc-carte{padding:14px 10px}.arc-consigne{font-size:18px}.arc-tete h1{font-size:21px}}
+.arc-actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:8px 0}
+.arc-actions .bouton-principal{font-size:18px;min-height:48px;padding:8px 20px;background:var(--cat,#1f5f7a)}
+.arc-actions button:disabled{opacity:.45;cursor:default}
+.arc-palier{grid-column:1/-1;margin:14px 0 0;font-size:24px}
+.arc-pad[hidden],.arc-actions[hidden],.arc-pad button[hidden]{display:none}

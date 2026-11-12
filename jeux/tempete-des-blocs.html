@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tempête des blocs - MathJeux</title><link rel="stylesheet" href="../theme.css">
+<link rel="stylesheet" href="../style.css"><link rel="icon" href="../images/favicon.svg" type="image/svg+xml"><script src="../compte.js" defer></script><link rel="stylesheet" href="../apparence.css">
+<script src="../menu-lateral.js" defer></script>
+</head><body class="cat-jeux">
+<header class="barre-haut">
+<a class="brand" href="../index.html">Math<span>Jeux</span><small>De La Salle · Ottawa</small></a>
+<button class="menu-bouton" type="button" aria-expanded="false" aria-controls="menu-general">☰ Menu</button>
+<nav class="menu-general" id="menu-general" aria-label="Menu général">
+<a href="../index.html">Accueil</a><a href="../a-propos.html">À propos</a><a href="../contact.html">Nous contacter</a><a href="../aide.html">Aide</a><a data-compte="eleve" href="../connexion.html?role=eleve">🎒 Connexion élève</a><a data-compte="prof" href="../connexion.html?role=teacher">🍎 Connexion enseignante</a></nav>
+</header>
+<script>document.currentScript.previousElementSibling.querySelector(".menu-bouton").onclick=function(){var o=this.getAttribute("aria-expanded")!=="true";this.setAttribute("aria-expanded",o);this.parentNode.classList.toggle("ouvert",o)}</script>
+<div class="mise-en-page">
+<aside class="barre-laterale">
+<p class="menu-titre">Activités</p>
+<nav class="menu-activites" aria-label="Catégories d’activités">
+<a href="../mathematiques/index.html" style="--c:var(--mathematiques)"><span class="menu-icone" aria-hidden="true">📐</span>Mathématiques</a>
+<a href="../defis/index.html" style="--c:var(--defis)"><span class="menu-icone" aria-hidden="true">🧩</span>Défis</a>
+<a href="index.html" style="--c:var(--jeux)" aria-current="page"><span class="menu-icone" aria-hidden="true">🎮</span>Jeux</a>
+<a href="../bons-moments-classe.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">❤️</span>Vie de classe</a>
+<a href="../galerie.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">📸</span>Galerie</a>
+</nav>
+</aside>
+<div class="page">
+
+
+
+<section class="entete-page"><span>RÉCOLTER • CONSTRUIRE • S’ORGANISER</span><h1>🌀 Tempête des blocs</h1>
+<p>Une tempête violette se referme lentement sur l’île. On récolte du bois et de la pierre, on construit des rampes pour grimper sur les rochers et on ouvre les 5 coffres avant la fin. Aucun combat : il faut seulement s’organiser et rester dans le cercle.</p></section>
+<main class="conteneur">
+<section class="jeux-niveau" aria-labelledby="tp-jouer">
+<h2 id="tp-jouer"><span class="pastille-niveau">Intermédiaire</span>Ouvre les 5 coffres</h2>
+<p>Le score compte les coffres : ★★★ les 5 coffres, ★★ 3 ou 4 coffres, ★ 1 ou 2 coffres. On peut choisir une tempête lente au départ.</p>
+<div class="tuiles">
+<a class="tuile" href="../tempete/jeu.html" data-niveau="1" style="--c1:#6f45b8;--c2:#c7b0ef;--fonce:#55338f">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M18 62c8-24 30-40 52-40" stroke="#fff" stroke-width="5" fill="none" stroke-dasharray="6 6" opacity=".8"/><rect x="62" y="40" width="22" height="30" fill="#fff" opacity=".85"/><path d="M30 70l16-16v16z" fill="#fff"/><path d="M46 54l16-16v16z" fill="#fff" opacity=".9"/><rect x="66" y="30" width="14" height="10" rx="2" fill="#ffd34d"/><circle cx="96" cy="22" r="10" fill="none" stroke="#fff" stroke-width="4"/></svg></span>
+  <span class="tuile-texte"><strong>La Tempête des Blocs</strong><small>Récolter, construire des murs, des rampes et des planchers, et battre la tempête.</small></span>
+  <span class="tuile-pied"><b class="ile-score">5 coffres</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+</main><div class="retour"><a href="../index.html">← Retour à l'accueil</a></div><footer class="site-footer"><span>MathJeux <b>│</b> De La Salle · Ottawa</span><span>Apprendre aujourd’hui pour demain</span></footer><script src="../script.js"></script>
+</div>
+</div>
+<script>
+/* Signed-in student: show their best score on each level */
+window.addEventListener('load', function () {
+  if (!window.EC || !EC.mesResultats) return;
+  EC.mesResultats().then(function (res) {
+    if (!res) return;
+    document.querySelectorAll('.tuile[data-niveau]').forEach(function (t) {
+      var n = +t.dataset.niveau, best = -1;
+      res.forEach(function (r) { if (r.activity === 'jeu-tempete' && r.level === n) best = Math.max(best, r.score); });
+      if (best >= 0) t.querySelector('.ile-score').textContent = '✓ ' + '★'.repeat(best) + '☆'.repeat(3 - best);
+    });
+  });
+});
+</script>
+</body></html>

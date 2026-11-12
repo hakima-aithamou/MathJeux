@@ -1,0 +1,146 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Math Obby - MathJeux</title><link rel="stylesheet" href="../theme.css">
+<link rel="stylesheet" href="../style.css"><link rel="icon" href="../images/favicon.svg" type="image/svg+xml"><script src="../compte.js" defer></script><link rel="stylesheet" href="../apparence.css">
+<script src="../menu-lateral.js" defer></script>
+</head><body class="cat-jeux">
+<header class="barre-haut">
+<a class="brand" href="../index.html">Math<span>Jeux</span><small>De La Salle · Ottawa</small></a>
+<button class="menu-bouton" type="button" aria-expanded="false" aria-controls="menu-general">☰ Menu</button>
+<nav class="menu-general" id="menu-general" aria-label="Menu général">
+<a href="../index.html">Accueil</a><a href="../a-propos.html">À propos</a><a href="../contact.html">Nous contacter</a><a href="../aide.html">Aide</a><a data-compte="eleve" href="../connexion.html?role=eleve">🎒 Connexion élève</a><a data-compte="prof" href="../connexion.html?role=teacher">🍎 Connexion enseignante</a></nav>
+</header>
+<script>document.currentScript.previousElementSibling.querySelector(".menu-bouton").onclick=function(){var o=this.getAttribute("aria-expanded")!=="true";this.setAttribute("aria-expanded",o);this.parentNode.classList.toggle("ouvert",o)}</script>
+<div class="mise-en-page">
+<aside class="barre-laterale">
+<p class="menu-titre">Activités</p>
+<nav class="menu-activites" aria-label="Catégories d’activités">
+<a href="../mathematiques/index.html" style="--c:var(--mathematiques)"><span class="menu-icone" aria-hidden="true">📐</span>Mathématiques</a>
+<a href="../defis/index.html" style="--c:var(--defis)"><span class="menu-icone" aria-hidden="true">🧩</span>Défis</a>
+<a href="index.html" style="--c:var(--jeux)" aria-current="page"><span class="menu-icone" aria-hidden="true">🎮</span>Jeux</a>
+<a href="../bons-moments-classe.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">❤️</span>Vie de classe</a>
+<a href="../galerie.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">📸</span>Galerie</a>
+</nav>
+</aside>
+<div class="page">
+
+<section class="entete-page"><span>SAUTER • CALCULER • CRÉER</span><h1>🌈 Math Obby</h1>
+<p>Un parcours en blocs pastel au-dessus d’une mer de nuages roses. À chaque portail magique, on saute sur la plateforme qui porte la bonne réponse : le portail s’ouvre et le coffre au trésor donne 5 pièces 🪙. On ramasse aussi les pièces du parcours. Avec les pièces, on achète des objets et des accessoires (casque à oreilles de chat, couronne, ailes…), et dans l’atelier 🎨 Mon avatar, on choisit ses couleurs. Les niveaux Départ sont des soustractions sans nombres négatifs. Option « Mode calme » : rien ne bouge.</p></section>
+<main class="conteneur">
+<section class="jeux-niveau" aria-labelledby="mo-depart">
+<h2 id="mo-depart"><span class="pastille-niveau">Départ</span>Soustractions (sans nombres négatifs)</h2>
+<div class="tuiles">
+<a class="tuile" href="../obby/jeu.html?n=1" data-niveau="1" style="--c1:#c2558f;--c2:#ffb3d9;--fonce:#7a2f58">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#f6c4dc" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#fff"/><rect x="47" y="40" width="26" height="12" fill="#fff" opacity=".8"/><rect x="80" y="40" width="26" height="12" fill="#fff"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">8 − 3</text></svg></span>
+  <span class="tuile-texte"><strong>Départ 1 · jusqu’à 10</strong><small>Soustractions jusqu’à 10.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../obby/jeu.html?n=2" data-niveau="2" style="--c1:#c2558f;--c2:#ffb3d9;--fonce:#7a2f58">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#f6c4dc" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#fff"/><rect x="47" y="40" width="26" height="12" fill="#fff" opacity=".8"/><rect x="80" y="40" width="26" height="12" fill="#fff"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">15 − 4</text></svg></span>
+  <span class="tuile-texte"><strong>Départ 2 · jusqu’à 20</strong><small>Soustractions jusqu’à 20.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../obby/jeu.html?n=3" data-niveau="3" style="--c1:#c2558f;--c2:#ffb3d9;--fonce:#7a2f58">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#f6c4dc" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#fff"/><rect x="47" y="40" width="26" height="12" fill="#fff" opacity=".8"/><rect x="80" y="40" width="26" height="12" fill="#fff"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">🍎 − 🍎</text></svg></span>
+  <span class="tuile-texte"><strong>Départ 3 · avec objets</strong><small>On enlève des objets.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../obby/jeu.html?n=4" data-niveau="4" style="--c1:#c2558f;--c2:#ffb3d9;--fonce:#7a2f58">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#f6c4dc" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#fff"/><rect x="47" y="40" width="26" height="12" fill="#fff" opacity=".8"/><rect x="80" y="40" width="26" height="12" fill="#fff"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">28 − 6</text></svg></span>
+  <span class="tuile-texte"><strong>Départ 4 · jusqu’à 50</strong><small>Jusqu’à 50, sans regrouper.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../obby/jeu.html?n=5" data-niveau="5" style="--c1:#c2558f;--c2:#ffb3d9;--fonce:#7a2f58">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#f6c4dc" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#fff"/><rect x="47" y="40" width="26" height="12" fill="#fff" opacity=".8"/><rect x="80" y="40" width="26" height="12" fill="#fff"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">? reste</text></svg></span>
+  <span class="tuile-texte"><strong>Départ 5 · problèmes</strong><small>Combien en reste-t-il ?</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+<section class="jeux-niveau" aria-labelledby="im-junior">
+<h2 id="im-junior"><span class="pastille-niveau">Junior</span>Additions et soustractions</h2>
+<div class="tuiles">
+<a class="tuile" href="../obby/jeu.html?n=6" data-niveau="6" style="--c1:#4f9e8a;--c2:#a8e6cf;--fonce:#2f6155">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#f6c4dc" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#fff"/><rect x="47" y="40" width="26" height="12" fill="#fff" opacity=".8"/><rect x="80" y="40" width="26" height="12" fill="#fff"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">+ et −</text></svg></span>
+  <span class="tuile-texte"><strong>Junior 1 · jusqu’à 10</strong><small>+ et − jusqu’à 10.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../obby/jeu.html?n=7" data-niveau="7" style="--c1:#4f9e8a;--c2:#a8e6cf;--fonce:#2f6155">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#f6c4dc" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#fff"/><rect x="47" y="40" width="26" height="12" fill="#fff" opacity=".8"/><rect x="80" y="40" width="26" height="12" fill="#fff"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">+ et −</text></svg></span>
+  <span class="tuile-texte"><strong>Junior 2 · de 10 à 20</strong><small>+ et − de 10 à 20.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../obby/jeu.html?n=8" data-niveau="8" style="--c1:#4f9e8a;--c2:#a8e6cf;--fonce:#2f6155">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#f6c4dc" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#fff"/><rect x="47" y="40" width="26" height="12" fill="#fff" opacity=".8"/><rect x="80" y="40" width="26" height="12" fill="#fff"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">+ et −</text></svg></span>
+  <span class="tuile-texte"><strong>Junior 3 · jusqu’à 50</strong><small>+ et − jusqu’à 50.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../obby/jeu.html?n=9" data-niveau="9" style="--c1:#4f9e8a;--c2:#a8e6cf;--fonce:#2f6155">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#f6c4dc" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#fff"/><rect x="47" y="40" width="26" height="12" fill="#fff" opacity=".8"/><rect x="80" y="40" width="26" height="12" fill="#fff"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">+ et −</text></svg></span>
+  <span class="tuile-texte"><strong>Junior 4 · jusqu’à 100</strong><small>+ et − jusqu’à 100.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+<section class="jeux-niveau" aria-labelledby="im-expert">
+<h2 id="im-expert"><span class="pastille-niveau">Expert</span>Multiplications et divisions</h2>
+<div class="tuiles">
+<a class="tuile" href="../obby/jeu.html?n=10" data-niveau="10" style="--c1:#4f86c6;--c2:#9fd8ff;--fonce:#2c4f78">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#f6c4dc" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#fff"/><rect x="47" y="40" width="26" height="12" fill="#fff" opacity=".8"/><rect x="80" y="40" width="26" height="12" fill="#fff"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">× et ÷</text></svg></span>
+  <span class="tuile-texte"><strong>Expert 1 · jusqu’à 10</strong><small>× et ÷ jusqu’à 10.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../obby/jeu.html?n=11" data-niveau="11" style="--c1:#4f86c6;--c2:#9fd8ff;--fonce:#2c4f78">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#f6c4dc" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#fff"/><rect x="47" y="40" width="26" height="12" fill="#fff" opacity=".8"/><rect x="80" y="40" width="26" height="12" fill="#fff"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">× et ÷</text></svg></span>
+  <span class="tuile-texte"><strong>Expert 2 · jusqu’à 20</strong><small>× et ÷ jusqu’à 20.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../obby/jeu.html?n=12" data-niveau="12" style="--c1:#4f86c6;--c2:#9fd8ff;--fonce:#2c4f78">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#f6c4dc" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#fff"/><rect x="47" y="40" width="26" height="12" fill="#fff" opacity=".8"/><rect x="80" y="40" width="26" height="12" fill="#fff"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">× et ÷</text></svg></span>
+  <span class="tuile-texte"><strong>Expert 3 · jusqu’à 50</strong><small>× et ÷ jusqu’à 50.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../obby/jeu.html?n=13" data-niveau="13" style="--c1:#4f86c6;--c2:#9fd8ff;--fonce:#2c4f78">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#f6c4dc" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#fff"/><rect x="47" y="40" width="26" height="12" fill="#fff" opacity=".8"/><rect x="80" y="40" width="26" height="12" fill="#fff"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">× et ÷</text></svg></span>
+  <span class="tuile-texte"><strong>Expert 4 · jusqu’à 100</strong><small>× et ÷ jusqu’à 100.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+<section class="jeux-niveau" aria-labelledby="im-defis">
+<h2 id="im-defis"><span class="pastille-niveau">Défis</span>Autres défis</h2>
+<div class="tuiles">
+<a class="tuile" href="../obby/jeu.html?n=14" data-niveau="14" style="--c1:#7a62c4;--c2:#c9b3ff;--fonce:#463774">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#f6c4dc" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#fff"/><rect x="47" y="40" width="26" height="12" fill="#fff" opacity=".8"/><rect x="80" y="40" width="26" height="12" fill="#fff"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">2,4,6</text></svg></span>
+  <span class="tuile-texte"><strong>Défis 1 · suites</strong><small>Suites et multiples.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../obby/jeu.html?n=15" data-niveau="15" style="--c1:#7a62c4;--c2:#c9b3ff;--fonce:#463774">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#f6c4dc" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#fff"/><rect x="47" y="40" width="26" height="12" fill="#fff" opacity=".8"/><rect x="80" y="40" width="26" height="12" fill="#fff"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">2,4,6</text></svg></span>
+  <span class="tuile-texte"><strong>Défis 2 · doubles</strong><small>Doubles et moitiés.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../obby/jeu.html?n=16" data-niveau="16" style="--c1:#7a62c4;--c2:#c9b3ff;--fonce:#463774">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#f6c4dc" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#fff"/><rect x="47" y="40" width="26" height="12" fill="#fff" opacity=".8"/><rect x="80" y="40" width="26" height="12" fill="#fff"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">2,4,6</text></svg></span>
+  <span class="tuile-texte"><strong>Défis 3 · compléments</strong><small>Compléments à 10 et à 100.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+</main><div class="retour"><a href="../index.html">← Retour à l'accueil</a></div><footer class="site-footer"><span>MathJeux <b>│</b> De La Salle · Ottawa</span><span>Apprendre aujourd’hui pour demain</span></footer><script src="../script.js"></script>
+</div>
+</div>
+<script>
+/* Signed-in student: show their best score on each level */
+window.addEventListener('load', function () {
+  if (!window.EC || !EC.mesResultats) return;
+  EC.mesResultats().then(function (res) {
+    if (!res) return;
+    document.querySelectorAll('.tuile[data-niveau]').forEach(function (t) {
+      var n = +t.dataset.niveau, best = -1;
+      res.forEach(function (r) { if (r.activity === 'jeu-math-obby' && r.level === n) best = Math.max(best, r.score); });
+      if (best >= 0) t.querySelector('.ile-score').textContent = '✓ ' + '★'.repeat(best) + '☆'.repeat(3 - best);
+    });
+  });
+});
+</script>
+</body></html>

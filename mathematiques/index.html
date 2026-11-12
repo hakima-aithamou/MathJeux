@@ -1,0 +1,223 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mathématiques - MathJeux</title><link rel="stylesheet" href="../theme.css">
+<link rel="stylesheet" href="../style.css"><link rel="icon" href="../images/favicon.svg" type="image/svg+xml"><script src="../compte.js" defer></script><link rel="stylesheet" href="../apparence.css">
+<script src="../menu-lateral.js" defer></script>
+<style>.illu-emo{font-size:58px;line-height:1;display:flex;align-items:center;justify-content:center;height:100%}</style>
+</head><body class="cat-mathematiques">
+<header class="barre-haut">
+<a class="brand" href="../index.html">Math<span>Jeux</span><small>De La Salle · Ottawa</small></a>
+<button class="menu-bouton" type="button" aria-expanded="false" aria-controls="menu-general">☰ Menu</button>
+<nav class="menu-general" id="menu-general" aria-label="Menu général">
+<a href="../index.html">Accueil</a><a href="../a-propos.html">À propos</a><a href="../contact.html">Nous contacter</a><a href="../aide.html">Aide</a><a data-compte="eleve" href="../connexion.html?role=eleve">🎒 Connexion élève</a><a data-compte="prof" href="../connexion.html?role=teacher">🍎 Connexion enseignante</a></nav>
+</header>
+<script>document.currentScript.previousElementSibling.querySelector(".menu-bouton").onclick=function(){var o=this.getAttribute("aria-expanded")!=="true";this.setAttribute("aria-expanded",o);this.parentNode.classList.toggle("ouvert",o)}</script>
+<div class="mise-en-page">
+<aside class="barre-laterale">
+<p class="menu-titre">Activités</p>
+<nav class="menu-activites" aria-label="Catégories d’activités">
+<a href="index.html" style="--c:var(--mathematiques)" aria-current="page"><span class="menu-icone" aria-hidden="true">📐</span>Mathématiques</a>
+<a href="../defis/index.html" style="--c:var(--defis)"><span class="menu-icone" aria-hidden="true">🧩</span>Défis</a>
+<a href="../jeux/index.html" style="--c:var(--jeux)"><span class="menu-icone" aria-hidden="true">🎮</span>Jeux</a>
+<a href="../bons-moments-classe.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">❤️</span>Vie de classe</a>
+<a href="../galerie.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">📸</span>Galerie</a>
+</nav>
+</aside>
+<div class="page">
+
+
+
+<section class="entete-page"><span>COMPTER • CALCULER • RAISONNER</span><h1>📐 Mathématiques</h1>
+<p>Les activités de mathématiques rangées par domaine : Nombres, Algèbre, Données, Sens de l’espace et Littératie financière. Chaque activité a plusieurs niveaux.</p></section>
+<main class="conteneur">
+<nav class="sommaire-jeux" aria-label="Domaines"><a href="#dom-nombres-calculs">🔢 Nombres · Additions et soustractions</a><a href="#dom-nombres-valeur">🔢 Nombres · Valeur de position</a><a href="#dom-nombres-mult">🔢 Nombres · Multiplication, division et fractions</a><a href="#dom-algebre">🤖 Algèbre · Codage</a><a href="#dom-donnees">📊 Données</a><a href="#dom-espace">📐 Sens de l’espace · Géométrie, mesure et repérage</a><a href="#dom-finances">💵 Littératie financière</a></nav>
+<section class="jeux-niveau" aria-labelledby="dom-nombres-calculs">
+<h2 id="dom-nombres-calculs"><span class="pastille-niveau" style="background:var(--mathematiques)">🔢</span>Nombres · Additions et soustractions</h2>
+<p>Calculer jusqu’à 30, 50 et 100.</p>
+<div class="tuiles">
+<a class="tuile" href="../jeux/arcade.html?j=serpcalc30" style="--c1:#2f8f5b;--c2:#9ddcb5;--fonce:#23714a">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M20 56 H60 V30 H92" stroke="#fff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="92" cy="30" r="10" fill="#fff"/><circle cx="95" cy="27" r="2.5" fill="#23714a"/><rect x="74" y="50" width="26" height="22" rx="5" fill="#fff"/><text x="87" y="66" text-anchor="middle" font-size="11" font-weight="700" font-family="Arial" fill="#23714a">7+5</text></svg></span>
+  <span class="tuile-texte"><strong>Serpent des calculs</strong><small>Additions et soustractions jusqu’à 30 : manger la bonne réponse.</small></span>
+  <span class="tuile-pied"><b>8 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../jeux/arcade.html?j=attrape30" style="--c1:#c2633a;--c2:#f2b89c;--fonce:#a24e2a">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="44" y="10" width="34" height="18" rx="9" fill="#fff"/><rect x="18" y="30" width="30" height="16" rx="8" fill="#fff" opacity=".8"/><path d="M34 54 H86 L80 74 H40Z" fill="#fff"/></svg></span>
+  <span class="tuile-texte"><span class="niv-badge niv-d">🟢 Débutant</span><strong>Attrape les bons calculs</strong><small>Additions et soustractions jusqu’à 30. Souris ou flèches.</small></span>
+  <span class="tuile-pied"><b>8 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../jeux/arcade.html?j=labycalc50" style="--c1:#3d6fb6;--c2:#9fc0ec;--fonce:#2d5592">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="20" y="10" width="80" height="60" rx="6" fill="none" stroke="#fff" stroke-width="5"/><path d="M45 10V45M75 70V35" stroke="#fff" stroke-width="5"/><rect x="52" y="20" width="18" height="14" rx="3" fill="#fff6d6"/><text x="61" y="31" text-anchor="middle" font-size="10" font-family="Arial" font-weight="700" fill="#5a3d00">45</text><text x="86" y="60" text-anchor="middle" font-size="16">🔑</text></svg></span>
+  <span class="tuile-texte"><span class="niv-badge niv-i">🟡 Intermédiaire</span><strong>Labyrinthe des additions</strong><small>Additions et soustractions jusqu’à 50 : trouver la bonne clé.</small></span>
+  <span class="tuile-pied"><b>8 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../jeux/arcade.html?j=serpcalc50" style="--c1:#2a8a6e;--c2:#9fdcc6;--fonce:#1f6b55">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M20 56 H60 V30 H92" stroke="#fff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="92" cy="30" r="10" fill="#fff"/><circle cx="95" cy="27" r="2.5" fill="#23714a"/><rect x="74" y="50" width="26" height="22" rx="5" fill="#fff"/><text x="87" y="66" text-anchor="middle" font-size="14" font-weight="700" font-family="Arial" fill="#23714a">38</text></svg></span>
+  <span class="tuile-texte"><span class="niv-badge niv-i">🟡 Intermédiaire</span><strong>Serpent des calculs · 50</strong><small>Additions et soustractions jusqu’à 50 : manger la bonne réponse.</small></span>
+  <span class="tuile-pied"><b>8 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../jeux/arcade.html?j=pont50" style="--c1:#b86b2b;--c2:#f0c191;--fonce:#8a4f1d">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="0" y="50" width="120" height="30" fill="#7cc4e8" opacity=".8"/><rect x="0" y="40" width="22" height="40" fill="#fff" opacity=".6"/><rect x="98" y="40" width="22" height="40" fill="#fff" opacity=".6"/><rect x="24" y="38" width="22" height="9" rx="2" fill="#fff"/><rect x="74" y="38" width="22" height="9" rx="2" fill="#fff"/><rect x="49" y="36" width="22" height="13" rx="2" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="4 3"/><circle cx="14" cy="30" r="7" fill="#fff"/></svg></span>
+  <span class="tuile-texte"><span class="niv-badge niv-i">🟡 Intermédiaire</span><strong>Pont des additions</strong><small>Glisser la planche qui complète l’égalité, jusqu’à 50.</small></span>
+  <span class="tuile-pied"><b>8 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../jeux/arcade.html?j=attrape50" style="--c1:#b5552f;--c2:#eda98a;--fonce:#8e3f20">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="44" y="10" width="34" height="18" rx="9" fill="#fff"/><rect x="18" y="30" width="30" height="16" rx="8" fill="#fff" opacity=".8"/><path d="M34 54 H86 L80 74 H40Z" fill="#fff"/></svg></span>
+  <span class="tuile-texte"><span class="niv-badge niv-i">🟡 Intermédiaire</span><strong>Attrape les calculs · 50</strong><small>Attraper les calculs qui respectent la règle, jusqu’à 50.</small></span>
+  <span class="tuile-pied"><b>8 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../jeux/arcade.html?j=serpcalc100" style="--c1:#2a8a6e;--c2:#9fdcc6;--fonce:#1f6b55">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M20 56 H60 V30 H92" stroke="#fff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="92" cy="30" r="10" fill="#fff"/><circle cx="95" cy="27" r="2.5" fill="#23714a"/><rect x="74" y="50" width="26" height="22" rx="5" fill="#fff"/><text x="87" y="66" text-anchor="middle" font-size="14" font-weight="700" font-family="Arial" fill="#23714a">38</text></svg></span>
+  <span class="tuile-texte"><span class="niv-badge niv-i">🟡 Intermédiaire</span><strong>Serpent des calculs · 100</strong><small>Additions et soustractions jusqu’à 100, en regroupant.</small></span>
+  <span class="tuile-pied"><b>8 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../jeux/arcade.html?j=pont100" style="--c1:#b86b2b;--c2:#f0c191;--fonce:#8a4f1d">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="0" y="50" width="120" height="30" fill="#7cc4e8" opacity=".8"/><rect x="0" y="40" width="22" height="40" fill="#fff" opacity=".6"/><rect x="98" y="40" width="22" height="40" fill="#fff" opacity=".6"/><rect x="24" y="38" width="22" height="9" rx="2" fill="#fff"/><rect x="74" y="38" width="22" height="9" rx="2" fill="#fff"/><rect x="49" y="36" width="22" height="13" rx="2" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="4 3"/><circle cx="14" cy="30" r="7" fill="#fff"/></svg></span>
+  <span class="tuile-texte"><span class="niv-badge niv-i">🟡 Intermédiaire</span><strong>Pont des nombres manquants · 100</strong><small>Compléter à 100 et trouver le nombre manquant.</small></span>
+  <span class="tuile-pied"><b>8 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../jeux/arcade.html?j=attrape100" style="--c1:#b5552f;--c2:#eda98a;--fonce:#8e3f20">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="44" y="10" width="34" height="18" rx="9" fill="#fff"/><rect x="18" y="30" width="30" height="16" rx="8" fill="#fff" opacity=".8"/><path d="M34 54 H86 L80 74 H40Z" fill="#fff"/></svg></span>
+  <span class="tuile-texte"><span class="niv-badge niv-a">🔴 Avancé</span><strong>Attrape les calculs · 100</strong><small>Attraper les calculs qui respectent la règle, jusqu’à 100.</small></span>
+  <span class="tuile-pied"><b>8 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+<section class="jeux-niveau" aria-labelledby="dom-nombres-valeur">
+<h2 id="dom-nombres-valeur"><span class="pastille-niveau" style="background:var(--mathematiques)">🔢</span>Nombres · Valeur de position</h2>
+<p>Unités, dizaines et centaines.</p>
+<div class="tuiles">
+<a class="tuile" href="../jeux/arcade.html?j=serpvaleur" style="--c1:#2f8f5b;--c2:#9ddcb5;--fonce:#23714a">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M20 56 H60 V30 H92" stroke="#fff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="92" cy="30" r="10" fill="#fff"/><circle cx="95" cy="27" r="2.5" fill="#23714a"/><rect x="74" y="50" width="26" height="22" rx="5" fill="#fff"/><text x="87" y="66" text-anchor="middle" font-size="11" font-weight="700" font-family="Arial" fill="#23714a">7+5</text></svg></span>
+  <span class="tuile-texte"><span class="niv-badge niv-d">🟢 Débutant</span><strong>Serpent des nombres</strong><small>Dizaines et unités, avant et après, compléter à 10 et à 100.</small></span>
+  <span class="tuile-pied"><b>8 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../jeux/arcade.html?j=attrapenb" style="--c1:#c2633a;--c2:#f2b89c;--fonce:#a24e2a">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="44" y="10" width="34" height="18" rx="9" fill="#fff"/><rect x="18" y="30" width="30" height="16" rx="8" fill="#fff" opacity=".8"/><path d="M34 54 H86 L80 74 H40Z" fill="#fff"/></svg></span>
+  <span class="tuile-texte"><span class="niv-badge niv-d">🟢 Débutant</span><strong>Attrape les nombres</strong><small>Attraper les nombres pairs, impairs, carrés ou premiers.</small></span>
+  <span class="tuile-pied"><b>8 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../jeux/arcade.html?j=labyvaleur" style="--c1:#3d6fb6;--c2:#9fc0ec;--fonce:#2d5592">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="20" y="10" width="80" height="60" rx="6" fill="none" stroke="#fff" stroke-width="5"/><path d="M45 10V45M75 70V35" stroke="#fff" stroke-width="5"/><rect x="52" y="20" width="18" height="14" rx="3" fill="#fff6d6"/><text x="61" y="31" text-anchor="middle" font-size="10" font-family="Arial" font-weight="700" fill="#5a3d00">45</text><text x="86" y="60" text-anchor="middle" font-size="16">🔑</text></svg></span>
+  <span class="tuile-texte"><span class="niv-badge niv-i">🟡 Intermédiaire</span><strong>Labyrinthe des centaines</strong><small>Centaines, dizaines, unités : trouver la bonne clé.</small></span>
+  <span class="tuile-pied"><b>8 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+<section class="jeux-niveau" aria-labelledby="dom-nombres-mult">
+<h2 id="dom-nombres-mult"><span class="pastille-niveau" style="background:var(--mathematiques)">🔢</span>Nombres · Multiplication, division et fractions</h2>
+<p>Les multiples, partager en parts égales et les fractions.</p>
+<div class="tuiles">
+<a class="tuile" href="../ateliers/jeu.html?j=pizzeria" style="--c1:#c0392b;--c2:#f3aaa1;--fonce:#c0392b">
+  <span class="tuile-illu" aria-hidden="true"><span class="illu-emo">🍕</span></span>
+  <span class="tuile-texte"><strong>La pizzeria des fractions</strong><small>Couper les pizzas en parts égales et servir les commandes en fractions.</small></span>
+  <span class="tuile-pied"><b>6 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../jeux/arcade.html?j=serpent" style="--c1:#2f8f5b;--c2:#9ddcb5;--fonce:#23714a">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M20 56 H60 V30 H92" stroke="#fff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="92" cy="30" r="10" fill="#fff"/><circle cx="95" cy="27" r="2.5" fill="#23714a"/><rect x="74" y="50" width="26" height="22" rx="5" fill="#fff"/><text x="87" y="66" text-anchor="middle" font-size="14" font-weight="700" font-family="Arial" fill="#23714a">12</text></svg></span>
+  <span class="tuile-texte"><span class="niv-badge niv-a">🔴 Avancé</span><strong>Serpent des multiples</strong><small>Manger les multiples et les nombres premiers. Flèches ou clic.</small></span>
+  <span class="tuile-pied"><b>8 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../jeux/arcade.html?j=attrape" style="--c1:#c2633a;--c2:#f2b89c;--fonce:#a24e2a">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="44" y="10" width="34" height="18" rx="9" fill="#fff"/><rect x="18" y="30" width="30" height="16" rx="8" fill="#fff" opacity=".8"/><path d="M34 54 H86 L80 74 H40Z" fill="#fff"/></svg></span>
+  <span class="tuile-texte"><span class="niv-badge niv-a">🔴 Avancé</span><strong>Attrape les bons</strong><small>Multiplications, divisions, fractions et nombres négatifs.</small></span>
+  <span class="tuile-pied"><b>8 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../jeux/arcade.html?j=labycalc" style="--c1:#3d6fb6;--c2:#9fc0ec;--fonce:#2d5592">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="20" y="10" width="80" height="60" rx="6" fill="none" stroke="#fff" stroke-width="5"/><path d="M45 10V45M75 70V35" stroke="#fff" stroke-width="5"/><rect x="52" y="20" width="18" height="14" rx="3" fill="#fff6d6"/><text x="61" y="31" text-anchor="middle" font-size="10" font-family="Arial" font-weight="700" fill="#5a3d00">56</text><text x="86" y="60" text-anchor="middle" font-size="16">🔑</text></svg></span>
+  <span class="tuile-texte"><span class="niv-badge niv-a">🔴 Avancé</span><strong>Labyrinthe des calculs</strong><small>Tables, divisions, priorités et fractions : trouver la bonne clé.</small></span>
+  <span class="tuile-pied"><b>8 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../jeux/arcade.html?j=serpfrac" style="--c1:#2a8a6e;--c2:#9fdcc6;--fonce:#1f6b55">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M18 58H52V32H84" stroke="#fff" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="86" cy="32" r="9" fill="#fff"/><rect x="74" y="50" width="30" height="22" rx="5" fill="#fff"/><text x="89" y="66" text-anchor="middle" font-size="12" font-family="Arial" font-weight="700" fill="#1f6b55">3/4</text></svg></span>
+  <span class="tuile-texte"><span class="niv-badge niv-a">🔴 Avancé</span><strong>Serpent des fractions</strong><small>Manger les nombres dans l’ordre, du plus petit au plus grand.</small></span>
+  <span class="tuile-pied"><b>8 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../jeux/arcade.html?j=pont" style="--c1:#b86b2b;--c2:#f0c191;--fonce:#8a4f1d">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="0" y="50" width="120" height="30" fill="#7cc4e8" opacity=".8"/><rect x="0" y="40" width="22" height="40" fill="#fff" opacity=".6"/><rect x="98" y="40" width="22" height="40" fill="#fff" opacity=".6"/><rect x="24" y="38" width="22" height="9" rx="2" fill="#fff"/><rect x="74" y="38" width="22" height="9" rx="2" fill="#fff"/><rect x="49" y="36" width="22" height="13" rx="2" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="4 3"/><circle cx="14" cy="30" r="7" fill="#fff"/></svg></span>
+  <span class="tuile-texte"><span class="niv-badge niv-a">🔴 Avancé</span><strong>Pont des nombres</strong><small>Nombre manquant avec ×, ÷, fractions et négatifs.</small></span>
+  <span class="tuile-pied"><b>8 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../jeux/arcade.html?j=glisse" style="--c1:#5b7d1a;--c2:#c3dd8e;--fonce:#47630f">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="22" y="10" width="34" height="28" rx="6" fill="#fff"/><rect x="64" y="10" width="34" height="28" rx="6" fill="#fff" opacity=".8"/><rect x="22" y="44" width="34" height="28" rx="6" fill="#fff" opacity=".8"/><rect x="64" y="44" width="34" height="28" rx="6" fill="#fff"/><text x="39" y="30" text-anchor="middle" font-size="14" font-family="Arial" font-weight="700" fill="#47630f">8</text><text x="81" y="64" text-anchor="middle" font-size="14" font-family="Arial" font-weight="700" fill="#47630f">16</text></svg></span>
+  <span class="tuile-texte"><span class="niv-badge niv-a">🔴 Avancé</span><strong>Glissière des nombres</strong><small>Additionner les tuiles pareilles jusqu’à l’objectif (2048 en douceur).</small></span>
+  <span class="tuile-pied"><b>8 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+<section class="jeux-niveau" aria-labelledby="dom-algebre">
+<h2 id="dom-algebre"><span class="pastille-niveau" style="background:var(--mathematiques)">🤖</span>Algèbre · Codage</h2>
+<p>Suivre et écrire des instructions, trouver l’erreur.</p>
+<div class="tuiles">
+<a class="tuile" href="../ateliers/jeu.html?j=robot" style="--c1:#455a75;--c2:#b3c2d6;--fonce:#455a75">
+  <span class="tuile-illu" aria-hidden="true"><span class="illu-emo">🤖</span></span>
+  <span class="tuile-texte"><strong>Le robot livreur</strong><small>Programmer le robot avec des flèches, éviter les murs, trouver l’erreur.</small></span>
+  <span class="tuile-pied"><b>6 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../jeux/arcade.html?j=robot" style="--c1:#3c4fa8;--c2:#a6b2ee;--fonce:#2e3d86">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="40" y="18" width="40" height="36" rx="8" fill="#fff"/><circle cx="52" cy="34" r="5" fill="#3c4fa8"/><circle cx="68" cy="34" r="5" fill="#3c4fa8"/><rect x="18" y="60" width="18" height="14" rx="3" fill="#fff"/><rect x="40" y="60" width="18" height="14" rx="3" fill="#fff"/><rect x="62" y="60" width="18" height="14" rx="3" fill="#fff"/><text x="27" y="71" text-anchor="middle" font-size="11" font-family="Arial" font-weight="700" fill="#3c4fa8">↑</text><text x="49" y="71" text-anchor="middle" font-size="11" font-family="Arial" font-weight="700" fill="#3c4fa8">↷</text><text x="71" y="71" text-anchor="middle" font-size="9" font-family="Arial" font-weight="700" fill="#3c4fa8">↑×3</text></svg></span>
+  <span class="tuile-texte"><span class="niv-badge niv-a">🔴 Avancé</span><strong>Robot programmeur</strong><small>Préparer un programme, puis lancer le robot pour ramasser les cristaux.</small></span>
+  <span class="tuile-pied"><b>8 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+<section class="jeux-niveau" aria-labelledby="dom-donnees">
+<h2 id="dom-donnees"><span class="pastille-niveau" style="background:var(--mathematiques)">📊</span>Données</h2>
+<p>Recueillir, classer et lire des données.</p>
+<div class="tuiles">
+<a class="tuile" href="../ateliers/jeu.html?j=enquete" style="--c1:#2364aa;--c2:#9fc0ec;--fonce:#2364aa">
+  <span class="tuile-illu" aria-hidden="true"><span class="illu-emo">📊</span></span>
+  <span class="tuile-texte"><strong>L’enquête de la classe</strong><small>Marques de pointage, pictogrammes et diagrammes à bandes.</small></span>
+  <span class="tuile-pied"><b>6 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+<section class="jeux-niveau" aria-labelledby="dom-espace">
+<h2 id="dom-espace"><span class="pastille-niveau" style="background:var(--mathematiques)">📐</span>Sens de l’espace · Géométrie, mesure et repérage</h2>
+<p>Les formes, mesurer, lire l’heure, se repérer sur un plan.</p>
+<div class="tuiles">
+<a class="tuile" href="../ateliers/jeu.html?j=geoplan" style="--c1:#7a5ad8;--c2:#c9b8f4;--fonce:#7a5ad8">
+  <span class="tuile-illu" aria-hidden="true"><span class="illu-emo">🔷</span></span>
+  <span class="tuile-texte"><strong>L’atelier des formes</strong><small>Géoplan, côtés et sommets, symétrie, reproduction et translation.</small></span>
+  <span class="tuile-pied"><b>6 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../ateliers/jeu.html?j=chantier" style="--c1:#a35a0b;--c2:#f2c58f;--fonce:#a35a0b">
+  <span class="tuile-illu" aria-hidden="true"><span class="illu-emo">🏗️</span></span>
+  <span class="tuile-texte"><strong>Le chantier des mesures</strong><small>Mesurer avec une règle, calculer le périmètre et l’aire, construire des rectangles.</small></span>
+  <span class="tuile-pied"><b>7 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../ateliers/jeu.html?j=autobus" style="--c1:#b07d12;--c2:#f2d68a;--fonce:#b07d12">
+  <span class="tuile-illu" aria-hidden="true"><span class="illu-emo">🚌</span></span>
+  <span class="tuile-texte"><strong>L’horaire de l’autobus</strong><small>Lire l’heure, régler l’horloge, calculer une durée, lire un horaire.</small></span>
+  <span class="tuile-pied"><b>6 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../ateliers/jeu.html?j=tresor" style="--c1:#2e6b8a;--c2:#a3cfe3;--fonce:#2e6b8a">
+  <span class="tuile-illu" aria-hidden="true"><span class="illu-emo">🧭</span></span>
+  <span class="tuile-texte"><strong>La chasse au trésor</strong><small>Trouver une case sur un plan, suivre des déplacements, placer des coordonnées (x, y).</small></span>
+  <span class="tuile-pied"><b>6 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../jeux/arcade.html?j=fusee" style="--c1:#2c62ab;--c2:#9cbcec;--fonce:#1f4a85">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M60 8V72M24 40H96" stroke="#fff" stroke-width="3"/><path d="M36 8V72M84 8V72M24 20H96M24 60H96" stroke="#fff" stroke-width="1" opacity=".5"/><text x="80" y="30" text-anchor="middle" font-size="20">🚀</text><circle cx="36" cy="60" r="5" fill="#ffd56b"/></svg></span>
+  <span class="tuile-texte"><span class="niv-badge niv-i">🟡 Intermédiaire</span><strong>Course aux coordonnées</strong><small>Piloter une fusée jusqu’au point (x, y) demandé.</small></span>
+  <span class="tuile-pied"><b>8 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../jeux/arcade.html?j=droite" style="--c1:#0b7480;--c2:#8fd3da;--fonce:#085a63">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M60 6V74M14 40H106" stroke="#fff" stroke-width="2" opacity=".7"/><path d="M20 70L100 12" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M38 57l2 5 5 1-4 3 1 5-4-3-4 3 1-5-4-3 5-1z" fill="#ffd56b"/><path d="M76 29l2 5 5 1-4 3 1 5-4-3-4 3 1-5-4-3 5-1z" fill="#ffd56b"/></svg></span>
+  <span class="tuile-texte"><span class="niv-badge niv-a">🔴 Avancé</span><strong>Droite cible</strong><small>Régler a et b dans y = ax + b pour toucher toutes les étoiles.</small></span>
+  <span class="tuile-pied"><b>8 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+<section class="jeux-niveau" aria-labelledby="dom-finances">
+<h2 id="dom-finances"><span class="pastille-niveau" style="background:var(--mathematiques)">💵</span>Littératie financière</h2>
+<p>Compter l’argent, rendre la monnaie, respecter un budget.</p>
+<div class="tuiles">
+<a class="tuile" href="../ateliers/jeu.html?j=magasin" style="--c1:#2e7d4f;--c2:#a8dcb9;--fonce:#2e7d4f">
+  <span class="tuile-illu" aria-hidden="true"><span class="illu-emo">🛒</span></span>
+  <span class="tuile-texte"><strong>Le magasin de la ville</strong><small>Payer avec l’argent canadien, rendre la monnaie, respecter un budget.</small></span>
+  <span class="tuile-pied"><b>7 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+</main><div class="retour"><a href="../index.html">← Retour à l'accueil</a></div><footer class="site-footer"><span>MathJeux <b>│</b> De La Salle · Ottawa</span><span>Apprendre aujourd’hui pour demain</span></footer><script src="../script.js"></script>
+</div>
+</div>
+</body></html>

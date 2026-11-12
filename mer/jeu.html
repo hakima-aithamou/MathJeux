@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>La mer des requins · MathJeux</title>
+<link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<link rel="stylesheet" href="../ile/jeu.css">
+<link rel="stylesheet" href="../ile-maths/maths.css">
+<link rel="stylesheet" href="../ile/interface.css">
+<link rel="stylesheet" href="../ile-maths/calme.css">
+<link rel="stylesheet" href="../personnages/personnages.css">
+<script src="../compte.js" defer></script>
+</head>
+<body>
+<canvas id="scene" tabindex="0" aria-label="Le mer des pirates en blocs. Flèches pour bouger, Espace ou un toucher sur l'écran pour sauter, glisse avec la souris pour tourner la caméra."></canvas>
+
+<div class="hud">
+  <div class="carte nom">La mer des requins<small><span id="nomNiveau"></span> · <span id="section"></span></small></div>
+  <div class="compteurs">
+    <div class="carte compteur" title="Étoiles gagnées (une par bonne réponse)"><span class="ico" aria-hidden="true">⭐</span><span id="etoiles">0 / 0</span></div>
+    <div class="carte compteur" title="Drapeaux atteints"><span class="ico" aria-hidden="true">🚩</span><span id="drapeaux">0</span></div>
+  </div>
+  <div class="boutons-haut">
+    <a class="btn retour" href="../jeux/mer-des-requins.html" aria-label="Retour à la page La mer des requins">⬅ Niveaux</a>
+    <button class="btn" id="btnMusique" type="button" aria-pressed="true">🎵 Musique</button>
+    <button class="btn" id="btnAide" type="button">Aide</button>
+    <button class="btn" id="btnPause" type="button" aria-pressed="false">⏸ Pause</button>
+  </div>
+</div>
+<div class="inventaire" id="inventaire" hidden aria-label="Mes objets"></div>
+<div class="carte-q" id="carteQuestion" hidden role="status"><div class="cq-corps"><small id="numPorte"></small><b id="txtQuestion"></b><em id="cqAide">Touche ou saute sur la bonne plateforme</em></div><button type="button" id="lireQ" aria-label="Écouter la question">🔊</button></div>
+<div class="carte message" id="message" hidden></div>
+
+<div class="pad" aria-label="Flèches à l'écran">
+  <button type="button" class="h" data-k="haut" aria-label="Avancer">▲</button>
+  <button type="button" class="g" data-k="gauche" aria-label="Aller à gauche">◀</button>
+  <button type="button" class="b" data-k="bas" aria-label="Reculer">▼</button>
+  <button type="button" class="d" data-k="droite" aria-label="Aller à droite">▶</button>
+</div>
+
+<div class="voile voile-menu" id="accueil">
+  <div class="menu cadre" role="dialog" aria-modal="true" aria-labelledby="titreAccueil">
+    <div class="plaque">La mer des requins</div>
+    <div class="menu-banniere"><svg viewBox="0 0 640 190" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <defs><linearGradient id="cielI" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fc6ef"/><stop offset=".65" stop-color="#a9def5"/><stop offset="1" stop-color="#e9f7fc"/></linearGradient>
+  <radialGradient id="soleilI"><stop offset="0" stop-color="#ffe9a8"/><stop offset="1" stop-color="#ffe9a800"/></radialGradient></defs>
+  <rect width="640" height="190" fill="url(#cielI)"/>
+  <circle cx="500" cy="118" r="70" fill="url(#soleilI)"/><circle cx="500" cy="118" r="22" fill="#ffd36b"/>
+  <g class="nuage" fill="#ffffff55"><rect x="0" y="30" width="60" height="14" rx="3"/><rect x="18" y="20" width="40" height="14" rx="3"/></g>
+  <g class="nuage" style="animation-delay:-11s" fill="#ffffff40"><rect x="0" y="58" width="80" height="14" rx="3"/><rect x="24" y="48" width="44" height="14" rx="3"/></g>
+  <g fill="#ffd36b"><polygon class="brille" points="90,40 94,50 105,50 96,57 100,68 90,61 80,68 84,57 75,50 86,50"/><polygon class="brille" style="animation-delay:-.6s" points="300,26 303,33 311,33 305,38 307,46 300,41 293,46 295,38 289,33 297,33"/><polygon class="brille" style="animation-delay:-1.2s" points="580,40 583,47 591,47 585,52 587,60 580,55 573,60 575,52 569,47 577,47"/></g>
+  <g class="vague"><path d="M0 160 q20 -8 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 V190 H0z" fill="#23a7cf"/></g>
+  <g class="flotte">
+    <rect x="60" y="138" width="60" height="30" fill="#6cc06f"/><rect x="60" y="138" width="60" height="5" fill="#9ee09f"/>
+    <rect x="120" y="126" width="34" height="42" fill="#f1d38c"/><rect x="120" y="126" width="34" height="5" fill="#fff3c9"/>
+    <rect x="154" y="112" width="34" height="56" fill="#f29a4a"/><rect x="154" y="112" width="34" height="5" fill="#ffc48f"/>
+    <rect x="188" y="98" width="34" height="70" fill="#f1d38c"/><rect x="188" y="98" width="34" height="5" fill="#fff3c9"/>
+  </g>
+  <g class="flotte2"><rect x="250" y="104" width="26" height="12" fill="#5b8fd9"/><rect x="250" y="104" width="26" height="4" fill="#9cc0f3"/><rect x="300" y="92" width="26" height="12" fill="#e9799b"/><rect x="300" y="92" width="26" height="4" fill="#f7b3c8"/></g>
+  <g class="flotte" style="animation-delay:-1s"><rect x="352" y="70" width="40" height="98" fill="#9aa7b4"/><rect x="346" y="64" width="52" height="8" fill="#f4c152"/>
+    <rect x="369" y="22" width="4" height="44" fill="#fff"/><path class="drapeau-flotte" d="M373 24 h26 l-7 8 7 8 h-26z" fill="#f4c152"/></g>
+  <g transform="translate(196 62)"><g class="saute">
+    <rect x="0" y="22" width="8" height="14" fill="#2f4f8f"/><rect x="10" y="22" width="8" height="14" fill="#2f4f8f"/>
+    <rect x="-1" y="6" width="20" height="17" fill="#14a3ad"/><rect x="-6" y="7" width="5" height="13" fill="#f2c79e"/><rect x="19" y="7" width="5" height="13" fill="#f2c79e"/>
+    <rect x="2" y="-8" width="14" height="14" fill="#f2c79e"/><rect x="1" y="-11" width="16" height="5" fill="#6b3f1f"/><rect x="5" y="-3" width="2" height="2" fill="#16324f"/><rect x="11" y="-3" width="2" height="2" fill="#16324f"/>
+  </g></g>
+</svg>
+      <div class="titre-banniere"><span class="badge-niveau">🦈 La mer des requins</span><h1 id="titreAccueil">La mer des requins</h1></div>
+    </div>
+    <div class="menu-corps" id="corpsAccueil">
+      <p id="texteAccueil"></p>
+      <div class="niveau-choisi" id="niveauChoisi"><span class="signe" id="ncSigne"></span><span class="nc-texte"><b id="ncNom"></b><small id="ncIndice"></small></span>
+        <a class="nc-changer" id="ncChanger" href="jeu.html">Changer de niveau</a></div>
+      <nav class="choix-niveau niveaux-maths" aria-label="Choisir le niveau des questions" id="listeNiveaux"></nav>
+      <ul class="tuiles-touches">
+        <li class="t1"><span class="picto" aria-hidden="true">🚶</span><span class="txt"><b>marcher</b><span><kbd>▲ ▼ ◀ ▶</kbd> ou <kbd>W A S D</kbd></span></span></li>
+        <li class="t2"><span class="picto" aria-hidden="true">🦘</span><span class="txt"><b>sauter</b><span><kbd>Espace</kbd> ou <kbd>Toucher</kbd> l'écran</span></span></li>
+        <li class="t3"><span class="picto" aria-hidden="true">🎥</span><span class="txt"><b>tourner la caméra (molette : zoom)</b><span><kbd>Glisser</kbd> la souris</span></span></li>
+        <li class="t4"><span class="picto" aria-hidden="true">⏸</span><span class="txt"><b>pause</b><span><kbd>P</kbd> ou <kbd>Échap</kbd></span></span></li>
+      </ul>
+      <div class="options">
+        <label class="puce" for="optParcours">Parcours
+          <select id="optParcours"><option value="1">🟢 Facile · Course de bateaux</option><option value="2">🟡 Moyen · Trésors sous-marins</option><option value="3">🔴 Difficile · Parcours océanique</option></select></label>
+        <label class="puce" for="optVitesse">Vitesse
+          <select id="optVitesse"><option value="0.75">🐢 Lente</option><option value="1" selected>🙂 Normale</option></select></label>
+        <label class="puce" for="optAide"><input type="checkbox" id="optAide" checked> Sauts plus faciles</label>
+        <label class="puce" for="optCalme"><input type="checkbox" id="optCalme"> Mode calme : rien ne bouge</label>
+      </div>
+      <div class="actions"><button class="bouton-jeu" id="btnBoutique" type="button">🛒 Boutique · <span class="solde-tirelire">0</span> ⭐</button><button class="btn-jouer" id="btnJouer" type="button">Jouer</button></div>
+    </div>
+    <a class="fermer" href="../jeux/mer-des-requins.html" aria-label="Fermer et revenir à la page du jeu">✕</a>
+  </div>
+</div>
+
+<div class="voile voile-menu" id="pausePanneau" hidden>
+  <div class="menu cadre petit" role="dialog" aria-modal="true" aria-labelledby="titrePause">
+    <div class="plaque" id="titrePause">Pause</div>
+    <div class="menu-corps boutons-colonne">
+      <button class="bouton-jeu vert" id="pReprendre" type="button">▶ Reprendre</button>
+      <button class="bouton-jeu" id="pRecommencer" type="button">↺ Recommencer</button>
+      <button class="bouton-jeu bleu" id="pAide" type="button">❔ Commandes</button>
+      <a class="bouton-jeu sombre" href="../jeux/mer-des-requins.html">⬅ Quitter</a>
+    </div>
+    <button class="fermer" id="pFermer" type="button" aria-label="Reprendre">✕</button>
+  </div>
+</div>
+
+<div class="voile voile-menu" id="fin" hidden>
+  <div class="menu menu-fin cadre" role="dialog" aria-modal="true" aria-labelledby="titreFin">
+    <div class="plaque">Bravo !</div>
+    <div class="menu-banniere petite"><svg viewBox="0 0 640 130" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <defs><linearGradient id="cielF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fc6ef"/><stop offset="1" stop-color="#a9def5"/></linearGradient>
+  <radialGradient id="halo"><stop offset="0" stop-color="#fff8d6"/><stop offset="1" stop-color="#fff8d600"/></radialGradient></defs>
+  <rect width="640" height="130" fill="url(#cielF)"/>
+  <g transform="translate(320 70)"><g class="tourne" opacity=".35" fill="#fff"><path d="M0 0 L-12 -120 L12 -120z"/><path d="M0 0 L-12 120 L12 120z"/><path d="M0 0 L120 -12 L120 12z"/><path d="M0 0 L-120 -12 L-120 12z"/><path d="M0 0 L75 -95 L95 -75z"/><path d="M0 0 L-75 95 L-95 75z"/><path d="M0 0 L-95 -75 L-75 -95z"/><path d="M0 0 L95 75 L75 95z"/></g>
+  <circle r="60" fill="url(#halo)"/></g>
+  <g transform="translate(320 66)"><g class="flotte">
+    <rect x="-8" y="22" width="16" height="16" fill="#a86f00"/><rect x="-24" y="38" width="48" height="10" fill="#7a5130"/>
+    <path d="M-28 -34 h56 v14 c0 26 -14 40 -28 40 c-14 0 -28 -14 -28 -40z" fill="#ffd36b" stroke="#a86f00" stroke-width="3"/>
+    <path d="M-28 -26 h-14 c0 18 10 24 16 24" fill="none" stroke="#a86f00" stroke-width="5"/><path d="M28 -26 h14 c0 18 -10 24 -16 24" fill="none" stroke="#a86f00" stroke-width="5"/>
+    <polygon points="0,-24 4,-14 14,-14 6,-8 9,2 0,-4 -9,2 -6,-8 -14,-14 -4,-14" fill="#fff"/></g></g>
+  <g class="confettis"><rect class="c c1" x="80" y="0" width="8" height="12" fill="#5b8fd9"/><rect class="c c2" x="160" y="0" width="8" height="12" fill="#e9799b"/><rect class="c c3" x="230" y="0" width="8" height="12" fill="#2f8a4b"/><rect class="c c4" x="420" y="0" width="8" height="12" fill="#8e5bd6"/><rect class="c c5" x="500" y="0" width="8" height="12" fill="#ffffff"/><rect class="c c6" x="570" y="0" width="8" height="12" fill="#5b8fd9"/><rect class="c c2" x="380" y="0" width="8" height="12" fill="#2f8a4b"/><rect class="c c5" x="120" y="0" width="8" height="12" fill="#e9799b"/></g>
+</svg></div>
+    <div class="menu-corps">
+    <h2 id="titreFin" tabindex="-1">Bravo, tu as atteint le drapeau d'or !</h2>
+    <div class="score" id="finScore" aria-label="Score"></div>
+    <p id="texteFin"></p>
+    <div class="resultat"><span>⭐ <span id="finEtoiles"></span></span><span>Erreurs : <span id="finErreurs"></span></span><span>⏱ <span id="finTemps"></span></span></div>
+    <p class="bilan-sauvegarde" id="finSauvegarde" aria-live="polite"></p>
+    <div class="actions"><button class="bouton-jeu vert" id="btnSuivant" type="button">Niveau suivant →</button><button class="bouton-jeu" id="btnRejouer" type="button">Rejouer</button><button class="bouton-jeu sombre" id="btnRetour" type="button">Changer de niveau</button><button class="bouton-jeu" id="btnBoutiqueFin" type="button">🛒 Boutique · <span class="solde-tirelire">0</span> ⭐</button></div>
+    </div>
+    <a class="fermer" href="../jeux/mer-des-requins.html" aria-label="Fermer et revenir à la page du jeu">✕</a>
+  </div>
+</div>
+
+<div class="voile voile-menu" id="boutique" hidden>
+  <div class="menu cadre boutique" role="dialog" aria-modal="true" aria-labelledby="titreBoutique">
+    <div class="plaque" id="titreBoutique">Boutique</div>
+    <div class="menu-corps">
+      <p class="solde">Ta tirelire : <b><span class="solde-tirelire">0</span> ⭐</b><small>Chaque bonne réponse te donne une étoile.</small></p>
+      <ul class="boutique-liste" id="boutiqueListe"></ul>
+      <p class="boutique-msg" id="boutiqueMsg" aria-live="polite"></p>
+      <p class="boutique-aide">Pendant la partie, touche l'objet en bas à gauche de l'écran (ou les touches 1, 2, 3, 4) pour l'utiliser devant toi.</p>
+    </div>
+    <button class="fermer" id="boutiqueFermer" type="button" aria-label="Fermer la boutique">✕</button>
+  </div>
+</div>
+
+<script src="../ile/three.min.js"></script>
+<script src="../personnages/personnages.js"></script>
+<script src="jeu.js"></script>
+<script>
+/* Picture of the chosen course in the banner of the start screen */
+(function () {
+  var p = Math.min(3, Math.max(1, parseInt(new URLSearchParams(location.search).get("p"), 10) || 1));
+  var b = document.querySelector("#accueil .menu-banniere");
+  if (b) { b.style.background = "url(img/parcours" + p + ".jpg) center / cover"; var s = b.querySelector("svg"); if (s) s.style.opacity = "0"; }
+})();
+</script>
+</body>
+</html>

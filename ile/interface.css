@@ -1,0 +1,107 @@
+/* Blue-green "game panels" interface, dark sky — shared by the 3D block games.
+   Thick riveted frame, dark planks, title plate, rounded buttons, round ✕ button, bars with a round icon. */
+:root{
+  --j-cadre:#2bc7b4; --j-cadre-clair:#7ff5df; --j-cadre-fonce:#128a8f; --j-trait:#06272e;
+  --j-bois1:#103d4e; --j-bois2:#0d3443; --j-joint:#092a36; --j-texte:#e6fbff; --j-texte-doux:#a9dde2;
+}
+/* ---------- Darkened background ---------- */
+.voile,.voile-menu{background:radial-gradient(ellipse at 50% 35%,#05182a66,#020a14d9)}
+
+/* ---------- The panel ---------- */
+.cadre{position:relative;max-width:620px;margin:34px auto 36px;border-radius:24px;overflow:visible;color:var(--j-texte);
+  background:repeating-linear-gradient(180deg,var(--j-bois1) 0 40px,var(--j-joint) 40px 43px,var(--j-bois2) 43px 83px,var(--j-joint) 83px 86px);
+  box-shadow:0 0 0 4px var(--j-trait),0 0 0 9px var(--j-cadre),0 0 0 12px var(--j-trait),0 0 0 13px #2bc7b455,0 22px 60px #000d,inset 0 0 0 3px #7ff5df40,inset 0 0 50px #0009}
+.cadre::before{content:"";position:absolute;inset:-9px;border-radius:30px;pointer-events:none;
+  background:radial-gradient(circle at 14px 14px,#c9fff4 0 3px,#2bc7b4 4px 6px,var(--j-trait) 7px,transparent 8px) top left/40px 40px no-repeat,
+             radial-gradient(circle at 26px 14px,#c9fff4 0 3px,#2bc7b4 4px 6px,var(--j-trait) 7px,transparent 8px) top right/40px 40px no-repeat,
+             radial-gradient(circle at 14px 26px,#c9fff4 0 3px,#2bc7b4 4px 6px,var(--j-trait) 7px,transparent 8px) bottom left/40px 40px no-repeat,
+             radial-gradient(circle at 26px 26px,#c9fff4 0 3px,#2bc7b4 4px 6px,var(--j-trait) 7px,transparent 8px) bottom right/40px 40px no-repeat}
+.cadre.menu{background-color:transparent;animation:entree .45s cubic-bezier(.2,1.3,.4,1) both}
+.plaque{position:absolute;top:-30px;left:50%;transform:translateX(-50%);z-index:3;white-space:nowrap;
+  padding:6px 30px 8px;border-radius:14px;border:3px solid var(--j-trait);
+  background:linear-gradient(#8ff7e4,#2bc7b4 55%,#159c99);box-shadow:inset 0 3px 0 #ffffffa0,inset 0 -4px 0 #0005,0 5px 0 var(--j-trait),0 10px 18px #0007;
+  font-family:var(--titre);font-weight:800;font-size:22px;letter-spacing:1.5px;text-transform:uppercase;color:#fff;
+  text-shadow:0 3px 0 var(--j-trait),2px 0 0 var(--j-trait),-2px 0 0 var(--j-trait),0 -2px 0 var(--j-trait),2px 2px 0 var(--j-trait),-2px 2px 0 var(--j-trait)}
+.plaque::before,.plaque::after{content:"";position:absolute;top:50%;width:18px;height:22px;transform:translateY(-40%);background:#159c99;border:3px solid var(--j-trait);z-index:-1}
+.plaque::before{left:-14px;border-radius:6px 0 0 6px;border-right:none}
+.plaque::after{right:-14px;border-radius:0 6px 6px 0;border-left:none}
+.fermer{position:absolute;left:50%;bottom:-28px;transform:translateX(-50%);z-index:3;width:54px;height:54px;border-radius:50%;
+  display:grid;place-items:center;text-decoration:none;cursor:pointer;font:800 26px/1 var(--titre);color:var(--j-trait);
+  background:radial-gradient(circle at 50% 35%,#c9fff4,#2bc7b4 55%,#128a8f);border:3px solid var(--j-trait);
+  box-shadow:inset 0 3px 0 #ffffffb0,inset 0 -4px 0 #0005,0 5px 0 var(--j-trait),0 0 0 6px #0c3443}
+.fermer:hover{filter:brightness(1.1)}
+.fermer:active{transform:translateX(-50%) translateY(3px)}
+
+/* Drawing window */
+.cadre .menu-banniere{margin:30px 16px 0;border-radius:14px;border:3px solid var(--j-trait);box-shadow:0 0 0 3px #2bc7b466,inset 0 0 30px #0006;overflow:hidden}
+.cadre .menu-banniere h1{color:#fff;text-shadow:0 3px 0 var(--j-trait),0 0 16px #000a}
+.cadre .menu-corps{padding:16px 22px 40px}
+.cadre .menu-corps>p,.cadre #texteAccueil{color:var(--j-texte-doux)}
+.cadre .badge-niveau{background:#06272ecc;color:#8ff7e4;border:2px solid #2bc7b4}
+
+/* ---------- Rounded buttons ---------- */
+.bouton-jeu,.btn-jouer,.cadre .btn,.choix-niveau a{font-family:var(--titre);font-weight:800;text-transform:uppercase;letter-spacing:.6px;cursor:pointer;text-decoration:none;
+  color:var(--j-trait);border:3px solid var(--j-trait);border-radius:14px;
+  background:linear-gradient(#8ff7e4,#2bc7b4 55%,#159c99);box-shadow:inset 0 3px 0 #ffffffa0,inset 0 -4px 0 #0005,0 5px 0 var(--j-trait);
+  transition:transform .1s,filter .1s}
+.bouton-jeu:hover,.btn-jouer:hover,.cadre .btn:hover,.choix-niveau a:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.bouton-jeu:active,.btn-jouer:active,.cadre .btn:active,.choix-niveau a:active{transform:translateY(3px);box-shadow:inset 0 3px 0 #ffffffa0,inset 0 -4px 0 #0005,0 2px 0 var(--j-trait)}
+.bouton-jeu{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:19px;padding:10px 22px;min-height:52px}
+.btn-jouer{font-size:26px;padding:10px 40px;background:linear-gradient(#c8ff9a,#5fd35a 55%,#2f9e3f);color:#0b3313}
+.bouton-jeu.vert{background:linear-gradient(#c8ff9a,#5fd35a 55%,#2f9e3f);color:#0b3313}
+.bouton-jeu.bleu{background:linear-gradient(#bfe6ff,#4fa8f0 55%,#2a6fc9);color:#06233f}
+.bouton-jeu.sombre{background:linear-gradient(#3d6f7c,#1d4b57 55%,#123843);color:#c9fff4}
+.cadre .btn{font-size:15px;padding:8px 16px}
+.cadre .actions{justify-content:center}
+
+/* Level choice: easy / medium / hard */
+.choix-niveau a{text-transform:none;letter-spacing:0}
+.choix-niveau a .pastille{border:2px solid var(--j-trait);box-shadow:inset 0 2px 0 #fff6}
+.choix-niveau a small{color:#0b4b52}
+.choix-niveau a[data-n="1"]{background:linear-gradient(#c8ff9a,#5fd35a 55%,#2f9e3f);color:#0b3313}
+.choix-niveau a[data-n="2"]{background:linear-gradient(#bfe6ff,#4fa8f0 55%,#2a6fc9);color:#06233f}
+.choix-niveau a[data-n="3"]{background:linear-gradient(#e2ccff,#9b74e8 55%,#6a45c2);color:#1e0b45}
+.choix-niveau a[aria-current]{outline:4px solid #fff;outline-offset:2px;box-shadow:inset 0 3px 0 #ffffffa0,inset 0 -4px 0 #0005,0 5px 0 var(--j-trait),0 0 18px #8ff7e4}
+
+/* Controls and options tiles */
+.cadre .tuiles-touches li{background:#06272e99;border:2px solid #2bc7b466;box-shadow:inset 0 1px 0 #ffffff14}
+.cadre .tuiles-touches .picto{background:linear-gradient(#1a5566,#0c3443);border:2px solid #2bc7b4;box-shadow:0 3px 0 var(--j-trait)}
+.cadre .tuiles-touches .txt{color:var(--j-texte)}
+.cadre .astuce{background:#2bc7b41f;border:2px dashed #2bc7b499;color:#d8fbf6}
+.cadre .options .puce{background:#06272e99;border:2px solid #2bc7b466;color:var(--j-texte)}
+.cadre .options select{background:#e6fbff;color:#06272e;border:2px solid var(--j-trait);border-radius:10px;font-weight:700}
+.cadre .options input[type=checkbox]{width:20px;height:20px;accent-color:#2bc7b4}
+
+/* End of game */
+.cadre.menu-fin .menu-corps h2{color:#fff;text-shadow:0 3px 0 var(--j-trait)}
+.cadre.menu-fin .score{color:#ffd36b;text-shadow:0 3px 0 #6b4a00;font-size:46px}
+.cadre.menu-fin .resultat>span{background:#06272e99;border:2px solid #2bc7b466;color:var(--j-texte)}
+.cadre .bilan-sauvegarde{color:var(--j-texte-doux);text-align:center}
+
+/* Pause panel */
+.cadre.petit{max-width:360px}
+.boutons-colonne{display:grid;gap:12px;padding-top:44px!important}
+
+/* ---------- Game dashboard ---------- */
+.hud .carte,.message.carte{background:linear-gradient(#134456,#0c3241);border:3px solid var(--j-cadre);color:var(--j-texte);
+  box-shadow:0 0 0 2px var(--j-trait),0 4px 0 2px var(--j-trait),inset 0 2px 0 #ffffff1f;border-radius:16px}
+.hud .nom small{color:var(--j-texte-doux)}
+.hud .compteur{position:relative;padding:6px 14px 6px 46px;min-height:38px;border-radius:999px;
+  background:linear-gradient(90deg,#2bc7b466 var(--p,0%),#0a2a35 var(--p,0%));color:#fff;text-shadow:0 2px 0 var(--j-trait)}
+.hud .compteur .ico{position:absolute;left:-6px;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:21px;
+  background:radial-gradient(circle at 50% 35%,#c9fff4,#2bc7b4 60%,#128a8f);border:3px solid var(--j-trait);box-shadow:inset 0 3px 0 #ffffffa0,0 3px 0 var(--j-trait);text-shadow:none}
+.hud .compteur.tempete{color:#e9dcff}
+.hud .compteur.tempete .ico{background:radial-gradient(circle at 50% 35%,#efe2ff,#9b74e8 60%,#6a45c2)}
+.hud .energie{background:#06272e;border:2px solid var(--j-trait);height:12px}
+.hud .boutons-haut .btn{font-family:var(--titre);font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--j-trait);border:3px solid var(--j-trait);border-radius:14px;
+  background:linear-gradient(#8ff7e4,#2bc7b4 55%,#159c99);box-shadow:inset 0 3px 0 #ffffffa0,inset 0 -4px 0 #0005,0 4px 0 var(--j-trait)}
+.message.carte{font-weight:700}
+.pad button,.outils button{color:var(--j-trait);border:3px solid var(--j-trait);border-radius:16px;
+  background:linear-gradient(#8ff7e4,#2bc7b4 55%,#159c99);box-shadow:inset 0 3px 0 #ffffffa0,inset 0 -4px 0 #0005,0 4px 0 var(--j-trait)}
+.outils button small{color:#0b4b52}
+.outils .recolter{background:linear-gradient(#c8ff9a,#5fd35a 55%,#2f9e3f)}
+.pad button:active,.outils button:active{transform:translateY(3px);box-shadow:inset 0 3px 0 #ffffffa0,0 1px 0 var(--j-trait)}
+@media (max-width:620px){.cadre{margin:40px 4px 40px}.plaque{font-size:18px;padding:5px 20px 7px}.btn-jouer{font-size:22px;padding:8px 26px}.hud .compteur{padding-left:40px}.hud .compteur .ico{width:38px;height:38px;font-size:18px}}
+.cadre kbd{color:#06272e}
+.message{top:calc(140px + env(safe-area-inset-top,0px))}
+@media (max-width:620px){.cadre .tuiles-touches{grid-template-columns:1fr}.message{top:calc(190px + env(safe-area-inset-top,0px))}}

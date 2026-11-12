@@ -1,0 +1,131 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jeux - MathJeux</title><link rel="stylesheet" href="../theme.css">
+<link rel="stylesheet" href="../style.css"><link rel="icon" href="../images/favicon.svg" type="image/svg+xml"><script src="../compte.js" defer></script><link rel="stylesheet" href="../apparence.css">
+<script src="../menu-lateral.js" defer></script>
+<style>.illu-emo{font-size:58px;line-height:1;display:flex;align-items:center;justify-content:center;height:100%}</style>
+<style>.sommaire-jeux{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}.sommaire-jeux a{padding:8px 14px;border-radius:999px;background:#fff;border:2px solid var(--jeux);font-weight:800;text-decoration:none;color:inherit}.sommaire-jeux a:hover,.sommaire-jeux a:focus{background:var(--jeux);color:#fff}.niv-badge{display:inline-block;align-self:flex-start;font-size:13px;font-weight:800;border-radius:999px;padding:2px 10px;margin-bottom:6px;background:#eef3f7;color:#16324f}</style>
+</head><body class="cat-jeux">
+<header class="barre-haut">
+<a class="brand" href="../index.html">Math<span>Jeux</span><small>De La Salle · Ottawa</small></a>
+<button class="menu-bouton" type="button" aria-expanded="false" aria-controls="menu-general">☰ Menu</button>
+<nav class="menu-general" id="menu-general" aria-label="Menu général">
+<a href="../index.html">Accueil</a><a href="../a-propos.html">À propos</a><a href="../contact.html">Nous contacter</a><a href="../aide.html">Aide</a><a data-compte="eleve" href="../connexion.html?role=eleve">🎒 Connexion élève</a><a data-compte="prof" href="../connexion.html?role=teacher">🍎 Connexion enseignante</a></nav>
+</header>
+<script>document.currentScript.previousElementSibling.querySelector(".menu-bouton").onclick=function(){var o=this.getAttribute("aria-expanded")!=="true";this.setAttribute("aria-expanded",o);this.parentNode.classList.toggle("ouvert",o)}</script>
+<div class="mise-en-page">
+<aside class="barre-laterale">
+<p class="menu-titre">Activités</p>
+<nav class="menu-activites" aria-label="Catégories d’activités">
+<a href="../mathematiques/index.html" style="--c:var(--mathematiques)"><span class="menu-icone" aria-hidden="true">📐</span>Mathématiques</a>
+<a href="../defis/index.html" style="--c:var(--defis)"><span class="menu-icone" aria-hidden="true">🧩</span>Défis</a>
+<a href="index.html" style="--c:var(--jeux)" aria-current="page"><span class="menu-icone" aria-hidden="true">🎮</span>Jeux</a>
+<a href="../bons-moments-classe.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">❤️</span>Vie de classe</a>
+<a href="../galerie.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">📸</span>Galerie</a>
+</nav>
+</aside>
+<div class="page">
+
+
+
+<section class="entete-page"><span>JOUER • RÉFLÉCHIR • PROGRESSER</span><h1>🎮 Jeux</h1>
+<p>Seulement des jeux : les parcours et les mondes en 3D, et les jeux de logique. Les activités de maths, de français et de sciences sont dans leur matière.</p></section>
+<main class="conteneur">
+<nav class="sommaire-jeux" aria-label="Domaines"><a href="#jeux-calculs3d">🏃 Parcours de calculs en 3D</a><a href="#jeux-blocs3d">🧊 Aventures en blocs 3D</a><a href="#jeux-logique">🧩 Logique et stratégie</a></nav>
+<section class="jeux-niveau" aria-labelledby="jeux-calculs3d">
+<h2 id="jeux-calculs3d"><span class="pastille-niveau" style="background:var(--jeux)">🏃</span>Parcours de calculs en 3D</h2>
+<p>On saute, on évite les pièges et on répond aux questions de maths pour ouvrir les portes.</p>
+<div class="tuiles">
+<a class="tuile" href="math-obby.html" style="--c1:#c2558f;--c2:#ffb3d9;--fonce:#7a2f58">
+  <span class="tuile-illu" aria-hidden="true"><span class="illu-emo">🌈</span></span>
+  <span class="tuile-texte"><strong>Math Obby</strong><small>Dans les nuages : coffres au trésor, pièces et atelier d’avatar.</small></span>
+  <span class="tuile-pied"><b>16 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="ile-aux-calculs.html" style="--c1:#3f7a64;--c2:#7fb59e;--fonce:#284a40">
+  <span class="tuile-illu" aria-hidden="true"><span class="illu-emo">🔢</span></span>
+  <span class="tuile-texte"><strong>Île aux calculs</strong><small>Le parcours de l’île, avec des portes des calculs.</small></span>
+  <span class="tuile-pied"><b>11 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="splash-des-calculs.html" style="--c1:#2f8fb8;--c2:#8fd3ef;--fonce:#1d5f7c">
+  <span class="tuile-illu" aria-hidden="true"><span class="illu-emo">🌊</span></span>
+  <span class="tuile-texte"><strong>Splash des calculs</strong><small>Sur l’eau : bouées, troncs qui glissent et geysers.</small></span>
+  <span class="tuile-pied"><b>11 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="mer-des-requins.html" style="--c1:#1f6f9f;--c2:#7fc8e8;--fonce:#134a6a">
+  <span class="tuile-illu" aria-hidden="true"><span class="illu-emo">🦈</span></span>
+  <span class="tuile-texte"><strong>La mer des requins</strong><small>Un pirate sur la mer : requins, crocodiles et bateaux.</small></span>
+  <span class="tuile-pied"><b>11 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="desert-des-calculs.html" style="--c1:#b8742f;--c2:#f0c88a;--fonce:#6e4419">
+  <span class="tuile-illu" aria-hidden="true"><span class="illu-emo">🏜️</span></span>
+  <span class="tuile-texte"><strong>Désert des calculs</strong><small>Dans le sable : cactus, sable mouvant et tapis volants.</small></span>
+  <span class="tuile-pied"><b>11 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+<section class="jeux-niveau" aria-labelledby="jeux-blocs3d">
+<h2 id="jeux-blocs3d"><span class="pastille-niveau" style="background:var(--jeux)">🧊</span>Aventures en blocs 3D</h2>
+<p>Des parcours et des mondes en blocs à explorer.</p>
+<div class="tuiles">
+<a class="tuile" href="ile-aux-blocs.html" style="--c1:#2f7f9f;--c2:#9fd3e6;--fonce:#1d5068">
+  <span class="tuile-illu" aria-hidden="true"><span class="illu-emo">🏝️</span></span>
+  <span class="tuile-texte"><strong>Île aux blocs</strong><small>Sauter de bloc en bloc jusqu’au drapeau d’or.</small></span>
+  <span class="tuile-pied"><b>3D</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="tempete-des-blocs.html" style="--c1:#5a5fa8;--c2:#b4b8e6;--fonce:#363a73">
+  <span class="tuile-illu" aria-hidden="true"><span class="illu-emo">🌀</span></span>
+  <span class="tuile-texte"><strong>Tempête des blocs</strong><small>Récolter, construire des rampes et ouvrir les coffres.</small></span>
+  <span class="tuile-pied"><b>3D</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="village-des-amis.html" style="--c1:#b8742f;--c2:#f0c88a;--fonce:#6e4419">
+  <span class="tuile-illu" aria-hidden="true"><span class="illu-emo">🏘️</span></span>
+  <span class="tuile-texte"><strong>Le village des amis</strong><small>Choisir la meilleure réaction avec les autres.</small></span>
+  <span class="tuile-pied"><b>3D</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="ville-en-blocs.html" style="--c1:#4f6f8f;--c2:#a9bfd6;--fonce:#2c4157">
+  <span class="tuile-illu" aria-hidden="true"><span class="illu-emo">🏙️</span></span>
+  <span class="tuile-texte"><strong>La ville en blocs</strong><small>Choisir le bon objet pour passer chaque obstacle.</small></span>
+  <span class="tuile-pied"><b>3D</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="blocs-de-couleur.html" style="--c1:#c2558f;--c2:#ffb3d9;--fonce:#7a2f58">
+  <span class="tuile-illu" aria-hidden="true"><span class="illu-emo">🧱</span></span>
+  <span class="tuile-texte"><strong>Blocs de couleur</strong><small>Construire avec des blocs de couleur.</small></span>
+  <span class="tuile-pied"><b>3D</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+<section class="jeux-niveau" aria-labelledby="jeux-logique">
+<h2 id="jeux-logique"><span class="pastille-niveau" style="background:var(--jeux)">🧩</span>Logique et stratégie</h2>
+<p>Réfléchir avant d’agir : labyrinthes, caisses et rayons laser.</p>
+<div class="tuiles">
+<a class="tuile" href="pirates-de-la-logique.html" style="--c1:#8a5a35;--c2:#e2c27f;--fonce:#4f3019">
+  <span class="tuile-illu" aria-hidden="true"><span class="illu-emo">⚓</span></span>
+  <span class="tuile-texte"><strong>Pirates de la logique</strong><small>Parcours 3D sur l’île des pirates : des énigmes pour les petits et les grands.</small></span>
+  <span class="tuile-pied"><b>3D · 12 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="arcade.html?j=labyrinthe" style="--c1:#4a57c4;--c2:#a2aaf4;--fonce:#3d47a8">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="22" y="8" width="76" height="64" rx="6" fill="none" stroke="#fff" stroke-width="6"/><path d="M42 8 V44 M62 72 V36 H80 M22 54 H42" stroke="#fff" stroke-width="6" fill="none"/><circle cx="32" cy="20" r="6" fill="#e0567a"/><path d="M88 58 l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z" fill="#f4c152"/></svg></span>
+  <span class="tuile-texte"><span class="niv-badge niv-d">🟢 Débutant</span><strong>Labyrinthe aux étoiles</strong><small>Ramasser les étoiles et trouver la sortie. Flèches ou clic.</small></span>
+  <span class="tuile-pied"><b>8 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="arcade.html?j=caisses" style="--c1:#8a5a2b;--c2:#d9b48a;--fonce:#6e4a24">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="28" y="24" width="32" height="32" rx="4" fill="#fff"/><path d="M32 28L56 52M56 28L32 52" stroke="#8a5a2b" stroke-width="3"/><circle cx="88" cy="40" r="11" fill="none" stroke="#fff" stroke-width="4"/><circle cx="88" cy="40" r="4" fill="#fff"/><path d="M64 40H74" stroke="#fff" stroke-width="3"/></svg></span>
+  <span class="tuile-texte"><span class="niv-badge niv-i">🟡 Intermédiaire</span><strong>Pousse les caisses</strong><small>Pousser chaque caisse sur une cible sans la coincer.</small></span>
+  <span class="tuile-pied"><b>6 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="arcade.html?j=caissesx" style="--c1:#6e4a24;--c2:#c79c6e;--fonce:#553819">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="14" y="30" width="24" height="24" rx="3" fill="#fff"/><rect x="44" y="30" width="24" height="24" rx="3" fill="#fff"/><rect x="74" y="30" width="24" height="24" rx="3" fill="#fff" opacity=".7"/><circle cx="104" cy="20" r="7" fill="none" stroke="#fff" stroke-width="3"/></svg></span>
+  <span class="tuile-texte"><span class="niv-badge niv-a">🔴 Avancé</span><strong>Pousse les caisses · expert</strong><small>Trois ou quatre caisses : planifier plusieurs coups à l’avance.</small></span>
+  <span class="tuile-pied"><b>6 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="arcade.html?j=laser" style="--c1:#b3366e;--c2:#ef9fc2;--fonce:#8a2253">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="10" y="32" width="18" height="16" rx="3" fill="#fff"/><path d="M28 40H60V14H96V60" stroke="#ffe0ec" stroke-width="4" fill="none"/><path d="M53 33L67 47M89 7L103 21" stroke="#fff" stroke-width="5"/><circle cx="96" cy="64" r="8" fill="#fff"/><circle cx="96" cy="64" r="3" fill="#b3366e"/></svg></span>
+  <span class="tuile-texte"><span class="niv-badge niv-a">🔴 Avancé</span><strong>Rayon laser</strong><small>Tourner les miroirs pour guider le rayon jusqu’à la cible.</small></span>
+  <span class="tuile-pied"><b>8 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+
+</main><div class="retour"><a href="../index.html">← Retour à l'accueil</a></div><footer class="site-footer"><span>MathJeux <b>│</b> De La Salle · Ottawa</span><span>Apprendre aujourd’hui pour demain</span></footer><script src="../script.js"></script>
+</div>
+</div>
+</body></html>

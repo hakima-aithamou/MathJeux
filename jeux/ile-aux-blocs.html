@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Île aux blocs - MathJeux</title><link rel="stylesheet" href="../theme.css">
+<link rel="stylesheet" href="../style.css"><link rel="icon" href="../images/favicon.svg" type="image/svg+xml"><script src="../compte.js" defer></script><link rel="stylesheet" href="../apparence.css">
+<script src="../menu-lateral.js" defer></script>
+</head><body class="cat-jeux">
+<header class="barre-haut">
+<a class="brand" href="../index.html">Math<span>Jeux</span><small>De La Salle · Ottawa</small></a>
+<button class="menu-bouton" type="button" aria-expanded="false" aria-controls="menu-general">☰ Menu</button>
+<nav class="menu-general" id="menu-general" aria-label="Menu général">
+<a href="../index.html">Accueil</a><a href="../a-propos.html">À propos</a><a href="../contact.html">Nous contacter</a><a href="../aide.html">Aide</a><a data-compte="eleve" href="../connexion.html?role=eleve">🎒 Connexion élève</a><a data-compte="prof" href="../connexion.html?role=teacher">🍎 Connexion enseignante</a></nav>
+</header>
+<script>document.currentScript.previousElementSibling.querySelector(".menu-bouton").onclick=function(){var o=this.getAttribute("aria-expanded")!=="true";this.setAttribute("aria-expanded",o);this.parentNode.classList.toggle("ouvert",o)}</script>
+<div class="mise-en-page">
+<aside class="barre-laterale">
+<p class="menu-titre">Activités</p>
+<nav class="menu-activites" aria-label="Catégories d’activités">
+<a href="../mathematiques/index.html" style="--c:var(--mathematiques)"><span class="menu-icone" aria-hidden="true">📐</span>Mathématiques</a>
+<a href="../defis/index.html" style="--c:var(--defis)"><span class="menu-icone" aria-hidden="true">🧩</span>Défis</a>
+<a href="index.html" style="--c:var(--jeux)" aria-current="page"><span class="menu-icone" aria-hidden="true">🎮</span>Jeux</a>
+<a href="../bons-moments-classe.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">❤️</span>Vie de classe</a>
+<a href="../galerie.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">📸</span>Galerie</a>
+</nav>
+</aside>
+<div class="page">
+
+
+
+<section class="entete-page"><span>SAUTER • GRIMPER • PERSÉVÉRER</span><h1>🏝️ Île aux blocs</h1>
+<p>Un parcours d’obstacles en 3D, dans un monde en blocs. On marche avec les flèches, on saute avec Espace (ou en touchant l’écran) et on ramasse les étoiles jusqu’au drapeau d’or. Si on tombe, on repart calmement du dernier drapeau.</p></section>
+<main class="conteneur">
+<section class="jeux-niveau" aria-labelledby="ile-niveaux">
+<h2 id="ile-niveaux"><span class="pastille-niveau">3 niveaux</span>Choisis ton parcours</h2>
+<p>Commence par le niveau Débutant. Le score compte les étoiles : ★★★ toutes les étoiles, ★★ au moins 60 %, ★ parcours terminé.</p>
+<div class="tuiles">
+<a class="tuile" href="../ile/jeu.html?n=1" data-niveau="1" style="--c1:#2f8a4b;--c2:#9fd8ac;--fonce:#226b39">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="14" y="54" width="20" height="16" fill="#fff"/><rect x="34" y="46" width="20" height="24" fill="#fff" opacity=".9"/><rect x="54" y="38" width="20" height="32" fill="#fff" opacity=".8"/><rect x="80" y="30" width="26" height="40" fill="#fff"/><path d="M93 30V8" stroke="#fff" stroke-width="3"/><path d="M93 9h14l-4 5 4 5H93" fill="#ffd34d"/></svg></span>
+  <span class="tuile-texte"><strong>Niveau 1 · Débutant</strong><small>Un petit escalier, de grandes îles et un pont de bois. Court et sans piège.</small></span>
+  <span class="tuile-pied"><b class="ile-score">8 étoiles</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../ile/jeu.html?n=2" data-niveau="2" style="--c1:#3d6fb6;--c2:#9fc0ec;--fonce:#2d5592">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="8" y="58" width="22" height="12" fill="#fff"/><rect x="40" y="48" width="14" height="22" fill="#fff" opacity=".85"/><rect x="62" y="40" width="16" height="6" rx="2" fill="#fff"/><rect x="86" y="24" width="22" height="46" fill="#fff"/><path d="M97 24V6" stroke="#fff" stroke-width="3"/><path d="M97 7h12l-3 4 3 4H97" fill="#ffd34d"/><path d="M60 52c4-6 14-6 18 0" stroke="#fff" stroke-width="3" fill="none" stroke-dasharray="3 4"/></svg></span>
+  <span class="tuile-texte"><strong>Niveau 2 · Intermédiaire</strong><small>Six étapes : îles, pont étroit, radeaux qui bougent, trampoline et tour en spirale.</small></span>
+  <span class="tuile-pied"><b class="ile-score">16 étoiles</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../ile/jeu.html?n=3" data-niveau="3" style="--c1:#8a4fb8;--c2:#cfb0ea;--fonce:#6c3a94">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="52" y="12" width="16" height="58" fill="#fff" opacity=".7"/><rect x="34" y="56" width="14" height="5" fill="#fff"/><rect x="72" y="46" width="14" height="5" fill="#fff"/><rect x="34" y="36" width="14" height="5" fill="#fff"/><rect x="72" y="26" width="14" height="5" fill="#fff"/><rect x="48" y="10" width="24" height="6" fill="#ffd34d"/><path d="M60 10V-2" stroke="#fff" stroke-width="3"/></svg></span>
+  <span class="tuile-texte"><strong>Niveau 3 · Avancé</strong><small>Escalier à trous, poutre en zigzag, radeaux rapides, double trampoline et très haute tour.</small></span>
+  <span class="tuile-pied"><b class="ile-score">20 étoiles</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+</main><div class="retour"><a href="../index.html">← Retour à l'accueil</a></div><footer class="site-footer"><span>MathJeux <b>│</b> De La Salle · Ottawa</span><span>Apprendre aujourd’hui pour demain</span></footer><script src="../script.js"></script>
+</div>
+</div>
+<script>
+/* Signed-in student: show their best score on each level */
+window.addEventListener('load', function () {
+  if (!window.EC || !EC.mesResultats) return;
+  EC.mesResultats().then(function (res) {
+    if (!res) return;
+    document.querySelectorAll('.tuile[data-niveau]').forEach(function (t) {
+      var n = +t.dataset.niveau, best = -1;
+      res.forEach(function (r) { if (r.activity === 'jeu-ile' && r.level === n) best = Math.max(best, r.score); });
+      if (best >= 0) t.querySelector('.ile-score').textContent = '✓ ' + '★'.repeat(best) + '☆'.repeat(3 - best);
+    });
+  });
+});
+</script>
+</body></html>

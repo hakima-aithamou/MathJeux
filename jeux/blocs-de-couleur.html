@@ -1,0 +1,110 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blocs de couleur - MathJeux</title><link rel="stylesheet" href="../theme.css">
+<link rel="stylesheet" href="../style.css"><link rel="icon" href="../images/favicon.svg" type="image/svg+xml"><script src="../compte.js" defer></script><link rel="stylesheet" href="../apparence.css">
+<script src="../menu-lateral.js" defer></script>
+</head><body class="cat-jeux">
+<header class="barre-haut">
+<a class="brand" href="../index.html">Math<span>Jeux</span><small>De La Salle · Ottawa</small></a>
+<button class="menu-bouton" type="button" aria-expanded="false" aria-controls="menu-general">☰ Menu</button>
+<nav class="menu-general" id="menu-general" aria-label="Menu général">
+<a href="../index.html">Accueil</a><a href="../a-propos.html">À propos</a><a href="../contact.html">Nous contacter</a><a href="../aide.html">Aide</a><a data-compte="eleve" href="../connexion.html?role=eleve">🎒 Connexion élève</a><a data-compte="prof" href="../connexion.html?role=teacher">🍎 Connexion enseignante</a></nav>
+</header>
+<script>document.currentScript.previousElementSibling.querySelector(".menu-bouton").onclick=function(){var o=this.getAttribute("aria-expanded")!=="true";this.setAttribute("aria-expanded",o);this.parentNode.classList.toggle("ouvert",o)}</script>
+<div class="mise-en-page">
+<aside class="barre-laterale">
+<p class="menu-titre">Activités</p>
+<nav class="menu-activites" aria-label="Catégories d’activités">
+<a href="../mathematiques/index.html" style="--c:var(--mathematiques)"><span class="menu-icone" aria-hidden="true">📐</span>Mathématiques</a>
+<a href="../defis/index.html" style="--c:var(--defis)"><span class="menu-icone" aria-hidden="true">🧩</span>Défis</a>
+<a href="index.html" style="--c:var(--jeux)" aria-current="page"><span class="menu-icone" aria-hidden="true">🎮</span>Jeux</a>
+<a href="../bons-moments-classe.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">❤️</span>Vie de classe</a>
+<a href="../galerie.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">📸</span>Galerie</a>
+</nav>
+</aside>
+<div class="page">
+
+
+
+<section class="entete-page math-entete"><span>CONSTRUIRE • COMPTER • CALCULER</span><h1>🧱 Blocs de couleur</h1>
+<p>Cinq jeux avec des blocs de couleur pour compter, additionner, continuer une suite et faire une symétrie. Avant chaque partie, l’élève choisit son temps (1 à 5 minutes) et voit le temps idéal. Le bouton « Son » lit les consignes à voix haute.</p></section>
+<main class="conteneur">
+<section class="jeux-niveau" aria-labelledby="bc-deb">
+<h2 id="bc-deb"><span class="pastille-niveau">Débutant</span>Nombres jusqu’à 10</h2>
+<p>Petites structures, une ou deux couleurs, additions simples. ★ fini · ★ à temps · ★ 2 erreurs ou moins.</p>
+<div class="tuiles">
+<a class="tuile" href="../blocs/jeu.html?j=copie&amp;n=1" data-jeu="copie" data-niveau="1" style="--c1:#e8553d;--c2:#ff9a84;--fonce:#a8341f">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="14" y="30" width="16" height="16" rx="3" fill="#fff"/><rect x="30" y="30" width="16" height="16" rx="3" fill="#fff" opacity=".8"/><rect x="22" y="14" width="16" height="16" rx="3" fill="#fff" opacity=".9"/><rect x="68" y="30" width="16" height="16" rx="3" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="4 3"/><rect x="84" y="30" width="16" height="16" rx="3" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="4 3"/><rect x="76" y="14" width="16" height="16" rx="3" fill="#fff"/></svg></span>
+  <span class="tuile-texte"><strong>Copie la structure</strong><small>Reconstruis le modèle bloc par bloc, puis compte les blocs.</small></span>
+  <span class="tuile-pied"><b class="bc-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../blocs/jeu.html?j=mystere&amp;n=1" data-jeu="mystere" data-niveau="1" style="--c1:#f08a24;--c2:#ffc07a;--fonce:#a8521a">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="20" y="10" width="18" height="18" rx="3" fill="#fff"/><rect x="40" y="10" width="18" height="18" rx="3" fill="#fff" opacity=".7"/><rect x="60" y="10" width="18" height="18" rx="3" fill="#fff"/><rect x="40" y="30" width="18" height="18" rx="3" fill="#fff"/><text x="90" y="62" text-anchor="middle" font-size="20" font-weight="700" font-family="Arial" fill="#fff">4+3</text></svg></span>
+  <span class="tuile-texte"><strong>Le dessin mystère</strong><small>Calcule pour trouver la couleur de chaque bloc et découvre le dessin.</small></span>
+  <span class="tuile-pied"><b class="bc-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../blocs/jeu.html?j=escalier&amp;n=1" data-jeu="escalier" data-niveau="1" style="--c1:#2c62ab;--c2:#7fa8e6;--fonce:#1d4580">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="16" y="52" width="16" height="16" rx="3" fill="#fff"/><rect x="40" y="36" width="16" height="32" rx="3" fill="#fff"/><rect x="64" y="20" width="16" height="48" rx="3" fill="#fff"/><rect x="88" y="6" width="16" height="62" rx="3" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="4 3"/></svg></span>
+  <span class="tuile-texte"><strong>L’escalier</strong><small>Trouve la règle des tours et construis la tour suivante.</small></span>
+  <span class="tuile-pied"><b class="bc-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../blocs/jeu.html?j=miroir&amp;n=1" data-jeu="miroir" data-niveau="1" style="--c1:#8a5cd1;--c2:#c4a6f2;--fonce:#5f3aa0">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="22" y="14" width="16" height="16" rx="3" fill="#fff"/><rect x="38" y="30" width="16" height="16" rx="3" fill="#fff"/><rect x="22" y="46" width="16" height="16" rx="3" fill="#fff"/><path d="M60 6v68" stroke="#fff" stroke-width="4"/><rect x="82" y="14" width="16" height="16" rx="3" fill="#fff" opacity=".7"/><rect x="66" y="30" width="16" height="16" rx="3" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="4 3"/></svg></span>
+  <span class="tuile-texte"><strong>Le miroir</strong><small>Fais la même chose de l’autre côté de la ligne, comme dans un miroir.</small></span>
+  <span class="tuile-pied"><b class="bc-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../blocs/jeu.html?j=recette&amp;n=1" data-jeu="recette" data-niveau="1" style="--c1:#2f8a4b;--c2:#84d39c;--fonce:#1f6334">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="12" y="8" width="40" height="56" rx="5" fill="#fff"/><rect x="18" y="16" width="10" height="10" rx="2" fill="#2f8a4b"/><rect x="18" y="34" width="10" height="10" rx="2" fill="#1f6334"/><path d="M32 21h14M32 39h14" stroke="#2f8a4b" stroke-width="3"/><g fill="#fff"><rect x="62" y="54" width="10" height="10" rx="2"/><rect x="74" y="54" width="10" height="10" rx="2"/><rect x="86" y="54" width="10" height="10" rx="2"/><rect x="98" y="54" width="10" height="10" rx="2" opacity=".6"/></g></svg></span>
+  <span class="tuile-texte"><strong>La recette</strong><small>Lis la recette, pose les bons blocs sur le plateau, puis additionne.</small></span>
+  <span class="tuile-pied"><b class="bc-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+<section class="jeux-niveau" aria-labelledby="bc-int">
+<h2 id="bc-int"><span class="pastille-niveau">Intermédiaire</span>Nombres jusqu’à 20 et plus</h2>
+<p>Structures plus grandes, plus de couleurs, soustractions et motifs de couleurs.</p>
+<div class="tuiles">
+<a class="tuile" href="../blocs/jeu.html?j=copie&amp;n=2" data-jeu="copie" data-niveau="2" style="--c1:#e8553d;--c2:#ff9a84;--fonce:#a8341f">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="14" y="30" width="16" height="16" rx="3" fill="#fff"/><rect x="30" y="30" width="16" height="16" rx="3" fill="#fff" opacity=".8"/><rect x="22" y="14" width="16" height="16" rx="3" fill="#fff" opacity=".9"/><rect x="68" y="30" width="16" height="16" rx="3" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="4 3"/><rect x="84" y="30" width="16" height="16" rx="3" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="4 3"/><rect x="76" y="14" width="16" height="16" rx="3" fill="#fff"/></svg></span>
+  <span class="tuile-texte"><strong>Copie la structure</strong><small>Reconstruis le modèle bloc par bloc, puis compte les blocs.</small></span>
+  <span class="tuile-pied"><b class="bc-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../blocs/jeu.html?j=mystere&amp;n=2" data-jeu="mystere" data-niveau="2" style="--c1:#f08a24;--c2:#ffc07a;--fonce:#a8521a">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="20" y="10" width="18" height="18" rx="3" fill="#fff"/><rect x="40" y="10" width="18" height="18" rx="3" fill="#fff" opacity=".7"/><rect x="60" y="10" width="18" height="18" rx="3" fill="#fff"/><rect x="40" y="30" width="18" height="18" rx="3" fill="#fff"/><text x="90" y="62" text-anchor="middle" font-size="20" font-weight="700" font-family="Arial" fill="#fff">4+3</text></svg></span>
+  <span class="tuile-texte"><strong>Le dessin mystère</strong><small>Calcule pour trouver la couleur de chaque bloc et découvre le dessin.</small></span>
+  <span class="tuile-pied"><b class="bc-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../blocs/jeu.html?j=escalier&amp;n=2" data-jeu="escalier" data-niveau="2" style="--c1:#2c62ab;--c2:#7fa8e6;--fonce:#1d4580">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="16" y="52" width="16" height="16" rx="3" fill="#fff"/><rect x="40" y="36" width="16" height="32" rx="3" fill="#fff"/><rect x="64" y="20" width="16" height="48" rx="3" fill="#fff"/><rect x="88" y="6" width="16" height="62" rx="3" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="4 3"/></svg></span>
+  <span class="tuile-texte"><strong>L’escalier</strong><small>Trouve la règle des tours et construis la tour suivante.</small></span>
+  <span class="tuile-pied"><b class="bc-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../blocs/jeu.html?j=miroir&amp;n=2" data-jeu="miroir" data-niveau="2" style="--c1:#8a5cd1;--c2:#c4a6f2;--fonce:#5f3aa0">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="22" y="14" width="16" height="16" rx="3" fill="#fff"/><rect x="38" y="30" width="16" height="16" rx="3" fill="#fff"/><rect x="22" y="46" width="16" height="16" rx="3" fill="#fff"/><path d="M60 6v68" stroke="#fff" stroke-width="4"/><rect x="82" y="14" width="16" height="16" rx="3" fill="#fff" opacity=".7"/><rect x="66" y="30" width="16" height="16" rx="3" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="4 3"/></svg></span>
+  <span class="tuile-texte"><strong>Le miroir</strong><small>Fais la même chose de l’autre côté de la ligne, comme dans un miroir.</small></span>
+  <span class="tuile-pied"><b class="bc-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../blocs/jeu.html?j=recette&amp;n=2" data-jeu="recette" data-niveau="2" style="--c1:#2f8a4b;--c2:#84d39c;--fonce:#1f6334">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="12" y="8" width="40" height="56" rx="5" fill="#fff"/><rect x="18" y="16" width="10" height="10" rx="2" fill="#2f8a4b"/><rect x="18" y="34" width="10" height="10" rx="2" fill="#1f6334"/><path d="M32 21h14M32 39h14" stroke="#2f8a4b" stroke-width="3"/><g fill="#fff"><rect x="62" y="54" width="10" height="10" rx="2"/><rect x="74" y="54" width="10" height="10" rx="2"/><rect x="86" y="54" width="10" height="10" rx="2"/><rect x="98" y="54" width="10" height="10" rx="2" opacity=".6"/></g></svg></span>
+  <span class="tuile-texte"><strong>La recette</strong><small>Lis la recette, pose les bons blocs sur le plateau, puis additionne.</small></span>
+  <span class="tuile-pied"><b class="bc-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+</main><div class="retour"><a href="../index.html">← Retour à l'accueil</a></div><footer class="site-footer"><span>MathJeux <b>│</b> De La Salle · Ottawa</span><span>Apprendre aujourd’hui pour demain</span></footer><script src="../script.js"></script>
+</div>
+</div>
+<script>
+/* Signed-in student: show their best score on each level */
+window.addEventListener('load', function () {
+  if (!window.EC || !EC.mesResultats) return;
+  EC.mesResultats().then(function (res) {
+    if (!res) return;
+    document.querySelectorAll('.tuile[data-niveau]').forEach(function (t) {
+      var n = +t.dataset.niveau, best = -1;
+      res.forEach(function (r) { if (r.activity === 'jeu-blocs-' + t.dataset.jeu && r.level === n) best = Math.max(best, r.score); });
+      if (best >= 0) t.querySelector('.bc-score').textContent = '✓ ' + '★'.repeat(best) + '☆'.repeat(3 - best);
+    });
+  });
+});
+</script>
+</body></html>

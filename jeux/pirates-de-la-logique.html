@@ -1,0 +1,116 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pirates de la logique - MathJeux</title><link rel="stylesheet" href="../theme.css">
+<link rel="stylesheet" href="../style.css"><link rel="icon" href="../images/favicon.svg" type="image/svg+xml"><script src="../compte.js" defer></script><link rel="stylesheet" href="../apparence.css">
+<script src="../menu-lateral.js" defer></script>
+</head><body class="cat-jeux">
+<header class="barre-haut">
+<a class="brand" href="../index.html">Math<span>Jeux</span><small>De La Salle · Ottawa</small></a>
+<button class="menu-bouton" type="button" aria-expanded="false" aria-controls="menu-general">☰ Menu</button>
+<nav class="menu-general" id="menu-general" aria-label="Menu général">
+<a href="../index.html">Accueil</a><a href="../a-propos.html">À propos</a><a href="../contact.html">Nous contacter</a><a href="../aide.html">Aide</a><a data-compte="eleve" href="../connexion.html?role=eleve">🎒 Connexion élève</a><a data-compte="prof" href="../connexion.html?role=teacher">🍎 Connexion enseignante</a></nav>
+</header>
+<script>document.currentScript.previousElementSibling.querySelector(".menu-bouton").onclick=function(){var o=this.getAttribute("aria-expanded")!=="true";this.setAttribute("aria-expanded",o);this.parentNode.classList.toggle("ouvert",o)}</script>
+<div class="mise-en-page">
+<aside class="barre-laterale">
+<p class="menu-titre">Activités</p>
+<nav class="menu-activites" aria-label="Catégories d’activités">
+<a href="../mathematiques/index.html" style="--c:var(--mathematiques)"><span class="menu-icone" aria-hidden="true">📐</span>Mathématiques</a>
+<a href="../defis/index.html" style="--c:var(--defis)"><span class="menu-icone" aria-hidden="true">🧩</span>Défis</a>
+<a href="index.html" style="--c:var(--jeux)" aria-current="page"><span class="menu-icone" aria-hidden="true">🎮</span>Jeux</a>
+<a href="../bons-moments-classe.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">❤️</span>Vie de classe</a>
+<a href="../galerie.html" style="--c:var(--vie)"><span class="menu-icone" aria-hidden="true">📸</span>Galerie</a>
+</nav>
+</aside>
+<div class="page">
+
+<section class="entete-page"><span>SAUTER • RÉFLÉCHIR • TROUVER</span><h1>⚓ Pirates de la logique</h1>
+<p>Un parcours en blocs sur l’île des pirates. À chaque porte de la grotte, on saute sur la plateforme qui porte la bonne réponse à une énigme : la porte s’ouvre et le coffre au trésor donne 5 pièces 🪙. Énigmes pour les petits (couleurs, intrus, ce qui va ensemble, avant-après, formes, grand-petit) et pour les grands (suites de nombres, analogies, enquêtes, codes secrets, jours et mois). Avec les pièces, on achète des accessoires et des animaux qui suivent l’avatar. Le bouton 🔊 lit l’énigme. Option « Mode calme » : rien ne bouge.</p></section>
+<main class="conteneur">
+<section class="jeux-niveau" aria-labelledby="pl-petits">
+<h2 id="pl-petits"><span class="pastille-niveau">🧸 Petits</span>Énigmes pour les petits</h2>
+<div class="tuiles">
+<a class="tuile" href="../pirates/jeu.html?n=1" data-niveau="1" style="--c1:#b8794a;--c2:#e2c27f;--fonce:#6e4419">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#1a8db3" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#e2c27f"/><rect x="47" y="40" width="26" height="12" fill="#e2c27f" opacity=".85"/><rect x="80" y="40" width="26" height="12" fill="#e2c27f"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">🔴🔵🔴?</text></svg></span>
+  <span class="tuile-texte"><strong>Petits 1 · couleurs</strong><small>Quelle couleur vient ensuite ?</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../pirates/jeu.html?n=2" data-niveau="2" style="--c1:#b8794a;--c2:#e2c27f;--fonce:#6e4419">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#1a8db3" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#e2c27f"/><rect x="47" y="40" width="26" height="12" fill="#e2c27f" opacity=".85"/><rect x="80" y="40" width="26" height="12" fill="#e2c27f"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">🍎🍌🚗</text></svg></span>
+  <span class="tuile-texte"><strong>Petits 2 · l’intrus</strong><small>Lequel n’est pas pareil ?</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../pirates/jeu.html?n=3" data-niveau="3" style="--c1:#b8794a;--c2:#e2c27f;--fonce:#6e4419">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#1a8db3" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#e2c27f"/><rect x="47" y="40" width="26" height="12" fill="#e2c27f" opacity=".85"/><rect x="80" y="40" width="26" height="12" fill="#e2c27f"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">🐶 + 🦴</text></svg></span>
+  <span class="tuile-texte"><strong>Petits 3 · ça va avec</strong><small>Trouve ce qui va ensemble.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../pirates/jeu.html?n=4" data-niveau="4" style="--c1:#b8794a;--c2:#e2c27f;--fonce:#6e4419">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#1a8db3" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#e2c27f"/><rect x="47" y="40" width="26" height="12" fill="#e2c27f" opacity=".85"/><rect x="80" y="40" width="26" height="12" fill="#e2c27f"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">🥚→🐣→?</text></svg></span>
+  <span class="tuile-texte"><strong>Petits 4 · avant, après</strong><small>Remets les choses dans l’ordre.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../pirates/jeu.html?n=5" data-niveau="5" style="--c1:#b8794a;--c2:#e2c27f;--fonce:#6e4419">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#1a8db3" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#e2c27f"/><rect x="47" y="40" width="26" height="12" fill="#e2c27f" opacity=".85"/><rect x="80" y="40" width="26" height="12" fill="#e2c27f"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">🔺⭐🔺?</text></svg></span>
+  <span class="tuile-texte"><strong>Petits 5 · formes</strong><small>Quelle forme vient ensuite ?</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../pirates/jeu.html?n=6" data-niveau="6" style="--c1:#b8794a;--c2:#e2c27f;--fonce:#6e4419">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#1a8db3" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#e2c27f"/><rect x="47" y="40" width="26" height="12" fill="#e2c27f" opacity=".85"/><rect x="80" y="40" width="26" height="12" fill="#e2c27f"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">🐘 🐭</text></svg></span>
+  <span class="tuile-texte"><strong>Petits 6 · grand, petit</strong><small>Le plus grand, le plus petit.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+<section class="jeux-niveau" aria-labelledby="pl-grands">
+<h2 id="pl-grands"><span class="pastille-niveau">🧠 Grands</span>Énigmes pour les grands</h2>
+<div class="tuiles">
+<a class="tuile" href="../pirates/jeu.html?n=7" data-niveau="7" style="--c1:#2b7fa8;--c2:#79c3e6;--fonce:#1b4f6a">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#1a8db3" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#e2c27f"/><rect x="47" y="40" width="26" height="12" fill="#e2c27f" opacity=".85"/><rect x="80" y="40" width="26" height="12" fill="#e2c27f"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">2, 4, 6, ?</text></svg></span>
+  <span class="tuile-texte"><strong>Grands 1 · nombres</strong><small>Quel nombre vient ensuite ?</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../pirates/jeu.html?n=8" data-niveau="8" style="--c1:#2b7fa8;--c2:#79c3e6;--fonce:#1b4f6a">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#1a8db3" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#e2c27f"/><rect x="47" y="40" width="26" height="12" fill="#e2c27f" opacity=".85"/><rect x="80" y="40" width="26" height="12" fill="#e2c27f"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">🐒→🍌</text></svg></span>
+  <span class="tuile-texte"><strong>Grands 2 · analogies</strong><small>A va avec B comme C va avec… ?</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../pirates/jeu.html?n=9" data-niveau="9" style="--c1:#2b7fa8;--c2:#79c3e6;--fonce:#1b4f6a">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#1a8db3" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#e2c27f"/><rect x="47" y="40" width="26" height="12" fill="#e2c27f" opacity=".85"/><rect x="80" y="40" width="26" height="12" fill="#e2c27f"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">Qui ?</text></svg></span>
+  <span class="tuile-texte"><strong>Grands 3 · qui est-ce ?</strong><small>Lis les indices et trouve qui.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../pirates/jeu.html?n=10" data-niveau="10" style="--c1:#2b7fa8;--c2:#79c3e6;--fonce:#1b4f6a">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#1a8db3" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#e2c27f"/><rect x="47" y="40" width="26" height="12" fill="#e2c27f" opacity=".85"/><rect x="80" y="40" width="26" height="12" fill="#e2c27f"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">🍎 = 3</text></svg></span>
+  <span class="tuile-texte"><strong>Grands 4 · codes</strong><small>Chaque objet vaut un nombre.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../pirates/jeu.html?n=11" data-niveau="11" style="--c1:#2b7fa8;--c2:#79c3e6;--fonce:#1b4f6a">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#1a8db3" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#e2c27f"/><rect x="47" y="40" width="26" height="12" fill="#e2c27f" opacity=".85"/><rect x="80" y="40" width="26" height="12" fill="#e2c27f"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">lundi → ?</text></svg></span>
+  <span class="tuile-texte"><strong>Grands 5 · jours, mois</strong><small>Les jours et les mois.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../pirates/jeu.html?n=12" data-niveau="12" style="--c1:#2b7fa8;--c2:#79c3e6;--fonce:#1b4f6a">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><path d="M0 62 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#1a8db3" opacity=".8"/><rect x="14" y="40" width="26" height="12" fill="#e2c27f"/><rect x="47" y="40" width="26" height="12" fill="#e2c27f" opacity=".85"/><rect x="80" y="40" width="26" height="12" fill="#e2c27f"/><text x="60" y="30" text-anchor="middle" font-size="22" font-weight="700" font-family="Arial" fill="#fff">? ? ?</text></svg></span>
+  <span class="tuile-texte"><strong>Grands 6 · mélange</strong><small>Toutes les énigmes des grands.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+</main><div class="retour"><a href="../index.html">← Retour à l'accueil</a></div><footer class="site-footer"><span>MathJeux <b>│</b> De La Salle · Ottawa</span><span>Apprendre aujourd’hui pour demain</span></footer><script src="../script.js"></script>
+</div>
+</div>
+<script>
+/* Signed-in student: show their best score on each level */
+window.addEventListener('load', function () {
+  if (!window.EC || !EC.mesResultats) return;
+  EC.mesResultats().then(function (res) {
+    if (!res) return;
+    document.querySelectorAll('.tuile[data-niveau]').forEach(function (t) {
+      var n = +t.dataset.niveau, best = -1;
+      res.forEach(function (r) { if (r.activity === 'jeu-pirates' && r.level === n) best = Math.max(best, r.score); });
+      if (best >= 0) t.querySelector('.ile-score').textContent = '✓ ' + '★'.repeat(best) + '☆'.repeat(3 - best);
+    });
+  });
+});
+</script>
+</body></html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jeux d’arcade · MathJeux</title>
+<link rel="stylesheet" href="../theme.css">
+<link rel="stylesheet" href="../exercices/exercices.css">
+<link rel="stylesheet" href="arcade.css">
+<link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+<script src="../compte.js" defer></script>
+<script src="intermediaire.js" defer></script>
+<script src="avance.js" defer></script>
+<script src="arcade.js" defer></script>
+<link rel="stylesheet" href="../apparence.css">
+</head>
+<body class="cat-jeux">
+<header class="ex-header">
+  <a class="brand" href="../index.html">Math<span>Jeux</span><small>De La Salle · Ottawa</small></a>
+  <nav aria-label="Navigation"><a href="index.html">← Jeux</a><a data-compte="eleve" href="../connexion.html?role=eleve">🎒 Connexion élève</a><a data-compte="prof" href="../connexion.html?role=teacher">🍎 Connexion enseignante</a></nav>
+</header>
+
+<main>
+  <!-- 1. Game choice -->
+  <section id="accueil" hidden>
+    <a class="bouton-retour" href="index.html"><span aria-hidden="true">⬅</span> Retour aux jeux</a>
+    <h1>🎮 Jeux</h1>
+    <p class="sous-titre">Des jeux calmes à jouer avec <b>les flèches du clavier</b> ou <b>la souris</b>. Pas de son, pas de surprise : tu peux mettre en pause à tout moment.</p>
+    <div id="listeJeux" class="arc-jeux"></div>
+  </section>
+
+  <!-- 2. Level choice -->
+  <section id="choixNiveau" hidden>
+    <button type="button" id="retourJeux" class="bouton-retour"><span aria-hidden="true">⬅</span> Retour aux jeux</button>
+    <div class="banniere-niveaux" id="niveauxBanniere">
+      <div class="bn-texte"><span class="bn-badge" id="niveauxBadge"></span><h1 id="niveauxTitre"></h1></div>
+      <div class="bn-illu" id="niveauxIllu" aria-hidden="true"></div>
+      <span class="bn-forme f1" aria-hidden="true"></span><span class="bn-forme f2" aria-hidden="true"></span><span class="bn-forme f3" aria-hidden="true"></span>
+    </div>
+    <p id="niveauxIntro" class="sous-titre"></p>
+    <ol id="niveaux" class="niveaux"></ol>
+  </section>
+
+  <!-- 3. Game -->
+  <section id="partie" hidden>
+    <div class="arc-haut">
+      <button type="button" id="quitterPartie" class="bouton-retour"><span aria-hidden="true">⬅</span> Niveaux</button>
+      <div class="arc-reglages">
+        <label>Vitesse
+          <select id="vitesse"><option value="lent">🐢 Lente</option><option value="moyen">🙂 Moyenne</option><option value="rapide">🐇 Rapide</option></select>
+        </label>
+        <button type="button" id="pause" class="bouton-doux" aria-pressed="false">⏸ Pause</button>
+      </div>
+    </div>
+    <div class="arc-carte">
+      <div class="arc-tete">
+        <h1 id="partieTitre"></h1>
+        <div class="arc-stats"><span id="score"></span><span id="coeurs" aria-label=""></span></div>
+      </div>
+      <p id="consigne" class="arc-consigne"></p>
+      <div class="arc-zone">
+        <canvas id="ecran" width="560" height="560" tabindex="0" aria-describedby="consigne"></canvas>
+      </div>
+      <p id="message" class="arc-message" role="status" aria-live="polite"></p>
+      <div id="actions" class="arc-actions" hidden></div>
+      <div class="arc-pad" aria-label="Flèches à l’écran">
+        <button type="button" data-dir="haut" aria-label="Haut">▲</button>
+        <button type="button" data-dir="gauche" aria-label="Gauche">◀</button>
+        <button type="button" data-dir="bas" aria-label="Bas">▼</button>
+        <button type="button" data-dir="droite" aria-label="Droite">▶</button>
+      </div>
+      <p class="arc-aide" id="aide"></p>
+    </div>
+  </section>
+</main>
+
+<!-- 4. End of game -->
+<div id="fin" class="bilan-fond" hidden>
+  <div class="bilan" role="dialog" aria-modal="true" aria-labelledby="finTitre">
+    <div class="bilan-fete" id="finIcone" aria-hidden="true">🎉</div>
+    <h2 id="finTitre" tabindex="-1"></h2>
+    <p id="finNiveau" class="bilan-niveau"></p>
+    <div class="bilan-etoiles" id="finEtoiles" aria-hidden="true"></div>
+    <p id="finTexte" class="bilan-message"></p>
+    <p id="finSauvegarde" class="bilan-sauvegarde" role="status" aria-live="polite"></p>
+    <div class="bilan-boutons">
+      <button type="button" id="finSuivant" class="bouton-principal">Niveau suivant →</button>
+      <button type="button" id="finRejouer" class="bouton-doux">Rejouer ce niveau</button>
+      <button type="button" id="finMenu" class="bouton-doux">Choisir un niveau</button>
+    </div>
+  </div>
+</div>
+<footer class="ex-footer">MathJeux · Chaque progrès est une réussite.</footer>
+</body>
+</html>

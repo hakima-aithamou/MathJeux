@@ -1,0 +1,53 @@
+/* Calculation island: the question card, bottom centre (under the character), with the sound button next to it */
+.carte-q{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:3;display:flex;align-items:center;gap:12px}
+.cq-corps{display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 18px 8px;border-radius:18px;background:#1e2b38;border:3px solid #e8c774;box-shadow:0 6px 16px rgba(0,0,0,.45);color:#eef3f6;min-width:250px}
+.cq-corps small{font-size:13px;color:#bccbd6}
+.cq-corps b{font-family:"Baloo 2","Atkinson Hyperlegible",Arial,sans-serif;font-size:42px;line-height:1;white-space:nowrap;color:#fff}
+.cq-choix{display:flex;gap:8px}
+.cq-choix button{min-width:64px;min-height:48px;padding:4px 10px;border-radius:12px;border:3px solid #fff;background:#fff;color:#16324f;font:800 28px "Baloo 2",Arial,sans-serif;text-align:center;cursor:pointer;box-shadow:0 3px 0 #8a9aa8}
+.cq-choix button:hover:not(:disabled){border-color:#e8c774;transform:translateY(-2px)}
+.cq-choix button:active:not(:disabled){transform:translateY(2px);box-shadow:0 1px 0 #8a9aa8}
+.carte-q.loin .cq-choix button:not(:disabled){opacity:.55;cursor:default}
+.cq-choix button.barre{box-shadow:none;border-color:#5b6672;cursor:default;background:#5b6672;color:#c4ccd4;text-decoration:line-through}
+.cq-corps em{font-style:normal;font-weight:700;font-size:13px;color:#e8c774}
+#lireQ{flex:none;width:58px;height:58px;border-radius:50%;border:3px solid #e8c774;background:#2b3d4f;color:#fff;font-size:26px;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,.4)}
+#lireQ:active{transform:translateY(2px)}
+@media (max-width:620px){.carte-q{bottom:calc(132px + env(safe-area-inset-bottom,0px));gap:8px}.cq-corps{min-width:0;padding:6px 12px}.cq-corps b{font-size:32px}.cq-choix button{min-width:54px;min-height:44px;font-size:24px}#lireQ{width:48px;height:48px;font-size:22px}
+  .inventaire{left:auto!important;right:max(16px,env(safe-area-inset-right,0px));bottom:auto!important;top:calc(140px + env(safe-area-inset-top,0px))}}
+/* Level menu: 3 main buttons, each with its sub-menu (hover or touch) */
+.choix-niveau.niveaux-maths{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;position:relative;z-index:5}
+.groupe-menu{position:relative}
+.niveaux-maths .groupe{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;padding:8px 12px;min-height:58px;border-radius:14px;border:3px solid var(--j-trait,#16324f);cursor:pointer;
+  font-family:var(--titre);font-weight:800;font-size:20px;box-shadow:inset 0 3px 0 #ffffffa0,inset 0 -4px 0 #0005,0 4px 0 var(--j-trait,#16324f)}
+.niveaux-maths .groupe .signe{flex:none;min-width:44px;height:38px;padding:0 6px;border-radius:10px;display:grid;place-items:center;background:#16324f;color:#fff;font-size:19px;letter-spacing:2px}
+.niveaux-maths .junior .groupe{background:linear-gradient(#c8ff9a,#5fd35a 55%,#2f9e3f);color:#0b3313}
+.niveaux-maths .expert .groupe{background:linear-gradient(#bfe6ff,#4fa8f0 55%,#2a6fc9);color:#06233f}
+.niveaux-maths .defis .groupe{background:linear-gradient(#e2ccff,#9b74e8 55%,#6a45c2);color:#1e0b45}
+.niveaux-maths .actuel .groupe{outline:3px solid #fff;outline-offset:2px}
+/* Sub-menu: hidden, it opens under its button */
+.niveaux-maths .sous-menu{display:none;position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:10;flex-direction:column;gap:6px;padding:8px;border-radius:14px;background:#0d3644;border:3px solid var(--j-trait,#16324f);box-shadow:0 10px 24px #0008}
+.groupe-menu.ouvert .sous-menu{display:flex}
+@media (hover:hover){.groupe-menu:hover .sous-menu,.groupe-menu:focus-within .sous-menu{display:flex}
+  .groupe-menu .sous-menu::before{content:"";position:absolute;left:0;right:0;top:-10px;height:10px}}
+.choix-niveau.niveaux-maths .sous-menu a{flex:none;height:auto;display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:6px 12px;min-height:40px;font-size:16px;white-space:nowrap;background:linear-gradient(#fff,#e8f4f6);color:#16324f}
+.choix-niveau.niveaux-maths .sous-menu a small{display:inline;font-family:var(--texte,Arial);font-weight:400;font-size:12px;opacity:.65}
+.niveaux-maths .sous-menu a[aria-current]{outline:3px solid #ffd36b;outline-offset:1px}
+@media (max-width:620px){.choix-niveau.niveaux-maths{grid-template-columns:1fr 1fr 1fr;gap:6px}.niveaux-maths .groupe{flex-direction:column;gap:4px;font-size:15px;padding:6px}
+  .niveaux-maths .sous-menu{left:auto;right:auto;width:max-content;min-width:100%}.niveaux-maths .defis .sous-menu{right:0}}
+/* Two menu screens: level choice / chosen level + controls + options + Play */
+.vue-choix .tuiles-touches,.vue-choix .options,.vue-choix .actions,.vue-choix .niveau-choisi{display:none!important}
+.vue-jeu .niveaux-maths{display:none!important}
+.vue-choix{min-height:260px;align-content:start}
+.niveau-choisi{display:flex;align-items:center;gap:14px;padding:10px 14px;border-radius:16px;border:3px solid var(--j-trait,#16324f);box-shadow:inset 0 3px 0 #ffffffa0,0 4px 0 var(--j-trait,#16324f)}
+.niveau-choisi.junior{background:linear-gradient(#c8ff9a,#5fd35a 55%,#2f9e3f);color:#0b3313}
+.niveau-choisi.expert{background:linear-gradient(#bfe6ff,#4fa8f0 55%,#2a6fc9);color:#06233f}
+.niveau-choisi.defis{background:linear-gradient(#e2ccff,#9b74e8 55%,#6a45c2);color:#1e0b45}
+.niveau-choisi .signe{flex:none;min-width:52px;height:46px;padding:0 8px;border-radius:12px;display:grid;place-items:center;background:#16324f;color:#fff;font-size:22px;font-weight:800;letter-spacing:2px}
+.niveau-choisi .nc-texte{flex:1;display:grid}
+.niveau-choisi b{font-family:var(--titre);font-size:24px;line-height:1.1}
+.niveau-choisi small{font-size:14px;opacity:.8}
+.nc-changer{flex:none;font-weight:700;font-size:14px;color:inherit;background:#ffffffb0;border:2px solid currentColor;border-radius:10px;padding:6px 10px;text-decoration:none}
+.nc-changer:hover{background:#fff}
+@media (max-width:620px){.niveau-choisi{flex-wrap:wrap}.niveau-choisi b{font-size:20px}}
+/* The question is written on the blocks: only the sound button is kept, bottom centre */
+.carte-q .cq-corps{display:none}
