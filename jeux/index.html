@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Jeux - MathJeux</title><link href="../theme.css" rel="stylesheet"/>
+<link href="../style.css" rel="stylesheet"/><link href="../images/favicon.svg" rel="icon" type="image/svg+xml"/><script defer="" src="../compte.js"></script><link href="../apparence.css" rel="stylesheet"/>
+<script defer="" src="../menu-lateral.js"></script>
+<style>.illu-emo{font-size:58px;line-height:1;display:flex;align-items:center;justify-content:center;height:100%}</style>
+<style>.sommaire-jeux{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}.sommaire-jeux a{padding:8px 14px;border-radius:999px;background:#fff;border:2px solid var(--jeux);font-weight:800;text-decoration:none;color:inherit}.sommaire-jeux a:hover,.sommaire-jeux a:focus{background:var(--jeux);color:#fff}.niv-badge{display:inline-block;align-self:flex-start;font-size:13px;font-weight:800;border-radius:999px;padding:2px 10px;margin-bottom:6px;background:#eef3f7;color:#16324f}</style>
+<style>.tuile-illu.tuile-photo{padding:0;overflow:hidden}.tuile-illu.tuile-photo img{width:100%;height:100%;object-fit:cover;display:block}</style><script src="../onglets.js" defer></script></head><body class="cat-jeux">
+<header class="barre-haut">
+<a class="brand" href="../index.html">Math<span>Jeux</span></a>
+<button aria-controls="menu-general" aria-expanded="false" class="menu-bouton" type="button">☰ Menu</button>
+<nav aria-label="Menu général" class="menu-general" id="menu-general">
+<a href="../index.html">Accueil</a><a href="../a-propos.html">À propos</a><a href="../contact.html">Nous contacter</a><a href="../aide.html">Aide</a><a data-compte="eleve" href="../connexion.html?role=eleve">🎒 Connexion élève</a><a data-compte="prof" href="../connexion.html?role=teacher">🍎 Connexion enseignante</a></nav>
+</header>
+<script>document.currentScript.previousElementSibling.querySelector(".menu-bouton").onclick=function(){var o=this.getAttribute("aria-expanded")!=="true";this.setAttribute("aria-expanded",o);this.parentNode.classList.toggle("ouvert",o)}</script>
+<div class="mise-en-page">
+<aside class="barre-laterale">
+<p class="menu-titre">Activités</p>
+<nav aria-label="Catégories d’activités" class="menu-activites">
+<a href="../mathematiques/index.html" style="--c:var(--mathematiques)"><span aria-hidden="true" class="menu-icone">📐</span>Mathématiques</a>
+<a href="../defis/index.html" style="--c:var(--defis)"><span aria-hidden="true" class="menu-icone">🧩</span>Défis</a>
+<a aria-current="page" href="index.html" style="--c:var(--jeux)"><span aria-hidden="true" class="menu-icone">🎮</span>Jeux</a>
+</nav>
+</aside>
+<div class="page">
+<section class="entete-page"><span>JOUER • RÉFLÉCHIR • PROGRESSER</span><h1>🎮 Jeux</h1>
+<p>Seulement des jeux : les parcours et les mondes en 3D, et les jeux de logique. Les activités de maths, de français et de sciences sont dans leur matière.</p></section>
+<main class="conteneur">
+<nav aria-label="Domaines" class="sommaire-jeux"><a href="#jeux-calculs3d">🏃 Parcours de calculs en 3D</a><a href="#jeux-blocs3d">🧊 Aventures en blocs 3D</a><a href="#jeux-aventures">🗺️ Aventures de calcul</a><a href="#jeux-logique">🧩 Logique et stratégie</a></nav>
+<section aria-labelledby="jeux-calculs3d" class="jeux-niveau">
+<h2 id="jeux-calculs3d"><span class="pastille-niveau" style="background:var(--jeux)">🏃</span>Parcours de calculs en 3D</h2>
+<p>On saute, on évite les pièges et on répond aux questions de maths pour ouvrir les portes.</p>
+<div class="tuiles">
+<a class="tuile" href="math-obby.html" style="--c1:#c2558f;--c2:#ffb3d9;--fonce:#7a2f58">
+<span aria-hidden="true" class="tuile-illu"><span class="illu-emo">🌈</span></span>
+<span class="tuile-texte"><strong>Math Obby</strong><small>Dans les nuages : coffres au trésor, pièces et atelier d’avatar.</small></span>
+<span class="tuile-pied"><b>16 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="ile-aux-calculs.html" style="--c1:#3f7a64;--c2:#7fb59e;--fonce:#284a40">
+<span aria-hidden="true" class="tuile-illu"><span class="illu-emo">🔢</span></span>
+<span class="tuile-texte"><strong>Île aux calculs</strong><small>Le parcours de l’île, avec des portes des calculs.</small></span>
+<span class="tuile-pied"><b>11 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="splash-des-calculs.html" style="--c1:#2f8fb8;--c2:#8fd3ef;--fonce:#1d5f7c">
+<span aria-hidden="true" class="tuile-illu"><span class="illu-emo">🌊</span></span>
+<span class="tuile-texte"><strong>Splash des calculs</strong><small>Sur l’eau : bouées, troncs qui glissent et geysers.</small></span>
+<span class="tuile-pied"><b>11 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="mer-des-requins.html" style="--c1:#1f6f9f;--c2:#7fc8e8;--fonce:#134a6a">
+<span aria-hidden="true" class="tuile-illu"><span class="illu-emo">🦈</span></span>
+<span class="tuile-texte"><strong>La mer des requins</strong><small>Choisis ton bateau et navigue : requins, crocodiles, icebergs, glaciers, îles et montagnes.</small></span>
+<span class="tuile-pied"><b>11 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="desert-des-calculs.html" style="--c1:#b8742f;--c2:#f0c88a;--fonce:#6e4419">
+<span aria-hidden="true" class="tuile-illu"><span class="illu-emo">🏜️</span></span>
+<span class="tuile-texte"><strong>Désert des calculs</strong><small>Dans le sable : cactus, sable mouvant et tapis volants.</small></span>
+<span class="tuile-pied"><b>11 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+<section aria-labelledby="jeux-blocs3d" class="jeux-niveau">
+<h2 id="jeux-blocs3d"><span class="pastille-niveau" style="background:var(--jeux)">🧊</span>Aventures en blocs 3D</h2>
+<p>Des parcours et des mondes en blocs à explorer.</p>
+<div class="tuiles">
+<a class="tuile" href="saute-blocs.html" style="--c1:#3f8fd6;--c2:#a9d6f7;--fonce:#245f94">
+<span aria-hidden="true" class="tuile-illu"><svg viewbox="0 0 120 80"><rect fill="#fff" height="12" width="26" x="8" y="58"></rect><rect fill="#fff" height="10" opacity=".9" width="22" x="40" y="46"></rect><rect fill="#fff" height="10" opacity=".85" width="20" x="68" y="34"></rect><rect fill="#e53b3b" height="8" width="10" x="74" y="26"></rect><rect fill="#ffd34d" height="10" width="20" x="94" y="20"></rect><rect fill="#fff" height="16" width="3" x="100" y="4"></rect><path d="M103 5h10l-3 4 3 4h-10z" fill="#2fc65b"></path><rect fill="#14a3ad" height="12" width="8" x="16" y="38"></rect><rect fill="#f2c79e" height="8" width="8" x="16" y="30"></rect><path d="M26 40 q14 -22 30 0" fill="none" stroke="#fff" stroke-dasharray="3 3" stroke-width="2"></path></svg></span>
+<span class="tuile-texte"><strong>Saute-blocs</strong><small>Sauter de bloc en bloc dans le ciel, éviter les blocs rouges et monter jusqu’au bloc doré.</small></span>
+<span class="tuile-pied"><b>3D · 6 parcours</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="ile-aux-blocs.html" style="--c1:#2f7f9f;--c2:#9fd3e6;--fonce:#1d5068">
+<span aria-hidden="true" class="tuile-illu"><span class="illu-emo">🏝️</span></span>
+<span class="tuile-texte"><strong>Île aux blocs</strong><small>Sauter de bloc en bloc jusqu’au drapeau d’or.</small></span>
+<span class="tuile-pied"><b>3D</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="tempete-des-blocs.html" style="--c1:#5a5fa8;--c2:#b4b8e6;--fonce:#363a73">
+<span aria-hidden="true" class="tuile-illu"><span class="illu-emo">🌀</span></span>
+<span class="tuile-texte"><strong>Tempête des blocs</strong><small>Récolter, construire des rampes et ouvrir les coffres.</small></span>
+<span class="tuile-pied"><b>3D</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="village-des-amis.html" style="--c1:#b8742f;--c2:#f0c88a;--fonce:#6e4419">
+<span aria-hidden="true" class="tuile-illu"><span class="illu-emo">🏘️</span></span>
+<span class="tuile-texte"><strong>Le village des amis</strong><small>Choisir la meilleure réaction avec les autres.</small></span>
+<span class="tuile-pied"><b>3D</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="ville-en-blocs.html" style="--c1:#4f6f8f;--c2:#a9bfd6;--fonce:#2c4157">
+<span aria-hidden="true" class="tuile-illu"><span class="illu-emo">🏙️</span></span>
+<span class="tuile-texte"><strong>La ville en blocs</strong><small>Choisir le bon objet pour passer chaque obstacle.</small></span>
+<span class="tuile-pied"><b>3D</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="blocs-de-couleur.html" style="--c1:#c2558f;--c2:#ffb3d9;--fonce:#7a2f58">
+<span aria-hidden="true" class="tuile-illu"><span class="illu-emo">🧱</span></span>
+<span class="tuile-texte"><strong>Blocs de couleur</strong><small>Construire avec des blocs de couleur.</small></span>
+<span class="tuile-pied"><b>3D</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+<section aria-labelledby="jeux-aventures" class="jeux-niveau">
+<h2 id="jeux-aventures"><span class="pastille-niveau" style="background:var(--jeux)">🗺️</span>Aventures de calcul</h2>
+<p>On se déplace vers la bonne réponse : additions, soustractions, nombres manquants, multiplications et les quatre opérations.</p>
+<div class="tuiles">
+<a class="tuile" href="../chateau-des-nombres/index.html" style="--c1:#5a4a8c;--c2:#b9a6e6;--fonce:#3d3066">
+<span aria-hidden="true" class="tuile-illu tuile-photo"><img alt="" loading="lazy" src="../images/jeux/chateau-des-nombres.jpg"/></span>
+<span class="tuile-texte"><strong>🏰 Le Château des nombres</strong><small>Un petit héros ouvre les portes du château : il entre dans la porte qui porte la bonne réponse.</small></span>
+<span class="tuile-pied"><b>6 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../math-express/index.html" style="--c1:#b0622d;--c2:#f0c088;--fonce:#6e3a17">
+<span aria-hidden="true" class="tuile-illu tuile-photo"><img alt="" loading="lazy" src="../images/jeux/math-express.jpg"/></span>
+<span class="tuile-texte"><strong>🐎 Math Express</strong><small>Le courrier du Far West : le cheval prend le chemin de la bonne réponse et saute par-dessus les cactus.</small></span>
+<span class="tuile-pied"><b>6 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../math-ocean/index.html" style="--c1:#1f7fa0;--c2:#86d0e6;--fonce:#145470">
+<span aria-hidden="true" class="tuile-illu tuile-photo"><img alt="" loading="lazy" src="../images/jeux/math-ocean.jpg"/></span>
+<span class="tuile-texte"><strong>🤿 Math Océan</strong><small>Un sous-marin cherche les trésors : il va vers le coffre qui contient la bonne réponse.</small></span>
+<span class="tuile-pied"><b>6 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a><a class="tuile" href="../math-city/index.html" style="--c1:#1f7fa0;--c2:#86d0e6;--fonce:#145470">
+<span aria-hidden="true" class="tuile-illu tuile-photo"><img alt="" loading="lazy" src="../images/jeux/math-city.jpg"/></span>
+<span class="tuile-texte"><strong>🏙️ Math City</strong><small>Des missions mathématiques dans six quartiers de la ville.</small></span>
+<span class="tuile-pied"><b>6 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+<section aria-labelledby="jeux-logique" class="jeux-niveau">
+<h2 id="jeux-logique"><span class="pastille-niveau" style="background:var(--jeux)">🧩</span>Logique et stratégie</h2>
+<p>Réfléchir avant d’agir : puzzles, labyrinthes, caisses et rayons laser.</p>
+<div class="tuiles">
+<a class="tuile" href="../puzzles/index.html" style="--c1:#1f8f86;--c2:#8fe3d8;--fonce:#14625c">
+<span aria-hidden="true" class="tuile-illu"><svg height="84" viewbox="-12 -12 112 112" width="84"><g stroke="#fff" stroke-linejoin="round" stroke-width="3"><path d="M4 4H17C12 -8 32 -8 27 4H40V17C52 12 52 32 40 27V40H27C32 52 12 52 17 40H4V27C-8 32 -8 12 4 17Z" fill="#62d9cb" transform="translate(7 7) rotate(-9 22 22)"></path><path d="M4 4H17C12 -8 32 -8 27 4H40V17C52 12 52 32 40 27V40H27C32 52 12 52 17 40H4V27C-8 32 -8 12 4 17Z" fill="#ffd477" transform="translate(50 3) rotate(12 22 22)"></path><path d="M4 4H17C12 -8 32 -8 27 4H40V17C52 12 52 32 40 27V40H27C32 52 12 52 17 40H4V27C-8 32 -8 12 4 17Z" fill="#b7a4ff" transform="translate(4 50) rotate(8 22 22)"></path><path d="M4 4H17C12 -8 32 -8 27 4H40V17C52 12 52 32 40 27V40H27C32 52 12 52 17 40H4V27C-8 32 -8 12 4 17Z" fill="#ff947e" transform="translate(52 51) rotate(-12 22 22)"></path></g></svg></span>
+<span class="tuile-texte"><strong>Mille et une pièces</strong><small>63 puzzles en images : animaux, planètes, châteaux… Observe le modèle et assemble les morceaux.</small></span>
+<span class="tuile-pied"><b>9 thèmes · 6 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="pirates-de-la-logique.html" style="--c1:#8a5a35;--c2:#e2c27f;--fonce:#4f3019">
+<span aria-hidden="true" class="tuile-illu"><span class="illu-emo">⚓</span></span>
+<span class="tuile-texte"><strong>Pirates de la logique</strong><small>Parcours 3D sur l’île des pirates : des énigmes pour les petits et les grands.</small></span>
+<span class="tuile-pied"><b>3D · 12 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="arcade.html?j=labyrinthe" style="--c1:#4a57c4;--c2:#a2aaf4;--fonce:#3d47a8">
+<span aria-hidden="true" class="tuile-illu"><svg viewbox="0 0 120 80"><rect fill="none" height="64" rx="6" stroke="#fff" stroke-width="6" width="76" x="22" y="8"></rect><path d="M42 8 V44 M62 72 V36 H80 M22 54 H42" fill="none" stroke="#fff" stroke-width="6"></path><circle cx="32" cy="20" fill="#e0567a" r="6"></circle><path d="M88 58 l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z" fill="#f4c152"></path></svg></span>
+<span class="tuile-texte"><span class="niv-badge niv-d">🟢 Débutant</span><strong>Labyrinthe aux étoiles</strong><small>Ramasser les étoiles et trouver la sortie. Flèches ou clic.</small></span>
+<span class="tuile-pied"><b>8 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="arcade.html?j=caisses" style="--c1:#8a5a2b;--c2:#d9b48a;--fonce:#6e4a24">
+<span aria-hidden="true" class="tuile-illu"><svg viewbox="0 0 120 80"><rect fill="#fff" height="32" rx="4" width="32" x="28" y="24"></rect><path d="M32 28L56 52M56 28L32 52" stroke="#8a5a2b" stroke-width="3"></path><circle cx="88" cy="40" fill="none" r="11" stroke="#fff" stroke-width="4"></circle><circle cx="88" cy="40" fill="#fff" r="4"></circle><path d="M64 40H74" stroke="#fff" stroke-width="3"></path></svg></span>
+<span class="tuile-texte"><span class="niv-badge niv-i">🟡 Intermédiaire</span><strong>Pousse les caisses</strong><small>Pousser chaque caisse sur une cible sans la coincer.</small></span>
+<span class="tuile-pied"><b>6 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="arcade.html?j=caissesx" style="--c1:#6e4a24;--c2:#c79c6e;--fonce:#553819">
+<span aria-hidden="true" class="tuile-illu"><svg viewbox="0 0 120 80"><rect fill="#fff" height="24" rx="3" width="24" x="14" y="30"></rect><rect fill="#fff" height="24" rx="3" width="24" x="44" y="30"></rect><rect fill="#fff" height="24" opacity=".7" rx="3" width="24" x="74" y="30"></rect><circle cx="104" cy="20" fill="none" r="7" stroke="#fff" stroke-width="3"></circle></svg></span>
+<span class="tuile-texte"><span class="niv-badge niv-a">🔴 Avancé</span><strong>Pousse les caisses · expert</strong><small>Trois ou quatre caisses : planifier plusieurs coups à l’avance.</small></span>
+<span class="tuile-pied"><b>6 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="arcade.html?j=laser" style="--c1:#b3366e;--c2:#ef9fc2;--fonce:#8a2253">
+<span aria-hidden="true" class="tuile-illu"><svg viewbox="0 0 120 80"><rect fill="#fff" height="16" rx="3" width="18" x="10" y="32"></rect><path d="M28 40H60V14H96V60" fill="none" stroke="#ffe0ec" stroke-width="4"></path><path d="M53 33L67 47M89 7L103 21" stroke="#fff" stroke-width="5"></path><circle cx="96" cy="64" fill="#fff" r="8"></circle><circle cx="96" cy="64" fill="#b3366e" r="3"></circle></svg></span>
+<span class="tuile-texte"><span class="niv-badge niv-a">🔴 Avancé</span><strong>Rayon laser</strong><small>Tourner les miroirs pour guider le rayon jusqu’à la cible.</small></span>
+<span class="tuile-pied"><b>8 niveaux</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+</main><div class="retour"><a href="../index.html">← Retour à l'accueil</a></div><footer class="site-footer"><span>MathJeux</span></footer><script src="../script.js"></script>
+</div>
+</div>
+</body></html>
