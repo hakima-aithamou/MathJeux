@@ -1,0 +1,42 @@
+/* Workshops: shared styles (on top of exercices.css) */
+.retour-msg.info{background:#eef6fb;border-color:#9cc3dd;color:#16324f}
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.05;margin:0 .15em;font-weight:800}
+.frac-n{padding:0 .2em;border-bottom:.09em solid currentColor}.frac-d{padding:0 .2em}
+.choix-bouton .frac{font-size:1.3em}
+.zone{display:flex;flex-direction:column;align-items:center;gap:12px;margin:4px 0 12px}
+.rangee{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center}
+.etiquette{font-weight:800;font-size:18px;color:var(--texte-doux,#4a5a68);text-align:center;margin:0}
+.carte-objet{display:flex;flex-direction:column;align-items:center;gap:2px;min-width:96px;padding:10px 12px;border-radius:14px;background:#fff;border:3px solid var(--bordure,#c5d6c3);font-weight:800;cursor:pointer;font-size:16px;color:var(--encre)}
+.carte-objet .emo{font-size:40px;line-height:1.1}
+.carte-objet[aria-pressed=true]{border-color:#2e9c76;background:#e3f4ec;box-shadow:inset 0 0 0 2px #2e9c76}
+.carte-objet:focus-visible{outline:4px solid #216aa8;outline-offset:2px}
+.carte-objet.bonne{border-color:#2e8b57!important;background:#d9f2e4!important}
+.boite-cible{min-height:84px;width:100%;max-width:640px;border:3px dashed #9aa9b6;border-radius:16px;padding:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;background:#fbfdff}
+.boite-cible:empty::before{content:attr(data-vide);color:#7a8a98;font-weight:700}
+.total{font-weight:800;font-size:20px}
+.grand-texte{font-size:34px;font-weight:800;text-align:center;margin:0}
+@media(max-width:620px){.carte-objet{min-width:80px;padding:8px}.carte-objet .emo{font-size:32px}.grand-texte{font-size:26px}}
+.argent{display:inline-flex}
+.argent-bouton{min-width:auto;padding:6px 8px}
+.argent-mis{border:0;background:none;padding:2px;cursor:pointer}
+.prix{color:#7f5a00;font-size:18px}
+.carte-objet.pris{opacity:.25}
+.carte-objet.place{border-style:dashed;min-height:96px;background:#fff8e3}
+.carte-objet.place.plein{border-style:solid;background:#fff}
+.carte-objet .num{font-size:28px;color:#b07d12}
+.ordre-rang{counter-reset:none}
+.etiquette.petit{font-size:14px;font-weight:600}
+.grille-svg{width:100%;max-width:560px;height:auto;touch-action:manipulation}
+.grille-svg .cel{cursor:pointer}
+.grille-svg .cel:focus{outline:none;stroke:#e0573f;stroke-width:4}
+.commande{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;background:#fffbe8;border:2px solid #e8c774;border-radius:12px;padding:8px 16px}.commande .emo{font-size:30px}
+.horaire{border-collapse:collapse;margin:0 auto 10px;font-size:20px;background:#fff}.horaire caption{font-weight:800;margin-bottom:6px}.horaire th,.horaire td{border:2px solid #c5d6c3;padding:8px 18px;text-align:center}.horaire th{background:#fff5d7}
+.pointage{font-size:26px;letter-spacing:2px;font-weight:700;color:#16324f}.picto{font-size:24px;letter-spacing:2px}
+.votes{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:520px;margin:0 auto}.vote{font-size:34px}
+.programme{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;min-height:52px;padding:8px;background:#f4f7fb;border:2px dashed #b9c7d6;border-radius:12px;margin:0 auto 10px;max-width:620px}
+.programme.montree{border-color:#2e9c76;background:#e9f7f0}.programme .vide{color:#6a7b8c;align-self:center}
+.instr{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:#455a75;color:#fff;font-size:26px;font-weight:800}
+.bouton-instr{border:3px solid transparent;cursor:pointer}.bouton-instr[aria-pressed=true]{border-color:#e0573f;background:#6b3a2e}.bouton-instr.bonne{background:#2e9c76}
+.choix-bouton.fleche{font-size:30px;min-width:64px}.choix.programmes .choix-bouton{font-size:22px;letter-spacing:1px}
+.image-mot{font-size:72px;text-align:center;margin:0}
+.grand-emo{font-size:110px}
