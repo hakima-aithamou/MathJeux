@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Blocs de couleur · MathJeux</title>
+<link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Fredoka:wght@500;600&display=swap">
+<link rel="stylesheet" href="blocs.css">
+<script src="../compte.js" defer></script>
+<script src="blocs.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="haut"><a class="btn clair" href="../jeux/blocs-de-couleur.html">⬅ Retour</a><h1>Blocs de couleur</h1></header>
+  <nav class="onglets" id="onglets" aria-label="Jeux"></nav>
+  <div class="barre">
+    <div class="niveaux" role="group" aria-label="Niveau"><button type="button" data-niv="1" class="on">Débutant</button><button type="button" data-niv="2">Intermédiaire</button></div>
+    <div class="chrono" id="chrono" hidden aria-live="off"><span aria-hidden="true">⏱</span><span id="chronoTxt">0:00</span><span class="piste"><i id="chronoBar"></i></span></div>
+    <div class="outils"><button type="button" class="son" id="son" aria-pressed="false">🔇 Son : non</button><div class="etoiles" id="etoiles" aria-live="polite">⭐ 0</div></div>
+  </div>
+  <div class="temps-fini" id="tempsFini" hidden role="alert"><span>⏰ Le temps est fini !</span>
+    <div class="btns"><button type="button" class="btn rejouer" id="recommencer">🔄 Recommencer</button><button type="button" class="btn clair" id="continuer">Continuer quand même</button></div></div>
+  <main class="jeu" id="jeu"></main>
+</div>
+</body>
+</html>

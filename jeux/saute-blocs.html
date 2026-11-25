@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Saute-blocs - MathJeux</title><link rel="stylesheet" href="../theme.css">
+<link rel="stylesheet" href="../style.css"><link rel="icon" href="../images/favicon.svg" type="image/svg+xml"><script src="../compte.js" defer></script><link rel="stylesheet" href="../apparence.css">
+<script src="../menu-lateral.js" defer></script>
+<style>
+/* each course is offered in two versions */
+.tuile-pied{flex-wrap:wrap}
+.tuile-pied .deux-sens{display:flex;gap:6px;background:none;padding:0}
+.tuile-pied .deux-sens a{font-weight:700;color:#fff;background:var(--fonce);padding:8px 11px;border-radius:12px;font-size:14px;text-decoration:none;white-space:nowrap}
+.tuile-pied .deux-sens a:hover,.tuile-pied .deux-sens a:focus-visible{filter:brightness(1.15);outline:3px solid color-mix(in srgb,var(--fonce) 35%,#fff)}
+</style>
+</head><body class="cat-jeux">
+<header class="barre-haut">
+<a class="brand" href="../index.html">Math<span>Jeux</span></a>
+<button class="menu-bouton" type="button" aria-expanded="false" aria-controls="menu-general">☰ Menu</button>
+<nav class="menu-general" id="menu-general" aria-label="Menu général">
+<a href="../index.html">Accueil</a><a href="../a-propos.html">À propos</a><a href="../contact.html">Nous contacter</a><a href="../aide.html">Aide</a><a data-compte="eleve" href="../connexion.html?role=eleve">🎒 Connexion élève</a><a data-compte="prof" href="../connexion.html?role=teacher">🍎 Connexion enseignante</a></nav>
+</header>
+<script>document.currentScript.previousElementSibling.querySelector(".menu-bouton").onclick=function(){var o=this.getAttribute("aria-expanded")!=="true";this.setAttribute("aria-expanded",o);this.parentNode.classList.toggle("ouvert",o)}</script>
+<div class="mise-en-page">
+<aside class="barre-laterale">
+<p class="menu-titre">Activités</p>
+<nav class="menu-activites" aria-label="Catégories d’activités">
+<a href="../mathematiques/index.html" style="--c:var(--mathematiques)"><span class="menu-icone" aria-hidden="true">📐</span>Mathématiques</a>
+<a href="../defis/index.html" style="--c:var(--defis)"><span class="menu-icone" aria-hidden="true">🧩</span>Défis</a>
+<a href="index.html" style="--c:var(--jeux)" aria-current="page"><span class="menu-icone" aria-hidden="true">🎮</span>Jeux</a>
+</nav>
+</aside>
+<div class="page">
+
+
+
+<section class="entete-page"><span>MARCHER • SAUTER • MONTER</span><h1>🟦 Saute-blocs</h1>
+<p>Un parcours de blocs dans le ciel. On saute de bloc en bloc, on touche les drapeaux verts pour sauvegarder, on évite les blocs rouges et on monte jusqu’au bloc doré. Réponds à des questions simples sur les fractions aux drapeaux verts et au bloc doré. Le jeu se met en pause pendant les questions.</p></section>
+<main class="conteneur">
+<section class="jeux-niveau" aria-labelledby="sb-jouer">
+<h2 id="sb-jouer"><span class="pastille-niveau">6 parcours</span>Choisis ton parcours</h2>
+<p>Le score compte les chutes : ★★★ sans tomber, ★★ avec 1 à 3 chutes, ★ avec plus de chutes. On peut choisir une vitesse lente et un mode calme. Chaque parcours existe en deux versions : <b>↗️ en diagonale</b> ou <b>➡️ horizontal</b>.</p>
+<div class="tuiles">
+<div class="tuile" data-niveau="1" style="--c1:#2f8a4b;--c2:#9fe0b1;--fonce:#1f6b37">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="8" y="58" width="26" height="12" fill="#fff"/><rect x="40" y="46" width="22" height="10" fill="#fff" opacity=".9"/><rect x="68" y="34" width="20" height="10" fill="#fff" opacity=".85"/><rect x="74" y="26" width="10" height="8" fill="#e53b3b"/><rect x="94" y="20" width="20" height="10" fill="#ffd34d"/><rect x="100" y="4" width="3" height="16" fill="#fff"/><path d="M103 5h10l-3 4 3 4h-10z" fill="#2fc65b"/><rect x="16" y="38" width="8" height="12" fill="#14a3ad"/><rect x="16" y="30" width="8" height="8" fill="#f2c79e"/><path d="M26 40 q14 -22 30 0" stroke="#fff" stroke-width="2" fill="none" stroke-dasharray="3 3"/></svg></span>
+  <span class="tuile-texte"><span class="niv-badge">🟢 Débutant</span><strong>1. Premiers sauts</strong><small>De grands blocs, de petits sauts.</small></span>
+  <span class="tuile-pied"><b class="ile-score">8 blocs</b><span class="deux-sens"><a href="../sauts/jeu.html?n=1&amp;s=diagonale">↗️ Diagonale</a><a href="../sauts/jeu.html?n=1&amp;s=horizontal">➡️ Horizontal</a></span></span>
+</div>
+<div class="tuile" data-niveau="2" style="--c1:#2f8a4b;--c2:#9fe0b1;--fonce:#1f6b37">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="8" y="58" width="26" height="12" fill="#fff"/><rect x="40" y="46" width="22" height="10" fill="#fff" opacity=".9"/><rect x="68" y="34" width="20" height="10" fill="#fff" opacity=".85"/><rect x="74" y="26" width="10" height="8" fill="#e53b3b"/><rect x="94" y="20" width="20" height="10" fill="#ffd34d"/><rect x="100" y="4" width="3" height="16" fill="#fff"/><path d="M103 5h10l-3 4 3 4h-10z" fill="#2fc65b"/><rect x="16" y="38" width="8" height="12" fill="#14a3ad"/><rect x="16" y="30" width="8" height="8" fill="#f2c79e"/><path d="M26 40 q14 -22 30 0" stroke="#fff" stroke-width="2" fill="none" stroke-dasharray="3 3"/></svg></span>
+  <span class="tuile-texte"><span class="niv-badge">🟢 Débutant</span><strong>2. Les marches</strong><small>On monte comme dans un escalier.</small></span>
+  <span class="tuile-pied"><b class="ile-score">10 blocs</b><span class="deux-sens"><a href="../sauts/jeu.html?n=2&amp;s=diagonale">↗️ Diagonale</a><a href="../sauts/jeu.html?n=2&amp;s=horizontal">➡️ Horizontal</a></span></span>
+</div>
+<div class="tuile" data-niveau="3" style="--c1:#c98a00;--c2:#f6d48a;--fonce:#8a5d00">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="8" y="58" width="26" height="12" fill="#fff"/><rect x="40" y="46" width="22" height="10" fill="#fff" opacity=".9"/><rect x="68" y="34" width="20" height="10" fill="#fff" opacity=".85"/><rect x="74" y="26" width="10" height="8" fill="#e53b3b"/><rect x="94" y="20" width="20" height="10" fill="#ffd34d"/><rect x="100" y="4" width="3" height="16" fill="#fff"/><path d="M103 5h10l-3 4 3 4h-10z" fill="#2fc65b"/><rect x="16" y="38" width="8" height="12" fill="#14a3ad"/><rect x="16" y="30" width="8" height="8" fill="#f2c79e"/><path d="M26 40 q14 -22 30 0" stroke="#fff" stroke-width="2" fill="none" stroke-dasharray="3 3"/></svg></span>
+  <span class="tuile-texte"><span class="niv-badge">🟡 Intermédiaire</span><strong>3. Les blocs rouges</strong><small>Saute par-dessus les blocs rouges.</small></span>
+  <span class="tuile-pied"><b class="ile-score">12 blocs</b><span class="deux-sens"><a href="../sauts/jeu.html?n=3&amp;s=diagonale">↗️ Diagonale</a><a href="../sauts/jeu.html?n=3&amp;s=horizontal">➡️ Horizontal</a></span></span>
+</div>
+<div class="tuile" data-niveau="4" style="--c1:#c98a00;--c2:#f6d48a;--fonce:#8a5d00">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="8" y="58" width="26" height="12" fill="#fff"/><rect x="40" y="46" width="22" height="10" fill="#fff" opacity=".9"/><rect x="68" y="34" width="20" height="10" fill="#fff" opacity=".85"/><rect x="74" y="26" width="10" height="8" fill="#e53b3b"/><rect x="94" y="20" width="20" height="10" fill="#ffd34d"/><rect x="100" y="4" width="3" height="16" fill="#fff"/><path d="M103 5h10l-3 4 3 4h-10z" fill="#2fc65b"/><rect x="16" y="38" width="8" height="12" fill="#14a3ad"/><rect x="16" y="30" width="8" height="8" fill="#f2c79e"/><path d="M26 40 q14 -22 30 0" stroke="#fff" stroke-width="2" fill="none" stroke-dasharray="3 3"/></svg></span>
+  <span class="tuile-texte"><span class="niv-badge">🟡 Intermédiaire</span><strong>4. Ça bouge !</strong><small>Des blocs qui bougent : attends le bon moment.</small></span>
+  <span class="tuile-pied"><b class="ile-score">12 blocs</b><span class="deux-sens"><a href="../sauts/jeu.html?n=4&amp;s=diagonale">↗️ Diagonale</a><a href="../sauts/jeu.html?n=4&amp;s=horizontal">➡️ Horizontal</a></span></span>
+</div>
+<div class="tuile" data-niveau="5" style="--c1:#c0392b;--c2:#f3aaa1;--fonce:#8e2a1f">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="8" y="58" width="26" height="12" fill="#fff"/><rect x="40" y="46" width="22" height="10" fill="#fff" opacity=".9"/><rect x="68" y="34" width="20" height="10" fill="#fff" opacity=".85"/><rect x="74" y="26" width="10" height="8" fill="#e53b3b"/><rect x="94" y="20" width="20" height="10" fill="#ffd34d"/><rect x="100" y="4" width="3" height="16" fill="#fff"/><path d="M103 5h10l-3 4 3 4h-10z" fill="#2fc65b"/><rect x="16" y="38" width="8" height="12" fill="#14a3ad"/><rect x="16" y="30" width="8" height="8" fill="#f2c79e"/><path d="M26 40 q14 -22 30 0" stroke="#fff" stroke-width="2" fill="none" stroke-dasharray="3 3"/></svg></span>
+  <span class="tuile-texte"><span class="niv-badge">🔴 Avancé</span><strong>5. Petits blocs</strong><small>Des blocs étroits et un bloc rouge qui glisse.</small></span>
+  <span class="tuile-pied"><b class="ile-score">14 blocs</b><span class="deux-sens"><a href="../sauts/jeu.html?n=5&amp;s=diagonale">↗️ Diagonale</a><a href="../sauts/jeu.html?n=5&amp;s=horizontal">➡️ Horizontal</a></span></span>
+</div>
+<div class="tuile" data-niveau="6" style="--c1:#c0392b;--c2:#f3aaa1;--fonce:#8e2a1f">
+  <span class="tuile-illu" aria-hidden="true"><svg viewBox="0 0 120 80"><rect x="8" y="58" width="26" height="12" fill="#fff"/><rect x="40" y="46" width="22" height="10" fill="#fff" opacity=".9"/><rect x="68" y="34" width="20" height="10" fill="#fff" opacity=".85"/><rect x="74" y="26" width="10" height="8" fill="#e53b3b"/><rect x="94" y="20" width="20" height="10" fill="#ffd34d"/><rect x="100" y="4" width="3" height="16" fill="#fff"/><path d="M103 5h10l-3 4 3 4h-10z" fill="#2fc65b"/><rect x="16" y="38" width="8" height="12" fill="#14a3ad"/><rect x="16" y="30" width="8" height="8" fill="#f2c79e"/><path d="M26 40 q14 -22 30 0" stroke="#fff" stroke-width="2" fill="none" stroke-dasharray="3 3"/></svg></span>
+  <span class="tuile-texte"><span class="niv-badge">🔴 Avancé</span><strong>6. Jusqu’au ciel</strong><small>Le grand parcours : tout ce que tu as appris.</small></span>
+  <span class="tuile-pied"><b class="ile-score">16 blocs</b><span class="deux-sens"><a href="../sauts/jeu.html?n=6&amp;s=diagonale">↗️ Diagonale</a><a href="../sauts/jeu.html?n=6&amp;s=horizontal">➡️ Horizontal</a></span></span>
+</div>
+</div>
+</section>
+</main><div class="retour"><a href="../index.html">← Retour à l'accueil</a></div><footer class="site-footer"><span>MathJeux</span></footer><script src="../script.js"></script>
+</div>
+</div>
+<script>
+/* Signed-in student: show their best score on each level */
+window.addEventListener('load', function () {
+  if (!window.EC || !EC.mesResultats) return;
+  EC.mesResultats().then(function (res) {
+    if (!res) return;
+    document.querySelectorAll('.tuile[data-niveau]').forEach(function (t) {
+      var n = +t.dataset.niveau, best = -1;
+      res.forEach(function (r) { if (r.activity === 'jeu-saute-blocs' && r.level === n) best = Math.max(best, r.score); });
+      if (best >= 0) t.querySelector('.ile-score').textContent = '✓ ' + '★'.repeat(best) + '☆'.repeat(3 - best);
+    });
+  });
+});
+</script>
+</body></html>

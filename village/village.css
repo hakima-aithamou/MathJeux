@@ -1,0 +1,6 @@
+/* The village of friends: small adjustments to the "reaction" card. */
+.defi.reflexion{border-color:#9ee09f;box-shadow:0 0 0 4px #9ee09f44,0 14px 34px rgba(0,0,0,.45)}
+.defi.reflexion .defi-tete small{color:#9ee09f}
+.defi.reflexion .defi-ampoule{animation:none;font-size:40px}
+.defi-retour.bon,.defi-retour.oups{font-weight:600;line-height:1.45}
+.refl-suite{margin-top:8px;width:100%;min-height:48px;border-radius:12px;border:2px solid #9ee09f;background:#9ee09f22;color:inherit;font:800 17px var(--texte);cursor:pointer}

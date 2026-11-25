@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>La Tempête des Blocs · MathJeux</title>
+<link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<link rel="stylesheet" href="../ile/jeu.css">
+<link rel="stylesheet" href="../ile-maths/maths.css">
+<link rel="stylesheet" href="../ile/interface.css">
+<link rel="stylesheet" href="../ile-maths/calme.css">
+<link rel="stylesheet" href="tempete.css">
+<link rel="stylesheet" href="../personnages/personnages.css">
+<script src="../compte.js" defer></script>
+</head>
+<body>
+<canvas id="scene" tabindex="0" aria-label="L'île de la tempête. Flèches pour bouger, Espace pour sauter, E pour récolter ou ouvrir, 1 2 3 pour choisir une pièce, B pour construire."></canvas>
+
+<div class="hud">
+  <div class="carte nom">La Tempête des Blocs<small id="phase">Prépare-toi</small></div>
+  <div class="compteurs">
+    <div class="carte compteur" title="Coffres ouverts"><span class="ico" aria-hidden="true">🎁</span><span id="coffres">0 / 5</span></div>
+    <div class="carte compteur" title="Matériaux pour construire"><span class="ico" aria-hidden="true">🪵</span><span id="materiaux">0</span></div>
+    <div class="carte compteur tempete" title="Tes cœurs"><span class="ico" aria-hidden="true">❤️</span><span id="coeurs">5</span></div>
+  </div>
+  <div class="boutons-haut">
+    <a class="btn retour" href="../jeux/tempete-des-blocs.html" aria-label="Retour à la page de la Tempête des Blocs">⬅ Retour</a>
+    <button class="btn" id="btnAide" type="button">Aide</button>
+    <button class="btn" id="btnPause" type="button" aria-pressed="false">⏸ Pause</button>
+  </div>
+</div>
+<div class="carte message" id="message" hidden></div>
+<div class="tp-vent" id="vent" hidden aria-live="polite"></div>
+
+<div class="tp-barre" aria-label="Construire">
+  <div class="tp-pieces" role="group" aria-label="Choisis une pièce">
+    <button type="button" class="tp-piece" data-piece="mur"><span class="tp-ico" aria-hidden="true">🧱</span>Mur<small>1 · coûte 2</small></button>
+    <button type="button" class="tp-piece" data-piece="plancher"><span class="tp-ico" aria-hidden="true">🟫</span>Plancher<small>2 · coûte 1</small></button>
+    <button type="button" class="tp-piece" data-piece="rampe"><span class="tp-ico" aria-hidden="true">📐</span>Rampe<small>3 · coûte 2</small></button>
+  </div>
+  <div class="tp-actions">
+    <button type="button" class="tp-act vert" id="btnAgir">✋ Récolter<small>E</small></button>
+    <button type="button" class="tp-act" id="btnConstruire">🔨 Construire<small>B</small></button>
+    <button type="button" class="tp-act sombre" id="btnEnlever">↩ Enlever<small>X</small></button>
+    <button type="button" class="tp-act bleu" id="btnSauter">🦘 Sauter<small>Espace</small></button>
+  </div>
+</div>
+
+<div class="pad" aria-label="Flèches à l'écran">
+  <button type="button" class="h" data-k="haut" aria-label="Avancer">▲</button>
+  <button type="button" class="g" data-k="gauche" aria-label="Aller à gauche">◀</button>
+  <button type="button" class="b" data-k="bas" aria-label="Reculer">▼</button>
+  <button type="button" class="d" data-k="droite" aria-label="Aller à droite">▶</button>
+</div>
+
+<div class="voile voile-menu" id="accueil">
+  <div class="menu cadre" role="dialog" aria-modal="true" aria-labelledby="titreAccueil">
+    <div class="plaque">Tempête des Blocs</div>
+    <div class="menu-banniere"><svg viewBox="0 0 640 190" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs><linearGradient id="cielT" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6b4fb8"/><stop offset="1" stop-color="#c9b6f2"/></linearGradient></defs>
+      <rect width="640" height="190" fill="url(#cielT)"/>
+      <path d="M0 150 C120 120 220 160 320 140 C430 118 520 150 640 132 V190 H0Z" fill="#4f9ed8"/>
+      <path d="M150 160 L250 128 L410 128 L500 160Z" fill="#6fbf5c"/>
+      <rect x="290" y="98" width="30" height="30" fill="#9aa5b1"/><rect x="290" y="68" width="30" height="30" fill="#8a95a1"/>
+      <rect x="295" y="56" width="20" height="12" rx="2" fill="#c8862f"/><rect x="295" y="60" width="20" height="3" fill="#ffd34d"/>
+      <path d="M250 128 L290 98 L290 128Z" fill="#c9a27e"/>
+      <rect x="350" y="104" width="24" height="24" fill="#b07a45"/>
+      <g fill="none" stroke="#fff" stroke-width="4" opacity=".7"><path d="M40 40 q40 -20 80 0 t80 0"/><path d="M460 60 q40 -20 80 0 t80 0"/></g>
+      <g transform="translate(232 108)"><rect x="0" y="12" width="7" height="10" fill="#2f4f8f"/><rect x="8" y="12" width="7" height="10" fill="#2f4f8f"/><rect x="-1" y="0" width="17" height="13" fill="#14a3ad"/><rect x="2" y="-11" width="11" height="11" fill="#f2c79e"/></g>
+    </svg>
+      <div class="titre-banniere"><span class="badge-niveau">🌀 Intermédiaire</span><h1 id="titreAccueil">La Tempête des Blocs</h1></div>
+    </div>
+    <div class="menu-corps">
+      <p>Ouvre les <b>5 coffres</b> 🎁 de l’île avant que la tempête 🌀 ne recouvre tout. Récolte des matériaux 🪵 sur les arbres et les rochers, puis construis des <b>rampes</b> pour monter, des <b>planchers</b> pour traverser l’eau et des <b>murs</b> pour te protéger du vent.</p>
+      <ul class="tuiles-touches">
+        <li class="t1"><span class="picto" aria-hidden="true">🚶</span><span class="txt"><b>marcher</b><span><kbd>▲ ▼ ◀ ▶</kbd> ou <kbd>W A S D</kbd></span></span></li>
+        <li class="t2"><span class="picto" aria-hidden="true">🦘</span><span class="txt"><b>sauter</b><span><kbd>Espace</kbd></span></span></li>
+        <li class="t3"><span class="picto" aria-hidden="true">✋</span><span class="txt"><b>récolter, ouvrir un coffre</b><span><kbd>E</kbd></span></span></li>
+        <li class="t4"><span class="picto" aria-hidden="true">🔨</span><span class="txt"><b>choisir une pièce, construire</b><span><kbd>1 2 3</kbd> puis <kbd>B</kbd> · <kbd>X</kbd> enlever</span></span></li>
+        <li class="t3"><span class="picto" aria-hidden="true">🎥</span><span class="txt"><b>tourner la caméra</b><span><kbd>Glisser</kbd> la souris</span></span></li>
+        <li class="t4"><span class="picto" aria-hidden="true">⏸</span><span class="txt"><b>pause</b><span><kbd>P</kbd> ou <kbd>Échap</kbd></span></span></li>
+      </ul>
+      <div class="options">
+        <label class="puce" for="optTempete">Tempête
+          <select id="optTempete"><option value="lente" selected>🐢 Lente</option><option value="normale">🌀 Normale</option></select></label>
+      </div>
+      <div class="actions"><button class="btn-jouer" id="btnJouer" type="button">Jouer</button></div>
+    </div>
+    <a class="fermer" href="../jeux/tempete-des-blocs.html" aria-label="Fermer et revenir à la page du jeu">✕</a>
+  </div>
+</div>
+
+<div class="voile voile-menu" id="pausePanneau" hidden>
+  <div class="menu cadre petit" role="dialog" aria-modal="true" aria-labelledby="titrePause">
+    <div class="plaque" id="titrePause">Pause</div>
+    <div class="menu-corps boutons-colonne">
+      <button class="bouton-jeu vert" id="pReprendre" type="button">▶ Reprendre</button>
+      <button class="bouton-jeu" id="pRecommencer" type="button">↺ Recommencer</button>
+      <button class="bouton-jeu bleu" id="pAide" type="button">❔ Commandes</button>
+      <a class="bouton-jeu sombre" href="../jeux/tempete-des-blocs.html">⬅ Quitter</a>
+    </div>
+    <button class="fermer" id="pFermer" type="button" aria-label="Reprendre">✕</button>
+  </div>
+</div>
+
+<div class="voile voile-menu" id="fin" hidden>
+  <div class="menu menu-fin cadre" role="dialog" aria-modal="true" aria-labelledby="titreFin">
+    <div class="plaque" id="plaqueFin">Bravo !</div>
+    <div class="menu-corps">
+      <h2 id="titreFin" tabindex="-1"></h2>
+      <div class="score" id="finScore" aria-label="Score"></div>
+      <p id="texteFin"></p>
+      <div class="resultat"><span>🎁 <span id="finCoffres"></span></span><span>🔨 Pièces construites : <span id="finPieces"></span></span><span>⏱ <span id="finTemps"></span></span></div>
+      <p class="bilan-sauvegarde" id="finSauvegarde" aria-live="polite"></p>
+      <div class="actions"><button class="bouton-jeu vert" id="btnRejouer" type="button">↺ Rejouer</button><a class="bouton-jeu sombre" href="../jeux/tempete-des-blocs.html">⬅ Retour</a></div>
+    </div>
+    <a class="fermer" href="../jeux/tempete-des-blocs.html" aria-label="Fermer et revenir à la page du jeu">✕</a>
+  </div>
+</div>
+
+<script src="../ile/three.min.js"></script>
+<script src="../personnages/personnages.js"></script>
+<script src="jeu.js"></script>
+</body>
+</html>

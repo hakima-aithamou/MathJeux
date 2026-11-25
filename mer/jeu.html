@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>La mer des requins et des crocos · MathJeux</title>
+<link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="mer.css">
+<script src="../compte.js" defer></script>
+</head>
+<body>
+<canvas id="scene" tabindex="0" aria-label="La mer des requins et des crocos : ton bateau avance tout seul. Flèches gauche et droite pour tourner. Passe entre les bouées qui portent la bonne réponse."></canvas>
+
+<!-- Game display -->
+<div id="hud" class="hud" hidden>
+  <div class="hud-haut">
+    <div class="pastille" title="Bonnes réponses">⭐ <span id="hudEtoiles">0</span> / <span id="hudTotal">8</span></div>
+    <div class="pastille" title="Ma banque d’étoiles : chaque choc coûte 1 étoile">🏦 <span id="hudBanque">10</span> ⭐</div>
+    <div class="progression" aria-hidden="true"><span id="hudBarre"></span><b>🏝️</b></div>
+    <button type="button" class="bouton petit" id="btnPause">⏸ Pause</button>
+    <a class="bouton petit" href="../jeux/mer-des-requins.html">⬅ Niveaux</a>
+  </div>
+  <div class="question" id="question" aria-live="polite"><span id="questionTexte"></span><button type="button" id="btnEcouter" aria-label="Écouter la question" title="Écouter la question">🔊</button></div>
+  <p class="message" id="message" role="status" aria-live="polite" hidden></p>
+  <div class="pad" aria-label="Flèches à l'écran">
+    <button type="button" data-dir="gauche" aria-label="Aller à gauche">◀</button>
+    <button type="button" data-dir="droite" aria-label="Aller à droite">▶</button>
+  </div>
+</div>
+
+<!-- Start: boat, questions and sea -->
+<div id="accueil" class="voile">
+  <div class="cadre">
+    <div class="banniere"><img src="img/banniere.jpg" alt=""><h1>🦈🐊 La mer des requins et des crocos</h1></div>
+    <p class="intro">Le pirate navigue vers l’île au trésor. Évite les requins, les crocodiles, les icebergs, les glaciers, les îles et les montagnes. Passe entre les deux bouées qui portent la <b>bonne réponse</b> !</p>
+    <p class="banque-menu">🏦 Ma banque : <b><span id="banque">10</span> ⭐</b> <small>Le bateau et les adversaires choisis coûtent des étoiles. Chaque choc coûte 1 ⭐. À l’île au trésor, tu gagnes des étoiles !</small></p>
+    <h2><span class="num">1</span> Choisis ton bateau</h2>
+    <div class="bateaux" id="choixBateau" role="radiogroup" aria-label="Choisis ton bateau"></div>
+    <h2><span class="num">2</span> Choisis tes adversaires</h2>
+    <p class="sous-titre">Le requin</p>
+    <div class="bateaux persos" id="choixRequin" role="radiogroup" aria-label="Choisis le requin"></div>
+    <p class="sous-titre">Le crocodile-requin</p>
+    <div class="bateaux persos" id="choixCroco" role="radiogroup" aria-label="Choisis le crocodile-requin"></div>
+    <section id="blocNiveaux">
+      <h2><span class="num">3</span> Choisis les questions</h2>
+      <div class="niveaux" id="choixNiveau"></div>
+    </section>
+    <h2><span class="num" id="numMer">4</span> Choisis la mer</h2>
+    <div class="mers" id="choixMer" role="radiogroup" aria-label="Choisis la mer"></div>
+    <p class="choisi" id="resume"></p>
+    <p class="cout">Coût du départ : <b><span id="coutDepart">0</span> ⭐</b></p>
+    <p class="avert-banque" id="avertBanque" role="status" aria-live="polite"></p>
+    <button type="button" class="bouton vert grand" id="btnJouer">⛵ Larguer les amarres !</button>
+    <p class="touches">⬅ ➡ ou <kbd>A</kbd> <kbd>D</kbd> pour tourner · <kbd>P</kbd> pause · avec la souris ou le doigt : glisse à gauche ou à droite</p>
+  </div>
+</div>
+
+<!-- Pause -->
+<div id="pause" class="voile" hidden>
+  <div class="cadre petit"><h2>⏸ Pause</h2><button type="button" class="bouton vert" id="btnReprendre">▶ Reprendre</button> <button type="button" class="bouton" id="btnMenu">⚓ Changer de bateau</button></div>
+</div>
+
+<!-- End -->
+<div id="fin" class="voile" hidden>
+  <div class="cadre petit">
+    <h2 id="finTitre" tabindex="-1">🏝️ L’île au trésor !</h2>
+    <div class="etoiles-fin" id="finEtoiles"></div>
+    <p id="finTexte"></p>
+    <p id="finSauvegarde" class="petit-texte"></p>
+    <button type="button" class="bouton vert" id="btnSuivant">Niveau suivant ▶</button>
+    <button type="button" class="bouton" id="btnRejouer">↺ Rejouer</button>
+    <button type="button" class="bouton" id="btnMenuFin">⚓ Menu</button>
+  </div>
+</div>
+
+<script src="../ile/three.min.js"></script>
+<script src="personnages.js"></script>
+<script src="jeu.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+/* Saute-blocs: sky blue theme, level buttons, rules and the touch jump button. */
+:root{--ciel:#7cc4f2;--ciel1:#9fd8ff;--ciel2:#ffd6e8;--police:var(--titre)}
+body{background:linear-gradient(#7cc4f2,#d9f0ff)}
+.titre-sauts{font-family:var(--titre);font-size:34px;margin:0;color:#ffe07a}
+.sous-titre-sauts{margin:0 0 10px;color:#cfe8f5;font-weight:700}
+.regles{list-style:none;padding:0;margin:0 0 14px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 14px;font-size:17px;font-weight:700}
+.regles span{display:inline-block;width:1.6em}
+.choix-sauts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0 0 14px}
+.choix-sauts button{font:inherit;font-weight:800;text-align:left;padding:10px 12px;border-radius:14px;border:3px solid var(--bord);background:#fff;color:var(--encre);cursor:pointer;line-height:1.2}
+.choix-sauts button small{display:block;font-weight:400;color:var(--doux);font-size:13px}
+.choix-sauts button .etoiles-niv{display:block;color:#c98a00;font-size:14px;letter-spacing:1px}
+.choix-sauts button[aria-pressed="true"]{border-color:#2f8a4b;background:#eaf8ee;outline:3px solid #9fe0b1}
+.choix-sauts button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.saut-tactile{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));width:96px;height:96px;border-radius:50%;
+  font-size:30px;font-weight:800;color:#fff;background:#2f8a4b;border:4px solid #fff;box-shadow:0 6px 18px #16324f40;touch-action:none;line-height:1}
+.saut-tactile small{display:block;font-size:13px}
+@media (hover:hover) and (pointer:fine){.saut-tactile{display:none}}
+@media (max-width:620px){.regles{grid-template-columns:1fr}.choix-sauts{grid-template-columns:repeat(2,minmax(0,1fr))}.titre-sauts{font-size:28px}}

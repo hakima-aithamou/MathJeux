@@ -1,0 +1,103 @@
+/* "Calm" palette on a dark background for the Calculation island: soft slate blue (no bright teal), near-white text
+   with good contrast, muted group colours, flat buttons without shine. Loaded last: it replaces the game panel colours. */
+:root{
+  --c-fond:#1e2b38; --c-fond2:#253545; --c-carte:#2b3d4f; --c-ligne:#3f5568; --c-ligne-pale:#34495c;
+  --c-texte:#eef3f6; --c-doux:#bccbd6; --c-or:#e8c774;
+  --c-sauge:#7fb59e; --c-sauge-f:#3f7a64; --c-sauge-p:#284a40;
+  --c-bleu:#8fb3d6; --c-bleu-f:#3e6a90; --c-bleu-p:#27405a;
+  --c-lav:#b3a5d8; --c-lav-f:#655596; --c-lav-p:#373159;
+  --ciel:#1f2d3d; --encre:var(--c-texte); --doux:var(--c-doux); --panneau:#1e2b38f0; --bord:var(--c-ligne);
+  --j-trait:#3f5568; --j-texte:var(--c-texte); --j-texte-doux:var(--c-doux);
+}
+body{background:var(--ciel)}
+.voile,.voile-menu{background:rgba(10,16,24,.5)}
+/* The panel */
+.cadre,.cadre.menu{background:var(--c-fond);color:var(--c-texte);box-shadow:0 0 0 3px var(--c-ligne),0 18px 40px rgba(0,0,0,.45)}
+.cadre::before{display:none}
+.plaque{background:var(--c-sauge-f);border:2px solid var(--c-sauge);box-shadow:0 3px 8px rgba(0,0,0,.35);text-shadow:none;color:#fff;letter-spacing:1px}
+.plaque::before,.plaque::after{display:none}
+.fermer{background:var(--c-carte);border:2px solid var(--c-ligne);color:var(--c-texte);box-shadow:0 3px 8px rgba(0,0,0,.35)}
+.cadre .menu-banniere{border:2px solid var(--c-ligne);box-shadow:none}
+.cadre .menu-banniere h1{color:#fff;text-shadow:0 2px 6px rgba(0,0,0,.55)}
+.cadre .menu-corps>p,.cadre #texteAccueil{color:var(--c-doux)}
+.cadre .badge-niveau{background:var(--c-fond);color:var(--c-texte);border:2px solid var(--c-ligne)}
+/* Flat buttons */
+.bouton-jeu,.btn-jouer,.cadre .btn,.choix-niveau a{background:var(--c-carte);color:var(--c-texte);border:2px solid var(--c-ligne);box-shadow:0 2px 0 #142029;text-transform:none;letter-spacing:0;text-shadow:none}
+.bouton-jeu:active,.btn-jouer:active,.cadre .btn:active,.choix-niveau a:active{box-shadow:0 1px 0 #142029}
+.btn-jouer,.bouton-jeu.vert{background:var(--c-sauge-f);border-color:var(--c-sauge);color:#fff;box-shadow:0 3px 0 #23463a}
+.bouton-jeu.bleu{background:var(--c-bleu-f);border-color:var(--c-bleu);color:#fff;box-shadow:0 3px 0 #233d55}
+.bouton-jeu.sombre{background:var(--c-carte);color:var(--c-texte)}
+/* Level menu */
+.niveaux-maths .groupe{box-shadow:0 2px 0 #142029;border-width:2px}
+.niveaux-maths .junior .groupe,.niveau-choisi.junior{background:var(--c-sauge-p);border-color:var(--c-sauge);color:var(--c-texte)}
+.niveaux-maths .expert .groupe,.niveau-choisi.expert{background:var(--c-bleu-p);border-color:var(--c-bleu);color:var(--c-texte)}
+.niveaux-maths .defis .groupe,.niveau-choisi.defis{background:var(--c-lav-p);border-color:var(--c-lav);color:var(--c-texte)}
+.niveaux-maths .junior .signe,.niveau-choisi.junior .signe{background:var(--c-sauge);color:#13261f}
+.niveaux-maths .expert .signe,.niveau-choisi.expert .signe{background:var(--c-bleu);color:#13233a}
+.niveaux-maths .defis .signe,.niveau-choisi.defis .signe{background:var(--c-lav);color:#221b3d}
+.niveaux-maths .actuel .groupe{outline:3px solid var(--c-or);outline-offset:2px}
+.niveaux-maths .sous-menu{background:var(--c-fond2);border:2px solid var(--c-ligne);box-shadow:0 10px 24px rgba(0,0,0,.45)}
+.choix-niveau.niveaux-maths .sous-menu a{background:var(--c-carte);border:2px solid var(--c-ligne-pale);box-shadow:none;color:var(--c-texte)}
+.choix-niveau.niveaux-maths .sous-menu a:hover{background:#34485c;border-color:var(--c-ligne)}
+.choix-niveau.niveaux-maths .sous-menu a small{color:var(--c-doux);opacity:1}
+.niveaux-maths .sous-menu a[aria-current]{outline:3px solid var(--c-or)}
+.niveau-choisi{box-shadow:none;border-width:2px}
+.niveau-choisi small{color:var(--c-doux);opacity:1}
+.nc-changer{background:var(--c-fond);border-color:var(--c-ligne);color:var(--c-texte)}
+.nc-changer:hover{background:var(--c-carte)}
+/* Controls and options */
+.cadre .tuiles-touches li{background:var(--c-fond2);border:2px solid var(--c-ligne-pale);box-shadow:none}
+.cadre .tuiles-touches .picto{background:var(--c-carte);border:2px solid var(--c-ligne);box-shadow:none}
+.cadre .tuiles-touches .txt{color:var(--c-texte)}
+.cadre .options .puce{background:var(--c-fond2);border:2px solid var(--c-ligne-pale);color:var(--c-texte)}
+.cadre .options select{background:#eef3f6;color:#1e2b38;border:2px solid var(--c-ligne)}
+.cadre .options input[type=checkbox]{accent-color:var(--c-sauge)}
+/* End of game */
+.cadre.menu-fin .menu-corps h2{color:var(--c-texte);text-shadow:none}
+.cadre.menu-fin .score{color:var(--c-or);text-shadow:none}
+.cadre.menu-fin .resultat>span{background:var(--c-fond2);border:2px solid var(--c-ligne-pale);color:var(--c-texte)}
+.cadre .bilan-sauvegarde{color:var(--c-doux)}
+/* Game dashboard */
+.hud .carte,.message.carte{background:var(--panneau);border:2px solid var(--c-ligne);color:var(--c-texte);box-shadow:0 2px 8px rgba(0,0,0,.35)}
+.hud .nom small{color:var(--c-doux)}
+.hud .compteur{background:linear-gradient(90deg,var(--c-sauge-f) var(--p,0%),var(--c-fond) var(--p,0%));color:var(--c-texte);text-shadow:none}
+.hud .compteur .ico{background:var(--c-carte);border:2px solid var(--c-ligne);box-shadow:none}
+.hud .boutons-haut .btn{background:var(--c-carte);color:var(--c-texte);border:2px solid var(--c-ligne);box-shadow:0 2px 0 #142029;text-transform:none;letter-spacing:0}
+.pad button{background:#2b3d4ff0;color:var(--c-texte);border:2px solid var(--c-ligne);box-shadow:0 2px 0 #142029}
+kbd{background:#eef3f6;color:#1e2b38}
+/* Inventory (during the game): above the arrows */
+.inventaire{position:fixed;left:max(16px,env(safe-area-inset-left,0px));bottom:calc(140px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:8px;z-index:4}
+.inventaire button{display:flex;align-items:center;gap:6px;min-width:76px;min-height:52px;padding:6px 10px;border-radius:14px;background:var(--c-carte);border:2px solid var(--c-or);color:var(--c-texte);font:700 16px var(--texte);cursor:pointer;box-shadow:0 2px 0 #142029}
+.inventaire button span{font-size:26px;line-height:1}
+.inventaire button.actif{background:var(--c-sauge-f)}
+/* Shop */
+.cadre.boutique{max-width:560px}
+.boutique .menu-corps{padding-top:40px}
+.boutique .solde{margin:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;font-size:18px;color:var(--c-texte)}
+.boutique .solde b{font-size:24px;color:var(--c-or)}
+.boutique .solde small{flex-basis:100%;color:var(--c-doux);font-size:14px}
+.boutique-liste{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.boutique-liste li{display:grid;grid-template-columns:44px 1fr auto auto;align-items:center;gap:10px;padding:8px 10px;border-radius:14px;background:var(--c-fond2);border:2px solid var(--c-ligne-pale)}
+.boutique-liste .b-ico{font-size:30px;text-align:center}
+.boutique-liste .b-texte{display:grid}
+.boutique-liste .b-texte b{font-size:17px}
+.boutique-liste .b-texte small{color:var(--c-doux);font-size:13px}
+.boutique-liste .b-prix{font-weight:800;color:var(--c-or);white-space:nowrap}
+.boutique-liste .bouton-jeu{min-height:42px;padding:6px 14px;font-size:15px}
+.boutique-liste .bouton-jeu:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.6)}
+.boutique-msg{margin:0;min-height:1.3em;text-align:center;font-weight:700;color:var(--c-sauge)}
+.boutique-aide{margin:0;font-size:14px;color:var(--c-doux)}
+@media (max-width:620px){.boutique-liste li{grid-template-columns:36px 1fr auto}.boutique-liste .bouton-jeu{grid-column:2/4}.inventaire{bottom:calc(124px + env(safe-area-inset-bottom,0px))}}
+@media (max-width:620px){.hud .nom{display:none}}
+@media (max-width:620px){.txt-btn{display:none}.hud .boutons-haut .btn{padding:6px 10px;font-size:14px;white-space:nowrap}}
+@media (max-width:620px){.message{top:auto!important;bottom:calc(196px + env(safe-area-inset-bottom,0px))}}
+/* Thinner dashboard, stuck to the top: it no longer hides the question */
+.hud{top:calc(4px + env(safe-area-inset-top,0px));gap:6px}
+.hud .carte.nom{padding:3px 10px;font-size:15px;line-height:1.1}
+.hud .nom small{font-size:11px}
+.hud .compteur{min-height:28px;padding:2px 10px 2px 36px;font-size:15px}
+.hud .compteur .ico{width:32px;height:32px;font-size:16px}
+.hud .boutons-haut{gap:6px}
+.hud .boutons-haut .btn{min-height:32px;padding:3px 10px;font-size:14px;border-radius:10px}
+.message{top:auto!important;bottom:calc(96px + env(safe-area-inset-bottom,0px));max-width:min(640px,calc(100% - 32px))}
+@media (max-width:620px){.message{bottom:calc(196px + env(safe-area-inset-bottom,0px))!important}}

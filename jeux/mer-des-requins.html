@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>La mer des requins et des crocos - MathJeux</title><link rel="stylesheet" href="../theme.css">
+<link rel="stylesheet" href="../style.css"><link rel="icon" href="../images/favicon.svg" type="image/svg+xml"><script src="../compte.js" defer></script><link rel="stylesheet" href="../apparence.css">
+<script src="../menu-lateral.js" defer></script>
+<style>.mer-illu{position:relative;padding:0!important;overflow:hidden;background:linear-gradient(180deg,#bfe9ff 0%,#7fd0f0 55%,#2f9bd0 100%)!important}.mer-illu>img{width:100%;height:100%;object-fit:contain;display:block;mix-blend-mode:multiply}.mer-illu>svg{display:none}.mer-signe{position:absolute;left:10px;top:10px;background:#fff;color:#12324a;font:800 16px/1 system-ui;padding:6px 10px;border-radius:999px;box-shadow:0 2px 6px #0003}</style></head><body class="cat-jeux">
+<header class="barre-haut">
+<a class="brand" href="../index.html">Math<span>Jeux</span></a>
+<button class="menu-bouton" type="button" aria-expanded="false" aria-controls="menu-general">☰ Menu</button>
+<nav class="menu-general" id="menu-general" aria-label="Menu général">
+<a href="../index.html">Accueil</a><a href="../a-propos.html">À propos</a><a href="../contact.html">Nous contacter</a><a href="../aide.html">Aide</a><a data-compte="eleve" href="../connexion.html?role=eleve">🎒 Connexion élève</a><a data-compte="prof" href="../connexion.html?role=teacher">🍎 Connexion enseignante</a></nav>
+</header>
+<script>document.currentScript.previousElementSibling.querySelector(".menu-bouton").onclick=function(){var o=this.getAttribute("aria-expanded")!=="true";this.setAttribute("aria-expanded",o);this.parentNode.classList.toggle("ouvert",o)}</script>
+<div class="mise-en-page">
+<aside class="barre-laterale">
+<p class="menu-titre">Activités</p>
+<nav class="menu-activites" aria-label="Catégories d’activités">
+<a href="../mathematiques/index.html" style="--c:var(--mathematiques)"><span class="menu-icone" aria-hidden="true">📐</span>Mathématiques</a>
+<a href="../defis/index.html" style="--c:var(--defis)"><span class="menu-icone" aria-hidden="true">🧩</span>Défis</a>
+<a href="index.html" style="--c:var(--jeux)"><span class="menu-icone" aria-hidden="true">🎮</span>Jeux</a>
+</nav>
+</aside>
+<div class="page">
+
+<section class="entete-page"><span>NAVIGUER • CALCULER • ÉVITER LES REQUINS ET LES CROCOS</span><h1>🦈🐊 La mer des requins et des crocos</h1>
+<p>Le pirate choisit son bateau et navigue vers l’île au trésor. Il évite les requins, les crocodiles-requins, les icebergs, les glaciers, les îles et les montagnes, et passe entre les bouées qui portent la bonne réponse. Au départ, ta banque contient 10 ⭐ : le bateau et les adversaires coûtent des étoiles, et chaque choc en coûte une.</p></section>
+
+<style>
+.mer-intro{max-width:1100px;margin:0 auto 10px;padding:0 16px}
+.mer-banniere{width:100%;border-radius:22px;display:block;box-shadow:0 8px 24px #0002;aspect-ratio:1200/460;object-fit:cover}
+.mer-bloc{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+.mer-parcours{grid-template-columns:repeat(3,1fr)}
+.mer-bloc h2{grid-column:1/-1;margin:6px 0 0;font-size:24px}
+.mer-bloc figure{margin:0;background:#fff;border-radius:18px;padding:8px;text-align:center;box-shadow:0 4px 12px #0001}
+.mer-bloc img{width:100%;object-fit:contain;display:block;border-radius:12px}
+.mer-ennemis img{aspect-ratio:1;animation:mer-flotte 2.6s ease-in-out infinite}
+.mer-bateaux img{aspect-ratio:3/2;animation:mer-vague 3.2s ease-in-out infinite}
+.mer-parcours img{aspect-ratio:16/9;object-fit:cover}
+.mer-bloc figure:nth-child(odd) img{animation-delay:-1.3s}
+.mer-bloc figcaption{font-size:17px;line-height:1.35;margin-top:6px}
+.mer-note{grid-column:1/-1;margin:0;font-size:17px}
+@keyframes mer-flotte{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes mer-vague{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-5px) rotate(1.5deg)}}
+@media (max-width:700px){.mer-bloc,.mer-parcours{grid-template-columns:repeat(2,1fr)}}
+@media (prefers-reduced-motion:reduce){.mer-bloc img{animation:none}}
+</style>
+<main class="conteneur">
+<section class="jeux-niveau" aria-labelledby="im-junior">
+<h2 id="im-junior"><span class="pastille-niveau">Junior</span>Additions et soustractions</h2>
+<div class="tuiles">
+<a class="tuile" href="../mer/jeu.html?n=1" data-niveau="1" style="--c1:#1f6f9f;--c2:#7fc8e8;--fonce:#134a6a">
+  <span class="tuile-illu mer-illu" aria-hidden="true"><img src="../mer/img/bateau1.jpg" alt="" loading="lazy"><span class="mer-signe">+ −</span></span>
+  <span class="tuile-texte"><strong>Junior 1 · jusqu’à 10</strong><small>+ et − jusqu’à 10.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../mer/jeu.html?n=2" data-niveau="2" style="--c1:#1f6f9f;--c2:#7fc8e8;--fonce:#134a6a">
+  <span class="tuile-illu mer-illu" aria-hidden="true"><img src="../mer/img/bateau2.jpg" alt="" loading="lazy"><span class="mer-signe">+ −</span></span>
+  <span class="tuile-texte"><strong>Junior 2 · jusqu’à 20</strong><small>+ et − jusqu’à 20.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../mer/jeu.html?n=3" data-niveau="3" style="--c1:#1f6f9f;--c2:#7fc8e8;--fonce:#134a6a">
+  <span class="tuile-illu mer-illu" aria-hidden="true"><img src="../mer/img/bateau3.jpg" alt="" loading="lazy"><span class="mer-signe">+ −</span></span>
+  <span class="tuile-texte"><strong>Junior 3 · jusqu’à 30</strong><small>+ et − jusqu’à 30.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../mer/jeu.html?n=4" data-niveau="4" style="--c1:#1f6f9f;--c2:#7fc8e8;--fonce:#134a6a">
+  <span class="tuile-illu mer-illu" aria-hidden="true"><img src="../mer/img/bateau4.jpg" alt="" loading="lazy"><span class="mer-signe">+ −</span></span>
+  <span class="tuile-texte"><strong>Junior 4 · jusqu’à 40</strong><small>+ et − jusqu’à 40.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../mer/jeu.html?n=5" data-niveau="5" style="--c1:#1f6f9f;--c2:#7fc8e8;--fonce:#134a6a">
+  <span class="tuile-illu mer-illu" aria-hidden="true"><img src="../mer/img/requin1.jpg" alt="" loading="lazy"><span class="mer-signe">+ −</span></span>
+  <span class="tuile-texte"><strong>Junior 5 · jusqu’à 50</strong><small>+ et − jusqu’à 50.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../mer/jeu.html?n=6" data-niveau="6" style="--c1:#1f6f9f;--c2:#7fc8e8;--fonce:#134a6a">
+  <span class="tuile-illu mer-illu" aria-hidden="true"><img src="../mer/img/requin2.jpg" alt="" loading="lazy"><span class="mer-signe">+ −</span></span>
+  <span class="tuile-texte"><strong>Junior 6 · jusqu’à 60</strong><small>+ et − jusqu’à 60.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../mer/jeu.html?n=7" data-niveau="7" style="--c1:#1f6f9f;--c2:#7fc8e8;--fonce:#134a6a">
+  <span class="tuile-illu mer-illu" aria-hidden="true"><img src="../mer/img/requin3.jpg" alt="" loading="lazy"><span class="mer-signe">+ −</span></span>
+  <span class="tuile-texte"><strong>Junior 7 · jusqu’à 70</strong><small>+ et − jusqu’à 70.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../mer/jeu.html?n=8" data-niveau="8" style="--c1:#1f6f9f;--c2:#7fc8e8;--fonce:#134a6a">
+  <span class="tuile-illu mer-illu" aria-hidden="true"><img src="../mer/img/requin4.jpg" alt="" loading="lazy"><span class="mer-signe">+ −</span></span>
+  <span class="tuile-texte"><strong>Junior 8 · jusqu’à 80</strong><small>+ et − jusqu’à 80.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../mer/jeu.html?n=9" data-niveau="9" style="--c1:#1f6f9f;--c2:#7fc8e8;--fonce:#134a6a">
+  <span class="tuile-illu mer-illu" aria-hidden="true"><img src="../mer/img/croco1.jpg" alt="" loading="lazy"><span class="mer-signe">+ −</span></span>
+  <span class="tuile-texte"><strong>Junior 9 · jusqu’à 90</strong><small>+ et − jusqu’à 90.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../mer/jeu.html?n=10" data-niveau="10" style="--c1:#1f6f9f;--c2:#7fc8e8;--fonce:#134a6a">
+  <span class="tuile-illu mer-illu" aria-hidden="true"><img src="../mer/img/croco2.jpg" alt="" loading="lazy"><span class="mer-signe">+ −</span></span>
+  <span class="tuile-texte"><strong>Junior 10 · jusqu’à 100</strong><small>+ et − jusqu’à 100.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+<section class="jeux-niveau" aria-labelledby="im-expert">
+<h2 id="im-expert"><span class="pastille-niveau">Expert</span>Multiplications et divisions</h2>
+<div class="tuiles">
+<a class="tuile" href="../mer/jeu.html?n=11" data-niveau="11" style="--c1:#2a5f8f;--c2:#8fb8e0;--fonce:#183c5c">
+  <span class="tuile-illu mer-illu" aria-hidden="true"><img src="../mer/img/croco3.jpg" alt="" loading="lazy"><span class="mer-signe">× ÷</span></span>
+  <span class="tuile-texte"><strong>Expert 1 · jusqu’à 10</strong><small>× et ÷ jusqu’à 10.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../mer/jeu.html?n=12" data-niveau="12" style="--c1:#2a5f8f;--c2:#8fb8e0;--fonce:#183c5c">
+  <span class="tuile-illu mer-illu" aria-hidden="true"><img src="../mer/img/croco4.jpg" alt="" loading="lazy"><span class="mer-signe">× ÷</span></span>
+  <span class="tuile-texte"><strong>Expert 2 · jusqu’à 20</strong><small>× et ÷ jusqu’à 20.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../mer/jeu.html?n=13" data-niveau="13" style="--c1:#2a5f8f;--c2:#8fb8e0;--fonce:#183c5c">
+  <span class="tuile-illu mer-illu" aria-hidden="true"><img src="../mer/img/requin1.jpg" alt="" loading="lazy"><span class="mer-signe">× ÷</span></span>
+  <span class="tuile-texte"><strong>Expert 3 · jusqu’à 50</strong><small>× et ÷ jusqu’à 50.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../mer/jeu.html?n=14" data-niveau="14" style="--c1:#2a5f8f;--c2:#8fb8e0;--fonce:#183c5c">
+  <span class="tuile-illu mer-illu" aria-hidden="true"><img src="../mer/img/requin2.jpg" alt="" loading="lazy"><span class="mer-signe">× ÷</span></span>
+  <span class="tuile-texte"><strong>Expert 4 · jusqu’à 100</strong><small>× et ÷ jusqu’à 100.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+<section class="jeux-niveau" aria-labelledby="im-defis">
+<h2 id="im-defis"><span class="pastille-niveau">Défis</span>Autres défis</h2>
+<div class="tuiles">
+<a class="tuile" href="../mer/jeu.html?n=15" data-niveau="15" style="--c1:#8a5a35;--c2:#e2c27f;--fonce:#4f3019">
+  <span class="tuile-illu mer-illu" aria-hidden="true"><img src="../mer/img/croco1.jpg" alt="" loading="lazy"><span class="mer-signe">2, 4, 6</span></span>
+  <span class="tuile-texte"><strong>Défis 1 · suites</strong><small>Suites et multiples.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../mer/jeu.html?n=16" data-niveau="16" style="--c1:#8a5a35;--c2:#e2c27f;--fonce:#4f3019">
+  <span class="tuile-illu mer-illu" aria-hidden="true"><img src="../mer/img/croco2.jpg" alt="" loading="lazy"><span class="mer-signe">× 2</span></span>
+  <span class="tuile-texte"><strong>Défis 2 · doubles</strong><small>Doubles et moitiés.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+<a class="tuile" href="../mer/jeu.html?n=17" data-niveau="17" style="--c1:#8a5a35;--c2:#e2c27f;--fonce:#4f3019">
+  <span class="tuile-illu mer-illu" aria-hidden="true"><img src="../mer/img/croco4.jpg" alt="" loading="lazy"><span class="mer-signe">+ ? = 10</span></span>
+  <span class="tuile-texte"><strong>Défis 3 · compléments</strong><small>Compléments à 10 et à 100.</small></span>
+  <span class="tuile-pied"><b class="ile-score">☆☆☆</b><span>Jouer <span aria-hidden="true">→</span></span></span>
+</a>
+</div>
+</section>
+</main><div class="retour"><a href="../index.html">← Retour à l'accueil</a></div><footer class="site-footer"><span>MathJeux</span></footer><script src="../script.js"></script>
+</div>
+</div>
+<script>
+/* Signed-in student: show their best score on each level */
+window.addEventListener('load', function () {
+  if (!window.EC || !EC.mesResultats) return;
+  EC.mesResultats().then(function (res) {
+    if (!res) return;
+    document.querySelectorAll('.tuile[data-niveau]').forEach(function (t) {
+      var n = +t.dataset.niveau, best = -1;
+      res.forEach(function (r) { if (r.activity === 'jeu-mer2' && r.level === n) best = Math.max(best, r.score); });
+      if (best >= 0) t.querySelector('.ile-score').textContent = '✓ ' + '★'.repeat(best) + '☆'.repeat(3 - best);
+    });
+  });
+});
+</script>
+</body></html>
