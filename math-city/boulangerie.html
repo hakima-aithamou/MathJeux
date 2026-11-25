@@ -1,0 +1,271 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Math City — Ma boulangerie</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#fff1d8;color:#4e2d20;font-family:system-ui,Arial,sans-serif}button{font:inherit;cursor:pointer}button:focus-visible{outline:4px solid #6e3fc2;outline-offset:3px}
+header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding:10px 20px;background:#fff8ed;border-bottom:3px solid #e7b05b}header strong{font-size:clamp(20px,3vw,30px);color:#ab541e}header a{color:#63381e;font-weight:800}
+main{max-width:1320px;margin:12px auto;padding:0 12px}.game{position:relative;width:100%;aspect-ratio:1648/928;border:6px solid #edba71;border-radius:22px;overflow:hidden;box-shadow:0 10px 30px #57321933;background:#c18a51}
+.game>img{width:100%;height:100%;object-fit:cover;display:block}.game button{position:absolute;border:0}.intro{position:absolute;inset:0;background:#2b160c8c;display:flex;justify-content:center;align-items:center;z-index:10}.intro button{position:static!important;background:#ffe08b;border:5px solid #fff;border-radius:26px;padding:18px 30px;font-size:clamp(18px,3vw,30px);font-weight:900;box-shadow:0 8px 18px #0005;animation:bounce 1.8s infinite}@keyframes bounce{50%{transform:translateY(-8px)}}
+.hot{border:3px solid #ffffffd9;border-radius:15px;background:#fff6dfef;box-shadow:0 5px 0 #a86a3a;color:#66341b;font-weight:900;display:flex;flex-direction:column;justify-content:center;align-items:center;transition:transform .16s,background .16s}.hot:hover{transform:scale(1.06);background:#fff}.hot:active{transform:scale(.96)}.hot .icon{font-size:clamp(23px,3vw,46px)}.hot small{font-size:clamp(10px,1.2vw,17px)}
+/* Interactive pastry zones coincide with the actual glass display */
+#products{position:absolute;left:68%;top:21%;width:29%;height:40%;z-index:4;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:6px;pointer-events:none}
+#products button{position:relative;inset:auto;width:100%;height:100%;pointer-events:auto;background:#fff6e8dd;border:2px solid #e9b85d;border-radius:15px;color:#68391e;font-weight:900;box-shadow:0 3px 0 #9a622d;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2px;transition:transform .15s}
+#products button:hover{transform:scale(1.04);background:#fff7df}#products .pic{font-size:clamp(24px,3.3vw,49px);line-height:1.1}#products small{font-size:clamp(10px,1.3vw,17px)}
+#queue{position:absolute;left:13%;bottom:12%;width:40%;height:8%;display:flex;gap:8px;z-index:6;pointer-events:none}#queue .spot{flex:1;text-align:center;background:#fff6d8ec;border:2px solid #d2a34c;border-radius:15px;font-weight:850;font-size:clamp(9px,1.1vw,15px);padding:4px;opacity:0;transform:translateX(-70px);transition:opacity .7s,transform .9s}.spot.show{opacity:1;transform:translateX(0)}.spot.active{background:#e2ffe2;border-color:#31936c;box-shadow:0 0 0 4px #fff8}
+#dialog{position:absolute;top:2%;left:43%;width:26%;padding:10px 12px;background:#fffaf3f2;border:3px solid #b97038;border-radius:17px;font-size:clamp(11px,1.3vw,18px);font-weight:800;z-index:6;min-height:9%;text-align:center}
+#basket{position:absolute;bottom:2%;left:17%;width:52%;min-height:9%;padding:7px 13px;border:3px solid #e4b75d;background:#fff7e7f0;border-radius:16px;z-index:7;font-weight:800;display:flex;align-items:center;gap:9px;flex-wrap:wrap;font-size:clamp(12px,1.5vw,20px)}#basket .basketItems{flex:1}
+#checkout{position:absolute;right:3%;bottom:2%;width:24%;min-height:9%;z-index:8;border:3px solid #fff4c9;border-radius:18px;background:#52b526;color:white;font-weight:900;font-size:clamp(12px,1.5vw,20px);box-shadow:0 4px 0 #246b16}#checkout:disabled{opacity:.6}
+#reset{position:absolute;top:2%;right:2%;z-index:8;border:2px solid white;border-radius:12px;background:#f5d58d;padding:8px;font-weight:900}
+#receipt{display:none;max-width:700px;margin:20px auto;background:#fffcf2;padding:22px;border:3px dashed #c99a61;border-radius:12px}#receipt.show{display:block}#receipt h2{text-align:center;margin:0}#receipt p{text-align:center}.line{display:grid;grid-template-columns:1fr 110px 100px;gap:12px;align-items:center;border-bottom:1px dashed #d4c3a8;padding:10px 0}.line input,.total input{width:100%;padding:8px;border:2px solid #c7a16e;border-radius:8px;font-size:20px}.total{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin:16px 0}.total input{width:110px}#verify,#next{border:0;background:#238368;color:white;padding:12px 22px;border-radius:13px;font-weight:900}#feedback{font-weight:900;min-height:30px}#next{display:none}
+#fly{position:fixed;pointer-events:none;z-index:100;font-size:55px;transition:transform .7s,opacity .7s}
+@media(max-width:700px){.game{aspect-ratio:4/5}.game>img{object-fit:cover;object-position:center}#products{left:53%;width:44%;top:25%;height:39%}#dialog{left:3%;width:47%;top:4%}#basket{left:2%;width:67%;bottom:2%}#checkout{width:27%;right:2%;bottom:2%}#queue{left:2%;width:52%;bottom:15%}.line{grid-template-columns:1fr 85px 75px;gap:5px;font-size:14px}.line input{font-size:16px}}
+
+[hidden]{display:none!important}
+.game{aspect-ratio:1648/928}
+.game>img{object-fit:contain}
+#shopUI{display:block;margin-top:16px}
+.welcomeRow{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:10px 0}
+#dialog{position:static;width:auto;min-height:0;flex:1;text-align:left;background:#fffaf3;border:2px solid #d6a15f;border-radius:16px;padding:12px 18px;font-size:clamp(15px,1.7vw,21px)}
+#reset{position:static;background:#f5d58d;border:2px solid #a86a3a;border-radius:12px;padding:12px 16px;font-weight:800}
+.shopColumns{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px}
+.queuePanel,.vitrinePanel{min-width:0;background:#fff9ed;border:3px solid #e4b75d;border-radius:20px;padding:14px}
+.queuePanel h2,.vitrinePanel h2{margin:0 0 10px;font-size:clamp(18px,2vw,24px)}
+#queue{position:relative;left:auto;bottom:auto;width:100%;height:190px;display:block;overflow:hidden;pointer-events:none;background:linear-gradient(#fff7e8 70%,#e5b67d 70%);border-radius:14px}
+.queueLane:after{content:"COMPTOIR";position:absolute;right:8px;top:8px;font-size:12px;letter-spacing:1px;font-weight:900;color:#8b5b34}
+.customer{position:absolute;bottom:17px;left:0;width:70px;height:142px;opacity:0;transform:translateX(-90px);transition:transform 1.3s ease-out,opacity .35s}
+.customer.arrived{opacity:1;transform:translateX(var(--position))}
+.customer.walking .leg{animation:step .28s alternate infinite}
+.customer.served{opacity:0;transform:translateX(580px);transition:transform 1.1s,opacity 1.1s}
+.customer svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 4px 3px #4b321c35)}
+@keyframes step{to{transform:rotate(16deg)}} 
+#queueStatus{margin:10px 0 0;font-weight:700;color:#7c4c28}
+#products{position:static;width:100%;height:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;pointer-events:auto}
+#products button{position:static;min-height:92px}
+#basket{position:static;width:auto;min-height:70px;flex:1}
+#checkout{position:static;width:auto;min-width:210px;min-height:65px;padding:12px 20px}
+.basketRow{display:flex;gap:14px;margin-top:14px}
+@media(max-width:760px){.game{aspect-ratio:1648/928}.shopColumns{grid-template-columns:1fr}#queue{height:170px}.basketRow{flex-wrap:wrap}#checkout{width:100%}#products{grid-template-columns:repeat(2,1fr)}}
+
+.flyingPastry{transition:transform 1.05s cubic-bezier(.22,.61,.36,1),opacity 1.05s ease;position:fixed!important;width:70px;height:70px;display:flex;align-items:center;justify-content:center;font-size:62px;line-height:1;z-index:99999;pointer-events:none;filter:drop-shadow(0 6px 5px #593b2a66);background:#fff8e6;border:3px solid #e9b85d;border-radius:50%}
+.basketPop{animation:basketBounce .42s ease-out}
+@keyframes basketBounce{0%{transform:scale(1)}45%{transform:scale(1.045)}100%{transform:scale(1)}}
+
+/* Clickable zones are aligned on the pastries and on the basket of the picture. */
+[hidden]{display:none!important}
+.game{aspect-ratio:1648/928!important}.game>img{object-fit:fill!important}
+#hotspots{position:absolute;inset:0;z-index:6;pointer-events:none}
+.pastryHotspot{position:absolute!important;border:3px solid transparent!important;background:transparent!important;border-radius:22px;pointer-events:auto;cursor:pointer;transition:background .15s,border-color .15s;touch-action:manipulation}
+.pastryHotspot:hover,.pastryHotspot:focus-visible{background:#ffe89c44!important;border-color:#ffe68c!important;outline:none}
+#cartSlots{position:absolute;inset:0;pointer-events:none;z-index:8}
+.cartSlot{position:absolute;top:85.2%;height:11%;width:8%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center;text-align:center;line-height:1;font-size:clamp(21px,3.8vw,49px);text-shadow:0 2px 3px #52351a8c;transition:transform .2s}
+.cartSlot.pop{animation:slotPop .4s ease-out}@keyframes slotPop{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.25)}}
+#sumOverlay{position:absolute;z-index:9;bottom:1.8%;left:64%;background:#fff5cf;border-radius:20px;padding:4px 10px;font-size:clamp(12px,1.5vw,23px);font-weight:900;color:#6d3c1a}
+.game .checkoutHotspot{position:absolute!important;left:74%;top:82.4%;width:20.5%;height:14.5%;background:transparent;border:0;border-radius:24px;z-index:9;cursor:pointer}
+/* The original artwork already contains the green checkout button and its label.
+   This transparent hotspot only handles clicks; no duplicate graphics. */
+.game .checkoutHotspot,.game .checkoutHotspot:disabled{
+ background:transparent!important;border:0!important;box-shadow:none!important;
+ color:transparent!important;text-shadow:none!important;opacity:1!important;
+ padding:0!important;font-size:0!important;filter:none!important;
+ display:block!important;cursor:pointer;
+}
+.game .checkoutHotspot span{display:none!important}
+.game .checkoutHotspot:disabled{cursor:not-allowed}
+.game .checkoutHotspot:focus-visible{outline:3px solid #fff200!important;outline-offset:1px}
+.underScene{display:flex;align-items:center;gap:12px;margin:10px 0;flex-wrap:wrap}
+.underScene #dialog{position:static!important;width:auto!important;flex:1;min-height:0;font-size:clamp(14px,1.5vw,19px);padding:10px 14px;border:2px solid #c88a4a;border-radius:14px;background:#fff7e8}
+.underScene #reset{position:static!important;padding:12px 16px;background:#ffe09b;border:2px solid #c88a4a;border-radius:12px;font-weight:800}
+.flyingPastry{position:fixed!important;z-index:99999;pointer-events:none;display:flex;align-items:center;justify-content:center;font-size:clamp(30px,4vw,65px);width:65px;height:65px;filter:drop-shadow(0 5px 4px #0005)}
+@media(max-width:700px){.game{aspect-ratio:1648/928!important}.game>img{object-fit:fill!important}}
+
+.arrivalScene{margin-bottom:14px;position:relative;overflow:hidden;height:clamp(300px,43vw,500px);border:6px solid #e6b56e;border-radius:24px;background:linear-gradient(180deg,#ffecc4,#fff7e8 69%,#dbab76 69%,#d2a06e);box-shadow:0 8px 24px #59361b44}
+.arrivalSign{position:absolute;top:3%;left:5%;padding:10px 20px;border-radius:20px;background:#a45b2b;color:#fff4cf;font-size:clamp(18px,2.5vw,30px);font-weight:900}
+.arrivalDoor{position:absolute;right:2%;top:9%;height:65%;width:18%;border:10px solid #a45e2b;border-radius:90px 90px 10px 10px;background:linear-gradient(90deg,#c9e8f6,#fff3c3);display:flex;align-items:center;justify-content:center;flex-direction:column;font-size:clamp(34px,6vw,72px)}
+.arrivalDoor span{font-size:clamp(12px,1.6vw,22px);font-weight:900;color:#804320}
+.arrivalFloor{position:absolute;inset:69% 0 0;background:repeating-linear-gradient(90deg,#ffffff25 0 3px,transparent 3px 95px)}
+.arrivalActors{position:absolute;inset:0;pointer-events:none}
+.walker{position:absolute;bottom:15%;left:0;width:clamp(65px,12vw,145px);height:58%;transform:translateX(-150%);opacity:0;transition:transform 1.15s linear,opacity .2s;will-change:transform}
+.walker img{height:100%;width:100%;object-fit:contain;object-position:bottom}
+.walker.walking{opacity:1;transform:translateX(var(--destination))}
+.walker:not(.moving) img{animation:none}
+.walker.moving img{animation:walkerBounce .48s ease-in-out infinite alternate}
+.walker.first.moving img{animation:none}
+@keyframes walkerBounce{to{transform:translateY(-4px) rotate(.5deg)}}
+.arrivalControls{position:absolute;left:2%;bottom:2%;right:2%;display:flex;align-items:center;justify-content:space-between;gap:8px;background:#fff9e8ed;border-radius:15px;padding:9px 14px;font-weight:800}
+.arrivalControls button{background:#269071;color:#fff;border:0;border-radius:12px;padding:12px 16px;font-weight:900}
+[hidden]{display:none!important}.game[hidden]{display:none!important}
+@media(max-width:650px){.walker{width:18%;height:54%}.arrivalControls{font-size:12px}.arrivalControls button{font-size:12px}}
+
+/* One single scene: the children come in through the door of the real setting. */
+.integratedActors{position:absolute;inset:0;z-index:5;pointer-events:none;overflow:hidden}
+.integratedWalker{position:absolute;left:-15%;bottom:18%;height:35%;width:12%;opacity:0;transition:left 1.45s linear,opacity .15s;will-change:transform;filter:drop-shadow(0 3px 2px #3b2b2244)}
+.integratedWalker img{width:100%;height:100%;object-fit:contain;object-position:bottom}
+.integratedWalker.walking{opacity:1;left:var(--stop)}
+.integratedWalker.atPlace{opacity:0;transition:opacity .28s}
+.integratedWalker.moving img{animation:stepBob .24s ease-in-out infinite alternate}
+.integratedWalker.first.moving img{animation:stepBob .24s ease-in-out infinite alternate}
+@keyframes stepBob{to{transform:translateY(-2.5%)}}
+.arrivalNotice{position:absolute;left:3%;bottom:18%;z-index:7;background:#fff6dbef;color:#71411c;border:2px solid #d9a86b;border-radius:12px;padding:7px 12px;font-weight:900;font-size:clamp(11px,1.3vw,18px);pointer-events:none;transition:opacity .4s}
+#game{display:block!important}#enter{display:none!important}
+
+/* Setting without fixed children: only the moving characters are shown. */
+.integratedWalker{bottom:17%!important;height:29%!important;width:11%!important;z-index:6;transition:left 1.65s linear,opacity .18s}
+.integratedWalker.atPlace{opacity:1!important;transition:none!important}
+.integratedWalker img{object-position:center bottom}
+.integratedWalker.first img{object-fit:contain}
+#cartSlots .cartSlot{bottom:7%!important}
+#sumOverlay{display:none!important}
+@media(max-width:700px){.game{aspect-ratio:1648/928!important}.game>img{object-fit:fill!important}}
+/* Children made bigger and aligned on the floor, without changing the setting. */
+.integratedWalker{height:53%!important;width:18%!important;bottom:11%!important;z-index:7!important}
+.integratedWalker img{width:100%;height:100%;object-fit:contain;object-position:center bottom}
+
+.integratedWalker.moving img,.integratedWalker.first.moving img{animation:none!important}
+.integratedWalker.atPlace img{animation:none!important}
+.integratedWalker,.integratedWalker.walking,.integratedWalker.atPlace{transition:none!important}
+.integratedWalker img{animation:none!important}
+
+/* No CSS swaying on top of the real walking pictures. */
+.integratedWalker img,.integratedWalker.moving img{animation:none!important}
+.integratedWalker{transition:none!important}
+
+/* Shoes stay above the floor but outside the basket at the bottom. */
+.integratedWalker{bottom:19%!important;height:48%!important;width:18%!important}
+.integratedWalker img{object-fit:contain!important;object-position:center bottom!important}
+
+/* Fixed character scale, full-body sprites, and feet above cart overlay */
+.integratedWalker{height:59%!important;width:19%!important;bottom:16%!important;overflow:visible!important}
+.integratedWalker img{width:100%!important;height:100%!important;object-fit:contain!important;object-position:center bottom!important;overflow:visible!important}
+#porteMonnaie{position:absolute;left:29%;top:3%;z-index:8;background:#fff6dbf2;color:#6d3c1a;border:3px solid #d9a86b;border-radius:16px;padding:6px 14px;font-weight:900;font-size:clamp(13px,1.8vw,24px);box-shadow:0 4px 0 #a86a3a;line-height:1.25}#porteMonnaie small{display:block;font-size:.65em;color:#8a5a2b}
+.argentEnfant{position:absolute;top:-7%;left:50%;transform:translateX(-50%);background:#fff6dbf2;border:2px solid #d9a86b;border-radius:12px;padding:2px 9px;font-weight:900;font-size:clamp(10px,1.3vw,17px);color:#6d3c1a;white-space:nowrap;box-shadow:0 2px 0 #a86a3a}.argentEnfant.actif{background:#ffd84d;border-color:#b8860b;transform:translateX(-50%) scale(1.15)}
+</style></head><body><header><strong>🥐 Math City · Ma boulangerie</strong><div id="niveaux"></div><a href="index.html">← Accueil</a></header><main>
+<div class="game" id="game"><img src="images/decors/boulangerie-3d.png" alt="Boulangerie et vitrine avec six pâtisseries à choisir">
+<div id="porteMonnaie" class="porteMonnaie" hidden aria-live="polite"></div><div id="arrivalActors" class="integratedActors" aria-label="Enfants qui entrent dans la boulangerie"></div><div id="arrivalNotice" class="arrivalNotice" aria-live="polite">Bienvenue à la boulangerie !</div><button id="enter" hidden type="button">Entrer</button>
+<div id="hotspots" hidden></div><div id="cartSlots" hidden></div><button id="checkout" class="checkoutHotspot" aria-label="Passer à la caisse" title="Passer à la caisse" disabled></button>
+<div id="sumOverlay" hidden>0 $</div></div>
+<div class="underScene" id="shopUI" hidden><div id="dialog" aria-live="polite">Bienvenue !</div><button id="reset">↻ Vider le panier</button><div id="queue" hidden></div><div id="queueStatus" hidden></div><div id="products" hidden></div><div id="basket" hidden><span id="basketItems"></span></div><span id="sum" hidden></span></div>
+<section id="receipt"><h2>🧾 Ticket de caisse</h2><p>Calcule le prix de chaque achat, puis le total.</p><div id="lines"></div><div class="total">Total : <input id="total" type="number" min="0" aria-label="Montant total"> $</div><button id="verify">Vérifier le ticket</button><p id="feedback" aria-live="polite"></p><button id="next">Servir le client suivant →</button></section>
+</main><script src="niveaux.js"></script><script>
+const $=id=>document.getElementById(id);
+const products=[['Biscuit','🍪',3],['Beignet','🍩',4],['Croissant','🥐',5],['Cupcake','🧁',4],['Gâteau','🍰',6],['Tarte','🥧',7]];
+const zones=[ [72,17,10,17],[83,17,10,17],[93,17,7,17],[72,38,10,18],[83,38,10,18],[93,38,7,18] ];
+let counts=Array(6).fill(0),client=0,started=false,voiceChoice=null,locked=false,choix=[],budget=20;
+function speak(t){$('dialog').textContent=t;if(!('speechSynthesis' in window))return;try{speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='fr-FR';u.rate=.9;let vs=speechSynthesis.getVoices().filter(v=>v.lang.toLowerCase().startsWith('fr'));voiceChoice=voiceChoice||vs.find(v=>/henri|paul|antoine|thierry|male|homme/i.test(v.name))||vs[0]||null;if(voiceChoice)u.voice=voiceChoice;speechSynthesis.speak(u)}catch(e){}}
+function total(){return counts.reduce((sum,n,i)=>sum+n*products[i][2],0)}
+/* Each customer has a different amount of money (chosen at random) */
+/* Level N: each child has at most 20, 30, 40, 50 or 60 $ */
+const BUDGETS=MC_NIVEAU.montants();
+function nouveauBudget(){budget=MC_NIVEAU.auHasard(budget)}
+MC_NIVEAU.afficher($('niveaux'),k=>{location.href=location.pathname+'?niveau='+k});
+function draw(){const n=counts.reduce((a,b)=>a+b,0);$('basketItems').textContent=counts.map((c,i)=>c?`${products[i][1]} × ${c}`:'').filter(Boolean).join('  ')||'Vide';$('sum').textContent=total()+' $';$('sumOverlay').textContent=total()+' $ / '+budget+' $';$('porteMonnaie').textContent='👛 Tu as '+budget+' $';$('checkout').disabled=n===0||locked;
+const slots=$('cartSlots');slots.innerHTML='';let units=choix.map(i=>products[i][1]);units.slice(0,3).forEach((emoji,j)=>{const el=document.createElement('div');el.className='cartSlot';el.style.left=(17.5+j*10.5)+'%';el.textContent=emoji;slots.appendChild(el)});if(units.length>3){const extra=document.createElement('span');extra.style.cssText='position:absolute;left:44%;bottom:9%;background:#ffe9a1;border-radius:50%;padding:3px 8px;font-weight:900';extra.textContent='+'+(units.length-3);slots.append(extra)} }
+function renderProducts(){const root=$('hotspots');root.innerHTML='';zones.forEach((z,i)=>{const b=document.createElement('button');b.className='pastryHotspot';b.style.left=z[0]+'%';b.style.top=z[1]+'%';b.style.width=z[2]+'%';b.style.height=z[3]+'%';b.setAttribute('aria-label',`Ajouter ${products[i][0]}, ${products[i][2]} dollars`);b.title=`${products[i][0]} · ${products[i][2]} $`;b.onclick=()=>add(i,b);root.append(b)})}
+function add(i,button){if(locked)return;if(total()+products[i][2]>budget){speak('Tu as seulement '+budget+' dollars. Passe à la caisse !');return}
+/* The pastry flies in an arc to its own place in the cart, stays visible, then appears there with a bounce. */
+const start=button.getBoundingClientRect();const sx=start.left+start.width/2,sy=start.top+start.height/2;
+counts[i]++;choix.push(i);draw();
+const n=choix.length,slots=$('cartSlots');const cible=n<=3?slots.children[n-1]:slots.querySelector('span');
+if(!cible||!document.body.animate||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){if(cible)cible.classList.add('pop');return}
+if(n<=3)cible.style.visibility='hidden';
+const t=cible.getBoundingClientRect(),tx=t.left+t.width/2,ty=t.top+t.height/2,dx=tx-sx,dy=ty-sy;
+const fly=document.createElement('div');fly.className='flyingPastry';fly.textContent=products[i][1];fly.style.left=(sx-35)+'px';fly.style.top=(sy-35)+'px';document.body.append(fly);
+const taille=parseFloat(getComputedStyle(n<=3?cible:slots.children[0]||cible).fontSize)||40,k=Math.max(.35,Math.min(1,taille/62));
+let done=false;function finish(){if(done)return;done=true;fly.remove();cible.style.visibility='';cible.classList.remove('pop');void cible.offsetWidth;cible.classList.add('pop')}
+const anim=fly.animate([{transform:'translate(0,0) scale(1) rotate(0)'},{transform:`translate(${dx*.5}px,${Math.min(0,dy)*.4-90}px) scale(1.15) rotate(${dx>0?10:-10}deg)`,offset:.45},{transform:`translate(${dx}px,${dy}px) scale(${k}) rotate(0)`}],{duration:800,easing:'cubic-bezier(.35,.1,.25,1)',fill:'forwards'});
+anim.onfinish=finish;setTimeout(finish,1100);
+speak(products[i][0]+' ajouté au panier !')}
+function setClient(n,garder){client=n;counts=Array(6).fill(0);choix=[];if(!garder){if(fileAttente[0])budget=fileAttente[0].budget;else nouveauBudget();}marquerClient();locked=false;draw();$('receipt').classList.remove('show');$('next').style.display='none';speak('Au tour du client '+(client+1)+' ! Tu as '+budget+' dollars. Choisis tes pâtisseries dans la vitrine.');}
+function openShop(){if(started)return;started=true;$('shopUI').hidden=false;$('hotspots').hidden=false;$('cartSlots').hidden=false;$('sumOverlay').hidden=false;locked=false;if(fileAttente[0])budget=fileAttente[0].budget;else nouveauBudget();marquerClient();$('porteMonnaie').hidden=false;renderProducts();draw();speak('Bonjour ! Tu as '+budget+' dollars. Choisis tes pâtisseries directement dans la vitrine !')};
+$('checkout').onclick=()=>{if($('checkout').disabled)return;locked=true;draw();$('receipt').classList.add('show');$('lines').innerHTML=products.map((p,i)=>counts[i]?`<div class="line"><strong>${p[1]} ${p[0]}</strong><span>${counts[i]} × ${p[2]} $</span><input type="number" min="0" data-i="${i}" aria-label="Prix total pour ${p[0]}"></div>`:'').join('');$('total').value='';$('feedback').textContent='';$('receipt').scrollIntoView({behavior:'smooth',block:'center'});speak('Voici ton ticket. Calcule le prix de chaque produit, puis le total.')};
+$('verify').onclick=()=>{let ok=true;document.querySelectorAll('.line input').forEach(inp=>{let i=Number(inp.dataset.i),good=inp.value!==''&&Number(inp.value)===counts[i]*products[i][2];inp.style.borderColor=good?'#26966a':'#d34237';if(!good)ok=false});let good=$('total').value!==''&&Number($('total').value)===total();$('total').style.borderColor=good?'#26966a':'#d34237';if(ok&&good){$('feedback').textContent=`Bravo ! ${total()} $ dépensés. Avec ${budget} $, il reste ${budget-total()} $.`;$('next').style.display='inline-block';$('next').textContent=fileAttente.length<=1?'Recommencer la journée ↻':'Servir le client suivant →';speak('Bravo ! Le ticket est juste. Le client est servi !')}else{$('feedback').textContent='Vérifie les cases entourées en rouge.';speak('Regarde les montants en rouge et réessaie.')}};
+$('next').onclick=()=>{servirSuivant();window.scrollTo({top:0,behavior:'smooth'})};
+$('reset').onclick=()=>{setClient(client,true)};
+
+/* ---------- Queue ----------
+   The child at the front is served. When served, they walk out of the shop (to the right) and the others
+   move up one place; the next child pays with their own money. After the last child, a new group comes in. */
+let fileAttente=[];
+function marquerClient(){walkers.forEach(a=>a.tag&&a.tag.classList.toggle('actif',a===fileAttente[0]));}
+function marcher(actor,cibleX,fin){
+ actor.el.classList.remove('atPlace');let prev=0;
+ function pas(time){
+  if(!actor.el.isConnected)return;
+  if(!prev)prev=time;const dt=Math.min((time-prev)/1000,.05);prev=time;
+  const W=$('arrivalActors').getBoundingClientRect().width||1200,H=actor.el.getBoundingClientRect().height||200;
+  const longueur=Math.max(20,H*PAS_RELATIF),vitesse=longueur*1.6;
+  const x=parseFloat(actor.el.style.left)||0,restePx=(cibleX-x)/100*W;
+  if(restePx<=.5){actor.el.style.left=cibleX+'%';actor.img.src=actor.still.src;actor.el.classList.add('atPlace');if(fin)fin();return}
+  const d=Math.min(restePx,vitesse*dt);actor.travel+=d;actor.el.style.left=(x+d/W*100)+'%';
+  const f=Math.floor(actor.travel/longueur*NB_POSES)%NB_POSES;if(f!==actor.frame){actor.frame=f;actor.img.src=actor.frames[f].src}
+  requestAnimationFrame(pas);
+ }
+ requestAnimationFrame(pas);
+}
+function servirSuivant(){
+ $('next').style.display='none';locked=true;
+ const servi=fileAttente.shift();
+ if(servi){servi.tag.textContent='😊 Merci !';servi.tag.classList.remove('actif');marcher(servi,118,()=>servi.el.remove());}
+ if(!fileAttente.length){speak('Tous les clients sont servis ! Voici un nouveau groupe.');setTimeout(()=>{counts=Array(6).fill(0);choix=[];draw();$('receipt').classList.remove('show');$('arrivalNotice').style.opacity='1';beginArrival()},1800);return}
+ let restants=fileAttente.length;
+ fileAttente.forEach((a,k)=>marcher(a,stops[k],()=>{if(--restants===0)setClient(client+1)}));
+}
+
+// Walk images are loaded before the start to avoid jerks.
+const walkers=[];
+const stops=[43,29,15,1]; // positions in % of the setting
+/* Walk cycle: 5 poses (contact, push-off, lift, swing, passing), aligned on the body.
+   One cycle is one step, and its length follows the child's size on screen, so the feet do not slide. */
+const NB_POSES=5;
+const PAS_RELATIF=.42; // step length = 42 % of the child's height
+function beginArrival(){
+ const stage=$('arrivalActors');stage.innerHTML='';
+ walkers.length=0;locked=true;
+ for(let i=0;i<4;i++){
+  const w=document.createElement('div');w.className='integratedWalker';
+  w.style.left='-22%';w.style.opacity='0';
+  const img=document.createElement('img');img.alt='';
+  const base=`images/personnages/enfant${i+1}`;
+  const frames=Array.from({length:NB_POSES},(_,j)=>{const pic=new Image();pic.src=`${base}-pas${j}.png`;return pic});
+  const still=new Image();still.src=`${base}-debout.png`;
+  img.src=still.src;w.append(img);stage.append(w);
+  // each child has their own money, shown above the head
+  const argent=BUDGETS[Math.floor(Math.random()*BUDGETS.length)];
+  const tag=document.createElement('div');tag.className='argentEnfant';tag.textContent='👛 '+argent+' $';w.append(tag);
+  walkers.push({el:w,img,frames,still,tag,budget:argent,target:stops[i],index:i,started:false,finished:false,travel:0,frame:-1});
+ }
+ // One loop moves the child and changes the pose together.
+ let previous=0;
+ function tick(time){
+  if(!previous)previous=time;
+  const dt=Math.min((time-previous)/1000,.05);previous=time;
+  const sceneWidth=stage.getBoundingClientRect().width||1200;
+  let allFinished=true;
+  walkers.forEach((actor,i)=>{
+   if(actor.finished)return;
+   allFinished=false;
+   const startAt=350+i*2450;
+   if(time-animationStart<startAt)return;
+   if(!actor.started){actor.started=true;actor.el.style.opacity='1';actor.el.dataset.walking='true'}
+   const targetX=sceneWidth*actor.target/100;
+   const currentX=-sceneWidth*.22+actor.travel;
+   const distanceLeft=Math.max(0,targetX-currentX);
+   const vitesse=Math.max(20,actor.el.getBoundingClientRect().height*PAS_RELATIF)*1.6; // about 1.6 steps per second
+   const move=Math.min(distanceLeft,vitesse*dt);
+   actor.travel+=move;
+   const newX=-sceneWidth*.22+actor.travel;
+   actor.el.style.left=(newX/sceneWidth*100)+'%';
+   if(distanceLeft<=.5||move>=distanceLeft){
+    actor.finished=true;actor.img.src=actor.still.src;actor.el.dataset.walking='false';
+    actor.el.classList.add('atPlace');
+   }else{
+    const pas=Math.max(20,actor.el.getBoundingClientRect().height*PAS_RELATIF);
+    const frame=Math.floor(actor.travel/pas*NB_POSES)%NB_POSES;
+    if(frame!==actor.frame){actor.frame=frame;actor.img.src=actor.frames[frame].src}
+   }
+  });
+  if(!allFinished)requestAnimationFrame(tick);
+  else{$('arrivalNotice').style.opacity='0';fileAttente=walkers.slice();if(started)setClient(0);else openShop()}
+ }
+ const animationStart=performance.now();
+ requestAnimationFrame(tick);
+}
+beginArrival();
+</script></body></html>
